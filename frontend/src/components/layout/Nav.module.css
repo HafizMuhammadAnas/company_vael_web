@@ -7,11 +7,17 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 4rem;
+  gap: 1rem;
+  min-height: var(--nav-height);
+  padding: 0.85rem 4rem;
   background: rgba(7, 10, 15, 0.85);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border-bronze);
   transition: box-shadow var(--transition-fast);
+}
+
+.navOpen {
+  z-index: 2100;
 }
 
 .scrolled {
@@ -23,10 +29,13 @@
   align-items: center;
   gap: 14px;
   text-decoration: none;
+  flex-shrink: 0;
+  min-width: 0;
 }
 
 .logoGlyph {
   filter: drop-shadow(0 0 8px var(--neon));
+  flex-shrink: 0;
 }
 .logoGlyph :global(.outer-ring) {
   animation: gear-spin 20s linear infinite;
@@ -39,18 +48,23 @@
   letter-spacing: 0.2em;
   color: var(--text-primary);
   text-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+  white-space: nowrap;
 }
 
 /* ─── Desktop links ─── */
 .links {
   display: flex;
   align-items: center;
-  gap: 2.2rem;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 1.6rem;
   list-style: none;
+  min-width: 0;
 }
 
 .item {
   position: relative;
+  flex-shrink: 0;
 }
 
 .link,
@@ -58,7 +72,7 @@
   font-family: var(--font-body);
   font-size: 0.85rem;
   font-weight: 600;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-secondary);
   background: none;
@@ -71,6 +85,7 @@
   align-items: center;
   gap: 0.35rem;
   padding: 0.25rem 0;
+  white-space: nowrap;
 }
 
 .link::after {
@@ -108,6 +123,7 @@
   left: 50%;
   transform: translateX(-50%) translateY(8px);
   min-width: 250px;
+  max-width: min(320px, calc(100vw - 2rem));
   background: rgba(13, 17, 23, 0.97);
   backdrop-filter: blur(20px);
   border: 1px solid var(--border-neon);
@@ -153,80 +169,216 @@
 .actions {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1.25rem;
+  flex-shrink: 0;
 }
 
-/* ─── Mobile toggle ─── */
+/* ─── Burger ─── */
 .burger {
   display: none;
   flex-direction: column;
+  justify-content: center;
   gap: 5px;
   background: none;
   border: none;
   cursor: pointer;
   padding: 6px;
+  width: 36px;
+  height: 28px;
+  position: relative;
 }
 .burger span {
+  display: block;
   width: 24px;
   height: 2px;
   background: var(--neon);
-  transition: transform var(--transition-fast);
+  transition:
+    transform var(--transition-fast),
+    opacity var(--transition-fast);
+  transform-origin: center;
+}
+.burgerOpen span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.burgerOpen span:nth-child(2) {
+  opacity: 0;
+}
+.burgerOpen span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
-/* ─── Mobile drawer ─── */
-.drawer {
-  display: none;
+/*
+  Mobile menu — portaled to document.body.
+  Styles are NOT nested only in a media query so labels always render
+  when the menu is mounted.
+*/
+.mobileRoot {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
 }
 
-@media (max-width: 900px) {
+.backdrop {
+  position: absolute;
+  inset: 0;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.panel {
+  position: absolute;
+  top: var(--nav-height);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #070a0f;
+  border-top: 1px solid rgba(0, 212, 255, 0.2);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding: 1.25rem 1.5rem 2.5rem;
+  color: #e8edf5;
+}
+
+.panelNav {
+  display: flex;
+  flex-direction: column;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.topLink {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #e8edf5;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.topLink:hover {
+  color: #00d4ff;
+}
+
+.group {
+  padding: 0.85rem 0 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.groupLabel {
+  display: block;
+  margin: 0 0 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #d4924a;
+}
+
+.itemLink {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #8fa3b8;
+  padding: 0.5rem 0 0.5rem 0.85rem;
+  border-left: 2px solid rgba(0, 212, 255, 0.2);
+  margin: 0.1rem 0 0.1rem 0.1rem;
+}
+
+.itemLink:hover {
+  color: #00d4ff;
+  border-left-color: #b87333;
+}
+
+.panelCta {
+  display: block;
+  max-width: 720px;
+  margin: 1.75rem auto 0;
+}
+
+/* Laptop: tighten desktop nav */
+@media (max-width: 1280px) {
   .nav {
-    padding: 1rem 1.5rem;
+    padding: 0.85rem 2rem;
   }
+  .links {
+    gap: 1.15rem;
+  }
+  .link,
+  .trigger {
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+  }
+  .brand {
+    font-size: 1.15rem;
+    letter-spacing: 0.16em;
+  }
+}
+
+@media (max-width: 1100px) {
+  .nav {
+    padding: 0.85rem 1.5rem;
+  }
+  .links {
+    gap: 0.9rem;
+  }
+  .actions {
+    gap: 0.75rem;
+  }
+}
+
+/* Tablet + mobile: show burger, hide desktop links/CTA */
+@media (max-width: 1024px) {
   .links,
   .actions .cta {
     display: none;
   }
+
   .burger {
     display: flex;
   }
-  .drawer {
-    display: block;
-    position: fixed;
-    top: var(--nav-height);
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(7, 10, 15, 0.98);
-    backdrop-filter: blur(20px);
-    border-top: 1px solid var(--border-neon);
-    padding: 1.5rem;
-    overflow-y: auto;
-    z-index: var(--z-nav);
+}
+
+/* Phone */
+@media (max-width: 640px) {
+  .nav {
+    padding: 0.75rem 1rem;
   }
-  .drawerGroup {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 0.8rem 0;
+
+  .brand {
+    font-size: 1rem;
+    letter-spacing: 0.14em;
   }
-  .drawerLabel {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--bronze);
-    display: block;
-    margin-bottom: 0.6rem;
+
+  .logo {
+    gap: 10px;
   }
-  .drawerLink {
-    display: block;
+
+  .panel {
+    padding: 1rem 1.1rem 2rem;
+  }
+
+  .topLink {
+    font-size: 1rem;
+    padding: 0.9rem 0;
+  }
+
+  .itemLink {
     font-size: 0.95rem;
-    color: var(--text-secondary);
-    padding: 0.45rem 0;
-    letter-spacing: 0.05em;
   }
-  .drawerLink:hover {
-    color: var(--neon);
-  }
-  .drawerCta {
-    margin-top: 1.5rem;
+}
+
+@media (max-width: 380px) {
+  .brand {
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
   }
 }
