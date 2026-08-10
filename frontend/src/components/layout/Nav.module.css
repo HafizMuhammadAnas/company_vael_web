@@ -1,0 +1,232 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-nav);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 4rem;
+  background: rgba(7, 10, 15, 0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-bronze);
+  transition: box-shadow var(--transition-fast);
+}
+
+.scrolled {
+  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.6);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+}
+
+.logoGlyph {
+  filter: drop-shadow(0 0 8px var(--neon));
+}
+.logoGlyph :global(.outer-ring) {
+  animation: gear-spin 20s linear infinite;
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--text-primary);
+  text-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+}
+
+/* ─── Desktop links ─── */
+.links {
+  display: flex;
+  align-items: center;
+  gap: 2.2rem;
+  list-style: none;
+}
+
+.item {
+  position: relative;
+}
+
+.link,
+.trigger {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition:
+    color var(--transition-fast),
+    text-shadow var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0;
+}
+
+.link::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--neon);
+  transform: scaleX(0);
+  transition: transform var(--transition-fast);
+}
+.link:hover,
+.trigger:hover {
+  color: var(--neon);
+  text-shadow: 0 0 12px var(--neon);
+}
+.link:hover::after {
+  transform: scaleX(1);
+}
+
+.caret {
+  font-size: 0.6rem;
+  transition: transform var(--transition-fast);
+}
+.item:hover .caret {
+  transform: rotate(180deg);
+}
+
+/* ─── Dropdown ─── */
+.dropdown {
+  position: absolute;
+  top: calc(100% + 0.9rem);
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  min-width: 250px;
+  background: rgba(13, 17, 23, 0.97);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-neon);
+  border-top: 2px solid var(--neon);
+  padding: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity var(--transition-fast),
+    transform var(--transition-fast),
+    visibility var(--transition-fast);
+  z-index: var(--z-dropdown);
+}
+.item:hover .dropdown,
+.item:focus-within .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdownLink {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  padding: 0.6rem 0.9rem;
+  border-left: 2px solid transparent;
+  transition:
+    color var(--transition-fast),
+    background var(--transition-fast),
+    border-color var(--transition-fast);
+}
+.dropdownLink:hover {
+  color: var(--neon);
+  background: rgba(0, 212, 255, 0.05);
+  border-left-color: var(--bronze);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* ─── Mobile toggle ─── */
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+.burger span {
+  width: 24px;
+  height: 2px;
+  background: var(--neon);
+  transition: transform var(--transition-fast);
+}
+
+/* ─── Mobile drawer ─── */
+.drawer {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .nav {
+    padding: 1rem 1.5rem;
+  }
+  .links,
+  .actions .cta {
+    display: none;
+  }
+  .burger {
+    display: flex;
+  }
+  .drawer {
+    display: block;
+    position: fixed;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(7, 10, 15, 0.98);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid var(--border-neon);
+    padding: 1.5rem;
+    overflow-y: auto;
+    z-index: var(--z-nav);
+  }
+  .drawerGroup {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 0.8rem 0;
+  }
+  .drawerLabel {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--bronze);
+    display: block;
+    margin-bottom: 0.6rem;
+  }
+  .drawerLink {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    padding: 0.45rem 0;
+    letter-spacing: 0.05em;
+  }
+  .drawerLink:hover {
+    color: var(--neon);
+  }
+  .drawerCta {
+    margin-top: 1.5rem;
+  }
+}

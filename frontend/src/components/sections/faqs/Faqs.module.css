@@ -1,0 +1,54 @@
+/* FAQ page — category filter navigation. */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.filterBtn {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  background: var(--obsidian-2);
+  border: 1px solid var(--border-neon);
+  padding: 0.55rem 1rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    color var(--transition-fast),
+    border-color var(--transition-fast),
+    background var(--transition-fast);
+}
+.filterBtn:hover {
+  color: var(--neon);
+  border-color: var(--neon-dim);
+}
+.filterBtnActive {
+  color: var(--obsidian-1);
+  background: var(--neon);
+  border-color: var(--neon);
+  text-shadow: none;
+}
+.filterBtnActive:hover {
+  color: var(--obsidian-1);
+}
+
+/* Count badge shown after the section heading. */
+.count {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  color: var(--slate);
+  margin-left: 0.6rem;
+}
+
+@media (max-width: 640px) {
+  .filters {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.5rem;
+  }
+}

@@ -1,0 +1,58 @@
+.btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1rem 2.5rem;
+  clip-path: var(--clip-btn);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  border: none;
+  text-align: center;
+}
+
+/* Primary — solid neon */
+.primary {
+  color: var(--obsidian);
+  background: var(--neon);
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+}
+.primary:hover {
+  background: var(--neon-bright);
+  box-shadow: 0 0 50px rgba(0, 212, 255, 0.6);
+  transform: translateY(-2px);
+}
+
+/* Outline — bronze border */
+.outline {
+  color: var(--bronze-light);
+  background: transparent;
+  border: 1px solid var(--bronze);
+}
+.outline:hover {
+  background: rgba(184, 115, 51, 0.1);
+  border-color: var(--bronze-light);
+  box-shadow: 0 0 30px rgba(184, 115, 51, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Compact CTA (nav) */
+.cta {
+  color: var(--obsidian);
+  background: var(--neon);
+  padding: 0.55rem 1.4rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+}
+.cta:hover {
+  background: var(--bronze-light);
+  box-shadow: 0 0 20px rgba(184, 115, 51, 0.6);
+}
+
+.block {
+  width: 100%;
+}

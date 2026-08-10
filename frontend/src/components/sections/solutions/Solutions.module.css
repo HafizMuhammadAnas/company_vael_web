@@ -1,0 +1,232 @@
+/* ─── Challenge cards ─── */
+.challengeGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(0, 212, 255, 0.06);
+  border: 1px solid rgba(0, 212, 255, 0.06);
+}
+.challenge {
+  background: var(--obsidian-2);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+  transition: background var(--transition-med);
+}
+.challenge:hover {
+  background: var(--obsidian-3);
+}
+.challengeQuestion {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+}
+
+/* ─── Solution cards (main list) ─── */
+.solutionCard {
+  display: flex;
+  flex-direction: column;
+}
+.solutionCapabilities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 1.4rem 0;
+}
+
+/* ─── Who we help (industry chips) ─── */
+.whoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1px;
+  background: rgba(0, 212, 255, 0.06);
+  border: 1px solid rgba(0, 212, 255, 0.06);
+  margin-bottom: 3rem;
+}
+.whoCard {
+  background: var(--obsidian-2);
+  padding: 1.5rem 1.6rem;
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast);
+}
+.whoCard::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: var(--bronze);
+  flex-shrink: 0;
+}
+.whoCard:hover {
+  background: var(--obsidian-3);
+  color: var(--neon);
+}
+
+/* ─── "Potential solution" meta line (Business Problems cards) ─── */
+.potential {
+  margin-top: auto;
+  padding-top: 1.2rem;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+.potential span {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--neon);
+  margin-bottom: 0.35rem;
+}
+.potentialValue {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* ─── Flexible steps grid (handles 5–8 steps without a fixed column count) ─── */
+.stepsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem 1rem;
+}
+
+/* ─── Progression flow (e.g. Website → Portal → Web Application) ─── */
+.flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem 0.9rem;
+  margin: 2.5rem 0;
+}
+.flowItem {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
+  padding: 0.85rem 1.3rem;
+  border: 1px solid var(--border-neon);
+  background: var(--obsidian-2);
+  clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+}
+.flowArrow {
+  font-family: var(--font-mono);
+  color: var(--neon);
+  font-size: 1.1rem;
+}
+
+/* Vertical variant (e.g. layered architecture: Mobile → API → Logic → DB) */
+.flowVertical {
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.flowVertical .flowItem {
+  width: 100%;
+  text-align: center;
+}
+
+/* "Suitable for" chip label inside approach cards */
+.suitableLabel {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--neon);
+  margin: 1.4rem 0 0.8rem;
+}
+
+/* Standalone centered chip row with a label (supporting capabilities, etc.) */
+.chipBlock {
+  margin-top: 2.5rem;
+  text-align: center;
+}
+.chipBlockLabel {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--neon);
+  margin-bottom: 1rem;
+}
+.chipBlockChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+/* ─── FAQ ─── */
+.faq {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  max-width: 860px;
+}
+.faqItem {
+  border: 1px solid var(--border-neon);
+  background: var(--obsidian-2);
+}
+.faqItem[open] {
+  border-color: var(--neon-dim);
+}
+.faqQuestion {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--text-primary);
+  padding: 1.2rem 1.4rem;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.faqQuestion::-webkit-details-marker {
+  display: none;
+}
+.faqQuestion::after {
+  content: "+";
+  font-family: var(--font-mono);
+  color: var(--neon);
+  font-size: 1.2rem;
+  transition: transform var(--transition-fast);
+}
+.faqItem[open] .faqQuestion::after {
+  content: "−";
+}
+.faqAnswer {
+  padding: 0 1.4rem 1.3rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+@media (max-width: 900px) {
+  .challengeGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 620px) {
+  .challengeGrid {
+    grid-template-columns: 1fr;
+  }
+}

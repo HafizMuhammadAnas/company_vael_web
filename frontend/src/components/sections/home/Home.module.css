@@ -1,0 +1,288 @@
+/* ─── Section background variants ─── */
+.altBg {
+  background: var(--obsidian-2);
+  border-top: 1px solid var(--border-bronze);
+  border-bottom: 1px solid rgba(0, 212, 255, 0.08);
+}
+
+/* ─── Supporting copy ─── */
+.supporting {
+  max-width: 760px;
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.9;
+  margin-bottom: 2.5rem;
+}
+.supporting p + p {
+  margin-top: 1.2rem;
+}
+
+/* ─── Grids ─── */
+.grid {
+  display: grid;
+  gap: 1px;
+  background: rgba(0, 212, 255, 0.06);
+  border: 1px solid rgba(0, 212, 255, 0.06);
+}
+.cols4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+.cols3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.cols2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* ─── Card content ─── */
+.cardNum {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  color: var(--bronze);
+  margin-bottom: 1rem;
+}
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+.cardText {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+.cardCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--neon);
+  transition:
+    gap var(--transition-fast),
+    color var(--transition-fast),
+    text-shadow var(--transition-fast);
+}
+.cardCta:hover {
+  gap: 0.75rem;
+  color: var(--neon-bright);
+  text-shadow: 0 0 12px var(--neon);
+}
+
+/* ─── Process steps ─── */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0;
+  position: relative;
+}
+.steps::before {
+  content: "";
+  position: absolute;
+  top: 2.8rem;
+  left: 8%;
+  right: 8%;
+  height: 1px;
+  background: linear-gradient(90deg, var(--neon), var(--bronze), var(--neon));
+  z-index: 0;
+}
+.step {
+  text-align: center;
+  padding: 0 0.8rem;
+  position: relative;
+  z-index: 1;
+}
+.stepNode {
+  width: 4rem;
+  height: 4rem;
+  margin: 0 auto 1.5rem;
+  border: 1px solid var(--neon-dim);
+  background: var(--obsidian-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+.stepNum {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--neon);
+}
+.stepTitle {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.6rem;
+}
+.stepText {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ─── Technology ─── */
+.techGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+.techCat {
+  background: var(--obsidian-2);
+  border: 1px solid var(--border-neon);
+  padding: 1.6rem;
+}
+.techTitle {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--bronze);
+  margin-bottom: 1.2rem;
+}
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.chip {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  color: var(--neon-dim);
+}
+
+/* ─── Section-level note (e.g. demonstration disclaimer) ─── */
+.sectionNote {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  color: var(--slate);
+  margin: -1.5rem 0 2.5rem;
+}
+
+/* ─── Card meta ─── */
+.cardCategory {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--bronze);
+  margin-bottom: 1rem;
+}
+.cardTech {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: var(--neon-dim);
+  margin-top: 1.2rem;
+}
+.cardChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1.2rem;
+}
+.readTime {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  color: var(--slate);
+  margin-top: 1.2rem;
+}
+.comingSoon {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--bronze-light);
+  border: 1px solid var(--border-bronze);
+  padding: 0.3rem 0.7rem;
+}
+
+/* ─── Centered section CTAs (below a card grid) ─── */
+.sectionCtas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+}
+
+/* ─── Empty state (honest placeholder for unpublished content) ─── */
+.emptyState {
+  border: 1px dashed var(--border-neon);
+  background: rgba(0, 212, 255, 0.02);
+  padding: 3rem 2rem;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  color: var(--slate);
+}
+
+/* ─── Final CTA ─── */
+.finalCta {
+  text-align: center;
+}
+.finalHeading {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text-primary);
+  text-shadow: 0 0 40px rgba(0, 212, 255, 0.2);
+  margin-bottom: 1.2rem;
+}
+.finalSupporting {
+  max-width: 620px;
+  margin: 0 auto 2.5rem;
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+.finalCtas {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 1000px) {
+  .cols4,
+  .cols3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .steps {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem 0;
+  }
+  .steps::before {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .cols4,
+  .cols3,
+  .cols2 {
+    grid-template-columns: 1fr;
+  }
+  .steps {
+    grid-template-columns: 1fr 1fr;
+  }
+}

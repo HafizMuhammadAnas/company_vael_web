@@ -1,0 +1,47 @@
+.card {
+  background: var(--obsidian-2);
+  padding: 2.5rem 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: background var(--transition-med);
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--neon), var(--bronze));
+  transform: scaleX(0);
+  transition: transform var(--transition-med);
+  transform-origin: left;
+}
+
+.hoverable:hover {
+  background: var(--obsidian-3);
+}
+.hoverable:hover::after {
+  transform: scaleX(1);
+}
+
+/* Corner tech decorations */
+.cornerTl,
+.cornerBr {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+}
+.cornerTl {
+  top: 1rem;
+  left: 1rem;
+  border-top: 1px solid var(--neon-dim);
+  border-left: 1px solid var(--neon-dim);
+}
+.cornerBr {
+  bottom: 1rem;
+  right: 1rem;
+  border-bottom: 1px solid var(--bronze);
+  border-right: 1px solid var(--bronze);
+}
