@@ -1,0 +1,20 @@
+[project]
+name = "vaelkode-backend"
+version = "0.1.0"
+description = "VAELKODE FastAPI backend"
+requires-python = ">=3.12"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "N", "W"]
+ignore = ["B008"]  # FastAPI uses function calls (Depends) in argument defaults
+
+[tool.ruff.lint.isort]
+known-first-party = ["app"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

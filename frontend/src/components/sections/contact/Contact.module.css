@@ -1,0 +1,115 @@
+/* Contact page — two-column info + form layout. */
+.layout {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.infoHeading {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
+}
+.email {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  color: var(--neon);
+  transition: text-shadow var(--transition-fast);
+  word-break: break-all;
+}
+.email:hover {
+  text-shadow: 0 0 12px var(--neon);
+}
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.blockLabel {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--bronze);
+}
+.blockText {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+.helpList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.helpList li {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+}
+.helpList li::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: var(--bronze);
+  flex-shrink: 0;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.detailRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.detailRow dt {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+.detailRow dd {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.formWrap {
+  border: 1px solid var(--border-neon);
+  background: var(--obsidian-2);
+  padding: 2.4rem;
+}
+.formTitle {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--bronze);
+  margin-bottom: 1.8rem;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .formWrap {
+    padding: 1.8rem 1.4rem;
+  }
+}

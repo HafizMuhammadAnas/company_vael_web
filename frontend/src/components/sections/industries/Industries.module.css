@@ -1,0 +1,174 @@
+/* ══════════════════════════════════════════════════════════
+   Industries page — single long-form page with anchored sections
+   ══════════════════════════════════════════════════════════ */
+
+/* Offset anchor targets so they clear the fixed nav bar. */
+.anchor {
+  scroll-margin-top: calc(var(--nav-height) + 1.5rem);
+}
+
+/* ─── Industry navigation cards ─── */
+.navGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(0, 212, 255, 0.06);
+  border: 1px solid rgba(0, 212, 255, 0.06);
+}
+.navCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding: 1.9rem;
+  background: var(--obsidian-2);
+  transition:
+    background var(--transition-fast),
+    transform var(--transition-fast);
+}
+.navCard::before {
+  content: attr(data-index);
+  position: absolute;
+  top: 1.2rem;
+  right: 1.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  color: var(--slate);
+}
+.navCard:hover {
+  background: var(--obsidian-3);
+}
+.navCardTitle {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
+  padding-right: 2.5rem;
+}
+.navCardText {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  flex: 1;
+}
+.navCardCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--neon);
+  transition:
+    gap var(--transition-fast),
+    color var(--transition-fast);
+}
+.navCardCta:hover {
+  gap: 0.75rem;
+  color: var(--neon-bright);
+}
+
+/* ─── Industry section: alternating split layout ─── */
+.split {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+.copy {
+  min-width: 0;
+}
+.reversed .copy {
+  order: 2;
+}
+.cta {
+  margin-top: 2rem;
+}
+
+/* Panel holding the industry capabilities (and optional use cases). */
+.panel {
+  position: relative;
+  background: var(--obsidian-2);
+  border: 1px solid var(--border-neon);
+  border-left: 3px solid var(--neon-dim);
+  padding: 2.2rem;
+}
+/* Alternate the accent edge so consecutive sections read differently. */
+.panelBronze {
+  border-left-color: var(--bronze);
+}
+.panelIndex {
+  position: absolute;
+  top: 1.4rem;
+  right: 1.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.24em;
+  color: var(--slate);
+}
+.panelLabel {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--bronze);
+  margin-bottom: 1.1rem;
+}
+.panelLabel + .panelChips {
+  margin-bottom: 1.8rem;
+}
+.panelChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.panelChip {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid rgba(0, 212, 255, 0.18);
+  color: var(--neon-dim);
+  background: rgba(0, 212, 255, 0.02);
+  transition:
+    color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+.panelChip:hover {
+  color: var(--neon);
+  border-color: var(--neon-dim);
+}
+/* Use-case chips carry the bronze accent to distinguish them from capabilities. */
+.panelChipAlt {
+  border-color: var(--border-bronze);
+  color: var(--bronze-light);
+}
+.panelChipAlt:hover {
+  color: var(--bronze-light);
+  border-color: var(--bronze);
+}
+
+@media (max-width: 1000px) {
+  .navGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 900px) {
+  .split {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  /* Always show the copy before the panel on narrow screens. */
+  .reversed .copy {
+    order: 0;
+  }
+}
+@media (max-width: 620px) {
+  .navGrid {
+    grid-template-columns: 1fr;
+  }
+}
