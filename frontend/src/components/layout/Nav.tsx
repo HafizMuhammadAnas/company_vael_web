@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { Link, useLocation } from "react-router-dom";
 
 import { LogoGlyph } from "@/components/brand/LogoGlyph";
@@ -52,72 +53,117 @@ export function Nav() {
   const [open, setOpen] = useState(false);
   const location = useLocation();
 
-  // Close the mobile drawer on route change.
   useEffect(() => {
     setOpen(false);
   }, [location.pathname]);
 
-  return (
-    <nav className={[styles.nav, scrolled ? styles.scrolled : ""].filter(Boolean).join(" ")}>
-      <Link to="/" className={styles.logo}>
-        <LogoGlyph size={44} className={styles.logoGlyph} />
-        <span className={styles.brand}>{BRAND_NAME}</span>
-      </Link>
+  useEffect(() => {
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [open]);
 
-      <ul className={styles.links}>
-        {NAV_ITEMS.map((item) => (
-          <DesktopItem key={item.label} item={item} />
-        ))}
-      </ul>
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
 
-      <div className={styles.actions}>
-        <Button variant="cta" to={CONSULTATION_CTA.to} className={styles.cta}>
-          {CONSULTATION_CTA.label}
-        </Button>
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1025px)");
+    const onChange = (e: MediaQueryListEvent) => {
+      if (e.matches) setOpen(false);
+    };
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+
+  const menu =
+    open &&
+    createPortal(
+      <div className={styles.mobileRoot} role="dialog" aria-modal="true" aria-label="Navigation menu">
         <button
           type="button"
-          className={styles.burger}
-          aria-label="Toggle menu"
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-        >
-          <span />
-          <span />
-          <span />
-        </button>
-      </div>
-
-      {open && (
-        <div className={styles.drawer}>
-          {NAV_ITEMS.map((item) =>
-            item.children ? (
-              <div key={item.label} className={styles.drawerGroup}>
-                {item.to ? (
-                  <Link to={item.to} className={styles.drawerLabel}>
-                    {item.label}
-                  </Link>
-                ) : (
-                  <span className={styles.drawerLabel}>{item.label}</span>
-                )}
-                {item.children.map((child) => (
-                  <Link key={child.to} to={child.to} className={styles.drawerLink}>
-                    {child.label}
-                  </Link>
-                ))}
-              </div>
-            ) : (
-              <div key={item.label} className={styles.drawerGroup}>
-                <Link to={item.to ?? "/"} className={styles.drawerLink}>
+          className={styles.backdrop}
+          aria-label="Close menu"
+          onClick={() => setOpen(false)}
+        />
+        <div id="mobile-nav-drawer" className={styles.panel}>
+          <nav className={styles.panelNav} aria-label="Mobile">
+            {NAV_ITEMS.map((item) =>
+              item.children ? (
+                <div key={item.label} className={styles.group}>
+                  {item.to ? (
+                    <Link to={item.to} className={styles.groupLabel}>
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <p className={styles.groupLabel}>{item.label}</p>
+                  )}
+                  {item.children.map((child) => (
+                    <Link key={child.to} to={child.to} className={styles.itemLink}>
+                      {child.label}
+                    </Link>
+                  ))}
+                </div>
+              ) : (
+                <Link key={item.label} to={item.to ?? "/"} className={styles.topLink}>
                   {item.label}
                 </Link>
-              </div>
-            ),
-          )}
-          <Button variant="cta" to={CONSULTATION_CTA.to} className={styles.drawerCta} block>
+              ),
+            )}
+          </nav>
+          <Button variant="cta" to={CONSULTATION_CTA.to} className={styles.panelCta} block>
             {CONSULTATION_CTA.label}
           </Button>
         </div>
-      )}
-    </nav>
+      </div>,
+      document.body,
+    );
+
+  return (
+    <>
+      <nav
+        className={[styles.nav, scrolled ? styles.scrolled : "", open ? styles.navOpen : ""]
+          .filter(Boolean)
+          .join(" ")}
+      >
+        <Link to="/" className={styles.logo} onClick={() => setOpen(false)}>
+          <LogoGlyph size={44} className={styles.logoGlyph} />
+          <span className={styles.brand}>{BRAND_NAME}</span>
+        </Link>
+
+        <ul className={styles.links}>
+          {NAV_ITEMS.map((item) => (
+            <DesktopItem key={item.label} item={item} />
+          ))}
+        </ul>
+
+        <div className={styles.actions}>
+          <Button variant="cta" to={CONSULTATION_CTA.to} className={styles.cta}>
+            {CONSULTATION_CTA.label}
+          </Button>
+          <button
+            type="button"
+            className={[styles.burger, open ? styles.burgerOpen : ""].filter(Boolean).join(" ")}
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            aria-controls="mobile-nav-drawer"
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
+      </nav>
+      {menu}
+    </>
   );
 }
