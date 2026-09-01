@@ -56,3 +56,16 @@
 .block {
   width: 100%;
 }
+
+@media (max-width: 640px) {
+  .btn {
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    padding: 0.9rem 1.5rem;
+  }
+  .cta {
+    padding: 0.5rem 1.1rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+  }
+}

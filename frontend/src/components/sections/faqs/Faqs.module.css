@@ -50,5 +50,14 @@
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     padding-bottom: 0.5rem;
+    margin: 0 -1.1rem;
+    padding-left: 1.1rem;
+    padding-right: 1.1rem;
+    scrollbar-width: thin;
+  }
+  .filterBtn {
+    flex: 0 0 auto;
+    font-size: 0.62rem;
+    padding: 0.5rem 0.85rem;
   }
 }

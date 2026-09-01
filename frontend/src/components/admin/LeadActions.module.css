@@ -1,0 +1,30 @@
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.compact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+}
+
+.actionBtn {
+  padding: 0.45rem 0.85rem !important;
+  font-size: 0.68rem !important;
+  letter-spacing: 0.12em !important;
+}
+
+.compact .actionBtn {
+  padding: 0.35rem 0.65rem !important;
+  font-size: 0.62rem !important;
+}
+
+@media (max-width: 900px) {
+  .compact {
+    min-width: 140px;
+  }
+}

@@ -274,6 +274,9 @@
   .steps::before {
     display: none;
   }
+  .supporting {
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 640px) {
@@ -283,6 +286,45 @@
     grid-template-columns: 1fr;
   }
   .steps {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+    gap: 1.75rem 0;
+  }
+  .step {
+    padding: 0;
+    text-align: left;
+  }
+  .stepNode {
+    margin: 0 0 1rem;
+  }
+  .supporting {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    margin-bottom: 1.75rem;
+  }
+  .cardTitle {
+    font-size: 1rem;
+  }
+  .techGrid {
+    grid-template-columns: 1fr;
+  }
+  .techCat {
+    padding: 1.25rem;
+  }
+  .finalSupporting {
+    font-size: 0.95rem;
+    margin-bottom: 1.75rem;
+  }
+  .finalCtas {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .finalHeading {
+    font-size: clamp(1.45rem, 7vw, 2rem);
+    letter-spacing: 0.04em;
+  }
+  .emptyState {
+    padding: 2rem 1.2rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
   }
 }

@@ -119,3 +119,21 @@
 .signature span {
   color: var(--text-secondary);
 }
+
+@media (max-width: 640px) {
+  .title {
+    letter-spacing: 0.04em;
+  }
+  .intro,
+  .p,
+  .ul li {
+    font-size: 0.95rem;
+    line-height: 1.75;
+  }
+  .h2 {
+    font-size: 1.15rem;
+  }
+  .section {
+    margin-top: 2.1rem;
+  }
+}

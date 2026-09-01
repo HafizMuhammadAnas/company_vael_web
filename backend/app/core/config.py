@@ -35,6 +35,12 @@ class Settings(BaseSettings):
     # CORS (comma-separated origins)
     CORS_ORIGINS: str = "http://localhost:5173"
 
+    # Lead uploads
+    UPLOAD_DIR: str = "uploads/leads"
+    MAX_UPLOAD_SIZE_MB: int = 25
+    MAX_UPLOAD_FILES: int = 10
+    LEADS_RATE_LIMIT: str = "5/minute"
+
     # First admin (used by seed script)
     FIRST_ADMIN_EMAIL: str = "admin@vaelkode.com"
     FIRST_ADMIN_PASSWORD: str = "ChangeMe123!"

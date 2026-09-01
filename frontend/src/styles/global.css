@@ -136,6 +136,68 @@ body::before {
   transform: translateY(0);
 }
 
+/* System pages (404 / thank-you) */
+.systemPage {
+  min-height: calc(100vh - var(--nav-height));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  position: relative;
+}
+
+.systemInner {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  width: 100%;
+}
+
+.systemCode {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 14vw, 9rem);
+  font-weight: 900;
+  color: var(--text-primary);
+  text-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
+  line-height: 1;
+}
+
+.systemTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-top: 1.5rem;
+}
+
+.systemText {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  margin-top: 1rem;
+}
+
+.systemActions {
+  margin-top: 2.5rem;
+}
+
+@media (max-width: 640px) {
+  .systemPage {
+    padding: 3rem 1.1rem;
+  }
+  .systemText {
+    font-size: 0.95rem;
+  }
+  .systemActions {
+    margin-top: 2rem;
+  }
+  .systemActions a,
+  .systemActions button {
+    width: 100%;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -145,4 +207,9 @@ body::before {
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+.admin-loading {
+  padding: var(--space-md);
+  color: var(--text-secondary);
 }

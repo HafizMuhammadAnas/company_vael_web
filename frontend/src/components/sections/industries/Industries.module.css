@@ -171,4 +171,7 @@
   .navGrid {
     grid-template-columns: 1fr;
   }
+  .panel {
+    padding: 1.4rem 1.15rem;
+  }
 }
