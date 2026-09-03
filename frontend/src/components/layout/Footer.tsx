@@ -56,7 +56,7 @@ export function Footer() {
         {/* Columns 2–5 — link groups */}
         {FOOTER_COLUMNS.map((col) => (
           <div key={col.title}>
-            <div className={styles.colTitle}>// {col.title}</div>
+            <div className={styles.colTitle}>{col.title}</div>
             <ul className={styles.links}>
               {col.links.map((link) => (
                 <li key={link.to + link.label}>

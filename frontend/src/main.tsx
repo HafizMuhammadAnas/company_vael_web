@@ -1,11 +1,20 @@
 import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
+import { createRoot, hydrateRoot } from "react-dom/client";
 
 import { App } from "@/App";
 import "@/styles/global.css";
 
-createRoot(document.getElementById("root")!).render(
+const rootEl = document.getElementById("root")!;
+
+const app = (
   <StrictMode>
     <App />
-  </StrictMode>,
+  </StrictMode>
 );
+
+// Hydrate when SSG pre-rendered HTML is present; otherwise mount (dev / CSR).
+if (rootEl.hasChildNodes()) {
+  hydrateRoot(rootEl, app);
+} else {
+  createRoot(rootEl).render(app);
+}

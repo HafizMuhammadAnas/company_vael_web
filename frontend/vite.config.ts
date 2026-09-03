@@ -19,4 +19,11 @@ export default defineConfig({
       },
     },
   },
+  build: {
+    // Keep CSS in one file so every prerendered HTML page shares the same stylesheet URL.
+    cssCodeSplit: false,
+  },
+  ssr: {
+    noExternal: ["react-router", "react-router-dom"],
+  },
 });

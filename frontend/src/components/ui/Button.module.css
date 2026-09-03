@@ -1,58 +1,80 @@
 .btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
   font-family: var(--font-body);
   font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.04em;
   text-decoration: none;
-  padding: 1rem 2.5rem;
-  clip-path: var(--clip-btn);
+  padding: 0.95rem 1.7rem;
+  border-radius: 999px;
   transition: all var(--transition-fast);
   cursor: pointer;
   border: none;
   text-align: center;
 }
 
-/* Primary — solid neon */
+/* Primary — solid neon with bloom */
 .primary {
-  color: var(--obsidian);
-  background: var(--neon);
-  box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+  color: var(--signal-foreground);
+  background: linear-gradient(135deg, var(--neon-bright), var(--neon) 55%, var(--neon-dim));
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--neon-bright) 35%, transparent),
+    0 0 28px var(--neon-glow),
+    0 0 56px color-mix(in srgb, var(--neon) 22%, transparent);
 }
 .primary:hover {
-  background: var(--neon-bright);
-  box-shadow: 0 0 50px rgba(0, 212, 255, 0.6);
+  background: linear-gradient(135deg, #9ffff0, var(--neon-bright) 45%, var(--neon));
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--neon-bright) 55%, transparent),
+    0 0 40px var(--neon-glow-strong),
+    0 0 72px color-mix(in srgb, var(--neon) 35%, transparent);
   transform: translateY(-2px);
 }
 
-/* Outline — bronze border */
+/* Outline */
 .outline {
-  color: var(--bronze-light);
-  background: transparent;
-  border: 1px solid var(--bronze);
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--obsidian-2) 55%, transparent);
+  border: 1px solid color-mix(in srgb, var(--text-primary) 28%, transparent);
 }
 .outline:hover {
-  background: rgba(184, 115, 51, 0.1);
-  border-color: var(--bronze-light);
-  box-shadow: 0 0 30px rgba(184, 115, 51, 0.3);
+  background: color-mix(in srgb, var(--obsidian-3) 80%, transparent);
+  border-color: color-mix(in srgb, var(--neon) 65%, transparent);
+  color: var(--neon-bright);
+  box-shadow: 0 0 32px var(--neon-glow);
   transform: translateY(-2px);
 }
 
 /* Compact CTA (nav) */
 .cta {
-  color: var(--obsidian);
-  background: var(--neon);
+  color: var(--signal-foreground);
+  background: linear-gradient(135deg, var(--neon-bright), var(--neon));
   padding: 0.55rem 1.4rem;
   font-size: 0.8rem;
-  letter-spacing: 0.15em;
-  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  letter-spacing: 0.04em;
+  box-shadow: 0 0 22px var(--neon-glow);
 }
 .cta:hover {
-  background: var(--bronze-light);
-  box-shadow: 0 0 20px rgba(184, 115, 51, 0.6);
+  background: linear-gradient(135deg, #9ffff0, var(--neon-bright));
+  box-shadow: 0 0 36px var(--neon-glow-strong);
 }
 
 .block {
   width: 100%;
+}
+
+@media (max-width: 640px) {
+  .btn {
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    padding: 0.9rem 1.5rem;
+  }
+  .cta {
+    padding: 0.5rem 1.1rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+  }
 }

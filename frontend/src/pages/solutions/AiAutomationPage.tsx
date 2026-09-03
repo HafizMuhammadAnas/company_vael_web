@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { PageHero } from "@/components/sections/PageHero";
 import home from "@/components/sections/home/Home.module.css";
 import s from "@/components/sections/solutions/Solutions.module.css";
-import { Button, Card, Section, SectionHeader } from "@/components/ui";
+import { Button, Card, Section, SectionHeader, Eyebrow } from "@/components/ui";
 import {
   AI_APPROACH,
   AI_BUILD,
@@ -206,7 +206,7 @@ export function AiAutomationPage() {
         <div className="reveal">
           <SectionHeader label={AI_WORK.label} title={AI_WORK.heading} />
           <p className={home.supporting}>{AI_WORK.supporting}</p>
-          <p className={home.sectionNote}>// {AI_WORK.note}</p>
+          <p className={home.sectionNote}>{AI_WORK.note}</p>
         </div>
         <div className={`${home.grid} ${home.cols3} reveal`}>
           {AI_WORK.cards.map((card) => (
@@ -250,18 +250,7 @@ export function AiAutomationPage() {
         <div className={`${home.finalCta} reveal`} style={{ position: "relative" }}>
           <div className="circuit-bg" />
           <div style={{ position: "relative", zIndex: 1 }}>
-            <div
-              style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "0.7rem",
-                letterSpacing: "0.4em",
-                color: "var(--neon)",
-                textTransform: "uppercase",
-                marginBottom: "1rem",
-              }}
-            >
-              // {AI_FINAL.label}
-            </div>
+            <Eyebrow>{AI_FINAL.label}</Eyebrow>
             <h2 className={home.finalHeading}>{AI_FINAL.heading}</h2>
             <p className={home.finalSupporting}>{AI_FINAL.supporting}</p>
             <div className={home.finalCtas}>

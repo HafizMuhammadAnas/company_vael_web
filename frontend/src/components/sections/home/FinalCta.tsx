@@ -1,31 +1,26 @@
-import { Button, Section } from "@/components/ui";
+import { ArrowRight } from "lucide-react";
+
+import { Button, Eyebrow, Section } from "@/components/ui";
 import { FINAL_CTA } from "@/content/home";
 
-import styles from "./Home.module.css";
+import styles from "./FinalCta.module.css";
 
 export function FinalCta() {
   return (
-    <Section>
-      <div className={`${styles.finalCta} reveal`} style={{ position: "relative" }}>
-        <div className="circuit-bg" />
-        <div style={{ position: "relative", zIndex: 1 }}>
-          <div
-            style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: "0.7rem",
-              letterSpacing: "0.4em",
-              color: "var(--neon)",
-              textTransform: "uppercase",
-              marginBottom: "1rem",
-            }}
-          >
-            // {FINAL_CTA.label}
-          </div>
-          <h2 className={styles.finalHeading}>{FINAL_CTA.heading}</h2>
-          <p className={styles.finalSupporting}>{FINAL_CTA.supporting}</p>
-          <div className={styles.finalCtas}>
+    <Section id="contact-cta">
+      <div className={`${styles.panel} reveal`}>
+        <div className={styles.glow} aria-hidden>
+          <span className={styles.blobA} />
+          <span className={styles.blobB} />
+        </div>
+        <div className={styles.content}>
+          <Eyebrow centered>{FINAL_CTA.label}</Eyebrow>
+          <h2 className={styles.heading}>{FINAL_CTA.heading}</h2>
+          <p className={styles.supporting}>{FINAL_CTA.supporting}</p>
+          <div className={styles.ctas}>
             <Button variant="primary" to={FINAL_CTA.primaryCta.to}>
               {FINAL_CTA.primaryCta.label}
+              <ArrowRight size={16} aria-hidden />
             </Button>
             <Button variant="outline" to={FINAL_CTA.secondaryCta.to}>
               {FINAL_CTA.secondaryCta.label}

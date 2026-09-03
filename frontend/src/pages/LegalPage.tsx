@@ -1,5 +1,5 @@
 import l from "@/components/sections/legal/Legal.module.css";
-import { Section } from "@/components/ui";
+import { Eyebrow, Section } from "@/components/ui";
 import { COMPANY } from "@/constants/company";
 import type { LegalBlock, LegalDoc } from "@/content/legal";
 import { useDocumentMeta } from "@/hooks/useDocumentMeta";
@@ -33,7 +33,7 @@ export function LegalPage({ doc }: { doc: LegalDoc }) {
   return (
     <Section>
       <div className={l.wrap}>
-        <div className={l.eyebrow}>// Legal</div>
+        <Eyebrow>Legal</Eyebrow>
         <h1 className={l.title}>{doc.title}</h1>
         <p className={l.meta}>Last updated: {doc.lastUpdated}</p>
 

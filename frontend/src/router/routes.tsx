@@ -1,4 +1,4 @@
-import { createBrowserRouter, Navigate, type RouteObject } from "react-router-dom";
+import { Navigate, type RouteObject } from "react-router-dom";
 
 import { PublicLayout } from "@/layouts/PublicLayout";
 import { AboutPage } from "@/pages/AboutPage";
@@ -28,6 +28,7 @@ import { TechnologyConsultingPage } from "@/pages/solutions/TechnologyConsulting
 import { NotFoundPage } from "@/pages/system/NotFoundPage";
 import { ThankYouPage } from "@/pages/system/ThankYouPage";
 import { COOKIE_POLICY, PRIVACY_POLICY, TERMS_AND_CONDITIONS } from "@/content/legal";
+import { adminRoutes } from "@/router/adminRoutes";
 
 interface StubRoute {
   path: string;
@@ -51,7 +52,6 @@ const industryAnchors = [
 
 /** Routes whose real content is not built yet — rendered as neutral scaffolds. */
 const stubRoutes: StubRoute[] = [
-  // ─── Resources / Legal (footer) ───
   { path: "cookie-settings", title: "Cookie Settings", kicker: "Legal" },
 ];
 
@@ -71,31 +71,25 @@ const children: RouteObject[] = [
     element: <Navigate to={`/industries#${anchor}`} replace />,
   })),
 
-  // About / Company
   { path: "about", element: <AboutPage /> },
   { path: "about/process", element: <ProcessPage /> },
   { path: "careers", element: <CareersPage /> },
 
-  // Lead generation
   { path: "contact", element: <ContactPage /> },
   { path: "consultation", element: <ConsultationPage /> },
   { path: "request-proposal", element: <RequestProposalPage /> },
 
-  // Work
   { path: "work", element: <WorkPage /> },
   { path: "work/portfolio", element: <PortfolioPage /> },
   { path: "work/case-studies", element: <CaseStudiesPage /> },
   { path: "work/case-studies/:slug", element: <CaseStudyDetailPage /> },
 
-  // Insights (single page; child routes redirect to anchors)
   { path: "insights", element: <InsightsPage /> },
   { path: "insights/blog", element: <Navigate to="/insights#blog" replace /> },
   { path: "insights/resources", element: <Navigate to="/insights#resources" replace /> },
 
-  // Resources
   { path: "faqs", element: <FaqsPage /> },
 
-  // Legal
   { path: "privacy-policy", element: <LegalPage doc={PRIVACY_POLICY} /> },
   { path: "terms-and-conditions", element: <LegalPage doc={TERMS_AND_CONDITIONS} /> },
   { path: "cookie-policy", element: <LegalPage doc={COOKIE_POLICY} /> },
@@ -105,20 +99,19 @@ const children: RouteObject[] = [
     element: <PagePlaceholder title={route.title} kicker={route.kicker} />,
   })),
 
-  // Dynamic detail routes
   { path: "insights/blog/:slug", element: <DetailPlaceholder kicker="Blog" /> },
 
-  // System pages
   { path: "thank-you", element: <ThankYouPage /> },
   { path: "contact/success", element: <ThankYouPage /> },
 
-  // Catch-all 404
   { path: "*", element: <NotFoundPage /> },
 ];
 
-export const router = createBrowserRouter([
+/** Shared route tree for client router and SSG prerender. */
+export const routes: RouteObject[] = [
   {
     element: <PublicLayout />,
     children,
   },
-]);
+  ...adminRoutes,
+];

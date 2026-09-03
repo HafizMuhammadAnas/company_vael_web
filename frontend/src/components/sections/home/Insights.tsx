@@ -1,31 +1,46 @@
-import { Button, Card, Section, SectionHeader } from "@/components/ui";
+import { ArrowRight, Clock3 } from "lucide-react";
+
+import { Button, Section, SectionHeader } from "@/components/ui";
 import { INSIGHTS } from "@/content/home";
 
-import styles from "./Home.module.css";
+import styles from "./Insights.module.css";
 
 export function Insights() {
   return (
-    <Section className={styles.altBg}>
+    <Section id="insights" className={styles.stage}>
       <div className="reveal">
-        <SectionHeader label={INSIGHTS.label} title={INSIGHTS.heading} />
-        <p className={styles.supporting}>{INSIGHTS.supporting}</p>
+        <SectionHeader label={INSIGHTS.label} title={INSIGHTS.heading} supporting={INSIGHTS.supporting} />
       </div>
 
-      <div className={`${styles.grid} ${styles.cols3} reveal`}>
-        {INSIGHTS.articles.map((article) => (
-          <Card key={article.title} hoverable={!article.comingSoon}>
-            <div className={styles.cardCategory}>{article.category}</div>
-            <div className={styles.cardTitle}>{article.title}</div>
-            <p className={styles.cardText}>{article.description}</p>
-            <div className={styles.readTime}>{article.readTime}</div>
-            {article.comingSoon && <span className={styles.comingSoon}>Coming Soon</span>}
-          </Card>
+      <ol className={`${styles.feed} reveal`}>
+        {INSIGHTS.articles.map((article, i) => (
+          <li key={article.title} className={styles.item}>
+            <article className={styles.row}>
+              <span className={styles.index} aria-hidden>
+                0{i + 1}
+              </span>
+              <div className={styles.body}>
+                <div className={styles.meta}>
+                  <span className={styles.category}>{article.category}</span>
+                  <span className={styles.dot} aria-hidden />
+                  <span className={styles.readTime}>
+                    <Clock3 size={12} aria-hidden />
+                    {article.readTime}
+                  </span>
+                  {article.comingSoon && <span className={styles.badge}>Coming soon</span>}
+                </div>
+                <h3 className={styles.title}>{article.title}</h3>
+                <p className={styles.text}>{article.description}</p>
+              </div>
+            </article>
+          </li>
         ))}
-      </div>
+      </ol>
 
-      <div className={`${styles.sectionCtas} reveal`}>
+      <div className={`${styles.cta} reveal`}>
         <Button variant="outline" to={INSIGHTS.cta.to}>
-          {INSIGHTS.cta.label} →
+          {INSIGHTS.cta.label}
+          <ArrowRight size={16} aria-hidden />
         </Button>
       </div>
     </Section>

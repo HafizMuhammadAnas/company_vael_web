@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { PageHero } from "@/components/sections/PageHero";
 import home from "@/components/sections/home/Home.module.css";
 import s from "@/components/sections/solutions/Solutions.module.css";
-import { Button, Card, Section, SectionHeader } from "@/components/ui";
+import { Button, Card, Section, SectionHeader, Eyebrow } from "@/components/ui";
 import {
   ABOUT_APPROACH,
   ABOUT_CAPABILITIES,
@@ -225,18 +225,7 @@ export function AboutPage() {
         <div className={`${home.finalCta} reveal`} style={{ position: "relative" }}>
           <div className="circuit-bg" />
           <div style={{ position: "relative", zIndex: 1 }}>
-            <div
-              style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "0.7rem",
-                letterSpacing: "0.4em",
-                color: "var(--neon)",
-                textTransform: "uppercase",
-                marginBottom: "1rem",
-              }}
-            >
-              // {ABOUT_FINAL.label}
-            </div>
+            <Eyebrow>{ABOUT_FINAL.label}</Eyebrow>
             <h2 className={home.finalHeading}>{ABOUT_FINAL.heading}</h2>
             <p className={home.finalSupporting}>{ABOUT_FINAL.supporting}</p>
             <div className={home.finalCtas}>

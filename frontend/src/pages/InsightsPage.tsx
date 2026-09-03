@@ -4,7 +4,7 @@ import { PageHero } from "@/components/sections/PageHero";
 import home from "@/components/sections/home/Home.module.css";
 import ins from "@/components/sections/insights/Insights.module.css";
 import work from "@/components/sections/work/Work.module.css";
-import { Button, Card, Section, SectionHeader } from "@/components/ui";
+import { Button, Card, Section, SectionHeader, Eyebrow } from "@/components/ui";
 import { FOOTER_SOCIALS } from "@/constants/footer";
 import {
   INS_BLOG,
@@ -109,7 +109,7 @@ export function InsightsPage() {
           </div>
         ) : (
           <>
-            <div className={`${ins.prepLabel} reveal`}>// {INS_BLOG.inPreparationLabel}</div>
+            <div className={`${ins.prepLabel} reveal`}>{INS_BLOG.inPreparationLabel}</div>
             <div className={`${home.grid} ${home.cols3} reveal`}>
               {INS_BLOG.inPreparation.map((idea) => (
                 <Card key={idea.title}>
@@ -215,18 +215,7 @@ export function InsightsPage() {
         <div className={`${home.finalCta} reveal`} style={{ position: "relative" }}>
           <div className="circuit-bg" />
           <div style={{ position: "relative", zIndex: 1 }}>
-            <div
-              style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "0.7rem",
-                letterSpacing: "0.4em",
-                color: "var(--neon)",
-                textTransform: "uppercase",
-                marginBottom: "1rem",
-              }}
-            >
-              // {INS_FINAL.label}
-            </div>
+            <Eyebrow>{INS_FINAL.label}</Eyebrow>
             <h2 className={home.finalHeading}>{INS_FINAL.heading}</h2>
             <p className={home.finalSupporting}>{INS_FINAL.supporting}</p>
             <div className={home.finalCtas}>

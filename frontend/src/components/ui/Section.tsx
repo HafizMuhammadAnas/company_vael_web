@@ -1,5 +1,6 @@
 import type { CSSProperties, ReactNode } from "react";
 
+import { Eyebrow } from "./Eyebrow";
 import styles from "./Section.module.css";
 
 interface SectionProps {
@@ -19,27 +20,34 @@ export function Section({ id, children, className, style }: SectionProps) {
 }
 
 interface SectionHeaderProps {
-  /** Small monospace eyebrow, rendered with a leading `//`. */
+  /** Small pill eyebrow with neon icon. */
   label?: string;
   /** Heading text. Use `accent` for a bronze-highlighted trailing fragment. */
   title: ReactNode;
-  /** Optional caption shown next to the gradient bar. */
+  /** Short mono caption next to the gradient rule (keep brief). */
   lineText?: string;
+  /** Readable supporting lede under the title. Prefer this over long lineText. */
+  supporting?: ReactNode;
   centered?: boolean;
 }
 
-/** Section eyebrow + title + gradient rule, matching the wireframe pattern. */
-export function SectionHeader({ label, title, lineText, centered }: SectionHeaderProps) {
+/** Section eyebrow + title + optional lede / caption. */
+export function SectionHeader({ label, title, lineText, supporting, centered }: SectionHeaderProps) {
   return (
     <div className={centered ? styles.centered : undefined}>
-      {label && <div className={styles.label}>// {label}</div>}
-      <h2 className={styles.title}>{title}</h2>
-      {lineText && (
-        <div className={styles.line}>
-          <div className={styles.lineBar} />
-          <span className={styles.lineText}>{lineText}</span>
+      {label && (
+        <div className={centered ? styles.labelRow : undefined}>
+          <Eyebrow centered={centered}>{label}</Eyebrow>
         </div>
       )}
+      <h2 className={styles.title}>{title}</h2>
+      {(lineText || supporting) && (
+        <div className={styles.line}>
+          <div className={styles.lineBar} />
+          {lineText && <span className={styles.lineText}>{lineText}</span>}
+        </div>
+      )}
+      {supporting && <div className={styles.supporting}>{supporting}</div>}
     </div>
   );
 }

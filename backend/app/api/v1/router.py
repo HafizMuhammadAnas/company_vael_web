@@ -1,12 +1,12 @@
 from fastapi import APIRouter
 
-from app.api.v1.public import health
+from app.api.v1.admin import admin_router
+from app.api.v1.auth import router as auth_router
+from app.api.v1.public import health, leads
 
 api_router = APIRouter()
 
-# Public routes (no auth required)
 api_router.include_router(health.router, prefix="/public")
-
-# Auth and admin routers are wired in later phases:
-# api_router.include_router(auth.router, prefix="/auth")
-# api_router.include_router(admin_router, prefix="/admin")
+api_router.include_router(leads.router, prefix="/public")
+api_router.include_router(auth_router, prefix="/auth")
+api_router.include_router(admin_router, prefix="/admin")

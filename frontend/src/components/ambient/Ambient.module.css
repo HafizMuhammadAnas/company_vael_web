@@ -1,0 +1,156 @@
+.layer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Soft dotted field — not a hard engineering grid. */
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    circle at center,
+    color-mix(in srgb, var(--neon) 18%, transparent) 0.9px,
+    transparent 1.2px
+  );
+  background-size: 28px 28px;
+  opacity: 0.35;
+  animation: vk-grid-pan 22s linear infinite;
+  mask-image: radial-gradient(ellipse 70% 55% at 50% 35%, black, transparent 75%);
+}
+
+.aura {
+  position: absolute;
+  inset: 0;
+}
+
+.auraBlob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.32;
+}
+
+.auraA {
+  top: 10%;
+  left: -8%;
+  width: 28rem;
+  height: 28rem;
+  background: radial-gradient(circle, var(--neon), transparent 65%);
+  animation: vk-drift-a 26s ease-in-out infinite;
+}
+
+.auraB {
+  right: -10%;
+  bottom: 5%;
+  width: 24rem;
+  height: 24rem;
+  background: radial-gradient(circle, var(--violet), transparent 65%);
+  animation: vk-drift-b 32s ease-in-out infinite;
+}
+
+/* Quiet radar rings — barely moving, centered behind hero copy. */
+.orbitField {
+  position: absolute;
+  left: 28%;
+  top: 48%;
+  width: min(110vw, 980px);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  opacity: 0.34;
+}
+
+.orbitRing {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--text-primary) 11%, transparent);
+  animation: vk-spin 220s linear infinite;
+}
+
+.orbitRing:nth-child(1) {
+  inset: 0;
+  border-color: color-mix(in srgb, var(--text-primary) 10%, transparent);
+  animation-duration: 260s;
+}
+
+.orbitRing:nth-child(2) {
+  inset: 12%;
+  border-color: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  animation-direction: reverse;
+  animation-duration: 300s;
+}
+
+.orbitRing:nth-child(3) {
+  inset: 26%;
+  border-color: color-mix(in srgb, var(--text-primary) 7%, transparent);
+  animation-duration: 340s;
+}
+
+.orbitRing:nth-child(4) {
+  inset: 40%;
+  border-color: color-mix(in srgb, var(--text-primary) 6%, transparent);
+  animation-direction: reverse;
+  animation-duration: 380s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orbitRing {
+    animation: none;
+  }
+}
+
+.mote {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: var(--neon);
+  opacity: 0.35;
+  animation: vk-mote 14s ease-in-out infinite;
+}
+
+/* Soft vertical wash — no hard 1px lines. */
+.beam {
+  position: absolute;
+  top: 0;
+  width: 4rem;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    color-mix(in srgb, var(--neon) 8%, transparent) 40%,
+    color-mix(in srgb, var(--violet) 6%, transparent) 60%,
+    transparent 100%
+  );
+  opacity: 0.45;
+  filter: blur(18px);
+  animation: vk-beam 14s ease-in-out infinite;
+}
+
+.stream {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  overflow: hidden;
+  opacity: 0.7;
+}
+
+.packet {
+  position: absolute;
+  top: 0;
+  height: 2px;
+  width: 5rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--neon) 70%, transparent), transparent);
+  filter: blur(0.5px);
+  animation: vk-packet 11s linear infinite;
+}
+
+.canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}

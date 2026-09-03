@@ -28,7 +28,7 @@ export function PortfolioPage() {
       <PageHero label={PORTFOLIO_HERO.label} title={PORTFOLIO_HERO.title} supporting={PORTFOLIO_HERO.supporting} />
 
       <Section>
-        <p className={home.sectionNote}>// {PORTFOLIO_NOTE}</p>
+        <p className={home.sectionNote}>{PORTFOLIO_NOTE}</p>
 
         <div className={work.filters}>
           {WORK_FILTERS.map((filter) => (

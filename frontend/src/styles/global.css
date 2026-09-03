@@ -1,4 +1,5 @@
 @import "./tokens.css";
+@import "./motion.css";
 
 * {
   margin: 0;
@@ -17,6 +18,19 @@ body {
   font-size: 16px;
   line-height: 1.6;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--neon) 40%, transparent);
 }
 
 a {
@@ -51,16 +65,14 @@ body::before {
   border-radius: 2px;
 }
 
-/* ─── Circuit background pattern (reusable utility) ─── */
+/* Soft ambient field (replaces hard circuit grid) */
 .circuit-bg {
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(var(--neon-glow) 1px, transparent 1px),
-    linear-gradient(90deg, var(--neon-glow) 1px, transparent 1px);
-  background-size: 80px 80px;
-  opacity: 0.12;
-  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 100%);
+  background:
+    radial-gradient(ellipse 60% 50% at 30% 40%, color-mix(in srgb, var(--neon) 22%, transparent), transparent 70%),
+    radial-gradient(ellipse 50% 45% at 75% 60%, color-mix(in srgb, var(--violet) 20%, transparent), transparent 70%);
+  opacity: 0.95;
   pointer-events: none;
 }
 
@@ -136,6 +148,68 @@ body::before {
   transform: translateY(0);
 }
 
+/* System pages (404 / thank-you) */
+.systemPage {
+  min-height: calc(100vh - var(--nav-height));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  position: relative;
+}
+
+.systemInner {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  width: 100%;
+}
+
+.systemCode {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 14vw, 9rem);
+  font-weight: 900;
+  color: var(--text-primary);
+  text-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
+  line-height: 1;
+}
+
+.systemTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-top: 1.5rem;
+}
+
+.systemText {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  margin-top: 1rem;
+}
+
+.systemActions {
+  margin-top: 2.5rem;
+}
+
+@media (max-width: 640px) {
+  .systemPage {
+    padding: 3rem 1.1rem;
+  }
+  .systemText {
+    font-size: 0.95rem;
+  }
+  .systemActions {
+    margin-top: 2rem;
+  }
+  .systemActions a,
+  .systemActions button {
+    width: 100%;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -145,4 +219,15 @@ body::before {
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
+
+  /* Keep the soft hero ticker moving slowly — readable, not flashy. */
+  [class*="marqueeTrack"] {
+    animation-duration: 90s !important;
+    animation-iteration-count: infinite !important;
+  }
+}
+
+.admin-loading {
+  padding: var(--space-md);
+  color: var(--text-secondary);
 }

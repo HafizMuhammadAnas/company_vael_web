@@ -11,52 +11,63 @@ export const HOME_SEO = {
 
 export const HERO = {
   eyebrow: "AI-First Digital Engineering",
-  title: "Engineering Intelligent Digital Solutions.",
+  titleBefore: "Engineering",
+  titleAccent: "intelligent",
+  titleRest: "digital solutions.",
   description:
     "VAELKODE helps ambitious organizations turn complex business challenges into intelligent, scalable digital solutions through AI, modern software engineering, and cloud technologies.",
   primaryCta: { label: "Book a Consultation", to: "/consultation" },
   secondaryCta: { label: "Explore Our Solutions", to: "/solutions" },
   microcopy: "Let's discuss your challenge, idea, or next digital initiative.",
-  orbitTerms: ["AI", "CODE", "DATA", "CLOUD", "AUTOMATION", "SYSTEMS"],
+  orbitTerms: ["AI", "CODE", "DATA", "CLOUD", "AUTOMATION", "SYSTEMS", "PLATFORMS", "INTEGRATION"],
 };
 
 export const CAPABILITIES = {
   label: "Engineering Capabilities",
-  heading: "Built for Modern Digital Transformation",
+  heading: "One system core. Four engineering disciplines.",
   supporting:
-    "From intelligent automation to enterprise software and cloud infrastructure, we bring the engineering capabilities needed to turn ambitious ideas into reliable digital products.",
+    "Hover, focus, or tap a module to inspect the capability. Everything orbits a single core — connected, not siloed.",
   items: [
     {
+      short: "Intelligence",
       title: "AI & Intelligent Automation",
       text: "Build intelligent systems that automate processes, understand data, and augment decision-making.",
+      tags: ["LLM systems", "RAG", "Document AI", "Forecasting"],
     },
     {
+      short: "Engineering",
       title: "Software Engineering",
       text: "Design and develop scalable applications built around real business requirements.",
+      tags: ["APIs", "Architecture", "Testing", "Integrations"],
     },
     {
+      short: "Infrastructure",
       title: "Cloud & DevOps",
       text: "Deploy secure, resilient infrastructure designed for performance and growth.",
+      tags: ["Delivery automation", "Observability", "Resilience", "Cost control"],
     },
     {
+      short: "Transformation",
       title: "Digital Transformation",
       text: "Modernize existing systems, streamline operations, and create connected digital experiences.",
+      tags: ["Legacy migration", "Process design", "Platform strategy"],
     },
   ],
 };
 
 export const PROBLEMS = {
   label: "The Challenge",
-  heading: "Technology Should Solve Problems, Not Create More of Them.",
+  heading: "Friction in. Integrated system out.",
   supporting: [
     "Businesses often outgrow the systems and processes they started with. Manual workflows, disconnected platforms, legacy applications, and fragmented data can slow growth and make everyday operations harder than they need to be.",
-    "VAELKODE helps organizations identify these challenges and transform them into opportunities for automation, integration, and sustainable digital growth.",
+    "Select a signal to trace how a familiar business problem becomes an engineered capability.",
   ],
   cards: [
     {
       num: "01",
       title: "Manual Processes",
       text: "Repetitive tasks consume valuable time and introduce avoidable errors.",
+      shift: "Automate the workflow, keep humans on judgement.",
       cta: "Explore Automation",
       to: "/solutions/ai-automation",
     },
@@ -64,6 +75,7 @@ export const PROBLEMS = {
       num: "02",
       title: "Disconnected Systems",
       text: "Critical information becomes fragmented when business systems cannot communicate with one another.",
+      shift: "Integrate through a clean, governed data layer.",
       cta: "Explore Integration",
       to: "/solutions/custom-software",
     },
@@ -71,6 +83,7 @@ export const PROBLEMS = {
       num: "03",
       title: "Legacy Technology",
       text: "Aging applications can become difficult to maintain, scale, and adapt to changing business needs.",
+      shift: "Modernize incrementally — no big-bang rewrite.",
       cta: "Modernize Your Systems",
       to: "/solutions/technology-consulting",
     },
@@ -78,6 +91,7 @@ export const PROBLEMS = {
       num: "04",
       title: "Limited Visibility",
       text: "Organizations need reliable data and intelligent insights to make faster, better-informed decisions.",
+      shift: "Instrument the business and surface it in real time.",
       cta: "Explore Intelligent Analytics",
       to: "/solutions/ai-automation",
     },
@@ -85,6 +99,7 @@ export const PROBLEMS = {
       num: "05",
       title: "Digital Growth",
       text: "New products and services require technology foundations that can evolve as the business grows.",
+      shift: "Build a platform, not a one-off project.",
       cta: "Build for Scale",
       to: "/solutions/cloud-devops",
     },
@@ -93,45 +108,69 @@ export const PROBLEMS = {
 
 export const SOLUTIONS = {
   label: "Our Solutions",
-  heading: "Technology Built Around Your Business.",
+  heading: "A connected landscape, not a menu of parts.",
   supporting:
-    "We combine strategy, design, engineering, and emerging technologies to create digital solutions that solve real business problems and support long-term growth.",
+    "Explore the constellation — hover, focus, or tap any point to see how that capability plugs into the wider system we build around your business.",
   cards: [
     {
+      short: "Intelligence",
       title: "AI & Intelligent Automation",
       text: "Apply artificial intelligence where it creates measurable value—from intelligent assistants and document processing to workflow automation, predictive analytics, and computer vision.",
+      tags: ["Automation", "Insight", "Decision support"],
       cta: "Explore AI Solutions",
       to: "/solutions/ai-automation",
+      x: 50,
+      y: 50,
     },
     {
+      short: "Software",
       title: "Custom Software Development",
       text: "Build secure, scalable software tailored to your organization's workflows, users, and operational requirements.",
+      tags: ["Architecture", "Integrations", "Reliability"],
       cta: "Explore Custom Software",
       to: "/solutions/custom-software",
+      x: 17,
+      y: 24,
     },
     {
+      short: "Platforms",
       title: "Web & Digital Platforms",
       text: "Create modern web applications, customer portals, e-commerce platforms, and digital experiences designed for performance and usability.",
+      tags: ["Portals", "Commerce", "Experience"],
       cta: "Explore Web Development",
       to: "/solutions/web-development",
+      x: 83,
+      y: 22,
     },
     {
+      short: "Mobile",
       title: "Mobile Applications",
       text: "Deliver connected mobile experiences that extend your products and services to customers and teams wherever they are.",
+      tags: ["Customer apps", "Field tools"],
       cta: "Explore Mobile Development",
       to: "/solutions/mobile-development",
+      x: 20,
+      y: 78,
     },
     {
+      short: "Cloud",
       title: "Cloud & DevOps",
       text: "Build and operate reliable cloud infrastructure with modern deployment, automation, monitoring, and scalability practices.",
+      tags: ["Delivery automation", "Observability", "Scale"],
       cta: "Explore Cloud & DevOps",
       to: "/solutions/cloud-devops",
+      x: 80,
+      y: 76,
     },
     {
+      short: "Consulting",
       title: "Technology Consulting",
       text: "Turn complex technology decisions into clear strategies, architectures, and actionable roadmaps.",
+      tags: ["Audits", "Roadmaps"],
       cta: "Explore Consulting",
       to: "/solutions/technology-consulting",
+      x: 50,
+      y: 94,
     },
   ],
 };
@@ -271,8 +310,8 @@ export const INDUSTRIES = {
 };
 
 export const PROCESS = {
-  label: "Our Approach",
-  heading: "From Complex Challenge to Working Solution.",
+  label: "How We Work",
+  heading: "A delivery journey you can watch progress.",
   supporting:
     "A structured approach helps us reduce uncertainty, maintain quality, and keep every project aligned with its business objectives.",
   steps: [

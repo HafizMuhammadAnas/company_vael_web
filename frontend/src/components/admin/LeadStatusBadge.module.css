@@ -1,0 +1,23 @@
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.55rem;
+  border: 1px solid var(--border-neon);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.new {
+  border-color: var(--neon-dim);
+  color: var(--neon);
+}
+
+.read {
+  border-color: var(--border-bronze);
+  color: var(--bronze-light);
+}
+
+.archived {
+  color: var(--text-secondary);
+}

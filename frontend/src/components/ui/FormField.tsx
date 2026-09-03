@@ -19,7 +19,7 @@ export function Field({ label, htmlFor, error, children }: FieldWrapperProps) {
   return (
     <div className={styles.group}>
       <label className={styles.label} htmlFor={htmlFor}>
-        // {label}
+        {label}
       </label>
       {children}
       {error && <span className={styles.error}>{error}</span>}
@@ -32,16 +32,20 @@ export function FieldRow({ children }: { children: ReactNode }) {
   return <div className={styles.row}>{children}</div>;
 }
 
-export function TextInput(props: InputHTMLAttributes<HTMLInputElement>) {
-  return <input className={styles.control} {...props} />;
+export function TextInput({ className, ...props }: InputHTMLAttributes<HTMLInputElement>) {
+  return <input className={[styles.control, className].filter(Boolean).join(" ")} {...props} />;
 }
 
 export function Select({
+  className,
   children,
   ...props
 }: SelectHTMLAttributes<HTMLSelectElement> & { children: ReactNode }) {
   return (
-    <select className={`${styles.control} ${styles.select}`} {...props}>
+    <select
+      className={[styles.control, styles.select, className].filter(Boolean).join(" ")}
+      {...props}
+    >
       {children}
     </select>
   );

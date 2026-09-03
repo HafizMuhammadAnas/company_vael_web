@@ -133,6 +133,21 @@
 }
 @media (max-width: 640px) {
   .delivery {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+    gap: 1.5rem 0;
+  }
+  .filters {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.75rem;
+  }
+  .filterBtn {
+    flex: 0 0 auto;
+  }
+  .csLead {
+    font-size: 1rem;
+    line-height: 1.75;
   }
 }
