@@ -26,17 +26,6 @@ export function PagePlaceholder({ title, kicker }: PagePlaceholderProps) {
         title={title}
         lineText="Page scaffolded — awaiting content"
       />
-      <p
-        style={{
-          fontFamily: "var(--font-mono)",
-          fontSize: "0.75rem",
-          letterSpacing: "0.2em",
-          color: "var(--slate)",
-          textTransform: "uppercase",
-        }}
-      >
-        // Content coming soon
-      </p>
     </Section>
   );
 }

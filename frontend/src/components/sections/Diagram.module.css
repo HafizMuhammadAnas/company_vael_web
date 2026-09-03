@@ -86,6 +86,15 @@
     transform: rotate(90deg);
     padding: 0.15rem 0;
   }
+  .arch {
+    padding-left: 1.8rem;
+  }
+  .archLayer::before {
+    left: calc(-1.8rem + 0.2rem);
+  }
+  .archPanel {
+    padding: 0.8rem 0.9rem;
+  }
 }
 
 /* ─── Architecture (layered spine with parallel components) ─── */

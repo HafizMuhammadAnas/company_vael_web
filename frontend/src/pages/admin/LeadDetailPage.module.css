@@ -1,0 +1,275 @@
+.header {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  justify-content: space-between;
+
+  gap: var(--space-md);
+
+  margin-bottom: var(--space-md);
+
+  padding-bottom: var(--space-md);
+
+  border-bottom: 1px solid var(--border-neon);
+
+}
+
+
+
+.back {
+
+  color: var(--neon);
+
+  text-decoration: none;
+
+  display: inline-block;
+
+  margin-bottom: var(--space-sm);
+
+}
+
+
+
+.formType {
+
+  color: var(--neon);
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.14em;
+
+  font-size: 0.75rem;
+
+  margin-bottom: 0.35rem;
+
+}
+
+
+
+.metaRow {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 0.75rem;
+
+  align-items: center;
+
+  margin-top: 0.75rem;
+
+  color: var(--text-secondary);
+
+  font-size: 0.9rem;
+
+}
+
+
+
+.actionPanel {
+
+  min-width: 220px;
+
+  padding: var(--space-sm);
+
+  border: 1px solid var(--border-neon);
+
+  background: var(--obsidian-2);
+
+}
+
+
+
+.actionLabel {
+
+  font-size: 0.72rem;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+
+  color: var(--text-secondary);
+
+  margin-bottom: 0.65rem;
+
+}
+
+
+
+.grid {
+
+  display: grid;
+
+  gap: var(--space-md);
+
+}
+
+
+
+.card {
+
+  padding: var(--space-md);
+
+  border: 1px solid var(--border-neon);
+
+  background: var(--obsidian-2);
+
+}
+
+
+
+.metaCard {
+
+  opacity: 0.95;
+
+}
+
+
+
+.card h2 {
+
+  font-family: var(--font-display);
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+
+  font-size: 0.95rem;
+
+  margin-bottom: var(--space-sm);
+
+}
+
+
+
+.dl {
+
+  display: grid;
+
+  gap: 0.65rem;
+
+}
+
+
+
+.row {
+
+  display: grid;
+
+  grid-template-columns: 180px 1fr;
+
+  gap: var(--space-sm);
+
+}
+
+
+
+.label {
+
+  color: var(--text-secondary);
+
+}
+
+
+
+.multiline {
+
+  white-space: pre-wrap;
+
+}
+
+
+
+.muted {
+
+  color: var(--text-secondary);
+
+}
+
+
+
+.mailLink {
+
+  color: var(--neon);
+
+}
+
+
+
+.wrapText {
+
+  word-break: break-word;
+
+}
+
+
+
+.attachments {
+
+  list-style: none;
+
+  padding: 0;
+
+  margin: 0;
+
+  display: grid;
+
+  gap: 0.5rem;
+
+}
+
+
+
+.attachmentItem {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: var(--space-sm);
+
+  align-items: center;
+
+}
+
+
+
+.loading,
+
+.error {
+
+  padding: var(--space-sm) 0;
+
+}
+
+
+
+.error {
+
+  color: #ff8a8a;
+
+}
+
+
+
+@media (max-width: 640px) {
+
+  .row {
+
+    grid-template-columns: 1fr;
+
+  }
+
+
+
+  .actionPanel {
+
+    width: 100%;
+
+  }
+
+}
+
+

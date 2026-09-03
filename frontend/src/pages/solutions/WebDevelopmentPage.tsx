@@ -4,7 +4,7 @@ import { PipelineDiagram } from "@/components/sections/Diagram";
 import { PageHero } from "@/components/sections/PageHero";
 import home from "@/components/sections/home/Home.module.css";
 import s from "@/components/sections/solutions/Solutions.module.css";
-import { Button, Card, Section, SectionHeader } from "@/components/ui";
+import { Button, Card, Section, SectionHeader, Eyebrow } from "@/components/ui";
 import { FEATURED_WORK } from "@/content/home";
 import {
   WEB_BUILD,
@@ -234,7 +234,7 @@ export function WebDevelopmentPage() {
         <div className="reveal">
           <SectionHeader label={WEB_WORK.label} title={WEB_WORK.heading} />
           <p className={home.supporting}>{WEB_WORK.supporting}</p>
-          <p className={home.sectionNote}>// {WEB_WORK.note}</p>
+          <p className={home.sectionNote}>{WEB_WORK.note}</p>
         </div>
         <div className={`${home.grid} ${home.cols3} reveal`}>
           {FEATURED_WORK.cards.map((card) => (
@@ -281,18 +281,7 @@ export function WebDevelopmentPage() {
         <div className={`${home.finalCta} reveal`} style={{ position: "relative" }}>
           <div className="circuit-bg" />
           <div style={{ position: "relative", zIndex: 1 }}>
-            <div
-              style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "0.7rem",
-                letterSpacing: "0.4em",
-                color: "var(--neon)",
-                textTransform: "uppercase",
-                marginBottom: "1rem",
-              }}
-            >
-              // {WEB_FINAL.label}
-            </div>
+            <Eyebrow>{WEB_FINAL.label}</Eyebrow>
             <h2 className={home.finalHeading}>{WEB_FINAL.heading}</h2>
             <p className={home.finalSupporting}>{WEB_FINAL.supporting}</p>
             <div className={home.finalCtas}>

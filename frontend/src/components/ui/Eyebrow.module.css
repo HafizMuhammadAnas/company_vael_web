@@ -1,0 +1,35 @@
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  color: color-mix(in srgb, var(--neon-bright) 70%, var(--text-secondary));
+  text-transform: uppercase;
+  padding: 0.45rem 0.95rem;
+  border: 1px solid color-mix(in srgb, var(--neon) 35%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--obsidian-2) 55%, transparent);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 24px color-mix(in srgb, var(--neon) 12%, transparent);
+  margin-bottom: 0.75rem;
+}
+
+.centered {
+  display: inline-flex;
+}
+
+.icon {
+  color: var(--neon-bright);
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 8px var(--neon));
+}
+
+@media (max-width: 640px) {
+  .eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+    padding: 0.4rem 0.85rem;
+  }
+}

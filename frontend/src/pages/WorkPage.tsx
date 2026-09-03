@@ -4,7 +4,7 @@ import { PageHero } from "@/components/sections/PageHero";
 import home from "@/components/sections/home/Home.module.css";
 import { ProjectCard } from "@/components/sections/work/ProjectCard";
 import work from "@/components/sections/work/Work.module.css";
-import { Button, Card, Section, SectionHeader } from "@/components/ui";
+import { Button, Card, Section, SectionHeader, Eyebrow } from "@/components/ui";
 import {
   CASE_STUDIES,
   FEATURED_CASE_STUDY_SLUGS,
@@ -45,7 +45,7 @@ export function WorkPage() {
         <div className="reveal">
           <SectionHeader label={WORK_SELECTED.label} title={WORK_SELECTED.heading} />
           <p className={home.supporting}>{WORK_SELECTED.supporting}</p>
-          <p className={home.sectionNote}>// {WORK_SELECTED.note}</p>
+          <p className={home.sectionNote}>{WORK_SELECTED.note}</p>
         </div>
         <div className={`${home.grid} ${home.cols3} reveal`}>
           {PROJECTS.map((project) => (
@@ -156,18 +156,7 @@ export function WorkPage() {
         <div className={`${home.finalCta} reveal`} style={{ position: "relative" }}>
           <div className="circuit-bg" />
           <div style={{ position: "relative", zIndex: 1 }}>
-            <div
-              style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "0.7rem",
-                letterSpacing: "0.4em",
-                color: "var(--neon)",
-                textTransform: "uppercase",
-                marginBottom: "1rem",
-              }}
-            >
-              // {WORK_FINAL.label}
-            </div>
+            <Eyebrow>{WORK_FINAL.label}</Eyebrow>
             <h2 className={home.finalHeading}>{WORK_FINAL.heading}</h2>
             <p className={home.finalSupporting}>{WORK_FINAL.supporting}</p>
             <div className={home.finalCtas}>

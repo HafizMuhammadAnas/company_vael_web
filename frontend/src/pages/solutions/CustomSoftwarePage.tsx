@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { PageHero } from "@/components/sections/PageHero";
 import home from "@/components/sections/home/Home.module.css";
 import s from "@/components/sections/solutions/Solutions.module.css";
-import { Button, Card, Section, SectionHeader } from "@/components/ui";
+import { Button, Card, Section, SectionHeader, Eyebrow } from "@/components/ui";
 import {
   CS_BUILD,
   CS_CAPABILITIES,
@@ -226,7 +226,7 @@ export function CustomSoftwarePage() {
         <div className="reveal">
           <SectionHeader label={CS_WORK.label} title={CS_WORK.heading} />
           <p className={home.supporting}>{CS_WORK.supporting}</p>
-          <p className={home.sectionNote}>// {CS_WORK.note}</p>
+          <p className={home.sectionNote}>{CS_WORK.note}</p>
         </div>
         <div className={`${home.grid} ${home.cols3} reveal`}>
           {FEATURED_WORK.cards.map((card) => (
@@ -273,18 +273,7 @@ export function CustomSoftwarePage() {
         <div className={`${home.finalCta} reveal`} style={{ position: "relative" }}>
           <div className="circuit-bg" />
           <div style={{ position: "relative", zIndex: 1 }}>
-            <div
-              style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "0.7rem",
-                letterSpacing: "0.4em",
-                color: "var(--neon)",
-                textTransform: "uppercase",
-                marginBottom: "1rem",
-              }}
-            >
-              // {CS_FINAL.label}
-            </div>
+            <Eyebrow>{CS_FINAL.label}</Eyebrow>
             <h2 className={home.finalHeading}>{CS_FINAL.heading}</h2>
             <p className={home.finalSupporting}>{CS_FINAL.supporting}</p>
             <div className={home.finalCtas}>
