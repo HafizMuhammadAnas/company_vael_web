@@ -10,9 +10,9 @@
   gap: 1rem;
   min-height: var(--nav-height);
   padding: 0.85rem 4rem;
-  background: rgba(7, 10, 15, 0.85);
+  background: color-mix(in srgb, var(--obsidian) 86%, transparent);
   backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border-bronze);
+  border-bottom: 1px solid var(--border-neon);
   transition: box-shadow var(--transition-fast);
 }
 
@@ -34,7 +34,7 @@
 }
 
 .logoGlyph {
-  filter: drop-shadow(0 0 8px var(--neon));
+  filter: drop-shadow(0 0 12px var(--neon-glow-strong));
   flex-shrink: 0;
 }
 .logoGlyph :global(.outer-ring) {
@@ -47,7 +47,7 @@
   font-weight: 700;
   letter-spacing: 0.2em;
   color: var(--text-primary);
-  text-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+  text-shadow: 0 0 22px color-mix(in srgb, var(--neon) 45%, transparent);
   white-space: nowrap;
 }
 

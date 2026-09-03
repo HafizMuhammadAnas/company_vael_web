@@ -1,50 +1,53 @@
 :root {
-  /* ─── Palette (from VAELKODE wireframe) ─── */
-  --obsidian: #070a0f;
-  --obsidian-2: #0d1117;
-  --obsidian-3: #111820;
-  --obsidian-4: #1a2535;
-  --neon: #00d4ff;
-  --neon-bright: #00eeff;
-  --neon-dim: #00a8cc;
-  --neon-glow: rgba(0, 212, 255, 0.15);
-  --neon-glow-strong: rgba(0, 212, 255, 0.35);
-  --bronze: #b87333;
-  --bronze-light: #d4924a;
-  --bronze-pale: #e8c97a;
-  --slate: #6b7a8d;
-  --slate-light: #9aaabb;
-  --text-primary: #e8edf5;
-  --text-secondary: #8fa3b8;
+  /* Palette — brighter signal teal + violet for a shinier Lovable-like look. */
+  --obsidian: #0e121c;
+  --obsidian-2: #161c2c;
+  --obsidian-3: #1e273a;
+  --obsidian-4: #2a354c;
+  --neon: #2ef2d0;
+  --neon-bright: #7cffe8;
+  --neon-dim: #1ec9b0;
+  --neon-glow: rgba(46, 242, 208, 0.28);
+  --neon-glow-strong: rgba(46, 242, 208, 0.55);
+  --signal: var(--neon);
+  --signal-foreground: #0e121c;
+  --violet: #a78bfa;
+  --violet-bright: #c4b5fd;
+  --violet-glow: rgba(167, 139, 250, 0.32);
+  --amber: #f0c14d;
+  --bronze: #c9853f;
+  --bronze-light: #e0a45a;
+  --bronze-pale: #f0d08a;
+  --slate: #8b98ad;
+  --slate-light: #b6c2d4;
+  --text-primary: #f7f9fc;
+  --text-secondary: #b0bdcf;
+  --surface: color-mix(in srgb, var(--obsidian-2) 88%, transparent);
+  --surface-2: var(--obsidian-3);
 
-  /* ─── Hairline borders ─── */
-  --border-neon: rgba(0, 212, 255, 0.12);
-  --border-bronze: rgba(184, 115, 51, 0.2);
+  --border-neon: rgba(46, 242, 208, 0.28);
+  --border-bronze: rgba(201, 133, 63, 0.28);
+  --border: rgba(255, 255, 255, 0.14);
 
-  /* ─── Typography ─── */
-  --font-display: "Cinzel", serif;
-  --font-body: "Rajdhani", sans-serif;
-  --font-mono: "Share Tech Mono", monospace;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
 
-  /* ─── Spacing scale ─── */
   --space-xs: 0.5rem;
   --space-sm: 1rem;
-  --space-md: 2rem;
-  --space-lg: 4rem;
-  --space-xl: 6rem;
+  --space-md: 1.5rem;
+  --space-lg: 3rem;
+  --space-xl: 4rem;
 
-  /* ─── Layout ─── */
   --content-max: 1200px;
   --nav-height: 76px;
 
-  /* ─── Motion ─── */
   --transition-fast: 0.3s;
   --transition-med: 0.4s;
 
-  /* ─── Angled clip for buttons ─── */
-  --clip-btn: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+  --clip-btn: none;
+  --radius: 0.75rem;
 
-  /* ─── Z-index scale ─── */
   --z-nav: 1000;
   --z-dropdown: 1100;
 }

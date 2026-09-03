@@ -1,7 +1,7 @@
 import { PageHero } from "@/components/sections/PageHero";
 import home from "@/components/sections/home/Home.module.css";
 import p from "@/components/sections/process/Process.module.css";
-import { Button, Card, Section, SectionHeader } from "@/components/ui";
+import { Button, Card, Section, SectionHeader, Eyebrow } from "@/components/ui";
 import {
   PROCESS_ENGAGEMENT,
   PROCESS_FINAL,
@@ -81,18 +81,7 @@ export function ProcessPage() {
         <div className={`${home.finalCta} reveal`} style={{ position: "relative" }}>
           <div className="circuit-bg" />
           <div style={{ position: "relative", zIndex: 1 }}>
-            <div
-              style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "0.7rem",
-                letterSpacing: "0.4em",
-                color: "var(--neon)",
-                textTransform: "uppercase",
-                marginBottom: "1rem",
-              }}
-            >
-              // {PROCESS_FINAL.label}
-            </div>
+            <Eyebrow>{PROCESS_FINAL.label}</Eyebrow>
             <h2 className={home.finalHeading}>{PROCESS_FINAL.heading}</h2>
             <p className={home.finalSupporting}>{PROCESS_FINAL.supporting}</p>
             <div className={home.finalCtas}>

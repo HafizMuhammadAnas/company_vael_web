@@ -2,7 +2,7 @@ import { PipelineDiagram } from "@/components/sections/Diagram";
 import { PageHero } from "@/components/sections/PageHero";
 import home from "@/components/sections/home/Home.module.css";
 import s from "@/components/sections/solutions/Solutions.module.css";
-import { Button, Card, Section, SectionHeader } from "@/components/ui";
+import { Button, Card, Section, SectionHeader, Eyebrow } from "@/components/ui";
 import {
   MOB_APPROACH,
   MOB_BACKEND,
@@ -276,18 +276,7 @@ export function MobileDevelopmentPage() {
         <div className={`${home.finalCta} reveal`} style={{ position: "relative" }}>
           <div className="circuit-bg" />
           <div style={{ position: "relative", zIndex: 1 }}>
-            <div
-              style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "0.7rem",
-                letterSpacing: "0.4em",
-                color: "var(--neon)",
-                textTransform: "uppercase",
-                marginBottom: "1rem",
-              }}
-            >
-              // {MOB_FINAL.label}
-            </div>
+            <Eyebrow>{MOB_FINAL.label}</Eyebrow>
             <h2 className={home.finalHeading}>{MOB_FINAL.heading}</h2>
             <p className={home.finalSupporting}>{MOB_FINAL.supporting}</p>
             <div className={home.finalCtas}>

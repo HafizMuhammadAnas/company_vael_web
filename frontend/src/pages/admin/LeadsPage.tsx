@@ -199,11 +199,11 @@ export function LeadsPage() {
             <tbody>
               {data.items.map((lead) => (
                 <tr key={lead.id}>
-                  <td className={styles.nameCell}>{lead.full_name}</td>
-                  <td>{lead.email}</td>
-                  <td>{lead.phone ?? "—"}</td>
-                  <td>{lead.country ?? "—"}</td>
-                  <td>{formatFormType(lead.form_type)}</td>
+                    <td className={styles.nameCell}>{lead.full_name}</td>
+                    <td>{lead.email}</td>
+                    <td>{lead.phone ?? "—"}</td>
+                    <td>{lead.country ?? "—"}</td>
+                    <td>{formatFormType(lead.form_type)}</td>
                   <td>
                     <LeadStatusBadge status={lead.status} />
                   </td>

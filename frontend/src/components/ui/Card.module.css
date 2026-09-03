@@ -1,9 +1,19 @@
 .card {
-  background: var(--obsidian-2);
-  padding: 2.5rem 2rem;
+  background: linear-gradient(
+    160deg,
+    color-mix(in srgb, var(--obsidian-3) 70%, transparent),
+    color-mix(in srgb, var(--obsidian-2) 90%, transparent)
+  );
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.85rem 1.5rem;
   position: relative;
   overflow: hidden;
-  transition: background var(--transition-med);
+  transition:
+    background var(--transition-med),
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.45s ease,
+    box-shadow 0.45s ease;
 }
 
 .card::after {
@@ -13,14 +23,19 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, var(--neon), var(--bronze));
+  background: linear-gradient(90deg, var(--neon), var(--violet));
   transform: scaleX(0);
   transition: transform var(--transition-med);
   transform-origin: left;
+  box-shadow: 0 0 10px var(--neon-glow);
 }
 
 .hoverable:hover {
   background: var(--obsidian-3);
+  border-color: color-mix(in srgb, var(--neon) 45%, transparent);
+  box-shadow:
+    0 18px 48px -28px color-mix(in srgb, var(--neon) 55%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--neon) 12%, transparent);
 }
 .hoverable:hover::after {
   transform: scaleX(1);

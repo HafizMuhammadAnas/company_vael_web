@@ -2,7 +2,7 @@ import { LeadForm } from "@/components/forms/LeadForm";
 import { PageHero } from "@/components/sections/PageHero";
 import c from "@/components/sections/contact/Contact.module.css";
 import home from "@/components/sections/home/Home.module.css";
-import { Button, Section } from "@/components/ui";
+import { Button, Section, Eyebrow } from "@/components/ui";
 import {
   CONTACT_COMPANY,
   CONTACT_FINAL,
@@ -85,18 +85,7 @@ export function ContactPage() {
         <div className={`${home.finalCta} reveal`} style={{ position: "relative" }}>
           <div className="circuit-bg" />
           <div style={{ position: "relative", zIndex: 1 }}>
-            <div
-              style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "0.7rem",
-                letterSpacing: "0.4em",
-                color: "var(--neon)",
-                textTransform: "uppercase",
-                marginBottom: "1rem",
-              }}
-            >
-              // {CONTACT_FINAL.label}
-            </div>
+            <Eyebrow>{CONTACT_FINAL.label}</Eyebrow>
             <h2 className={home.finalHeading}>{CONTACT_FINAL.heading}</h2>
             <p className={home.finalSupporting}>{CONTACT_FINAL.supporting}</p>
             <div className={home.finalCtas}>

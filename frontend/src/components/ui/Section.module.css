@@ -9,13 +9,8 @@
   padding: var(--space-xl) var(--space-md);
 }
 
-.label {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.4em;
-  color: var(--neon);
-  text-transform: uppercase;
-  margin-bottom: 1rem;
+.labelRow {
+  margin-bottom: 0;
 }
 
 .title {
@@ -23,8 +18,8 @@
   font-size: clamp(1.6rem, 3vw, 2.4rem);
   font-weight: 700;
   color: var(--text-primary);
-  letter-spacing: 0.08em;
-  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
 }
 
 .accent {
@@ -35,13 +30,15 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 3rem;
+  margin-bottom: 0.85rem;
 }
 
 .lineBar {
   width: 60px;
   height: 2px;
-  background: linear-gradient(90deg, var(--neon), var(--bronze));
+  background: linear-gradient(90deg, var(--neon), var(--violet));
+  box-shadow: 0 0 12px var(--neon-glow);
+  flex-shrink: 0;
 }
 
 .lineText {
@@ -51,41 +48,53 @@
   color: var(--slate);
 }
 
+.supporting {
+  max-width: 42rem;
+  margin: 0 0 1.75rem;
+  color: var(--text-secondary);
+  font-size: 1.02rem;
+  line-height: 1.75;
+}
+
+.supporting p + p {
+  margin-top: 0.85rem;
+}
+
 .centered {
   text-align: center;
 }
-.centered .label,
+.centered .labelRow,
 .centered .line {
   justify-content: center;
   display: flex;
 }
+.centered .supporting {
+  margin-left: auto;
+  margin-right: auto;
+}
 
 @media (max-width: 900px) {
   .inner {
-    padding: var(--space-lg) 1.5rem;
+    padding: var(--space-lg) 1.25rem;
   }
   .title {
     letter-spacing: 0.05em;
   }
   .line {
-    margin-bottom: 2.25rem;
+    margin-bottom: 1.35rem;
   }
 }
 
 @media (max-width: 640px) {
   .inner {
-    padding: 3.25rem 1.1rem;
-  }
-  .label {
-    font-size: 0.65rem;
-    letter-spacing: 0.28em;
+    padding: 2.5rem 1.1rem;
   }
   .title {
     font-size: clamp(1.4rem, 7vw, 1.9rem);
     letter-spacing: 0.04em;
   }
   .line {
-    margin-bottom: 1.75rem;
+    margin-bottom: 1.15rem;
     gap: 0.75rem;
   }
   .lineBar {

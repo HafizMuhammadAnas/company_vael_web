@@ -4,7 +4,7 @@ import f from "@/components/sections/faqs/Faqs.module.css";
 import home from "@/components/sections/home/Home.module.css";
 import { PageHero } from "@/components/sections/PageHero";
 import s from "@/components/sections/solutions/Solutions.module.css";
-import { Button, Section, SectionHeader } from "@/components/ui";
+import { Button, Section, SectionHeader, Eyebrow } from "@/components/ui";
 import { FAQ_CATEGORIES, FAQ_FINAL, FAQ_HERO, FAQ_SEO } from "@/content/faqs";
 import { useDocumentMeta } from "@/hooks/useDocumentMeta";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -77,18 +77,7 @@ export function FaqsPage() {
         <div className={`${home.finalCta} reveal`} style={{ position: "relative" }}>
           <div className="circuit-bg" />
           <div style={{ position: "relative", zIndex: 1 }}>
-            <div
-              style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "0.7rem",
-                letterSpacing: "0.4em",
-                color: "var(--neon)",
-                textTransform: "uppercase",
-                marginBottom: "1rem",
-              }}
-            >
-              // {FAQ_FINAL.label}
-            </div>
+            <Eyebrow>{FAQ_FINAL.label}</Eyebrow>
             <h2 className={home.finalHeading}>{FAQ_FINAL.heading}</h2>
             <p className={home.finalSupporting}>{FAQ_FINAL.supporting}</p>
             <div className={home.finalCtas}>

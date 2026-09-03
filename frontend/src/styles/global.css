@@ -1,4 +1,5 @@
 @import "./tokens.css";
+@import "./motion.css";
 
 * {
   margin: 0;
@@ -17,6 +18,19 @@ body {
   font-size: 16px;
   line-height: 1.6;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--neon) 40%, transparent);
 }
 
 a {
@@ -51,16 +65,14 @@ body::before {
   border-radius: 2px;
 }
 
-/* ─── Circuit background pattern (reusable utility) ─── */
+/* Soft ambient field (replaces hard circuit grid) */
 .circuit-bg {
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(var(--neon-glow) 1px, transparent 1px),
-    linear-gradient(90deg, var(--neon-glow) 1px, transparent 1px);
-  background-size: 80px 80px;
-  opacity: 0.12;
-  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 100%);
+  background:
+    radial-gradient(ellipse 60% 50% at 30% 40%, color-mix(in srgb, var(--neon) 22%, transparent), transparent 70%),
+    radial-gradient(ellipse 50% 45% at 75% 60%, color-mix(in srgb, var(--violet) 20%, transparent), transparent 70%);
+  opacity: 0.95;
   pointer-events: none;
 }
 
@@ -206,6 +218,12 @@ body::before {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
+  }
+
+  /* Keep the soft hero ticker moving slowly — readable, not flashy. */
+  [class*="marqueeTrack"] {
+    animation-duration: 90s !important;
+    animation-iteration-count: infinite !important;
   }
 }
 

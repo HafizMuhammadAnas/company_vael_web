@@ -1,28 +1,53 @@
 import { Link } from "react-router-dom";
+import {
+  ArrowUpRight,
+  Building2,
+  GraduationCap,
+  HeartPulse,
+  Landmark,
+  ShoppingBag,
+  Sprout,
+  Truck,
+} from "lucide-react";
 
-import { Card, Section, SectionHeader } from "@/components/ui";
+import { Section, SectionHeader } from "@/components/ui";
 import { INDUSTRIES } from "@/content/home";
 
-import styles from "./Home.module.css";
+import styles from "./Industries.module.css";
+
+const ICONS = [Building2, GraduationCap, HeartPulse, Sprout, Landmark, Truck, ShoppingBag];
 
 export function Industries() {
   return (
-    <Section>
+    <Section id="industries" className={styles.stage}>
       <div className="reveal">
-        <SectionHeader label={INDUSTRIES.label} title={INDUSTRIES.heading} />
-        <p className={styles.supporting}>{INDUSTRIES.supporting}</p>
+        <SectionHeader label={INDUSTRIES.label} title={INDUSTRIES.heading} supporting={INDUSTRIES.supporting} />
       </div>
-      <div className={`${styles.grid} ${styles.cols3} reveal`}>
-        {INDUSTRIES.cards.map((card) => (
-          <Card key={card.title}>
-            <div className={styles.cardTitle}>{card.title}</div>
-            <p className={styles.cardText}>{card.text}</p>
-            <Link to={card.to} className={styles.cardCta}>
-              Explore Industry →
-            </Link>
-          </Card>
-        ))}
-      </div>
+
+      <ul className={`${styles.grid} reveal`}>
+        {INDUSTRIES.cards.map((card, i) => {
+          const Icon = ICONS[i] ?? Building2;
+          return (
+            <li key={card.title}>
+              <Link to={card.to} className={styles.tile}>
+                <span className={styles.tileBar} aria-hidden />
+                <span className={styles.tileTop}>
+                  <span className={styles.tileIcon}>
+                    <Icon size={18} aria-hidden />
+                  </span>
+                  <span className={styles.tileNum}>0{i + 1}</span>
+                </span>
+                <h3 className={styles.tileTitle}>{card.title}</h3>
+                <p className={styles.tileText}>{card.text}</p>
+                <span className={styles.tileCta}>
+                  Explore industry
+                  <ArrowUpRight size={15} aria-hidden />
+                </span>
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
     </Section>
   );
 }

@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui";
+import { Button, Eyebrow } from "@/components/ui";
 
 import styles from "./PageHero.module.css";
 
@@ -24,7 +24,9 @@ export function PageHero({ label, title, supporting, primaryCta, secondaryCta, t
       <div className={styles.radial} />
       <div className="scan-line" />
       <div className={styles.content}>
-        <div className={styles.label}>// {label}</div>
+        <Eyebrow centered className={styles.eyebrow}>
+          {label}
+        </Eyebrow>
         <h1 className={styles.title}>{title}</h1>
         <p className={styles.supporting}>{supporting}</p>
         {(primaryCta || secondaryCta) && (
