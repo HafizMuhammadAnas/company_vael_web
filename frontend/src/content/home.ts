@@ -24,7 +24,7 @@ export const HERO = {
 
 export const CAPABILITIES = {
   label: "Engineering Capabilities",
-  heading: "One system core. Four engineering disciplines.",
+  heading: "One system core. Four connected disciplines.",
   supporting:
     "Hover, focus, or tap a module to inspect the capability. Everything orbits a single core — connected, not siloed.",
   items: [
@@ -262,7 +262,7 @@ export const FEATURED_WORK = {
     },
   ],
   primaryCta: { label: "View All Work", to: "/work" },
-  secondaryCta: { label: "Explore Case Studies", to: "/work/case-studies" },
+  secondaryCta: { label: "View Project Write-Ups", to: "/work/case-studies" },
 };
 
 export const INDUSTRIES = {
@@ -302,7 +302,7 @@ export const INDUSTRIES = {
       to: "/industries/logistics",
     },
     {
-      title: "Retail & E-commerce",
+      title: "Retail & Commerce",
       text: "Digital commerce platforms, customer experiences, automation, and intelligent business systems.",
       to: "/industries/retail",
     },
@@ -311,7 +311,7 @@ export const INDUSTRIES = {
 
 export const PROCESS = {
   label: "How We Work",
-  heading: "A delivery journey you can watch progress.",
+  heading: "A delivery journey you can watch as it progresses.",
   supporting:
     "A structured approach helps us reduce uncertainty, maintain quality, and keep every project aligned with its business objectives.",
   steps: [
@@ -404,7 +404,7 @@ export const INSIGHTS = {
       comingSoon: true,
     },
   ],
-  cta: { label: "Explore All Insights", to: "/insights" },
+  cta: { label: "See What's Coming", to: "/insights" },
 };
 
 export const FINAL_CTA = {

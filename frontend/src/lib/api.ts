@@ -1,12 +1,16 @@
 /**
  * Lightweight API client for public form submissions.
  *
- * The base URL is read from `VITE_API_URL` (see `.env`); when unset it defaults
- * to a same-origin relative path so a dev proxy or production reverse-proxy can
- * forward `/api/*` to the FastAPI backend.
+ * Prefers `VITE_API_URL`, then falls back to `VITE_API_BASE_URL` (admin client).
+ * When unset, uses a same-origin relative path so a dev proxy or production
+ * reverse-proxy can forward `/api/*` to the FastAPI backend.
  */
-const rawBase = (import.meta.env.VITE_API_URL as string | undefined) ?? "";
-export const API_BASE = rawBase.replace(/\/$/, "");
+const rawBase =
+  (import.meta.env.VITE_API_URL as string | undefined) ||
+  (import.meta.env.VITE_API_BASE_URL as string | undefined) ||
+  "";
+/** Strip trailing slash and optional `/api/v1` suffix so endpoint assembly is consistent. */
+export const API_BASE = rawBase.replace(/\/$/, "").replace(/\/api\/v1$/, "");
 
 export const LEADS_ENDPOINT = `${API_BASE}/api/v1/public/leads`;
 

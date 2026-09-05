@@ -1,3 +1,5 @@
+import { HeroAmbient } from "@/components/ambient/HeroAmbient";
+import type { PageDomain } from "@/components/sections/domain/DomainShell";
 import { Button, Eyebrow } from "@/components/ui";
 
 import styles from "./PageHero.module.css";
@@ -14,15 +16,23 @@ interface PageHeroProps {
   primaryCta?: CtaLink;
   secondaryCta?: CtaLink;
   tags?: string[];
+  /** Optional domain — tints hero accents to match the page subject. */
+  domain?: PageDomain;
 }
 
-/** Reusable hero for inner pages (Solutions, individual solution pages, etc.). */
-export function PageHero({ label, title, supporting, primaryCta, secondaryCta, tags }: PageHeroProps) {
+/** Inner-page hero. Domain prop shifts accent atmosphere to match the page topic. */
+export function PageHero({
+  label,
+  title,
+  supporting,
+  primaryCta,
+  secondaryCta,
+  tags,
+  domain,
+}: PageHeroProps) {
   return (
-    <section className={styles.hero}>
-      <div className="circuit-bg" />
-      <div className={styles.radial} />
-      <div className="scan-line" />
+    <section className={styles.hero} data-domain={domain || undefined}>
+      <HeroAmbient layout="page" />
       <div className={styles.content}>
         <Eyebrow centered className={styles.eyebrow}>
           {label}

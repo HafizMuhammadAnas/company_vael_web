@@ -1,8 +1,9 @@
+import { DomainShell } from "@/components/sections/elevated/Elevate";
 import { LeadForm } from "@/components/forms/LeadForm";
+import { FinalCtaSection } from "@/components/sections/FinalCtaSection";
 import { PageHero } from "@/components/sections/PageHero";
 import c from "@/components/sections/contact/Contact.module.css";
-import home from "@/components/sections/home/Home.module.css";
-import { Button, Section, Eyebrow } from "@/components/ui";
+import { Section } from "@/components/ui";
 import {
   CONTACT_COMPANY,
   CONTACT_FINAL,
@@ -20,8 +21,9 @@ export function ContactPage() {
   useScrollReveal();
 
   return (
-    <>
-      <PageHero label={CONTACT_HERO.label} title={CONTACT_HERO.title} supporting={CONTACT_HERO.supporting} />
+    <DomainShell domain="contact">
+      <>
+      <PageHero domain="contact" label={CONTACT_HERO.label} title={CONTACT_HERO.title} supporting={CONTACT_HERO.supporting} />
 
       <Section>
         <div className={`${c.layout} reveal`}>
@@ -79,23 +81,13 @@ export function ContactPage() {
           </div>
         </div>
       </Section>
-
-      {/* Final CTA */}
-      <Section className={home.altBg}>
-        <div className={`${home.finalCta} reveal`} style={{ position: "relative" }}>
-          <div className="circuit-bg" />
-          <div style={{ position: "relative", zIndex: 1 }}>
-            <Eyebrow>{CONTACT_FINAL.label}</Eyebrow>
-            <h2 className={home.finalHeading}>{CONTACT_FINAL.heading}</h2>
-            <p className={home.finalSupporting}>{CONTACT_FINAL.supporting}</p>
-            <div className={home.finalCtas}>
-              <Button variant="primary" to={CONTACT_FINAL.primaryCta.to}>
-                {CONTACT_FINAL.primaryCta.label}
-              </Button>
-            </div>
-          </div>
-        </div>
-      </Section>
+      <FinalCtaSection
+        label={CONTACT_FINAL.label}
+        heading={CONTACT_FINAL.heading}
+        supporting={CONTACT_FINAL.supporting}
+        primaryCta={CONTACT_FINAL.primaryCta}
+      />
     </>
+    </DomainShell>
   );
 }

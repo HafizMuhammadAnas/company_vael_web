@@ -1,0 +1,90 @@
+.ambient {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.home {
+  mask-image: linear-gradient(to bottom, black 0%, black 78%, transparent 100%);
+}
+
+.page {
+  mask-image: linear-gradient(to bottom, black 0%, black 72%, transparent 100%);
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+}
+
+.blobA {
+  top: -14rem;
+  left: -12rem;
+  width: 42rem;
+  height: 42rem;
+  background: radial-gradient(circle, var(--neon), transparent 70%);
+  opacity: 0.34;
+  animation: vk-drift-a 32s ease-in-out infinite;
+}
+
+.blobB {
+  top: -10rem;
+  right: -18rem;
+  width: 38rem;
+  height: 38rem;
+  background: radial-gradient(circle, var(--violet), transparent 70%);
+  opacity: 0.36;
+  animation: vk-drift-b 40s ease-in-out infinite;
+}
+
+.blobC {
+  bottom: -10rem;
+  right: 8%;
+  width: 30rem;
+  height: 30rem;
+  background: radial-gradient(circle, var(--neon), transparent 72%);
+  opacity: 0.2;
+  animation: vk-drift-a 44s ease-in-out infinite;
+}
+
+.particles {
+  position: absolute;
+  inset: 0;
+}
+
+/* Home: open constellation on the right; softer over left copy. */
+.home .particles {
+  mask-image: radial-gradient(ellipse 100% 90% at 62% 40%, black 28%, transparent 82%);
+}
+
+/* Page: keep the centered title readable — particles live more toward the edges. */
+.page .particles {
+  opacity: 0.72;
+  mask-image: radial-gradient(ellipse 55% 48% at 50% 42%, transparent 18%, black 72%);
+}
+
+.page .blobA,
+.page .blobB {
+  opacity: 0.28;
+}
+
+.page .blobC {
+  opacity: 0.16;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blobA,
+  .blobB,
+  .blobC {
+    animation: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .page .particles {
+    opacity: 0.55;
+  }
+}

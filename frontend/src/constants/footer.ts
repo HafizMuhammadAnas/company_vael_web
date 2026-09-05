@@ -46,7 +46,7 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
       { label: "AI & Intelligent Automation", to: "/solutions/ai-automation" },
       { label: "Custom Software Development", to: "/solutions/custom-software" },
       { label: "Web Development", to: "/solutions/web-development" },
-      { label: "Mobile Development", to: "/solutions/mobile-development" },
+      { label: "Mobile App Development", to: "/solutions/mobile-development" },
       { label: "Cloud & DevOps", to: "/solutions/cloud-devops" },
       { label: "Technology Consulting", to: "/solutions/technology-consulting" },
     ],
@@ -60,7 +60,7 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
       { label: "Agriculture", to: "/industries/agriculture" },
       { label: "Finance", to: "/industries/finance" },
       { label: "Logistics", to: "/industries/logistics" },
-      { label: "Retail & E-commerce", to: "/industries/retail" },
+      { label: "Retail & Commerce", to: "/industries/retail" },
     ],
   },
   {
@@ -74,7 +74,11 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
   },
   {
     title: "Resources",
-    links: [{ label: "FAQs", to: "/faqs" }],
+    links: [
+      { label: "FAQs", to: "/faqs" },
+      { label: "Insights", to: "/insights" },
+      { label: "Our Work", to: "/work" },
+    ],
   },
   {
     title: "Legal",

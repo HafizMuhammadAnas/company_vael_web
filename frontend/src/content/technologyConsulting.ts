@@ -270,7 +270,7 @@ export const TC_BUILD_BUY = {
 
 export const TC_EVALUATION = {
   label: "Technology Selection",
-  heading: "Choose Technology Based on Requirements—not Hype.",
+  heading: "Choose Technology Based on Requirements — Not Hype.",
   paragraphs: [
     "New frameworks, platforms, cloud services, and AI technologies appear constantly. The newest technology is not automatically the best technology for your project.",
     "We evaluate technical options according to the actual needs of the product and organization.",

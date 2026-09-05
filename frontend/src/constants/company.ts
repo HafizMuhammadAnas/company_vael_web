@@ -13,18 +13,18 @@ export const COMPANY = {
   websiteUrl: "https://vaelkode.com",
 
   positioning:
-    "VAELKODE is a technology company focused on building software, digital platforms, intelligent systems, and technology solutions for real-world business and operational needs.",
+    "VAELKODE is an AI-first digital engineering company focused on building software, digital platforms, intelligent systems, and technology solutions for real-world business and operational needs.",
 
   shortDescription:
     "VAELKODE combines software engineering, artificial intelligence, automation, cloud technologies, and technology consulting to help organizations build, improve, and modernize digital solutions.",
 
   /** Concise blurb for the footer brand column. */
   footerBlurb:
-    "VAELKODE builds software, digital platforms, intelligent systems, and technology solutions around real business needs.",
+    "VAELKODE is an AI-first digital engineering company building software, intelligent systems, and technology solutions around real business needs.",
 
   /** Longer standard description for use wherever a full intro is required. */
   about: [
-    "VAELKODE is a technology company focused on building practical digital solutions around real business needs.",
+    "VAELKODE is an AI-first digital engineering company focused on building practical digital solutions around real business needs.",
     "We work across software development, web and mobile applications, artificial intelligence, intelligent automation, cloud and DevOps engineering, and technology consulting.",
     "Our approach starts with understanding the problem, the people involved, the existing processes and systems, and the desired outcome. We then design and build technology that is purposeful, maintainable, and aligned with the organization's requirements.",
     "Whether it is a new digital product, a custom business application, an existing system that needs improvement, or an opportunity to introduce AI and automation, VAELKODE focuses on turning technology challenges into practical solutions.",
@@ -49,8 +49,8 @@ export const COMPANY = {
 
   /** Default site-wide SEO metadata (mirrored in index.html). */
   seo: {
-    title: "VAELKODE — Technology & Software Solutions",
+    title: "VAELKODE | AI-First Digital Engineering Company",
     description:
-      "VAELKODE builds software, digital platforms, AI solutions, and technology systems designed around real business and operational needs.",
+      "VAELKODE is an AI-first digital engineering company delivering intelligent software, AI solutions, cloud engineering, and digital transformation for ambitious organizations.",
   },
 } as const;

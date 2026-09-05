@@ -1,9 +1,43 @@
-import { Link } from "react-router-dom";
+import {
+  BarChart3,
+  Blocks,
+  Boxes,
+  Braces,
+  Database,
+  Eye,
+  Gauge,
+  KeyRound,
+  Layers,
+  LayoutDashboard,
+  Link2,
+  Lock,
+  Move,
+  Palette,
+  Puzzle,
+  RefreshCcw,
+  ScrollText,
+  Server,
+  Settings,
+  SquareStack,
+  TestTube,
+  TrendingUp,
+  Users,
+  Webhook,
+  Workflow,
+} from "lucide-react";
 
+import { FinalCtaSection } from "@/components/sections/FinalCtaSection";
 import { PageHero } from "@/components/sections/PageHero";
-import home from "@/components/sections/home/Home.module.css";
-import s from "@/components/sections/solutions/Solutions.module.css";
-import { Button, Card, Section, SectionHeader, Eyebrow } from "@/components/ui";
+import {
+AudienceAtlas,
+  ExplorerList,
+  FaqConsole,
+  JourneyRail,
+  PrincipleDeck,
+  StackExplorer,
+  WorkGallery,
+  DomainShell,
+} from "@/components/sections/elevated/Elevate";
 import {
   CS_BUILD,
   CS_CAPABILITIES,
@@ -24,13 +58,31 @@ import { FEATURED_WORK } from "@/content/home";
 import { useDocumentMeta } from "@/hooks/useDocumentMeta";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
+const WHY_ICONS = [Workflow, Link2, TrendingUp];
+const BUILD_ICONS = [Layers, Settings, Boxes, LayoutDashboard, Users, Webhook];
+const PROBLEM_ICONS = [Puzzle, RefreshCcw, Server, Eye, Blocks, Braces];
+const CAPABILITY_ICONS = [
+  Layers,
+  Palette,
+  Server,
+  LayoutDashboard,
+  Database,
+  Webhook,
+  KeyRound,
+  BarChart3,
+];
+const MODERNIZE_ICONS = [RefreshCcw, Link2, Move, Puzzle];
+const PRINCIPLE_ICONS = [SquareStack, Blocks, Lock, Gauge, TestTube, ScrollText];
+
 export function CustomSoftwarePage() {
   useDocumentMeta(CS_SEO.title, CS_SEO.description);
   useScrollReveal();
 
   return (
-    <>
+    <DomainShell domain="software">
+      <>
       <PageHero
+        domain="software"
         label={CS_HERO.label}
         title={CS_HERO.title}
         supporting={CS_HERO.supporting}
@@ -40,253 +92,134 @@ export function CustomSoftwarePage() {
       />
 
       {/* 02 — Why Custom Software */}
-      <Section className={home.altBg}>
-        <div className="reveal">
-          <SectionHeader label={CS_WHY.label} title={CS_WHY.heading} />
-          <div className={home.supporting}>
-            {CS_WHY.paragraphs.map((p) => (
-              <p key={p}>{p}</p>
-            ))}
-          </div>
-        </div>
-        <div className={`${home.grid} ${home.cols3} reveal`}>
-          {CS_WHY.cards.map((item) => (
-            <Card key={item.title}>
-              <div className={home.cardTitle}>{item.title}</div>
-              <p className={home.cardText}>{item.text}</p>
-            </Card>
-          ))}
-        </div>
-      </Section>
+      <PrincipleDeck
+        label={CS_WHY.label}
+        title={CS_WHY.heading}
+        supporting={CS_WHY.paragraphs.map((p) => (
+          <p key={p}>{p}</p>
+        ))}
+        items={CS_WHY.cards}
+        icons={WHY_ICONS}
+        eyebrowPrefix="Reason"
+        altBg
+      />
 
       {/* 03 — What We Build */}
-      <Section>
-        <div className="reveal">
-          <SectionHeader label={CS_BUILD.label} title={CS_BUILD.heading} lineText={CS_BUILD.supporting} />
-        </div>
-        <div className={`${home.grid} ${home.cols3} reveal`}>
-          {CS_BUILD.cards.map((card) => (
-            <Card key={card.title} className={s.solutionCard}>
-              <div className={home.cardTitle}>{card.title}</div>
-              <p className={home.cardText}>{card.description}</p>
-              <div className={s.solutionCapabilities}>
-                {card.items.map((item) => (
-                  <span key={item} className={home.chip}>
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </Card>
-          ))}
-        </div>
-      </Section>
+      <ExplorerList
+        label={CS_BUILD.label}
+        title={CS_BUILD.heading}
+        supporting={CS_BUILD.supporting}
+        icons={BUILD_ICONS}
+        items={CS_BUILD.cards.map((card) => ({
+          title: card.title,
+          text: card.description,
+          tags: card.items,
+        }))}
+      />
 
       {/* 04 — Business Problems We Solve */}
-      <Section className={home.altBg}>
-        <div className="reveal">
-          <SectionHeader label={CS_PROBLEMS.label} title={CS_PROBLEMS.heading} />
-          <p className={home.supporting}>{CS_PROBLEMS.supporting}</p>
-        </div>
-        <div className={`${home.grid} ${home.cols3} reveal`}>
-          {CS_PROBLEMS.cards.map((item) => (
-            <Card key={item.title} className={s.solutionCard}>
-              <div className={home.cardTitle}>{item.title}</div>
-              <p className={home.cardText}>{item.text}</p>
-              <div className={s.potential}>
-                <span>Potential solution</span>
-                <span className={s.potentialValue}>{item.solution}</span>
-              </div>
-            </Card>
-          ))}
-        </div>
-      </Section>
+      <PrincipleDeck
+        label={CS_PROBLEMS.label}
+        title={CS_PROBLEMS.heading}
+        supporting={CS_PROBLEMS.supporting}
+        icons={PROBLEM_ICONS}
+        eyebrowPrefix="Challenge"
+        items={CS_PROBLEMS.cards.map((card) => ({
+          title: card.title,
+          text: card.text,
+          tags: [card.solution],
+        }))}
+        altBg
+      />
 
       {/* 05 — Software Capabilities */}
-      <Section>
-        <div className="reveal">
-          <SectionHeader label={CS_CAPABILITIES.label} title={CS_CAPABILITIES.heading} />
-          <p className={home.supporting}>{CS_CAPABILITIES.supporting}</p>
-        </div>
-        <div className={`${home.grid} ${home.cols4} reveal`}>
-          {CS_CAPABILITIES.cards.map((item) => (
-            <Card key={item.title}>
-              <div className={home.cardTitle}>{item.title}</div>
-              <p className={home.cardText}>{item.text}</p>
-            </Card>
-          ))}
-        </div>
-      </Section>
+      <ExplorerList
+        label={CS_CAPABILITIES.label}
+        title={CS_CAPABILITIES.heading}
+        supporting={CS_CAPABILITIES.supporting}
+        items={CS_CAPABILITIES.cards}
+        icons={CAPABILITY_ICONS}
+      />
 
       {/* 06 — Modernization & Integration */}
-      <Section className={home.altBg}>
-        <div className="reveal">
-          <SectionHeader label={CS_MODERNIZE.label} title={CS_MODERNIZE.heading} />
-          <div className={home.supporting}>
-            {CS_MODERNIZE.paragraphs.map((p) => (
-              <p key={p}>{p}</p>
-            ))}
-          </div>
-        </div>
-        <div className={`${home.grid} ${home.cols4} reveal`}>
-          {CS_MODERNIZE.cards.map((item) => (
-            <Card key={item.title}>
-              <div className={home.cardTitle}>{item.title}</div>
-              <p className={home.cardText}>{item.text}</p>
-            </Card>
-          ))}
-        </div>
-        <div className={`${home.sectionCtas} reveal`}>
-          <Button variant="primary" to={CS_MODERNIZE.cta.to}>
-            {CS_MODERNIZE.cta.label} →
-          </Button>
-        </div>
-      </Section>
+      <ExplorerList
+        label={CS_MODERNIZE.label}
+        title={CS_MODERNIZE.heading}
+        supporting={CS_MODERNIZE.paragraphs.map((p) => (
+          <p key={p}>{p}</p>
+        ))}
+        items={CS_MODERNIZE.cards}
+        icons={MODERNIZE_ICONS}
+        footerCta={CS_MODERNIZE.cta}
+        altBg
+      />
 
       {/* 07 — Engineering Principles */}
-      <Section>
-        <div className="reveal">
-          <SectionHeader label={CS_PRINCIPLES.label} title={CS_PRINCIPLES.heading} />
-          <p className={home.supporting}>{CS_PRINCIPLES.supporting}</p>
-        </div>
-        <div className={`${home.grid} ${home.cols3} reveal`}>
-          {CS_PRINCIPLES.cards.map((item) => (
-            <Card key={item.num}>
-              <div className={home.cardNum}>{item.num}</div>
-              <div className={home.cardTitle}>{item.title}</div>
-              <p className={home.cardText}>{item.text}</p>
-            </Card>
-          ))}
-        </div>
-      </Section>
+      <PrincipleDeck
+        label={CS_PRINCIPLES.label}
+        title={CS_PRINCIPLES.heading}
+        supporting={CS_PRINCIPLES.supporting}
+        items={CS_PRINCIPLES.cards}
+        icons={PRINCIPLE_ICONS}
+        eyebrowPrefix="Principle"
+      />
 
       {/* 08 — Technology */}
-      <Section className={home.altBg}>
-        <div className="reveal">
-          <SectionHeader label={CS_TECH.label} title={CS_TECH.heading} />
-          <p className={home.supporting}>{CS_TECH.supporting}</p>
-        </div>
-        <div className={`${home.techGrid} reveal`}>
-          {CS_TECH.categories.map((cat) => (
-            <div key={cat.title} className={home.techCat}>
-              <div className={home.techTitle}>{cat.title}</div>
-              <div className={home.chips}>
-                {cat.items.map((item) => (
-                  <span key={item} className={home.chip}>
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </Section>
+      <StackExplorer
+        label={CS_TECH.label}
+        title={CS_TECH.heading}
+        supporting={CS_TECH.supporting}
+        categories={CS_TECH.categories}
+        altBg
+      />
 
       {/* 09 — Development Process */}
-      <Section>
-        <div className="reveal">
-          <SectionHeader label={CS_PROCESS.label} title={CS_PROCESS.heading} />
-          <p className={home.supporting}>{CS_PROCESS.supporting}</p>
-        </div>
-        <div className={`${s.stepsGrid} reveal`}>
-          {CS_PROCESS.steps.map((step) => (
-            <div key={step.num} className={home.step}>
-              <div className={home.stepNode}>
-                <span className={home.stepNum}>{step.num}</span>
-              </div>
-              <div className={home.stepTitle}>{step.title}</div>
-              <p className={home.stepText}>{step.text}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
+      <JourneyRail
+        label={CS_PROCESS.label}
+        title={CS_PROCESS.heading}
+        supporting={CS_PROCESS.supporting}
+        steps={CS_PROCESS.steps}
+        layout="vertical"
+      />
 
       {/* 10 — Who We Help */}
-      <Section className={home.altBg}>
-        <div className="reveal">
-          <SectionHeader label={CS_WHO.label} title={CS_WHO.heading} />
-          <p className={home.supporting}>{CS_WHO.supporting}</p>
-        </div>
-        <div className={`${home.grid} ${home.cols3} reveal`}>
-          {CS_WHO.cards.map((item) => (
-            <Card key={item.title}>
-              <div className={home.cardTitle}>{item.title}</div>
-              <p className={home.cardText}>{item.text}</p>
-            </Card>
-          ))}
-        </div>
-        <div className={`${home.sectionCtas} reveal`}>
-          <Button variant="outline" to={CS_WHO.cta.to}>
-            {CS_WHO.cta.label} →
-          </Button>
-        </div>
-      </Section>
+      <AudienceAtlas
+        label={CS_WHO.label}
+        title={CS_WHO.heading}
+        supporting={CS_WHO.supporting}
+        cards={CS_WHO.cards}
+        footerCta={CS_WHO.cta}
+        altBg
+      />
 
       {/* 11 — Selected Work (reuses approved homepage items) */}
-      <Section>
-        <div className="reveal">
-          <SectionHeader label={CS_WORK.label} title={CS_WORK.heading} />
-          <p className={home.supporting}>{CS_WORK.supporting}</p>
-          <p className={home.sectionNote}>{CS_WORK.note}</p>
-        </div>
-        <div className={`${home.grid} ${home.cols3} reveal`}>
-          {FEATURED_WORK.cards.map((card) => (
-            <Card key={card.title}>
-              <div className={home.cardCategory}>{card.category}</div>
-              <div className={home.cardTitle}>{card.title}</div>
-              <p className={home.cardText}>{card.description}</p>
-              <div className={home.cardTech}>{card.technology}</div>
-              <Link to={card.to} className={home.cardCta}>
-                {card.cta} →
-              </Link>
-            </Card>
-          ))}
-        </div>
-        <div className={`${home.sectionCtas} reveal`}>
-          <Button variant="primary" to={CS_WORK.cta.to}>
-            {CS_WORK.cta.label} →
-          </Button>
-        </div>
-      </Section>
+      <WorkGallery
+        label={CS_WORK.label}
+        title={CS_WORK.heading}
+        supporting={CS_WORK.supporting}
+        note={CS_WORK.note}
+        cards={FEATURED_WORK.cards}
+        footerCta={CS_WORK.cta}
+      />
 
       {/* 12 — FAQ */}
-      <Section className={home.altBg}>
-        <div className="reveal">
-          <SectionHeader label={CS_FAQ.label} title={CS_FAQ.heading} />
-        </div>
-        <div className={`${s.faq} reveal`}>
-          {CS_FAQ.items.map((item) => (
-            <details key={item.q} className={s.faqItem}>
-              <summary className={s.faqQuestion}>{item.q}</summary>
-              <div className={s.faqAnswer}>{item.a}</div>
-            </details>
-          ))}
-        </div>
-        <div className={`${home.sectionCtas} reveal`}>
-          <Button variant="primary" to={CS_FAQ.cta.to}>
-            {CS_FAQ.cta.label} →
-          </Button>
-        </div>
-      </Section>
+      <FaqConsole
+        label={CS_FAQ.label}
+        title={CS_FAQ.heading}
+        items={CS_FAQ.items}
+        footerCta={CS_FAQ.cta}
+        altBg
+      />
 
       {/* 13 — Final CTA */}
-      <Section>
-        <div className={`${home.finalCta} reveal`} style={{ position: "relative" }}>
-          <div className="circuit-bg" />
-          <div style={{ position: "relative", zIndex: 1 }}>
-            <Eyebrow>{CS_FINAL.label}</Eyebrow>
-            <h2 className={home.finalHeading}>{CS_FINAL.heading}</h2>
-            <p className={home.finalSupporting}>{CS_FINAL.supporting}</p>
-            <div className={home.finalCtas}>
-              <Button variant="primary" to={CS_FINAL.primaryCta.to}>
-                {CS_FINAL.primaryCta.label}
-              </Button>
-              <Button variant="outline" to={CS_FINAL.secondaryCta.to}>
-                {CS_FINAL.secondaryCta.label}
-              </Button>
-            </div>
-          </div>
-        </div>
-      </Section>
+      <FinalCtaSection
+        label={CS_FINAL.label}
+        heading={CS_FINAL.heading}
+        supporting={CS_FINAL.supporting}
+        primaryCta={CS_FINAL.primaryCta}
+        secondaryCta={CS_FINAL.secondaryCta}
+      />
     </>
+    </DomainShell>
   );
 }

@@ -161,7 +161,7 @@ export const WORK_HERO = {
   label: "Our Work",
   title: "Building Intelligent Technology for Real-World Challenges.",
   supporting:
-    "Our work spans AI and intelligent automation, enterprise software, digital platforms, computer vision, cloud engineering, and data-driven solutions. We focus on turning complex requirements into practical technology systems.",
+    "Selected professional and technical delivery experience across AI and intelligent automation, enterprise software, digital platforms, computer vision, cloud engineering, and data-driven solutions — not client projects delivered under the VAELKODE brand.",
   primaryCta: { label: "Discuss Your Project", to: "/consultation" },
   secondaryCta: { label: "Request a Proposal", to: "/request-proposal" },
 };
@@ -251,17 +251,17 @@ export const WORK_INDUSTRIES = {
     { label: "Agriculture", to: "/industries#agriculture" },
     { label: "Finance", to: "/industries#finance" },
     { label: "Logistics", to: "/industries#logistics" },
-    { label: "Retail & E-commerce", to: "/industries#retail" },
+    { label: "Retail & Commerce", to: "/industries#retail" },
   ],
   cta: { label: "Explore Industries", to: "/industries" },
 };
 
 export const WORK_CASE_STUDIES_TEASER = {
-  label: "Case Studies",
+  label: "Project Write-Ups",
   heading: "Explore the Work in Detail",
   supporting:
-    "Go beyond the technology stack and explore the challenges, approaches, architectures, and solutions behind selected projects.",
-  cta: { label: "View All Case Studies", to: "/work/case-studies" },
+    "Go beyond the technology stack and explore the challenges, approaches, architectures, and solutions behind selected professional projects.",
+  cta: { label: "View All Project Write-Ups", to: "/work/case-studies" },
 };
 
 export const WORK_FINAL = {
@@ -294,17 +294,21 @@ export const PORTFOLIO_NOTE =
 /* ─────────────────────────  /work/case-studies  ───────────────────────── */
 
 export const CASE_STUDIES_SEO = {
-  title: "Case Studies | VAELKODE",
+  title: "Project Write-Ups | VAELKODE",
   description:
-    "Explore how complex business and technical challenges were approached through software engineering, artificial intelligence, automation, and modern digital technologies.",
+    "Detailed write-ups of selected professional projects across software engineering, artificial intelligence, automation, and modern digital technologies — not VAELKODE-brand client deliveries.",
 };
 
 export const CASE_STUDIES_HERO = {
-  label: "Case Studies",
-  title: "Case Studies",
+  label: "Project Write-Ups",
+  title: "Project Write-Ups",
   supporting:
     "Explore how complex business and technical challenges were approached through software engineering, artificial intelligence, automation, and modern digital technologies.",
 };
+
+/** Shown on case-study index and detail pages — keep visible above the fold. */
+export const CASE_STUDIES_NOTE =
+  "These write-ups describe selected professional and technical delivery experience. They are not client projects delivered under the VAELKODE brand.";
 
 export interface CaseStudy {
   slug: string;
@@ -325,9 +329,9 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     slug: "navttc-government-platform",
     seo: {
-      title: "NAVTTC Government Infrastructure Platform | Case Study | VAELKODE",
+      title: "NAVTTC Government Infrastructure Platform | Project Write-Up | VAELKODE",
       description:
-        "A case study on architecting and delivering 12 interconnected government systems across the TVET lifecycle, with document digitization, multi-agent qualification generation, and AI-powered reporting.",
+        "A professional project write-up on architecting and delivering 12 interconnected government systems across the TVET lifecycle, with document digitization, multi-agent qualification generation, and AI-powered reporting.",
     },
     category: "Government Technology · Enterprise Platforms · AI Automation",
     title: "NAVTTC Government Infrastructure Platform",
@@ -362,9 +366,9 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     slug: "empowernow-agentic-ai",
     seo: {
-      title: "EmpowerNow — Agentic AI Workflow Engine | Case Study | VAELKODE",
+      title: "EmpowerNow — Agentic AI Workflow Engine | Project Write-Up | VAELKODE",
       description:
-        "A case study on a WebSocket-driven agentic AI engine that generates structured enterprise workflows using GPT-4o, RAG, tool calling, and multi-agent orchestration.",
+        "A professional project write-up on a WebSocket-driven agentic AI engine that generates structured enterprise workflows using GPT-4o, RAG, tool calling, and multi-agent orchestration.",
     },
     category: "Agentic AI · Enterprise Automation",
     title: "EmpowerNow — Agentic AI Workflow Engine",
@@ -390,9 +394,9 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     slug: "precision-agriculture-cv-geospatial",
     seo: {
-      title: "Precision Agriculture — CV & Geospatial AI | Case Study | VAELKODE",
+      title: "Precision Agriculture — CV & Geospatial AI | Project Write-Up | VAELKODE",
       description:
-        "A case study on computer vision and geospatial AI for agriculture: crop classification, variety detection, disease and risk mapping, and sowing date prediction from satellite imagery.",
+        "A professional project write-up on computer vision and geospatial AI for agriculture: crop classification, variety detection, disease and risk mapping, and sowing date prediction from satellite imagery.",
     },
     category: "Computer Vision · Geospatial AI · Agriculture",
     title: "Precision Agriculture — CV & Geospatial AI",

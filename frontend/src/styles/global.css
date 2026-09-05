@@ -158,6 +158,12 @@ body::before {
   text-align: center;
   padding: 4rem 2rem;
   position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 70% 55% at 20% 15%, color-mix(in srgb, var(--neon) 18%, transparent), transparent 60%),
+    radial-gradient(ellipse 55% 50% at 85% 20%, color-mix(in srgb, var(--violet) 20%, transparent), transparent 58%),
+    var(--obsidian);
 }
 
 .systemInner {

@@ -358,7 +358,7 @@ export const CS_WHO = {
       text: "Operations platforms, tracking systems, workflow management, integrations, and analytics.",
     },
     {
-      title: "Retail & E-commerce",
+      title: "Retail & Commerce",
       text: "Commerce platforms, customer applications, inventory workflows, analytics, and integrations.",
     },
   ],

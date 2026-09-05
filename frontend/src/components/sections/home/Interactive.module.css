@@ -68,19 +68,19 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  border: 1px solid color-mix(in srgb, var(--neon) 55%, transparent);
+  border: 1px solid color-mix(in srgb, var(--domain-accent, var(--neon)) 55%, transparent);
   background: color-mix(in srgb, var(--obsidian-2) 80%, transparent);
   backdrop-filter: blur(8px);
   text-align: center;
   padding: 1rem;
-  box-shadow: 0 0 40px color-mix(in srgb, var(--neon) 28%, transparent);
+  box-shadow: 0 0 40px color-mix(in srgb, var(--domain-accent, var(--neon)) 28%, transparent);
 }
 
 .coreGlow {
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  background: radial-gradient(circle, var(--neon-bright), transparent 65%);
+  background: radial-gradient(circle, var(--domain-accent, var(--neon-bright)), transparent 65%);
   opacity: 0.42;
   filter: blur(18px);
   animation: vk-core 3.6s ease-in-out infinite;
@@ -90,7 +90,7 @@
   position: absolute;
   inset: -1rem;
   border-radius: 50%;
-  border: 1px solid color-mix(in srgb, var(--neon) 20%, transparent);
+  border: 1px solid color-mix(in srgb, var(--domain-accent, var(--neon)) 20%, transparent);
   animation: vk-pulse-ring 3s ease-out infinite;
 }
 
@@ -99,8 +99,8 @@
   font-size: 0.62rem;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--neon-bright);
-  text-shadow: 0 0 12px var(--neon-glow);
+  color: var(--domain-accent, var(--neon-bright));
+  text-shadow: 0 0 12px var(--domain-glow, var(--neon-glow));
 }
 
 .coreTitle {
@@ -146,9 +146,9 @@
 }
 
 .moduleBtnActive {
-  border-color: color-mix(in srgb, var(--neon) 60%, transparent);
+  border-color: color-mix(in srgb, var(--domain-accent, var(--neon)) 60%, transparent);
   background: var(--obsidian-3);
-  box-shadow: 0 18px 50px -24px color-mix(in srgb, var(--neon) 70%, transparent);
+  box-shadow: 0 18px 50px -24px color-mix(in srgb, var(--domain-accent, var(--neon)) 70%, transparent);
 }
 
 .moduleLabel {
@@ -173,7 +173,7 @@
   font-size: 0.68rem;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--neon);
+  color: var(--domain-accent, var(--neon));
 }
 
 .readoutTitle {
@@ -198,7 +198,7 @@
 
 .pill {
   border-radius: 999px;
-  border: 1px solid color-mix(in srgb, var(--neon) 30%, transparent);
+  border: 1px solid color-mix(in srgb, var(--domain-accent, var(--neon)) 30%, transparent);
   padding: 0.3rem 0.75rem;
   font-family: var(--font-mono);
   font-size: 0.62rem;
@@ -224,8 +224,8 @@
 }
 
 .selectorActive {
-  border-color: color-mix(in srgb, var(--neon) 60%, transparent);
-  background: color-mix(in srgb, var(--neon) 10%, transparent);
+  border-color: color-mix(in srgb, var(--domain-accent, var(--neon)) 60%, transparent);
+  background: color-mix(in srgb, var(--domain-accent, var(--neon)) 10%, transparent);
   color: var(--text-primary);
 }
 
@@ -254,7 +254,7 @@
   background: linear-gradient(
     105deg,
     transparent 40%,
-    color-mix(in srgb, var(--neon) 8%, transparent) 50%,
+    color-mix(in srgb, var(--domain-accent, var(--neon)) 8%, transparent) 50%,
     transparent 60%
   );
   background-size: 220% 100%;
@@ -279,13 +279,13 @@
   top: 0;
   width: 18%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--neon), transparent);
+  background: linear-gradient(90deg, transparent, var(--domain-accent, var(--neon)), transparent);
   animation: vk-trace 4.8s linear infinite;
 }
 
 .panelPacketAlt {
   width: 12%;
-  background: linear-gradient(90deg, transparent, var(--violet), transparent);
+  background: linear-gradient(90deg, transparent, var(--domain-accent-2, var(--violet)), transparent);
   animation-delay: 2.2s;
 }
 
@@ -308,7 +308,7 @@
   inset-inline: 12%;
   top: 0;
   height: 1px;
-  background: linear-gradient(to right, transparent, var(--neon), transparent);
+  background: linear-gradient(to right, transparent, var(--domain-accent, var(--neon)), transparent);
   animation: vk-core 3s ease-in-out infinite;
 }
 
@@ -322,8 +322,8 @@
   background: linear-gradient(
     90deg,
     transparent,
-    color-mix(in srgb, var(--neon) 28%, transparent),
-    color-mix(in srgb, var(--violet) 22%, transparent),
+    color-mix(in srgb, var(--domain-accent, var(--neon)) 28%, transparent),
+    color-mix(in srgb, var(--domain-accent-2, var(--violet)) 22%, transparent),
     transparent
   );
   filter: blur(0.4px);
@@ -335,7 +335,7 @@
   height: 2px;
   width: 5rem;
   border-radius: 999px;
-  background: linear-gradient(90deg, transparent, var(--neon), transparent);
+  background: linear-gradient(90deg, transparent, var(--domain-accent, var(--neon)), transparent);
   animation: vk-trace 4.2s linear infinite;
   filter: blur(0.5px);
 }
@@ -372,16 +372,16 @@
 }
 
 .nodeActive {
-  border-color: color-mix(in srgb, var(--neon) 70%, transparent);
+  border-color: color-mix(in srgb, var(--domain-accent, var(--neon)) 70%, transparent);
   background: var(--obsidian-3);
-  box-shadow: 0 0 0 6px color-mix(in srgb, var(--neon) 10%, transparent);
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--domain-accent, var(--neon)) 10%, transparent);
 }
 
 .nodePulse {
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  border: 1px solid color-mix(in srgb, var(--neon) 40%, transparent);
+  border: 1px solid color-mix(in srgb, var(--domain-accent, var(--neon)) 40%, transparent);
   animation: vk-pulse-ring 2.6s ease-out infinite;
 }
 
@@ -394,7 +394,7 @@
 }
 
 .panelSignal {
-  color: var(--neon);
+  color: var(--domain-accent, var(--neon));
 }
 
 .panelText {
@@ -411,7 +411,7 @@
   margin-top: 1rem;
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--neon);
+  color: var(--domain-accent, var(--neon));
 }
 
 /* Constellation */
@@ -454,9 +454,9 @@
 }
 
 .starActive {
-  border-color: color-mix(in srgb, var(--neon) 70%, transparent);
+  border-color: color-mix(in srgb, var(--domain-accent, var(--neon)) 70%, transparent);
   background: var(--obsidian-3);
-  box-shadow: 0 18px 60px -24px color-mix(in srgb, var(--neon) 80%, transparent);
+  box-shadow: 0 18px 60px -24px color-mix(in srgb, var(--domain-accent, var(--neon)) 80%, transparent);
 }
 
 .starLabel {
@@ -499,11 +499,11 @@
   inset-block: 0;
   left: 0;
   width: 2px;
-  background: var(--neon);
+  background: var(--domain-accent, var(--neon));
   transform: scaleY(0);
   transform-origin: top;
   transition: transform 0.45s ease;
-  box-shadow: 0 0 10px var(--neon-glow);
+  box-shadow: 0 0 10px var(--domain-glow, var(--neon-glow));
 }
 
 .listBtnActive .listBar {
@@ -561,12 +561,12 @@
   font-size: 0.72rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--neon-bright);
+  color: var(--domain-accent, var(--neon-bright));
   text-decoration: none;
 }
 
 .listCta:hover {
-  text-shadow: 0 0 12px var(--neon-glow);
+  text-shadow: 0 0 12px var(--domain-glow, var(--neon-glow));
 }
 
 .muted {
@@ -574,7 +574,7 @@
 }
 
 .signal {
-  color: var(--neon);
+  color: var(--domain-accent, var(--neon));
 }
 
 /* Why VAELKODE — interactive principles */
@@ -620,8 +620,8 @@
   top: 1.4rem;
   width: 1px;
   max-height: calc(100% - 2.8rem);
-  background: linear-gradient(180deg, color-mix(in srgb, var(--neon) 30%, transparent), var(--neon));
-  box-shadow: 0 0 12px 1px color-mix(in srgb, var(--neon) 50%, transparent);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--domain-accent, var(--neon)) 30%, transparent), var(--domain-accent, var(--neon)));
+  box-shadow: 0 0 12px 1px color-mix(in srgb, var(--domain-accent, var(--neon)) 50%, transparent);
   transition: height 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -670,9 +670,9 @@
 }
 
 .whyNodeActive {
-  border-color: color-mix(in srgb, var(--neon) 65%, transparent);
+  border-color: color-mix(in srgb, var(--domain-accent, var(--neon)) 65%, transparent);
   background: color-mix(in srgb, var(--obsidian-3) 90%, transparent);
-  box-shadow: 0 0 28px color-mix(in srgb, var(--neon) 28%, transparent);
+  box-shadow: 0 0 28px color-mix(in srgb, var(--domain-accent, var(--neon)) 28%, transparent);
 }
 
 .whyBtnCopy {
@@ -686,7 +686,7 @@
   font-family: var(--font-mono);
   font-size: 0.62rem;
   letter-spacing: 0.22em;
-  color: var(--neon);
+  color: var(--domain-accent, var(--neon));
 }
 
 .whyBtnTitle {
@@ -699,7 +699,7 @@
   position: relative;
   overflow: hidden;
   isolation: isolate;
-  border: 1px solid color-mix(in srgb, var(--neon) 28%, var(--border));
+  border: 1px solid color-mix(in srgb, var(--domain-accent, var(--neon)) 28%, var(--border));
   border-radius: calc(var(--radius) + 0.25rem);
   background:
     linear-gradient(
@@ -708,7 +708,7 @@
       color-mix(in srgb, var(--obsidian-2) 92%, transparent)
     );
   padding: 2rem 1.75rem;
-  box-shadow: 0 24px 60px -36px color-mix(in srgb, var(--neon) 45%, transparent);
+  box-shadow: 0 24px 60px -36px color-mix(in srgb, var(--domain-accent, var(--neon)) 45%, transparent);
   animation: whyPanelIn 0.45s ease;
 }
 
@@ -726,7 +726,7 @@
   width: 70%;
   height: 70%;
   border-radius: 50%;
-  background: radial-gradient(circle, var(--neon), transparent 68%);
+  background: radial-gradient(circle, var(--domain-accent, var(--neon)), transparent 68%);
   opacity: 0.14;
   filter: blur(28px);
   animation: vk-drift-a 18s ease-in-out infinite;
@@ -742,9 +742,9 @@
   height: 3.25rem;
   margin: 0.85rem 0 1rem;
   border-radius: 0.9rem;
-  border: 1px solid color-mix(in srgb, var(--neon) 40%, transparent);
-  background: color-mix(in srgb, var(--neon) 10%, transparent);
-  box-shadow: 0 0 24px color-mix(in srgb, var(--neon) 20%, transparent);
+  border: 1px solid color-mix(in srgb, var(--domain-accent, var(--neon)) 40%, transparent);
+  background: color-mix(in srgb, var(--domain-accent, var(--neon)) 10%, transparent);
+  box-shadow: 0 0 24px color-mix(in srgb, var(--domain-accent, var(--neon)) 20%, transparent);
 }
 
 .whyPanel .readoutEyebrow,
@@ -791,7 +791,7 @@
   font-size: 0.68rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: color-mix(in srgb, var(--neon) 55%, var(--text-secondary));
+  color: color-mix(in srgb, var(--domain-accent, var(--neon)) 55%, var(--text-secondary));
 }
 
 .workGallery {
@@ -824,31 +824,31 @@
 .workPanelActive {
   flex: 4 1 auto;
   min-height: 22rem;
-  border-color: color-mix(in srgb, var(--neon) 45%, transparent);
+  border-color: color-mix(in srgb, var(--domain-accent, var(--neon)) 45%, transparent);
   box-shadow:
-    0 28px 70px -40px color-mix(in srgb, var(--neon) 55%, transparent),
-    inset 0 0 0 1px color-mix(in srgb, var(--neon) 8%, transparent);
+    0 28px 70px -40px color-mix(in srgb, var(--domain-accent, var(--neon)) 55%, transparent),
+    inset 0 0 0 1px color-mix(in srgb, var(--domain-accent, var(--neon)) 8%, transparent);
   filter: none;
 }
 
 .workSceneA {
   background:
-    radial-gradient(ellipse 80% 70% at 85% 15%, color-mix(in srgb, var(--neon) 28%, transparent), transparent 55%),
-    radial-gradient(ellipse 60% 50% at 10% 90%, color-mix(in srgb, var(--violet) 18%, transparent), transparent 60%),
+    radial-gradient(ellipse 80% 70% at 85% 15%, color-mix(in srgb, var(--domain-accent, var(--neon)) 28%, transparent), transparent 55%),
+    radial-gradient(ellipse 60% 50% at 10% 90%, color-mix(in srgb, var(--domain-accent-2, var(--violet)) 18%, transparent), transparent 60%),
     linear-gradient(160deg, #151c2c, #0f1420 70%);
 }
 
 .workSceneB {
   background:
-    radial-gradient(ellipse 75% 65% at 80% 20%, color-mix(in srgb, var(--violet) 30%, transparent), transparent 55%),
-    radial-gradient(ellipse 55% 45% at 15% 85%, color-mix(in srgb, var(--neon) 16%, transparent), transparent 60%),
+    radial-gradient(ellipse 75% 65% at 80% 20%, color-mix(in srgb, var(--domain-accent-2, var(--violet)) 30%, transparent), transparent 55%),
+    radial-gradient(ellipse 55% 45% at 15% 85%, color-mix(in srgb, var(--domain-accent, var(--neon)) 16%, transparent), transparent 60%),
     linear-gradient(160deg, #171526, #0f1420 70%);
 }
 
 .workSceneC {
   background:
     radial-gradient(ellipse 70% 60% at 78% 18%, color-mix(in srgb, var(--amber) 22%, transparent), transparent 55%),
-    radial-gradient(ellipse 55% 50% at 12% 88%, color-mix(in srgb, var(--neon) 18%, transparent), transparent 60%),
+    radial-gradient(ellipse 55% 50% at 12% 88%, color-mix(in srgb, var(--domain-accent, var(--neon)) 18%, transparent), transparent 60%),
     linear-gradient(160deg, #1a1820, #0f1420 70%);
 }
 
@@ -871,8 +871,8 @@
   font-family: var(--font-mono);
   font-size: 0.68rem;
   letter-spacing: 0.22em;
-  color: var(--neon-bright);
-  text-shadow: 0 0 12px var(--neon-glow);
+  color: var(--domain-accent, var(--neon-bright));
+  text-shadow: 0 0 12px var(--domain-glow, var(--neon-glow));
   flex-shrink: 0;
 }
 
@@ -928,7 +928,7 @@
   background: linear-gradient(
     115deg,
     transparent 35%,
-    color-mix(in srgb, var(--neon) 12%, transparent) 50%,
+    color-mix(in srgb, var(--domain-accent, var(--neon)) 12%, transparent) 50%,
     transparent 65%
   );
   background-size: 220% 100%;
@@ -944,7 +944,7 @@
   font-size: 0.62rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--neon);
+  color: var(--domain-accent, var(--neon));
   margin-bottom: 0.65rem;
 }
 
@@ -1000,8 +1000,8 @@
   text-decoration: none;
   padding: 0.7rem 1.25rem;
   border-radius: 999px;
-  background: linear-gradient(135deg, var(--neon-bright), var(--neon));
-  box-shadow: 0 0 24px var(--neon-glow);
+  background: linear-gradient(135deg, var(--domain-accent, var(--neon-bright)), var(--domain-accent, var(--neon)));
+  box-shadow: 0 0 24px var(--domain-glow, var(--neon-glow));
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
@@ -1018,7 +1018,7 @@
   right: 0;
   bottom: 0;
   height: 2px;
-  background: color-mix(in srgb, var(--neon) 15%, transparent);
+  background: color-mix(in srgb, var(--domain-accent, var(--neon)) 15%, transparent);
   z-index: 3;
 }
 
@@ -1026,8 +1026,8 @@
   display: block;
   height: 100%;
   width: 0;
-  background: linear-gradient(90deg, var(--neon), var(--violet));
-  box-shadow: 0 0 10px var(--neon-glow);
+  background: linear-gradient(90deg, var(--domain-accent, var(--neon)), var(--domain-accent-2, var(--violet)));
+  box-shadow: 0 0 10px var(--domain-glow, var(--neon-glow));
   animation: workProgress 5.2s linear forwards;
 }
 
@@ -1165,8 +1165,8 @@
   top: 1.5rem;
   left: 1.5rem;
   height: 1px;
-  background: linear-gradient(90deg, color-mix(in srgb, var(--neon) 30%, transparent), var(--neon));
-  box-shadow: 0 0 12px 1px color-mix(in srgb, var(--neon) 55%, transparent);
+  background: linear-gradient(90deg, color-mix(in srgb, var(--domain-accent, var(--neon)) 30%, transparent), var(--domain-accent, var(--neon)));
+  box-shadow: 0 0 12px 1px color-mix(in srgb, var(--domain-accent, var(--neon)) 55%, transparent);
   transition: width 0.7s ease;
 }
 
@@ -1218,13 +1218,13 @@
 }
 
 .stepActive {
-  border-color: color-mix(in srgb, var(--neon) 70%, transparent);
-  color: var(--neon);
+  border-color: color-mix(in srgb, var(--domain-accent, var(--neon)) 70%, transparent);
+  color: var(--domain-accent, var(--neon));
   background: var(--obsidian-3);
 }
 
 .stepDone {
-  border-color: color-mix(in srgb, var(--neon) 35%, transparent);
+  border-color: color-mix(in srgb, var(--domain-accent, var(--neon)) 35%, transparent);
 }
 
 .icon {
@@ -1232,7 +1232,7 @@
 }
 
 .iconActive {
-  color: var(--neon);
+  color: var(--domain-accent, var(--neon));
 }
 
 @media (min-width: 800px) {
@@ -1258,6 +1258,21 @@
   }
   .journeyBtn {
     flex-direction: column;
+  }
+
+  /* Long process timelines stay stacked for readability */
+  .railStacked .railLine,
+  .railStacked .railFill {
+    display: none;
+  }
+  .railStacked .journey {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .railStacked .journeyBtn {
+    flex-direction: row;
+    text-align: left;
+    align-items: flex-start;
   }
 }
 

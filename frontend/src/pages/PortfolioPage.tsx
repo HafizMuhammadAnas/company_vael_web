@@ -1,8 +1,11 @@
 import { useState } from "react";
 
 import { PageHero } from "@/components/sections/PageHero";
+import {
+WorkGallery,
+  DomainShell,
+} from "@/components/sections/elevated/Elevate";
 import home from "@/components/sections/home/Home.module.css";
-import { ProjectCard } from "@/components/sections/work/ProjectCard";
 import work from "@/components/sections/work/Work.module.css";
 import { Section } from "@/components/ui";
 import {
@@ -11,6 +14,8 @@ import {
   PORTFOLIO_SEO,
   PROJECTS,
   WORK_FILTERS,
+  WORK_HERO,
+  WORK_SELECTED,
   type WorkFilter,
 } from "@/content/work";
 import { useDocumentMeta } from "@/hooks/useDocumentMeta";
@@ -24,12 +29,11 @@ export function PortfolioPage() {
   const visible = active === "All" ? PROJECTS : PROJECTS.filter((p) => p.tags.includes(active));
 
   return (
-    <>
-      <PageHero label={PORTFOLIO_HERO.label} title={PORTFOLIO_HERO.title} supporting={PORTFOLIO_HERO.supporting} />
+    <DomainShell domain="work">
+      <>
+      <PageHero domain="work" label={PORTFOLIO_HERO.label} title={PORTFOLIO_HERO.title} supporting={PORTFOLIO_HERO.supporting} />
 
       <Section>
-        <p className={home.sectionNote}>{PORTFOLIO_NOTE}</p>
-
         <div className={work.filters}>
           {WORK_FILTERS.map((filter) => (
             <button
@@ -43,17 +47,34 @@ export function PortfolioPage() {
             </button>
           ))}
         </div>
-
-        {visible.length > 0 ? (
-          <div className={`${home.grid} ${home.cols3}`}>
-            {visible.map((project) => (
-              <ProjectCard key={project.slug} project={project} />
-            ))}
-          </div>
-        ) : (
-          <div className={home.emptyState}>No projects in this category yet.</div>
-        )}
       </Section>
+
+      {visible.length > 0 ? (
+        <WorkGallery
+          // Remount on filter change so the gallery re-cycles from the first panel.
+          key={active}
+          label={WORK_SELECTED.label}
+          title={WORK_SELECTED.heading}
+          note={PORTFOLIO_NOTE}
+          altBg
+          cards={visible.map((project) => ({
+            title: project.title,
+            category: project.category,
+            description: project.description,
+            capabilities: project.aiFocus,
+            technology: project.technologies.join(" · "),
+            ...(project.hasCaseStudy
+              ? { to: `/work/case-studies/${project.slug}`, cta: "View Project Write-Up" }
+              : { to: WORK_HERO.primaryCta.to, cta: WORK_HERO.primaryCta.label }),
+          }))}
+        />
+      ) : (
+        <Section className={home.altBg}>
+          <p className={home.sectionNote}>{PORTFOLIO_NOTE}</p>
+          <div className={home.emptyState}>No projects in this category yet.</div>
+        </Section>
+      )}
     </>
+    </DomainShell>
   );
 }

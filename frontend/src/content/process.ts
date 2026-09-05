@@ -89,6 +89,7 @@ export const PROCESS_STEPS: ProcessStep[] = [
       "AI / Automation",
       "Testing",
     ],
+    output: "A working solution increment that can be reviewed, tested, and refined.",
   },
   {
     num: "05",
@@ -105,6 +106,7 @@ export const PROCESS_STEPS: ProcessStep[] = [
       "User Acceptance",
       "Bug Resolution",
     ],
+    output: "Confidence that the solution meets the agreed requirements and is ready for launch.",
   },
   {
     num: "06",
@@ -120,13 +122,23 @@ export const PROCESS_STEPS: ProcessStep[] = [
       "Documentation",
       "Handover",
     ],
+    output: "A production deployment with monitoring, documentation, and a clear handover.",
   },
   {
     num: "07",
     title: "Evolve",
-    text: "A digital product does not have to stop evolving after launch. New requirements, user feedback, operational needs, integrations, and technology opportunities can create opportunities for continued improvement.",
+    text: "A digital product does not stop evolving after launch. New requirements, user feedback, operational needs, integrations, and technology changes create opportunities for continued improvement.",
     activitiesLabel: "Ongoing",
-    activities: [],
+    activities: [
+      "Performance Monitoring",
+      "User Feedback Review",
+      "Feature Enhancements",
+      "Optimisation",
+      "Security Updates",
+      "Integration Extensions",
+      "Support",
+    ],
+    output: "A maintained product that continues to improve as the organization and requirements evolve.",
   },
 ];
 

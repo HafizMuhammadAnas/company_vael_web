@@ -362,7 +362,7 @@ export const WEB_INDUSTRIES = {
       text: "Tracking platforms, operational dashboards, customer portals, and workflow applications.",
     },
     {
-      title: "Retail & E-commerce",
+      title: "Retail & Commerce",
       text: "E-commerce platforms, product experiences, customer portals, and commerce integrations.",
     },
   ],

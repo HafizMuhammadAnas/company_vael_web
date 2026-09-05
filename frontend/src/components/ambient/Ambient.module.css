@@ -50,7 +50,7 @@
   animation: vk-drift-b 32s ease-in-out infinite;
 }
 
-/* Quiet radar rings — barely moving, centered behind hero copy. */
+/* Quiet radar rings — barely moving. */
 .orbitField {
   position: absolute;
   left: 28%;
@@ -59,6 +59,13 @@
   aspect-ratio: 1;
   transform: translate(-50%, -50%);
   opacity: 0.34;
+}
+
+.orbitCentered {
+  left: 50%;
+  top: 46%;
+  width: min(120vw, 860px);
+  opacity: 0.26;
 }
 
 .orbitRing {

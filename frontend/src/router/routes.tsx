@@ -13,7 +13,6 @@ import { HomePage } from "@/pages/HomePage";
 import { IndustriesPage } from "@/pages/IndustriesPage";
 import { InsightsPage } from "@/pages/InsightsPage";
 import { LegalPage } from "@/pages/LegalPage";
-import { PagePlaceholder } from "@/pages/PagePlaceholder";
 import { PortfolioPage } from "@/pages/PortfolioPage";
 import { ProcessPage } from "@/pages/ProcessPage";
 import { RequestProposalPage } from "@/pages/RequestProposalPage";
@@ -30,12 +29,6 @@ import { ThankYouPage } from "@/pages/system/ThankYouPage";
 import { COOKIE_POLICY, PRIVACY_POLICY, TERMS_AND_CONDITIONS } from "@/content/legal";
 import { adminRoutes } from "@/router/adminRoutes";
 
-interface StubRoute {
-  path: string;
-  title: string;
-  kicker?: string;
-}
-
 /**
  * Legacy per-industry routes now redirect to the single /industries page
  * anchors, so existing links/bookmarks keep working without duplicate content.
@@ -50,9 +43,9 @@ const industryAnchors = [
   "retail",
 ];
 
-/** Routes whose real content is not built yet — rendered as neutral scaffolds. */
-const stubRoutes: StubRoute[] = [
-  { path: "cookie-settings", title: "Cookie Settings", kicker: "Legal" },
+/** Routes that redirect until a dedicated page exists. */
+const redirectRoutes: { path: string; to: string }[] = [
+  { path: "cookie-settings", to: "/cookie-policy" },
 ];
 
 const children: RouteObject[] = [
@@ -94,9 +87,9 @@ const children: RouteObject[] = [
   { path: "terms-and-conditions", element: <LegalPage doc={TERMS_AND_CONDITIONS} /> },
   { path: "cookie-policy", element: <LegalPage doc={COOKIE_POLICY} /> },
 
-  ...stubRoutes.map((route) => ({
+  ...redirectRoutes.map((route) => ({
     path: route.path,
-    element: <PagePlaceholder title={route.title} kicker={route.kicker} />,
+    element: <Navigate to={route.to} replace />,
   })),
 
   { path: "insights/blog/:slug", element: <DetailPlaceholder kicker="Blog" /> },

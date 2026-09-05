@@ -1,10 +1,31 @@
-import { Link } from "react-router-dom";
+import {
+  BrainCircuit,
+  Building2,
+  Cloud,
+  Code2,
+  Compass,
+  GraduationCap,
+  HeartPulse,
+  Landmark,
+  LayoutDashboard,
+  ShoppingBag,
+  Smartphone,
+  Sprout,
+  Truck,
+} from "lucide-react";
 
+import { FinalCtaSection } from "@/components/sections/FinalCtaSection";
 import { PageHero } from "@/components/sections/PageHero";
+import {
+ExplorerList,
+  FaqConsole,
+  JourneyRail,
+  ProseSection,
+  DomainShell,
+} from "@/components/sections/elevated/Elevate";
 import home from "@/components/sections/home/Home.module.css";
 import ind from "@/components/sections/industries/Industries.module.css";
-import s from "@/components/sections/solutions/Solutions.module.css";
-import { Button, Card, Section, SectionHeader, Eyebrow } from "@/components/ui";
+import { Button, Section, SectionHeader } from "@/components/ui";
 import {
   IND_APPROACH,
   IND_CAPABILITIES,
@@ -20,6 +41,9 @@ import {
 } from "@/content/industries";
 import { useDocumentMeta } from "@/hooks/useDocumentMeta";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+
+const INDUSTRY_ICONS = [Building2, GraduationCap, HeartPulse, Sprout, Landmark, Truck, ShoppingBag];
+const CAPABILITY_ICONS = [Code2, LayoutDashboard, Smartphone, BrainCircuit, Cloud, Compass];
 
 function IndustryBlock({ industry, index }: { industry: IndustrySection; index: number }) {
   const reversed = index % 2 === 1;
@@ -76,8 +100,10 @@ export function IndustriesPage() {
   useScrollReveal();
 
   return (
-    <>
+    <DomainShell domain="industries">
+      <>
       <PageHero
+        domain="industries"
         label={IND_HERO.label}
         title={IND_HERO.title}
         supporting={IND_HERO.supporting}
@@ -85,38 +111,26 @@ export function IndustriesPage() {
         secondaryCta={IND_HERO.secondaryCta}
       />
 
-      {/* Introduction */}
-      <Section className={home.altBg}>
-        <div className="reveal">
-          <SectionHeader label={IND_INTRO.label} title={IND_INTRO.heading} />
-          <div className={home.supporting}>
-            {IND_INTRO.paragraphs.map((p) => (
-              <p key={p}>{p}</p>
-            ))}
-          </div>
-        </div>
-      </Section>
+      <ProseSection
+        label={IND_INTRO.label}
+        title={IND_INTRO.heading}
+        paragraphs={IND_INTRO.paragraphs}
+        altBg
+      />
 
-      {/* Industry navigation */}
-      <Section>
-        <div className="reveal">
-          <SectionHeader label={IND_NAV.label} title={IND_NAV.heading} lineText={IND_NAV.supporting} />
-        </div>
-        <div className={`${ind.navGrid} reveal`}>
-          {IND_NAV.cards.map((card, i) => (
-            <Link
-              key={card.anchor}
-              to={`/industries#${card.anchor}`}
-              className={ind.navCard}
-              data-index={String(i + 1).padStart(2, "0")}
-            >
-              <span className={ind.navCardTitle}>{card.title}</span>
-              <span className={ind.navCardText}>{card.description}</span>
-              <span className={ind.navCardCta}>{card.cta} →</span>
-            </Link>
-          ))}
-        </div>
-      </Section>
+      {/* Industry navigation — jumps to the anchored sections below */}
+      <ExplorerList
+        label={IND_NAV.label}
+        title={IND_NAV.heading}
+        supporting={IND_NAV.supporting}
+        icons={INDUSTRY_ICONS}
+        items={IND_NAV.cards.map((card) => ({
+          title: card.title,
+          text: card.description,
+          href: `/industries#${card.anchor}`,
+          cta: card.cta,
+        }))}
+      />
 
       {/* Seven industry sections (alternating layout + accent) */}
       {IND_SECTIONS.map((industry, i) => (
@@ -124,41 +138,27 @@ export function IndustriesPage() {
       ))}
 
       {/* Cross-industry capabilities */}
-      <Section className={home.altBg}>
-        <div className="reveal">
-          <SectionHeader label={IND_CAPABILITIES.label} title={IND_CAPABILITIES.heading} />
-          <p className={home.supporting}>{IND_CAPABILITIES.supporting}</p>
-        </div>
-        <div className={`${home.grid} ${home.cols3} reveal`}>
-          {IND_CAPABILITIES.cards.map((item) => (
-            <Card key={item.title} className={s.solutionCard}>
-              <div className={home.cardTitle}>{item.title}</div>
-              <p className={home.cardText}>{item.text}</p>
-              <Link to={item.to} className={home.cardCta}>
-                {item.cta} →
-              </Link>
-            </Card>
-          ))}
-        </div>
-      </Section>
+      <ExplorerList
+        label={IND_CAPABILITIES.label}
+        title={IND_CAPABILITIES.heading}
+        supporting={IND_CAPABILITIES.supporting}
+        icons={CAPABILITY_ICONS}
+        altBg
+        items={IND_CAPABILITIES.cards.map((card) => ({
+          title: card.title,
+          text: card.text,
+          href: card.to,
+          cta: card.cta,
+        }))}
+      />
 
       {/* How we approach industry solutions */}
-      <Section>
-        <div className="reveal">
-          <SectionHeader label={IND_APPROACH.label} title={IND_APPROACH.heading} />
-        </div>
-        <div className={`${s.stepsGrid} reveal`}>
-          {IND_APPROACH.steps.map((step) => (
-            <div key={step.num} className={home.step}>
-              <div className={home.stepNode}>
-                <span className={home.stepNum}>{step.num}</span>
-              </div>
-              <div className={home.stepTitle}>{step.title}</div>
-              <p className={home.stepText}>{step.text}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
+      <JourneyRail
+        label={IND_APPROACH.label}
+        title={IND_APPROACH.heading}
+        steps={IND_APPROACH.steps}
+        layout="vertical"
+      />
 
       {/* Selected work (neutral empty state) */}
       <Section className={home.altBg}>
@@ -174,40 +174,16 @@ export function IndustriesPage() {
         </div>
       </Section>
 
-      {/* FAQ */}
-      <Section>
-        <div className="reveal">
-          <SectionHeader label={IND_FAQ.label} title={IND_FAQ.heading} />
-        </div>
-        <div className={`${s.faq} reveal`}>
-          {IND_FAQ.items.map((item) => (
-            <details key={item.q} className={s.faqItem}>
-              <summary className={s.faqQuestion}>{item.q}</summary>
-              <div className={s.faqAnswer}>{item.a}</div>
-            </details>
-          ))}
-        </div>
-      </Section>
+      <FaqConsole label={IND_FAQ.label} title={IND_FAQ.heading} items={IND_FAQ.items} />
 
-      {/* Final CTA */}
-      <Section className={home.altBg}>
-        <div className={`${home.finalCta} reveal`} style={{ position: "relative" }}>
-          <div className="circuit-bg" />
-          <div style={{ position: "relative", zIndex: 1 }}>
-            <Eyebrow>{IND_FINAL.label}</Eyebrow>
-            <h2 className={home.finalHeading}>{IND_FINAL.heading}</h2>
-            <p className={home.finalSupporting}>{IND_FINAL.supporting}</p>
-            <div className={home.finalCtas}>
-              <Button variant="primary" to={IND_FINAL.primaryCta.to}>
-                {IND_FINAL.primaryCta.label}
-              </Button>
-              <Button variant="outline" to={IND_FINAL.secondaryCta.to}>
-                {IND_FINAL.secondaryCta.label}
-              </Button>
-            </div>
-          </div>
-        </div>
-      </Section>
+      <FinalCtaSection
+        label={IND_FINAL.label}
+        heading={IND_FINAL.heading}
+        supporting={IND_FINAL.supporting}
+        primaryCta={IND_FINAL.primaryCta}
+        secondaryCta={IND_FINAL.secondaryCta}
+      />
     </>
+    </DomainShell>
   );
 }

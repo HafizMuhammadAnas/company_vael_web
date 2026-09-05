@@ -266,7 +266,7 @@ export const SOL_WHO = {
     { title: "Agriculture", to: "/industries/agriculture" },
     { title: "Finance", to: "/industries/finance" },
     { title: "Logistics", to: "/industries/logistics" },
-    { title: "Retail & E-commerce", to: "/industries/retail" },
+    { title: "Retail & Commerce", to: "/industries/retail" },
   ],
   cta: { label: "Explore Industries", to: "/industries" },
 };

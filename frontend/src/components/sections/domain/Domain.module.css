@@ -1,0 +1,517 @@
+/* Domain atmosphere — unique mood per page family. Readable first; motifs stay soft. */
+
+.shell {
+  --domain-accent: var(--neon);
+  --domain-accent-2: var(--violet);
+  --domain-glow: var(--neon-glow);
+  --domain-surface: color-mix(in srgb, var(--obsidian-2) 92%, transparent);
+  --domain-border: color-mix(in srgb, var(--domain-accent) 28%, var(--border));
+  position: relative;
+  isolation: isolate;
+  min-height: 50vh;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+.atmosphere {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.motifA,
+.motifB,
+.motifC {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.22;
+  will-change: transform;
+}
+
+/* ─── Cloud & DevOps — sky layers, cool altitude ─── */
+.cloud {
+  --domain-accent: #5ec8ff;
+  --domain-accent-2: #2ef2d0;
+  --domain-glow: rgba(94, 200, 255, 0.35);
+}
+.cloud .motifA {
+  width: 42rem;
+  height: 22rem;
+  top: -6rem;
+  left: -8%;
+  background: radial-gradient(ellipse, #5ec8ff, transparent 70%);
+  border-radius: 40% 60% 50% 50%;
+  animation: cloudDrift 28s ease-in-out infinite;
+}
+.cloud .motifB {
+  width: 36rem;
+  height: 18rem;
+  top: 18%;
+  right: -12%;
+  background: radial-gradient(ellipse, #a8e0ff, transparent 68%);
+  border-radius: 50% 40% 60% 40%;
+  opacity: 0.16;
+  animation: cloudDrift 36s ease-in-out infinite reverse;
+}
+.cloud .motifC {
+  width: 28rem;
+  height: 14rem;
+  bottom: 8%;
+  left: 30%;
+  background: radial-gradient(ellipse, #2ef2d0, transparent 70%);
+  opacity: 0.12;
+}
+
+/* ─── Mobile — device glow, intimate vertical feel ─── */
+.mobile {
+  --domain-accent: #7cffe8;
+  --domain-accent-2: #60a5fa;
+  --domain-glow: rgba(124, 255, 232, 0.32);
+}
+.mobile .motifA {
+  width: 18rem;
+  height: 34rem;
+  top: 4%;
+  right: 8%;
+  background: linear-gradient(180deg, color-mix(in srgb, #7cffe8 40%, transparent), transparent);
+  border-radius: 2rem;
+  filter: blur(40px);
+  opacity: 0.2;
+  animation: deviceFloat 12s ease-in-out infinite;
+}
+.mobile .motifB {
+  width: 14rem;
+  height: 28rem;
+  top: 18%;
+  left: 6%;
+  background: linear-gradient(180deg, color-mix(in srgb, #60a5fa 35%, transparent), transparent);
+  border-radius: 2rem;
+  filter: blur(48px);
+  opacity: 0.14;
+  animation: deviceFloat 16s ease-in-out infinite reverse;
+}
+.mobile .motifC {
+  width: 40rem;
+  height: 40rem;
+  bottom: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, #2ef2d0, transparent 65%);
+  opacity: 0.1;
+}
+
+/* ─── AI — neural violet / signal teal ─── */
+.ai {
+  --domain-accent: #c4b5fd;
+  --domain-accent-2: #2ef2d0;
+  --domain-glow: rgba(167, 139, 250, 0.4);
+}
+.ai .motifA {
+  width: 36rem;
+  height: 36rem;
+  top: -10%;
+  right: -5%;
+  background: radial-gradient(circle, #a78bfa, transparent 65%);
+  opacity: 0.28;
+  animation: aiPulse 10s ease-in-out infinite;
+}
+.ai .motifB {
+  width: 24rem;
+  height: 24rem;
+  top: 40%;
+  left: -8%;
+  background: radial-gradient(circle, #2ef2d0, transparent 65%);
+  opacity: 0.16;
+  animation: aiPulse 14s ease-in-out infinite reverse;
+}
+.ai .motifC {
+  inset: 12% 10%;
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  filter: none;
+  opacity: 0.12;
+  background-image: radial-gradient(circle at center, color-mix(in srgb, #c4b5fd 50%, transparent) 1px, transparent 1.5px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(ellipse 60% 50% at 50% 40%, black, transparent);
+  animation: none;
+}
+
+/* ─── Web — viewport / layout grid ─── */
+.web {
+  --domain-accent: #38bdf8;
+  --domain-accent-2: #f0c14d;
+  --domain-glow: rgba(56, 189, 248, 0.35);
+}
+.web .motifA {
+  width: min(90vw, 56rem);
+  height: 18rem;
+  top: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 1rem;
+  filter: blur(2px);
+  opacity: 0.14;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, #38bdf8 25%, transparent), transparent 80%),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 11.5%,
+      color-mix(in srgb, #38bdf8 18%, transparent) 11.5%,
+      color-mix(in srgb, #38bdf8 18%, transparent) 12%
+    );
+  animation: none;
+}
+.web .motifB {
+  width: 30rem;
+  height: 30rem;
+  bottom: 5%;
+  right: -5%;
+  background: radial-gradient(circle, #f0c14d, transparent 70%);
+  opacity: 0.1;
+}
+.web .motifC {
+  display: none;
+}
+
+/* ─── Custom software — blueprint modules ─── */
+.software {
+  --domain-accent: #2ef2d0;
+  --domain-accent-2: #94a3b8;
+  --domain-glow: rgba(46, 242, 208, 0.3);
+}
+.software .motifA {
+  inset: 0;
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  filter: none;
+  opacity: 0.1;
+  background-image:
+    linear-gradient(color-mix(in srgb, #2ef2d0 22%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, #2ef2d0 22%, transparent) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 70% 55% at 50% 30%, black, transparent);
+  animation: none;
+}
+.software .motifB {
+  width: 20rem;
+  height: 20rem;
+  top: 12%;
+  right: 10%;
+  border-radius: 0.5rem;
+  filter: blur(1px);
+  opacity: 0.12;
+  background: color-mix(in srgb, #2ef2d0 18%, transparent);
+  border: 1px solid color-mix(in srgb, #2ef2d0 40%, transparent);
+  animation: moduleShift 20s ease-in-out infinite;
+}
+.software .motifC {
+  width: 14rem;
+  height: 14rem;
+  top: 28%;
+  right: 22%;
+  border-radius: 0.5rem;
+  filter: blur(1px);
+  opacity: 0.1;
+  background: color-mix(in srgb, #94a3b8 20%, transparent);
+  border: 1px solid color-mix(in srgb, #94a3b8 35%, transparent);
+  animation: moduleShift 24s ease-in-out infinite reverse;
+}
+
+/* ─── Consulting — warm advisory bronze ─── */
+.consulting {
+  --domain-accent: #e0a45a;
+  --domain-accent-2: #f0d08a;
+  --domain-glow: rgba(224, 164, 90, 0.35);
+}
+.consulting .motifA {
+  width: 40rem;
+  height: 40rem;
+  top: -15%;
+  left: -10%;
+  background: radial-gradient(circle, #c9853f, transparent 65%);
+  opacity: 0.18;
+}
+.consulting .motifB {
+  width: 28rem;
+  height: 28rem;
+  bottom: 10%;
+  right: -5%;
+  background: radial-gradient(circle, #f0d08a, transparent 65%);
+  opacity: 0.12;
+}
+.consulting .motifC {
+  display: none;
+}
+
+/* ─── Solutions hub ─── */
+.solutions {
+  --domain-accent: var(--neon);
+  --domain-accent-2: var(--violet);
+}
+.solutions .motifA {
+  width: 38rem;
+  height: 38rem;
+  top: -8%;
+  left: -5%;
+  background: radial-gradient(circle, var(--neon), transparent 65%);
+  opacity: 0.16;
+}
+.solutions .motifB {
+  width: 32rem;
+  height: 32rem;
+  top: 5%;
+  right: -8%;
+  background: radial-gradient(circle, var(--violet), transparent 65%);
+  opacity: 0.14;
+}
+.solutions .motifC {
+  display: none;
+}
+
+/* ─── About — calm narrative depth ─── */
+.about {
+  --domain-accent: #7cffe8;
+  --domain-accent-2: #b6c2d4;
+}
+.about .motifA {
+  width: 50rem;
+  height: 28rem;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse, color-mix(in srgb, #7cffe8 40%, transparent), transparent 70%);
+  opacity: 0.14;
+}
+.about .motifB,
+.about .motifC {
+  display: none;
+}
+
+/* ─── Process — path / progress glow ─── */
+.process {
+  --domain-accent: #2ef2d0;
+  --domain-accent-2: #38bdf8;
+}
+.process .motifA {
+  width: 6px;
+  height: 70%;
+  top: 15%;
+  left: 8%;
+  border-radius: 999px;
+  filter: blur(6px);
+  opacity: 0.35;
+  background: linear-gradient(180deg, #2ef2d0, #38bdf8, transparent);
+  animation: none;
+}
+.process .motifB {
+  width: 32rem;
+  height: 32rem;
+  bottom: 0;
+  right: -10%;
+  background: radial-gradient(circle, #38bdf8, transparent 65%);
+  opacity: 0.1;
+}
+.process .motifC {
+  display: none;
+}
+
+/* ─── Industries ─── */
+.industries {
+  --domain-accent: #34d399;
+  --domain-accent-2: #f0c14d;
+}
+.industries .motifA {
+  width: 36rem;
+  height: 36rem;
+  top: -5%;
+  right: -8%;
+  background: radial-gradient(circle, #34d399, transparent 65%);
+  opacity: 0.16;
+}
+.industries .motifB {
+  width: 28rem;
+  height: 28rem;
+  bottom: 5%;
+  left: -5%;
+  background: radial-gradient(circle, #f0c14d, transparent 65%);
+  opacity: 0.1;
+}
+.industries .motifC {
+  display: none;
+}
+
+/* ─── Work ─── */
+.work {
+  --domain-accent: #2ef2d0;
+  --domain-accent-2: #a78bfa;
+}
+.work .motifA {
+  width: 100%;
+  height: 40%;
+  top: 0;
+  left: 0;
+  border-radius: 0;
+  filter: blur(60px);
+  opacity: 0.12;
+  background: linear-gradient(135deg, #2ef2d0, transparent 50%, #a78bfa);
+}
+.work .motifB,
+.work .motifC {
+  display: none;
+}
+
+/* ─── Insights ─── */
+.insights {
+  --domain-accent: #a78bfa;
+  --domain-accent-2: #f0c14d;
+}
+.insights .motifA {
+  width: 40rem;
+  height: 40rem;
+  top: -10%;
+  left: -10%;
+  background: radial-gradient(circle, #a78bfa, transparent 65%);
+  opacity: 0.14;
+}
+.insights .motifB {
+  display: none;
+}
+.insights .motifC {
+  display: none;
+}
+
+/* ─── Careers ─── */
+.careers {
+  --domain-accent: #4ade80;
+  --domain-accent-2: #2ef2d0;
+}
+.careers .motifA {
+  width: 36rem;
+  height: 36rem;
+  top: 0;
+  right: -5%;
+  background: radial-gradient(circle, #4ade80, transparent 65%);
+  opacity: 0.14;
+}
+.careers .motifB {
+  width: 28rem;
+  height: 28rem;
+  bottom: 10%;
+  left: -5%;
+  background: radial-gradient(circle, #2ef2d0, transparent 65%);
+  opacity: 0.1;
+}
+.careers .motifC {
+  display: none;
+}
+
+/* ─── Contact ─── */
+.contact {
+  --domain-accent: #38bdf8;
+  --domain-accent-2: #2ef2d0;
+}
+.contact .motifA {
+  width: 42rem;
+  height: 42rem;
+  top: -10%;
+  right: -10%;
+  background: radial-gradient(circle, #38bdf8, transparent 65%);
+  opacity: 0.14;
+}
+.contact .motifB,
+.contact .motifC {
+  display: none;
+}
+
+/* ─── FAQs ─── */
+.faqs {
+  --domain-accent: #94a3b8;
+  --domain-accent-2: #2ef2d0;
+}
+.faqs .motifA {
+  width: 30rem;
+  height: 30rem;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, #94a3b8, transparent 65%);
+  opacity: 0.1;
+}
+.faqs .motifB,
+.faqs .motifC {
+  display: none;
+}
+
+/* Tint shared elevated / home surfaces when nested in a domain */
+.shell :global(.reveal) {
+  /* no-op anchor for cascade */
+}
+
+@keyframes cloudDrift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(4%, 3%, 0);
+  }
+}
+
+@keyframes deviceFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes aiPulse {
+  0%,
+  100% {
+    opacity: 0.22;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.32;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes moduleShift {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-8px, 10px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motifA,
+  .motifB,
+  .motifC {
+    animation: none !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .mobile .motifA,
+  .mobile .motifB {
+    opacity: 0.1;
+  }
+  .process .motifA {
+    left: 4%;
+  }
+}
