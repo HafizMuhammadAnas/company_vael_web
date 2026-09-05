@@ -1,23 +1,21 @@
 .hero {
   position: relative;
+  isolation: isolate;
   overflow: hidden;
   padding: calc(var(--space-xl) + 1rem) 2rem var(--space-lg);
   text-align: center;
   background:
-    radial-gradient(ellipse 70% 55% at 20% 15%, color-mix(in srgb, var(--neon) 22%, transparent), transparent 60%),
-    radial-gradient(ellipse 55% 50% at 85% 20%, color-mix(in srgb, var(--violet) 24%, transparent), transparent 58%),
-    var(--obsidian);
-}
-
-.radial {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    ellipse 70% 60% at 50% 40%,
-    color-mix(in srgb, var(--neon) 16%, transparent) 0%,
-    transparent 70%
-  );
-  pointer-events: none;
+    radial-gradient(
+      ellipse 70% 55% at 20% 15%,
+      color-mix(in srgb, var(--domain-accent, var(--neon)) 22%, transparent),
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 55% 50% at 85% 20%,
+      color-mix(in srgb, var(--domain-accent-2, var(--violet)) 24%, transparent),
+      transparent 58%
+    ),
+    radial-gradient(ellipse 80% 70% at 50% 40%, #1a2440 0%, var(--obsidian) 72%);
 }
 
 .content {
@@ -39,8 +37,8 @@
   line-height: 1.1;
   color: var(--text-primary);
   text-shadow:
-    0 0 40px color-mix(in srgb, var(--neon) 35%, transparent),
-    0 0 80px color-mix(in srgb, var(--violet) 18%, transparent);
+    0 0 40px color-mix(in srgb, var(--domain-accent, var(--neon)) 35%, transparent),
+    0 0 80px color-mix(in srgb, var(--domain-accent-2, var(--violet)) 18%, transparent);
   margin-bottom: 1.5rem;
 }
 
@@ -71,10 +69,10 @@
   font-size: 0.68rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: color-mix(in srgb, var(--neon-bright) 75%, var(--text-secondary));
+  color: color-mix(in srgb, var(--domain-accent, var(--neon-bright)) 75%, var(--text-secondary));
   padding: 0.4rem 0.9rem;
-  border: 1px solid var(--border-neon);
-  background: color-mix(in srgb, var(--neon) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--domain-accent, var(--neon)) 28%, var(--border));
+  background: color-mix(in srgb, var(--domain-accent, var(--neon)) 8%, transparent);
   border-radius: 999px;
 }
 

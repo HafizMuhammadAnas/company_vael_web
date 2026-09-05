@@ -5,16 +5,16 @@
  */
 
 export const ABOUT_SEO = {
-  title: "About VAELKODE | Technology Built With Purpose",
+  title: "About VAELKODE | AI-First Digital Engineering",
   description:
-    "VAELKODE is a technology company building software, digital platforms, intelligent systems, and technology solutions around real business and operational needs.",
+    "VAELKODE is an AI-first digital engineering company building software, digital platforms, intelligent systems, and technology solutions around real business and operational needs.",
 };
 
 export const ABOUT_HERO = {
   label: "About VAELKODE",
   title: "Technology Built With Purpose.",
   supporting:
-    "VAELKODE is a technology company focused on building software, digital platforms, intelligent systems, and technology solutions around real business and operational needs. We combine software engineering, AI, automation, cloud technologies, and technology consulting to help organizations turn ideas, processes, and challenges into practical digital solutions.",
+    "VAELKODE is an AI-first digital engineering company focused on building software, digital platforms, intelligent systems, and technology solutions around real business and operational needs. We combine software engineering, AI, automation, cloud technologies, and technology consulting to help organizations turn ideas, processes, and challenges into practical digital solutions.",
   primaryCta: { label: "Work With VAELKODE", to: "/consultation" },
   secondaryCta: { label: "Explore Our Solutions", to: "/solutions" },
 };
@@ -204,7 +204,7 @@ export const ABOUT_VISION = {
   heading: "Build Technology That Makes Complex Things Simpler.",
   paragraphs: [
     "We believe technology should reduce unnecessary complexity, connect people and information, and create better ways of working.",
-    "Our vision is to build a technology company that helps organizations move from ideas and operational challenges to reliable digital products and systems.",
+    "Our vision is to build an AI-first digital engineering company that helps organizations move from ideas and operational challenges to reliable digital products and systems.",
   ],
 };
 

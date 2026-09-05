@@ -10,9 +10,8 @@ export interface NavItem {
 }
 
 /**
- * Primary navigation content (provided by the client).
- * Route slugs are structural placeholders; the target pages are built as
- * their content is supplied.
+ * Primary navigation content.
+ * Labels and routes should stay aligned with footer links and page content.
  */
 export const NAV_ITEMS: NavItem[] = [
   { label: "Home", to: "/" },
@@ -36,7 +35,7 @@ export const NAV_ITEMS: NavItem[] = [
       { label: "Education", to: "/industries#education" },
       { label: "Healthcare", to: "/industries#healthcare" },
       { label: "Agriculture", to: "/industries#agriculture" },
-      { label: "Finance & Financial Services", to: "/industries#finance" },
+      { label: "Finance", to: "/industries#finance" },
       { label: "Logistics & Supply Chain", to: "/industries#logistics" },
       { label: "Retail & Commerce", to: "/industries#retail" },
     ],
@@ -45,7 +44,7 @@ export const NAV_ITEMS: NavItem[] = [
     label: "Work",
     to: "/work",
     children: [
-      { label: "Case Studies", to: "/work/case-studies" },
+      { label: "Project Write-Ups", to: "/work/case-studies" },
       { label: "Portfolio", to: "/work/portfolio" },
     ],
   },

@@ -1,8 +1,47 @@
+import {
+  Accessibility,
+  Activity,
+  BarChart3,
+  Bell,
+  Boxes,
+  Camera,
+  Cloud,
+  Compass,
+  Database,
+  Fingerprint,
+  KeyRound,
+  Link2,
+  Lock,
+  MapPin,
+  MonitorSmartphone,
+  Route,
+  Server,
+  ShieldAlert,
+  ShoppingCart,
+  Smartphone,
+  Sparkles,
+  TestTube,
+  TrendingUp,
+  Users,
+  Webhook,
+  Workflow,
+} from "lucide-react";
+
 import { PipelineDiagram } from "@/components/sections/Diagram";
+import { FinalCtaSection } from "@/components/sections/FinalCtaSection";
 import { PageHero } from "@/components/sections/PageHero";
+import {
+AudienceAtlas,
+  ExplorerList,
+  FaqConsole,
+  JourneyRail,
+  PrincipleDeck,
+  ProseSection,
+  StackExplorer,
+  DomainShell,
+} from "@/components/sections/elevated/Elevate";
 import home from "@/components/sections/home/Home.module.css";
-import s from "@/components/sections/solutions/Solutions.module.css";
-import { Button, Card, Section, SectionHeader, Eyebrow } from "@/components/ui";
+import { Button } from "@/components/ui";
 import {
   MOB_APPROACH,
   MOB_BACKEND,
@@ -23,13 +62,32 @@ import {
 import { useDocumentMeta } from "@/hooks/useDocumentMeta";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
+const INTRO_ICONS = [Users, Link2, TrendingUp];
+const BUILD_ICONS = [Smartphone, Workflow, ShoppingCart, Boxes, MapPin, Sparkles];
+const CAPABILITY_ICONS = [
+  MonitorSmartphone,
+  KeyRound,
+  Webhook,
+  Bell,
+  Database,
+  MapPin,
+  Camera,
+  BarChart3,
+];
+const BACKEND_ICONS = [Server, Boxes, Webhook, Cloud];
+const UX_ICONS = [Compass, Smartphone, Route, MonitorSmartphone, Activity, Accessibility];
+const APPROACH_ICONS = [Boxes, Smartphone];
+const QUALITY_ICONS = [Fingerprint, Lock, Webhook, ShieldAlert, TestTube, Activity];
+
 export function MobileDevelopmentPage() {
   useDocumentMeta(MOB_SEO.title, MOB_SEO.description);
   useScrollReveal();
 
   return (
-    <>
+    <DomainShell domain="mobile">
+      <>
       <PageHero
+        domain="mobile"
         label={MOB_HERO.label}
         title={MOB_HERO.title}
         supporting={MOB_HERO.supporting}
@@ -39,257 +97,144 @@ export function MobileDevelopmentPage() {
       />
 
       {/* 02 — Mobile Products */}
-      <Section className={home.altBg}>
-        <div className="reveal">
-          <SectionHeader label={MOB_INTRO.label} title={MOB_INTRO.heading} />
-          <div className={home.supporting}>
-            {MOB_INTRO.paragraphs.map((p) => (
-              <p key={p}>{p}</p>
-            ))}
-          </div>
-        </div>
-        <div className={`${home.grid} ${home.cols3} reveal`}>
-          {MOB_INTRO.cards.map((item) => (
-            <Card key={item.title}>
-              <div className={home.cardTitle}>{item.title}</div>
-              <p className={home.cardText}>{item.text}</p>
-            </Card>
-          ))}
-        </div>
-      </Section>
+      <PrincipleDeck
+        label={MOB_INTRO.label}
+        title={MOB_INTRO.heading}
+        supporting={MOB_INTRO.paragraphs.map((p) => (
+          <p key={p}>{p}</p>
+        ))}
+        items={MOB_INTRO.cards}
+        icons={INTRO_ICONS}
+        eyebrowPrefix="Principle"
+        altBg
+      />
 
       {/* 03 — Mobile Solutions */}
-      <Section>
-        <div className="reveal">
-          <SectionHeader label={MOB_BUILD.label} title={MOB_BUILD.heading} lineText={MOB_BUILD.supporting} />
-        </div>
-        <div className={`${home.grid} ${home.cols3} reveal`}>
-          {MOB_BUILD.cards.map((card) => (
-            <Card key={card.title} className={s.solutionCard}>
-              <div className={home.cardTitle}>{card.title}</div>
-              <p className={home.cardText}>{card.description}</p>
-              <div className={s.solutionCapabilities}>
-                {card.items.map((item) => (
-                  <span key={item} className={home.chip}>
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </Card>
-          ))}
-        </div>
-      </Section>
+      <ExplorerList
+        label={MOB_BUILD.label}
+        title={MOB_BUILD.heading}
+        supporting={MOB_BUILD.supporting}
+        icons={BUILD_ICONS}
+        items={MOB_BUILD.cards.map((card) => ({
+          title: card.title,
+          text: card.description,
+          tags: card.items,
+        }))}
+      />
 
       {/* 04 — Mobile Development Capabilities */}
-      <Section className={home.altBg}>
-        <div className="reveal">
-          <SectionHeader label={MOB_CAPABILITIES.label} title={MOB_CAPABILITIES.heading} />
-          <p className={home.supporting}>{MOB_CAPABILITIES.supporting}</p>
-        </div>
-        <div className={`${home.grid} ${home.cols4} reveal`}>
-          {MOB_CAPABILITIES.cards.map((item) => (
-            <Card key={item.title}>
-              <div className={home.cardTitle}>{item.title}</div>
-              <p className={home.cardText}>{item.text}</p>
-            </Card>
-          ))}
-        </div>
-      </Section>
+      <PrincipleDeck
+        label={MOB_CAPABILITIES.label}
+        title={MOB_CAPABILITIES.heading}
+        supporting={MOB_CAPABILITIES.supporting}
+        items={MOB_CAPABILITIES.cards}
+        icons={CAPABILITY_ICONS}
+        eyebrowPrefix="Capability"
+        altBg
+      />
 
       {/* 05 — Mobile + Backend */}
-      <Section>
-        <div className="reveal">
-          <SectionHeader label={MOB_BACKEND.label} title={MOB_BACKEND.heading} />
-          <div className={home.supporting}>
-            {MOB_BACKEND.paragraphs.map((p) => (
-              <p key={p}>{p}</p>
-            ))}
-          </div>
-        </div>
-        <div className="reveal">
-          <PipelineDiagram items={MOB_BACKEND.flow} numbered={false} />
-        </div>
-        <div className={`${home.grid} ${home.cols4} reveal`}>
-          {MOB_BACKEND.cards.map((item) => (
-            <Card key={item.title}>
-              <div className={home.cardTitle}>{item.title}</div>
-              <p className={home.cardText}>{item.text}</p>
-            </Card>
-          ))}
-        </div>
-      </Section>
+      <ProseSection label={MOB_BACKEND.label} title={MOB_BACKEND.heading} paragraphs={MOB_BACKEND.paragraphs}>
+        <PipelineDiagram items={MOB_BACKEND.flow} numbered={false} />
+      </ProseSection>
+
+      <ExplorerList
+        label={MOB_BACKEND.label}
+        title="Backend, Systems & Infrastructure."
+        items={MOB_BACKEND.cards}
+        icons={BACKEND_ICONS}
+        altBg
+      />
 
       {/* 06 — Mobile UX */}
-      <Section className={home.altBg}>
-        <div className="reveal">
-          <SectionHeader label={MOB_UX.label} title={MOB_UX.heading} />
-          <p className={home.supporting}>{MOB_UX.supporting}</p>
-        </div>
-        <div className={`${home.grid} ${home.cols3} reveal`}>
-          {MOB_UX.cards.map((item) => (
-            <Card key={item.title}>
-              <div className={home.cardTitle}>{item.title}</div>
-              <p className={home.cardText}>{item.text}</p>
-            </Card>
-          ))}
-        </div>
-      </Section>
+      <ExplorerList
+        label={MOB_UX.label}
+        title={MOB_UX.heading}
+        supporting={MOB_UX.supporting}
+        items={MOB_UX.cards}
+        icons={UX_ICONS}
+      />
 
       {/* 07 — Technology Approach (Cross-Platform vs Native) */}
-      <Section>
-        <div className="reveal">
-          <SectionHeader label={MOB_APPROACH.label} title={MOB_APPROACH.heading} />
-          <p className={home.supporting}>{MOB_APPROACH.supporting}</p>
-        </div>
-        <div className={`${home.grid} ${home.cols2} reveal`}>
-          {MOB_APPROACH.options.map((opt) => (
-            <Card key={opt.title} className={s.solutionCard}>
-              <div className={home.cardTitle}>{opt.title}</div>
-              <p className={home.cardText}>{opt.text}</p>
-              <div className={s.suitableLabel}>Suitable for</div>
-              <div className={s.solutionCapabilities}>
-                {opt.suitable.map((item) => (
-                  <span key={item} className={home.chip}>
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </Card>
-          ))}
-        </div>
-      </Section>
+      <PrincipleDeck
+        label={MOB_APPROACH.label}
+        title={MOB_APPROACH.heading}
+        supporting={MOB_APPROACH.supporting}
+        icons={APPROACH_ICONS}
+        eyebrowPrefix="Option"
+        items={MOB_APPROACH.options.map((opt) => ({
+          title: opt.title,
+          text: opt.text,
+          tags: opt.suitable,
+        }))}
+        altBg
+      />
 
       {/* 08 — Technology */}
-      <Section className={home.altBg}>
-        <div className="reveal">
-          <SectionHeader label={MOB_TECH.label} title={MOB_TECH.heading} />
-          <p className={home.supporting}>{MOB_TECH.supporting}</p>
-        </div>
-        <div className={`${home.techGrid} reveal`}>
-          {MOB_TECH.categories.map((cat) => (
-            <div key={cat.title} className={home.techCat}>
-              <div className={home.techTitle}>{cat.title}</div>
-              <div className={home.chips}>
-                {cat.items.map((item) => (
-                  <span key={item} className={home.chip}>
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </Section>
+      <StackExplorer
+        label={MOB_TECH.label}
+        title={MOB_TECH.heading}
+        supporting={MOB_TECH.supporting}
+        categories={MOB_TECH.categories}
+      />
 
       {/* 09 — Development Process */}
-      <Section>
-        <div className="reveal">
-          <SectionHeader label={MOB_PROCESS.label} title={MOB_PROCESS.heading} />
-          <p className={home.supporting}>{MOB_PROCESS.supporting}</p>
-        </div>
-        <div className={`${s.stepsGrid} reveal`}>
-          {MOB_PROCESS.steps.map((step) => (
-            <div key={step.num} className={home.step}>
-              <div className={home.stepNode}>
-                <span className={home.stepNum}>{step.num}</span>
-              </div>
-              <div className={home.stepTitle}>{step.title}</div>
-              <p className={home.stepText}>{step.text}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
+      <JourneyRail
+        label={MOB_PROCESS.label}
+        title={MOB_PROCESS.heading}
+        supporting={MOB_PROCESS.supporting}
+        steps={MOB_PROCESS.steps}
+        layout="vertical"
+        altBg
+      />
 
       {/* 10 — Quality & Security */}
-      <Section className={home.altBg}>
-        <div className="reveal">
-          <SectionHeader label={MOB_QUALITY.label} title={MOB_QUALITY.heading} />
-          <p className={home.supporting}>{MOB_QUALITY.supporting}</p>
-        </div>
-        <div className={`${home.grid} ${home.cols3} reveal`}>
-          {MOB_QUALITY.cards.map((item) => (
-            <Card key={item.title}>
-              <div className={home.cardTitle}>{item.title}</div>
-              <p className={home.cardText}>{item.text}</p>
-            </Card>
-          ))}
-        </div>
-      </Section>
+      <ExplorerList
+        label={MOB_QUALITY.label}
+        title={MOB_QUALITY.heading}
+        supporting={MOB_QUALITY.supporting}
+        items={MOB_QUALITY.cards}
+        icons={QUALITY_ICONS}
+      />
 
       {/* 11 — Industries & Use Cases */}
-      <Section>
-        <div className="reveal">
-          <SectionHeader label={MOB_INDUSTRIES.label} title={MOB_INDUSTRIES.heading} />
-          <p className={home.supporting}>{MOB_INDUSTRIES.supporting}</p>
-        </div>
-        <div className={`${home.grid} ${home.cols3} reveal`}>
-          {MOB_INDUSTRIES.cards.map((item) => (
-            <Card key={item.title}>
-              <div className={home.cardTitle}>{item.title}</div>
-              <p className={home.cardText}>{item.text}</p>
-            </Card>
-          ))}
-        </div>
-        <div className={`${home.sectionCtas} reveal`}>
-          <Button variant="outline" to={MOB_INDUSTRIES.cta.to}>
-            {MOB_INDUSTRIES.cta.label} →
-          </Button>
-        </div>
-      </Section>
+      <AudienceAtlas
+        label={MOB_INDUSTRIES.label}
+        title={MOB_INDUSTRIES.heading}
+        supporting={MOB_INDUSTRIES.supporting}
+        cards={MOB_INDUSTRIES.cards}
+        footerCta={MOB_INDUSTRIES.cta}
+        altBg
+      />
 
       {/* 12 — Selected Work (neutral empty state — no fabricated mobile portfolio) */}
-      <Section className={home.altBg}>
-        <div className="reveal">
-          <SectionHeader label={MOB_WORK.label} title={MOB_WORK.heading} />
-          <p className={home.supporting}>{MOB_WORK.supporting}</p>
-        </div>
-        <div className={`${home.emptyState} reveal`}>{MOB_WORK.emptyState}</div>
-        <div className={`${home.sectionCtas} reveal`}>
+      <ProseSection label={MOB_WORK.label} title={MOB_WORK.heading} paragraphs={[MOB_WORK.supporting]}>
+        <div className={home.emptyState}>{MOB_WORK.emptyState}</div>
+        <div className={home.sectionCtas}>
           <Button variant="primary" to={MOB_WORK.cta.to}>
             {MOB_WORK.cta.label} →
           </Button>
         </div>
-      </Section>
+      </ProseSection>
 
       {/* 13 — FAQ */}
-      <Section>
-        <div className="reveal">
-          <SectionHeader label={MOB_FAQ.label} title={MOB_FAQ.heading} />
-        </div>
-        <div className={`${s.faq} reveal`}>
-          {MOB_FAQ.items.map((item) => (
-            <details key={item.q} className={s.faqItem}>
-              <summary className={s.faqQuestion}>{item.q}</summary>
-              <div className={s.faqAnswer}>{item.a}</div>
-            </details>
-          ))}
-        </div>
-        <div className={`${home.sectionCtas} reveal`}>
-          <Button variant="primary" to={MOB_FAQ.cta.to}>
-            {MOB_FAQ.cta.label} →
-          </Button>
-        </div>
-      </Section>
+      <FaqConsole
+        label={MOB_FAQ.label}
+        title={MOB_FAQ.heading}
+        items={MOB_FAQ.items}
+        footerCta={MOB_FAQ.cta}
+        altBg
+      />
 
       {/* 14 — Final CTA */}
-      <Section>
-        <div className={`${home.finalCta} reveal`} style={{ position: "relative" }}>
-          <div className="circuit-bg" />
-          <div style={{ position: "relative", zIndex: 1 }}>
-            <Eyebrow>{MOB_FINAL.label}</Eyebrow>
-            <h2 className={home.finalHeading}>{MOB_FINAL.heading}</h2>
-            <p className={home.finalSupporting}>{MOB_FINAL.supporting}</p>
-            <div className={home.finalCtas}>
-              <Button variant="primary" to={MOB_FINAL.primaryCta.to}>
-                {MOB_FINAL.primaryCta.label}
-              </Button>
-              <Button variant="outline" to={MOB_FINAL.secondaryCta.to}>
-                {MOB_FINAL.secondaryCta.label}
-              </Button>
-            </div>
-          </div>
-        </div>
-      </Section>
+      <FinalCtaSection
+        label={MOB_FINAL.label}
+        heading={MOB_FINAL.heading}
+        supporting={MOB_FINAL.supporting}
+        primaryCta={MOB_FINAL.primaryCta}
+        secondaryCta={MOB_FINAL.secondaryCta}
+      />
     </>
+    </DomainShell>
   );
 }

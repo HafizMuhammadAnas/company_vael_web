@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 
-import { Button } from "@/components/ui";
+import { HeroAmbient } from "@/components/ambient/HeroAmbient";
 import { LogoGlyph } from "@/components/brand/LogoGlyph";
+import { Button } from "@/components/ui";
 
 export function ThankYouPage() {
   useEffect(() => {
@@ -10,7 +11,7 @@ export function ThankYouPage() {
 
   return (
     <section className="systemPage">
-      <div className="circuit-bg" />
+      <HeroAmbient layout="page" />
       <div className="systemInner">
         <div style={{ filter: "drop-shadow(0 0 24px rgba(0,212,255,0.6))" }}>
           <LogoGlyph size={80} />

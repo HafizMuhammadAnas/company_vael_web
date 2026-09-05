@@ -1,6 +1,6 @@
 # VAELKODE
 
-Full-stack marketing site + CMS for VAELKODE ("Decoding Ancient Innovation for the Future").
+Full-stack marketing site + lead admin for VAELKODE — an AI-first digital engineering company.
 
 - **Frontend:** React 18 + Vite + TypeScript
 - **Backend:** Python + FastAPI (layered: routers → services → repositories → models)

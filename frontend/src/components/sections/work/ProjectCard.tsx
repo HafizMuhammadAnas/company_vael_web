@@ -36,7 +36,7 @@ export function ProjectCard({ project }: { project: Project }) {
 
       {project.hasCaseStudy && (
         <Link to={`/work/case-studies/${project.slug}`} className={home.cardCta}>
-          View Case Study →
+          View Project Write-Up →
         </Link>
       )}
     </Card>

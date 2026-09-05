@@ -1,10 +1,12 @@
 import { Navigate, useParams } from "react-router-dom";
 
+import { FinalCtaSection } from "@/components/sections/FinalCtaSection";
 import { PageHero } from "@/components/sections/PageHero";
+import { DomainShell, ProseSection } from "@/components/sections/elevated/Elevate";
 import home from "@/components/sections/home/Home.module.css";
 import work from "@/components/sections/work/Work.module.css";
 import { Button, Section, SectionHeader } from "@/components/ui";
-import { CASE_STUDIES, WORK_FINAL } from "@/content/work";
+import { CASE_STUDIES, CASE_STUDIES_NOTE, WORK_FINAL } from "@/content/work";
 import { useDocumentMeta } from "@/hooks/useDocumentMeta";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
@@ -13,8 +15,9 @@ export function CaseStudyDetailPage() {
   const study = CASE_STUDIES.find((cs) => cs.slug === slug);
 
   useDocumentMeta(
-    study?.seo.title ?? "Case Study | VAELKODE",
-    study?.seo.description ?? "VAELKODE case study.",
+    study?.seo.title ?? "Project Write-Up | VAELKODE",
+    study?.seo.description ??
+      "Selected professional project write-up — not a VAELKODE-brand client delivery.",
   );
   useScrollReveal();
 
@@ -23,20 +26,15 @@ export function CaseStudyDetailPage() {
   }
 
   return (
-    <>
-      <PageHero label={study.category} title={study.title} supporting={study.lead} />
+    <DomainShell domain="work">
+      <PageHero domain="work" label={study.category} title={study.title} supporting={study.lead} />
+
+      <Section>
+        <p className={`${home.sectionNote} reveal`}>{CASE_STUDIES_NOTE}</p>
+      </Section>
 
       {/* Project Overview */}
-      <Section className={home.altBg}>
-        <div className="reveal">
-          <SectionHeader label="Overview" title="Project Overview" />
-          <div className={home.supporting}>
-            {study.overview.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </div>
-        </div>
-      </Section>
+      <ProseSection label="Overview" title="Project Overview" paragraphs={study.overview} altBg />
 
       {/* Focus — AI & Automation / Computer Vision */}
       <Section>
@@ -93,25 +91,12 @@ export function CaseStudyDetailPage() {
           </div>
         </div>
       </Section>
-
-      {/* Final CTA */}
-      <Section>
-        <div className={`${home.finalCta} reveal`} style={{ position: "relative" }}>
-          <div className="circuit-bg" />
-          <div style={{ position: "relative", zIndex: 1 }}>
-            <h2 className={home.finalHeading}>{WORK_FINAL.heading}</h2>
-            <p className={home.finalSupporting}>{WORK_FINAL.supporting}</p>
-            <div className={home.finalCtas}>
-              <Button variant="primary" to={WORK_FINAL.primaryCta.to}>
-                {WORK_FINAL.primaryCta.label}
-              </Button>
-              <Button variant="outline" to={WORK_FINAL.secondaryCta.to}>
-                {WORK_FINAL.secondaryCta.label}
-              </Button>
-            </div>
-          </div>
-        </div>
-      </Section>
-    </>
+      <FinalCtaSection
+        heading={WORK_FINAL.heading}
+        supporting={WORK_FINAL.supporting}
+        primaryCta={WORK_FINAL.primaryCta}
+        secondaryCta={WORK_FINAL.secondaryCta}
+      />
+    </DomainShell>
   );
 }

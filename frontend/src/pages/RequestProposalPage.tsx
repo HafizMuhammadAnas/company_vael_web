@@ -1,4 +1,5 @@
 import { LeadForm } from "@/components/forms/LeadForm";
+import { DomainShell } from "@/components/sections/domain/DomainShell";
 import { PageHero } from "@/components/sections/PageHero";
 import c from "@/components/sections/contact/Contact.module.css";
 import { Section } from "@/components/ui";
@@ -16,8 +17,13 @@ export function RequestProposalPage() {
   useScrollReveal();
 
   return (
-    <>
-      <PageHero label={PROPOSAL_HERO.label} title={PROPOSAL_HERO.title} supporting={PROPOSAL_HERO.supporting} />
+    <DomainShell domain="contact">
+      <PageHero
+        domain="contact"
+        label={PROPOSAL_HERO.label}
+        title={PROPOSAL_HERO.title}
+        supporting={PROPOSAL_HERO.supporting}
+      />
 
       <Section>
         <div className="reveal" style={{ maxWidth: 760, margin: "0 auto" }}>
@@ -33,6 +39,6 @@ export function RequestProposalPage() {
           </div>
         </div>
       </Section>
-    </>
+    </DomainShell>
   );
 }

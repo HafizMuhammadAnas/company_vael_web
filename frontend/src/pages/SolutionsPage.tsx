@@ -1,9 +1,32 @@
-import { Link } from "react-router-dom";
+import {
+  BrainCircuit,
+  Cloud,
+  Code2,
+  Compass,
+  LayoutDashboard,
+  Smartphone,
+  Layers,
+  Shield,
+  Gauge,
+  Link2,
+  BarChart3,
+  Sparkles,
+} from "lucide-react";
 
+import { FinalCtaSection } from "@/components/sections/FinalCtaSection";
 import { PageHero } from "@/components/sections/PageHero";
-import home from "@/components/sections/home/Home.module.css";
-import s from "@/components/sections/solutions/Solutions.module.css";
-import { Button, Card, Section, SectionHeader, Eyebrow } from "@/components/ui";
+import {
+  AudienceAtlas,
+  DomainShell,
+  ExplorerList,
+  FaqConsole,
+  JourneyRail,
+  PrincipleDeck,
+  ProseSection,
+  SignalBoard,
+  StackExplorer,
+  WorkGallery,
+} from "@/components/sections/elevated/Elevate";
 import { FEATURED_WORK } from "@/content/home";
 import {
   SOL_CHALLENGES,
@@ -22,13 +45,17 @@ import {
 import { useDocumentMeta } from "@/hooks/useDocumentMeta";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
+const CORE_ICONS = [BrainCircuit, Code2, LayoutDashboard, Smartphone, Cloud, Compass];
+const PRINCIPLE_ICONS = [Layers, Shield, Gauge, Link2, BarChart3, Sparkles];
+
 export function SolutionsPage() {
   useDocumentMeta(SOLUTIONS_SEO.title, SOLUTIONS_SEO.description);
   useScrollReveal();
 
   return (
-    <>
+    <DomainShell domain="solutions">
       <PageHero
+        domain="solutions"
         label={SOL_HERO.label}
         title={SOL_HERO.title}
         supporting={SOL_HERO.supporting}
@@ -36,217 +63,94 @@ export function SolutionsPage() {
         secondaryCta={SOL_HERO.secondaryCta}
       />
 
-      {/* 02 — How We Help */}
-      <Section className={home.altBg}>
-        <div className="reveal">
-          <SectionHeader label={SOL_INTRO.label} title={SOL_INTRO.heading} />
-          <div className={home.supporting}>
-            {SOL_INTRO.paragraphs.map((p) => (
-              <p key={p}>{p}</p>
-            ))}
-          </div>
-        </div>
-        <div className={`${home.grid} ${home.cols4} reveal`}>
-          {SOL_INTRO.principles.map((item) => (
-            <Card key={item.title}>
-              <div className={home.cardTitle}>{item.title}</div>
-              <p className={home.cardText}>{item.text}</p>
-            </Card>
-          ))}
-        </div>
-      </Section>
+      <ProseSection
+        label={SOL_INTRO.label}
+        title={SOL_INTRO.heading}
+        paragraphs={SOL_INTRO.paragraphs}
+        altBg
+      />
 
-      {/* 03 — Core Technology Solutions */}
-      <Section>
-        <div className="reveal">
-          <SectionHeader label={SOL_CORE.label} title={SOL_CORE.heading} lineText={SOL_CORE.supporting} />
-        </div>
-        <div className={`${home.grid} ${home.cols3} reveal`}>
-          {SOL_CORE.solutions.map((sol) => (
-            <Card key={sol.title} className={s.solutionCard}>
-              <div className={home.cardTitle}>{sol.title}</div>
-              <p className={home.cardText}>{sol.description}</p>
-              <div className={s.solutionCapabilities}>
-                {sol.capabilities.map((cap) => (
-                  <span key={cap} className={home.chip}>
-                    {cap}
-                  </span>
-                ))}
-              </div>
-              <Link to={sol.to} className={home.cardCta}>
-                {sol.cta} →
-              </Link>
-            </Card>
-          ))}
-        </div>
-      </Section>
+      <PrincipleDeck
+        label="Approach"
+        title="How We Move From Problem to Product."
+        items={SOL_INTRO.principles}
+        eyebrowPrefix="Step"
+      />
 
-      {/* 04 — Find Your Solution */}
-      <Section className={home.altBg}>
-        <div className="reveal">
-          <SectionHeader label={SOL_CHALLENGES.label} title={SOL_CHALLENGES.heading} />
-          <p className={home.supporting}>{SOL_CHALLENGES.supporting}</p>
-        </div>
-        <div className={`${s.challengeGrid} reveal`}>
-          {SOL_CHALLENGES.items.map((item) => (
-            <div key={item.question} className={s.challenge}>
-              <div className={s.challengeQuestion}>{item.question}</div>
-              <Link to={item.to} className={home.cardCta}>
-                {item.cta} →
-              </Link>
-            </div>
-          ))}
-        </div>
-      </Section>
+      <ExplorerList
+        label={SOL_CORE.label}
+        title={SOL_CORE.heading}
+        supporting={SOL_CORE.supporting}
+        icons={CORE_ICONS}
+        altBg
+        items={SOL_CORE.solutions.map((sol) => ({
+          title: sol.title,
+          text: sol.description,
+          tags: sol.capabilities,
+          href: sol.to,
+          cta: sol.cta,
+        }))}
+      />
 
-      {/* 05 — Engineering Principles */}
-      <Section>
-        <div className="reveal">
-          <SectionHeader label={SOL_PRINCIPLES.label} title={SOL_PRINCIPLES.heading} />
-          <p className={home.supporting}>{SOL_PRINCIPLES.supporting}</p>
-        </div>
-        <div className={`${home.grid} ${home.cols3} reveal`}>
-          {SOL_PRINCIPLES.items.map((item) => (
-            <Card key={item.num}>
-              <div className={home.cardNum}>{item.num}</div>
-              <div className={home.cardTitle}>{item.title}</div>
-              <p className={home.cardText}>{item.text}</p>
-            </Card>
-          ))}
-        </div>
-      </Section>
+      <SignalBoard
+        label={SOL_CHALLENGES.label}
+        title={SOL_CHALLENGES.heading}
+        supporting={SOL_CHALLENGES.supporting}
+        items={SOL_CHALLENGES.items}
+      />
 
-      {/* 06 — Technology Ecosystem */}
-      <Section className={home.altBg}>
-        <div className="reveal">
-          <SectionHeader label={SOL_TECH.label} title={SOL_TECH.heading} />
-          <p className={home.supporting}>{SOL_TECH.supporting}</p>
-        </div>
-        <div className={`${home.techGrid} reveal`}>
-          {SOL_TECH.categories.map((cat) => (
-            <div key={cat.title} className={home.techCat}>
-              <div className={home.techTitle}>{cat.title}</div>
-              <div className={home.chips}>
-                {cat.items.map((item) => (
-                  <span key={item} className={home.chip}>
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </Section>
+      <PrincipleDeck
+        label={SOL_PRINCIPLES.label}
+        title={SOL_PRINCIPLES.heading}
+        supporting={SOL_PRINCIPLES.supporting}
+        items={SOL_PRINCIPLES.items}
+        icons={PRINCIPLE_ICONS}
+        eyebrowPrefix="Principle"
+        altBg
+      />
 
-      {/* 07 — Delivery Model */}
-      <Section>
-        <div className="reveal">
-          <SectionHeader label={SOL_DELIVERY.label} title={SOL_DELIVERY.heading} />
-        </div>
-        <div className={`${home.steps} reveal`}>
-          {SOL_DELIVERY.steps.map((step) => (
-            <div key={step.num} className={home.step}>
-              <div className={home.stepNode}>
-                <span className={home.stepNum}>{step.num}</span>
-              </div>
-              <div className={home.stepTitle}>{step.title}</div>
-              <p className={home.stepText}>{step.text}</p>
-            </div>
-          ))}
-        </div>
-        <div className={`${home.sectionCtas} reveal`}>
-          <Button variant="primary" to={SOL_DELIVERY.cta.to}>
-            {SOL_DELIVERY.cta.label} →
-          </Button>
-        </div>
-      </Section>
+      <StackExplorer
+        label={SOL_TECH.label}
+        title={SOL_TECH.heading}
+        supporting={SOL_TECH.supporting}
+        categories={SOL_TECH.categories}
+      />
 
-      {/* 08 — Who We Help */}
-      <Section className={home.altBg}>
-        <div className="reveal">
-          <SectionHeader label={SOL_WHO.label} title={SOL_WHO.heading} />
-          <p className={home.supporting}>{SOL_WHO.supporting}</p>
-        </div>
-        <div className={`${s.whoGrid} reveal`}>
-          {SOL_WHO.cards.map((card) => (
-            <Link key={card.title} to={card.to} className={s.whoCard}>
-              {card.title}
-            </Link>
-          ))}
-        </div>
-        <div className={`${home.sectionCtas} reveal`}>
-          <Button variant="outline" to={SOL_WHO.cta.to}>
-            {SOL_WHO.cta.label} →
-          </Button>
-        </div>
-      </Section>
+      <JourneyRail
+        label={SOL_DELIVERY.label}
+        title={SOL_DELIVERY.heading}
+        steps={SOL_DELIVERY.steps}
+        footerCta={SOL_DELIVERY.cta}
+        altBg
+      />
 
-      {/* 09 — Selected Work (reuses approved homepage items) */}
-      <Section>
-        <div className="reveal">
-          <SectionHeader label={SOL_WORK.label} title={SOL_WORK.heading} />
-          <p className={home.supporting}>{SOL_WORK.supporting}</p>
-          <p className={home.sectionNote}>{FEATURED_WORK.note}</p>
-        </div>
-        <div className={`${home.grid} ${home.cols3} reveal`}>
-          {FEATURED_WORK.cards.map((card) => (
-            <Card key={card.title}>
-              <div className={home.cardCategory}>{card.category}</div>
-              <div className={home.cardTitle}>{card.title}</div>
-              <p className={home.cardText}>{card.description}</p>
-              <div className={home.cardTech}>{card.technology}</div>
-              <Link to={card.to} className={home.cardCta}>
-                {card.cta} →
-              </Link>
-            </Card>
-          ))}
-        </div>
-        <div className={`${home.sectionCtas} reveal`}>
-          <Button variant="primary" to={SOL_WORK.cta.to}>
-            {SOL_WORK.cta.label} →
-          </Button>
-        </div>
-      </Section>
+      <AudienceAtlas
+        label={SOL_WHO.label}
+        title={SOL_WHO.heading}
+        supporting={SOL_WHO.supporting}
+        cards={SOL_WHO.cards}
+        footerCta={SOL_WHO.cta}
+      />
 
-      {/* 10 — FAQ */}
-      <Section className={home.altBg}>
-        <div className="reveal">
-          <SectionHeader label={SOL_FAQ.label} title={SOL_FAQ.heading} />
-        </div>
-        <div className={`${s.faq} reveal`}>
-          {SOL_FAQ.items.map((item) => (
-            <details key={item.q} className={s.faqItem}>
-              <summary className={s.faqQuestion}>{item.q}</summary>
-              <div className={s.faqAnswer}>{item.a}</div>
-            </details>
-          ))}
-        </div>
-        <div className={`${home.sectionCtas} reveal`}>
-          <Button variant="primary" to={SOL_FAQ.cta.to}>
-            {SOL_FAQ.cta.label} →
-          </Button>
-        </div>
-      </Section>
+      <WorkGallery
+        label={SOL_WORK.label}
+        title={SOL_WORK.heading}
+        supporting={SOL_WORK.supporting}
+        note={FEATURED_WORK.note}
+        cards={FEATURED_WORK.cards}
+        footerCta={SOL_WORK.cta}
+        altBg
+      />
 
-      {/* 11 — Final CTA */}
-      <Section>
-        <div className={`${home.finalCta} reveal`} style={{ position: "relative" }}>
-          <div className="circuit-bg" />
-          <div style={{ position: "relative", zIndex: 1 }}>
-            <Eyebrow>{SOL_FINAL.label}</Eyebrow>
-            <h2 className={home.finalHeading}>{SOL_FINAL.heading}</h2>
-            <p className={home.finalSupporting}>{SOL_FINAL.supporting}</p>
-            <div className={home.finalCtas}>
-              <Button variant="primary" to={SOL_FINAL.primaryCta.to}>
-                {SOL_FINAL.primaryCta.label}
-              </Button>
-              <Button variant="outline" to={SOL_FINAL.secondaryCta.to}>
-                {SOL_FINAL.secondaryCta.label}
-              </Button>
-            </div>
-          </div>
-        </div>
-      </Section>
-    </>
+      <FaqConsole label={SOL_FAQ.label} title={SOL_FAQ.heading} items={SOL_FAQ.items} footerCta={SOL_FAQ.cta} />
+
+      <FinalCtaSection
+        label={SOL_FINAL.label}
+        heading={SOL_FINAL.heading}
+        supporting={SOL_FINAL.supporting}
+        primaryCta={SOL_FINAL.primaryCta}
+        secondaryCta={SOL_FINAL.secondaryCta}
+      />
+    </DomainShell>
   );
 }

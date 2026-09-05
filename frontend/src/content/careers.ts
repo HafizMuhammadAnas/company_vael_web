@@ -6,14 +6,14 @@
 export const CAREERS_SEO = {
   title: "Careers | VAELKODE",
   description:
-    "Build what comes next with VAELKODE — a technology company focused on software engineering, AI, digital products, and practical technology solutions.",
+    "Build what comes next with VAELKODE — an AI-first digital engineering company focused on software engineering, AI, digital products, and practical technology solutions.",
 };
 
 export const CAREERS_HERO = {
   label: "Careers",
   title: "Build What Comes Next With VAELKODE.",
   supporting:
-    "We are building a technology company focused on software engineering, AI, digital products, and practical technology solutions. As VAELKODE grows, we will be looking for people who enjoy solving difficult problems, learning continuously, and building technology that has a real purpose.",
+    "We are building an AI-first digital engineering company focused on software engineering, AI, digital products, and practical technology solutions. As VAELKODE grows, we will be looking for people who enjoy solving difficult problems, learning continuously, and building technology that has a real purpose.",
 };
 
 export const CAREERS_WHY = {
@@ -28,7 +28,7 @@ export const CAREERS_WHY = {
     { title: "Learning", text: "Continue developing your technical and problem-solving skills." },
     { title: "Ownership", text: "Take responsibility for the work you build and the outcomes you contribute to." },
     { title: "Collaboration", text: "Work with people across technology, product, design, and business." },
-    { title: "Growth", text: "Grow alongside a technology company being built from the ground up." },
+    { title: "Growth", text: "Grow alongside an AI-first digital engineering company being built from the ground up." },
   ],
 };
 
@@ -53,7 +53,7 @@ export const CAREERS_OPPORTUNITIES = {
   label: "Current Opportunities",
   heading: "Current Opportunities",
   emptyState: [
-    "We don't have a public opening for this role at the moment.",
+    "We don't have any public openings at the moment.",
     "If you believe you could contribute to VAELKODE, you can still introduce yourself and share your background with us.",
   ],
   cta: { label: "Send Your Profile", href: "mailto:careers@vaelkode.com" },
@@ -61,7 +61,7 @@ export const CAREERS_OPPORTUNITIES = {
 
 export const CAREERS_FINAL = {
   label: "Grow With Us",
-  heading: "Want to Build the Future With Us?",
+  heading: "Interested in Growing With VAELKODE?",
   supporting:
     "Follow VAELKODE as we grow and create new opportunities across engineering, AI, product, design, and technology.",
   primaryCta: { label: "Contact VAELKODE", to: "/contact" },

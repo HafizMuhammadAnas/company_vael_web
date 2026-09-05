@@ -451,7 +451,7 @@ export const COOKIE_POLICY: LegalDoc = {
       blocks: [
         { p: "Some functionality may be provided by third-party services." },
         {
-          p: "Where third-party services use cookies or similar technologies, the relevant service and purpose should be identified in our cookie preference interface and, where required, consent will be requested before the technology is activated.",
+          p: "Where third-party services use cookies or similar technologies, the relevant service and purpose will be identified when those technologies are introduced and, where required, consent will be requested before the technology is activated.",
         },
       ],
     },
@@ -459,9 +459,11 @@ export const COOKIE_POLICY: LegalDoc = {
       heading: "5. Managing Your Cookie Preferences",
       blocks: [
         {
-          p: "Where applicable, you can manage non-essential cookie preferences through our Cookie Settings interface.",
+          p: "You can control cookies through your web browser settings, including blocking or deleting cookies.",
         },
-        { p: "You may also control cookies through your web browser." },
+        {
+          p: "Where VAELKODE introduces a dedicated cookie preference tool on this website, you will also be able to manage non-essential cookie preferences through that interface.",
+        },
         { p: "Changing or withdrawing your preferences may affect certain website functionality." },
       ],
     },

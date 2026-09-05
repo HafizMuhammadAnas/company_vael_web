@@ -1,10 +1,13 @@
 import { useState } from "react";
 
 import f from "@/components/sections/faqs/Faqs.module.css";
-import home from "@/components/sections/home/Home.module.css";
+import { FinalCtaSection } from "@/components/sections/FinalCtaSection";
 import { PageHero } from "@/components/sections/PageHero";
-import s from "@/components/sections/solutions/Solutions.module.css";
-import { Button, Section, SectionHeader, Eyebrow } from "@/components/ui";
+import {
+FaqConsole,
+  DomainShell,
+} from "@/components/sections/elevated/Elevate";
+import { Section } from "@/components/ui";
 import { FAQ_CATEGORIES, FAQ_FINAL, FAQ_HERO, FAQ_SEO } from "@/content/faqs";
 import { useDocumentMeta } from "@/hooks/useDocumentMeta";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -21,8 +24,9 @@ export function FaqsPage() {
   const visible = active === ALL ? FAQ_CATEGORIES : FAQ_CATEGORIES.filter((c) => c.id === active);
 
   return (
-    <>
-      <PageHero label={FAQ_HERO.label} title={FAQ_HERO.title} supporting={FAQ_HERO.supporting} />
+    <DomainShell domain="faqs">
+      <>
+      <PageHero domain="faqs" label={FAQ_HERO.label} title={FAQ_HERO.title} supporting={FAQ_HERO.supporting} />
 
       {/* Category filter */}
       <Section>
@@ -47,50 +51,24 @@ export function FaqsPage() {
 
       {/* FAQ sections */}
       {visible.map((category, i) => (
-        <Section key={category.id} id={category.id} className={i % 2 === 1 ? home.altBg : undefined}>
-          <div className="reveal">
-            <SectionHeader
-              label={category.sectionLabel}
-              title={
-                <>
-                  {category.heading}
-                  <span className={f.count}>
-                    {String(category.items.length).padStart(2, "0")}
-                  </span>
-                </>
-              }
-            />
-          </div>
-          <div className={`${s.faq} reveal`}>
-            {category.items.map((item) => (
-              <details key={item.q} className={s.faqItem}>
-                <summary className={s.faqQuestion}>{item.q}</summary>
-                <div className={s.faqAnswer}>{item.a}</div>
-              </details>
-            ))}
-          </div>
-        </Section>
+        <div key={category.id} id={category.id}>
+          <FaqConsole
+            label={`${category.sectionLabel} · ${String(category.items.length).padStart(2, "0")}`}
+            title={category.heading}
+            items={category.items}
+            altBg={i % 2 === 1}
+          />
+        </div>
       ))}
 
-      {/* Final CTA */}
-      <Section className={visible.length % 2 === 1 ? home.altBg : undefined}>
-        <div className={`${home.finalCta} reveal`} style={{ position: "relative" }}>
-          <div className="circuit-bg" />
-          <div style={{ position: "relative", zIndex: 1 }}>
-            <Eyebrow>{FAQ_FINAL.label}</Eyebrow>
-            <h2 className={home.finalHeading}>{FAQ_FINAL.heading}</h2>
-            <p className={home.finalSupporting}>{FAQ_FINAL.supporting}</p>
-            <div className={home.finalCtas}>
-              <Button variant="primary" to={FAQ_FINAL.primaryCta.to}>
-                {FAQ_FINAL.primaryCta.label}
-              </Button>
-              <Button variant="outline" to={FAQ_FINAL.secondaryCta.to}>
-                {FAQ_FINAL.secondaryCta.label}
-              </Button>
-            </div>
-          </div>
-        </div>
-      </Section>
+      <FinalCtaSection
+        label={FAQ_FINAL.label}
+        heading={FAQ_FINAL.heading}
+        supporting={FAQ_FINAL.supporting}
+        primaryCta={FAQ_FINAL.primaryCta}
+        secondaryCta={FAQ_FINAL.secondaryCta}
+      />
     </>
+    </DomainShell>
   );
 }

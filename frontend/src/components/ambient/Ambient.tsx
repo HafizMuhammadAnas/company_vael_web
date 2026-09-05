@@ -17,10 +17,19 @@ export function DriftGrid({ className }: { className?: string }) {
   return <div className={`${styles.grid} ${className ?? ""}`} aria-hidden />;
 }
 
-/** Large, slow radar rings — hero only. */
-export function OrbitField({ className }: { className?: string }) {
+/** Large, slow radar rings. */
+export function OrbitField({
+  className,
+  layout = "home",
+}: {
+  className?: string;
+  layout?: "home" | "page";
+}) {
   return (
-    <div className={`${styles.orbitField} ${className ?? ""}`} aria-hidden>
+    <div
+      className={`${styles.orbitField} ${layout === "page" ? styles.orbitCentered : ""} ${className ?? ""}`}
+      aria-hidden
+    >
       <div className={styles.orbitRing} />
       <div className={styles.orbitRing} />
       <div className={styles.orbitRing} />
@@ -71,10 +80,11 @@ export function DataStreams({ rows = 4 }: { rows?: number }) {
 }
 
 /**
- * Calm constellation field for the hero only.
- * Sparse cyan nodes, soft gray links, slow drift — denser on the right like the reference.
+ * Calm constellation field for heroes.
+ * `home` biases nodes to the right (left-aligned copy).
+ * `page` spreads nodes more evenly with fewer points (centered copy).
  */
-export function ParticleNetwork() {
+export function ParticleNetwork({ layout = "home" }: { layout?: "home" | "page" }) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const reduced = usePrefersReducedMotion();
 
@@ -84,9 +94,23 @@ export function ParticleNetwork() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    const count = 52;
-    const linkDist = 175;
+    const count = layout === "page" ? 36 : 52;
+    const linkDist = layout === "page" ? 150 : 175;
     const nodes = Array.from({ length: count }, (_, i) => {
+      if (layout === "page") {
+        // Prefer ring around the center so titled copy stays clear.
+        const angle = Math.random() * Math.PI * 2;
+        const radius = 0.28 + Math.random() * 0.42;
+        return {
+          x: 0.5 + Math.cos(angle) * radius * 0.55,
+          y: 0.42 + Math.sin(angle) * radius * 0.48,
+          vx: (Math.random() - 0.5) * 0.00032,
+          vy: (Math.random() - 0.5) * 0.00028,
+          r: 0.75 + Math.random() * 1.35,
+          phase: Math.random() * Math.PI * 2,
+        };
+      }
+
       // Bias toward right / mid — copy stays readable on the left.
       const biasRight = i % 5 !== 0;
       return {
@@ -100,7 +124,7 @@ export function ParticleNetwork() {
     });
 
     let raf = 0;
-    let t0 = performance.now();
+    const t0 = performance.now();
 
     const draw = (now: number) => {
       const { width, height } = canvas.getBoundingClientRect();
@@ -123,14 +147,13 @@ export function ParticleNetwork() {
         }
       }
 
-      // Soft constellation links
       for (let i = 0; i < nodes.length; i += 1) {
         for (let j = i + 1; j < nodes.length; j += 1) {
           const dx = (nodes[i].x - nodes[j].x) * width;
           const dy = (nodes[i].y - nodes[j].y) * height;
           const dist = Math.hypot(dx, dy);
           if (dist < linkDist) {
-            const alpha = (1 - dist / linkDist) * 0.42;
+            const alpha = (1 - dist / linkDist) * (layout === "page" ? 0.32 : 0.42);
             ctx.strokeStyle = `rgba(140, 220, 230, ${alpha})`;
             ctx.lineWidth = 0.75;
             ctx.beginPath();
@@ -141,13 +164,12 @@ export function ParticleNetwork() {
         }
       }
 
-      // Nodes with a gentle breath (relaxing, not flashy)
       for (const n of nodes) {
         const x = n.x * width;
         const y = n.y * height;
         const breath = reduced ? 1 : 0.82 + 0.18 * Math.sin(elapsed * 0.55 + n.phase);
-        const core = 0.72 * breath;
-        const halo = 0.18 * breath;
+        const core = (layout === "page" ? 0.62 : 0.72) * breath;
+        const halo = (layout === "page" ? 0.14 : 0.18) * breath;
 
         ctx.beginPath();
         ctx.fillStyle = `rgba(46, 242, 208, ${halo})`;
@@ -165,7 +187,7 @@ export function ParticleNetwork() {
 
     raf = requestAnimationFrame(draw);
     return () => cancelAnimationFrame(raf);
-  }, [reduced]);
+  }, [reduced, layout]);
 
   return <canvas ref={canvasRef} className={styles.canvas} aria-hidden />;
 }

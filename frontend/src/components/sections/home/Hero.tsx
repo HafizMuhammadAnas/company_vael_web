@@ -1,16 +1,15 @@
 import { ArrowRight } from "lucide-react";
 
-import { OrbitField, ParticleNetwork } from "@/components/ambient/Ambient";
+import { HeroAmbient } from "@/components/ambient/HeroAmbient";
 import { Button, Eyebrow } from "@/components/ui";
 import { HERO } from "@/content/home";
-import { usePointerParallax } from "@/hooks/usePointerParallax";
 
 import styles from "./Hero.module.css";
 
 export function Hero() {
   return (
     <section className={styles.hero} id="home">
-      <AmbientField />
+      <HeroAmbient layout="home" />
 
       <div className={styles.content}>
         <Eyebrow className={styles.eyebrow}>{HERO.eyebrow}</Eyebrow>
@@ -52,31 +51,6 @@ function MarqueeGroup({ words }: { words: readonly string[] }) {
           <span className={styles.marqueeSep}> / </span>
         </span>
       ))}
-    </div>
-  );
-}
-
-function AmbientField() {
-  const ref = usePointerParallax<HTMLDivElement>();
-
-  return (
-    <div ref={ref} aria-hidden className={styles.ambient}>
-      {/* Soft color wash — calm, not busy */}
-      <div className="vk-parallax" style={{ ["--depth" as string]: "22px" }}>
-        <div className={`${styles.blob} ${styles.blobA}`} />
-        <div className={`${styles.blob} ${styles.blobB}`} />
-        <div className={`${styles.blob} ${styles.blobC}`} />
-      </div>
-
-      {/* Slow radar rings behind the copy */}
-      <div className="vk-parallax" style={{ ["--depth" as string]: "-10px" }}>
-        <OrbitField />
-      </div>
-
-      {/* Constellation — hero-only */}
-      <div className={`${styles.particles} vk-parallax`} style={{ ["--depth" as string]: "14px" }}>
-        <ParticleNetwork />
-      </div>
     </div>
   );
 }

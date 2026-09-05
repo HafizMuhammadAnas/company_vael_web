@@ -1,7 +1,14 @@
+import { BrainCircuit, Code2, GraduationCap, Target, TrendingUp, Users } from "lucide-react";
+
+import { FinalCtaSection } from "@/components/sections/FinalCtaSection";
 import { PageHero } from "@/components/sections/PageHero";
+import {
+PrincipleDeck,
+  DomainShell,
+} from "@/components/sections/elevated/Elevate";
 import home from "@/components/sections/home/Home.module.css";
 import s from "@/components/sections/solutions/Solutions.module.css";
-import { Button, Card, Section, SectionHeader, Eyebrow } from "@/components/ui";
+import { Button, Section, SectionHeader } from "@/components/ui";
 import {
   CAREERS_FINAL,
   CAREERS_HERO,
@@ -13,28 +20,26 @@ import {
 import { useDocumentMeta } from "@/hooks/useDocumentMeta";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
+const WHY_ICONS = [Code2, BrainCircuit, GraduationCap, Target, Users, TrendingUp];
+
 export function CareersPage() {
   useDocumentMeta(CAREERS_SEO.title, CAREERS_SEO.description);
   useScrollReveal();
 
   return (
-    <>
-      <PageHero label={CAREERS_HERO.label} title={CAREERS_HERO.title} supporting={CAREERS_HERO.supporting} />
+    <DomainShell domain="careers">
+      <>
+      <PageHero domain="careers" label={CAREERS_HERO.label} title={CAREERS_HERO.title} supporting={CAREERS_HERO.supporting} />
 
       {/* Why work with us */}
-      <Section className={home.altBg}>
-        <div className="reveal">
-          <SectionHeader label={CAREERS_WHY.label} title={CAREERS_WHY.heading} />
-        </div>
-        <div className={`${home.grid} ${home.cols3} reveal`}>
-          {CAREERS_WHY.cards.map((card) => (
-            <Card key={card.title}>
-              <div className={home.cardTitle}>{card.title}</div>
-              <p className={home.cardText}>{card.text}</p>
-            </Card>
-          ))}
-        </div>
-      </Section>
+      <PrincipleDeck
+        label={CAREERS_WHY.label}
+        title={CAREERS_WHY.heading}
+        items={CAREERS_WHY.cards}
+        icons={WHY_ICONS}
+        eyebrowPrefix="Reason"
+        altBg
+      />
 
       {/* What we look for */}
       <Section>
@@ -72,23 +77,13 @@ export function CareersPage() {
           </Button>
         </div>
       </Section>
-
-      {/* Final CTA */}
-      <Section>
-        <div className={`${home.finalCta} reveal`} style={{ position: "relative" }}>
-          <div className="circuit-bg" />
-          <div style={{ position: "relative", zIndex: 1 }}>
-            <Eyebrow>{CAREERS_FINAL.label}</Eyebrow>
-            <h2 className={home.finalHeading}>{CAREERS_FINAL.heading}</h2>
-            <p className={home.finalSupporting}>{CAREERS_FINAL.supporting}</p>
-            <div className={home.finalCtas}>
-              <Button variant="primary" to={CAREERS_FINAL.primaryCta.to}>
-                {CAREERS_FINAL.primaryCta.label}
-              </Button>
-            </div>
-          </div>
-        </div>
-      </Section>
+      <FinalCtaSection
+        label={CAREERS_FINAL.label}
+        heading={CAREERS_FINAL.heading}
+        supporting={CAREERS_FINAL.supporting}
+        primaryCta={CAREERS_FINAL.primaryCta}
+      />
     </>
+    </DomainShell>
   );
 }

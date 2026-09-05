@@ -63,7 +63,7 @@ export const AI_BUILD = {
         "Natural Language Interfaces",
         "Enterprise AI Applications",
       ],
-      cta: "Explore Generative AI",
+      cta: "Discuss Generative AI",
     },
     {
       title: "AI Agents & Intelligent Workflows",
@@ -76,7 +76,7 @@ export const AI_BUILD = {
         "Multi-Step Workflows",
         "AI-Powered Operations",
       ],
-      cta: "Explore AI Agents",
+      cta: "Discuss AI Agents",
     },
     {
       title: "Document Intelligence",
@@ -90,7 +90,7 @@ export const AI_BUILD = {
         "Form Processing",
         "Information Validation",
       ],
-      cta: "Explore Document AI",
+      cta: "Discuss Document AI",
     },
     {
       title: "Computer Vision",
@@ -104,7 +104,7 @@ export const AI_BUILD = {
         "Video Analytics",
         "Automated Monitoring",
       ],
-      cta: "Explore Computer Vision",
+      cta: "Discuss Computer Vision",
     },
     {
       title: "Natural Language Processing",
@@ -117,7 +117,7 @@ export const AI_BUILD = {
         "Text Summarization",
         "Language Understanding",
       ],
-      cta: "Explore NLP",
+      cta: "Discuss NLP",
     },
     {
       title: "Predictive Analytics & Machine Learning",
@@ -131,7 +131,7 @@ export const AI_BUILD = {
         "Anomaly Detection",
         "Predictive Models",
       ],
-      cta: "Explore Predictive AI",
+      cta: "Discuss Predictive AI",
     },
   ],
 };

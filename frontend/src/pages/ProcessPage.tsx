@@ -1,7 +1,6 @@
+import { FinalCtaSection } from "@/components/sections/FinalCtaSection";
 import { PageHero } from "@/components/sections/PageHero";
-import home from "@/components/sections/home/Home.module.css";
-import p from "@/components/sections/process/Process.module.css";
-import { Button, Card, Section, SectionHeader, Eyebrow } from "@/components/ui";
+import { DomainShell, JourneyRail, PrincipleDeck } from "@/components/sections/elevated/Elevate";
 import {
   PROCESS_ENGAGEMENT,
   PROCESS_FINAL,
@@ -17,84 +16,48 @@ export function ProcessPage() {
   useScrollReveal();
 
   return (
-    <>
+    <DomainShell domain="process">
       <PageHero
+        domain="process"
         label={PROCESS_HERO.label}
         title={PROCESS_HERO.title}
         supporting={PROCESS_HERO.supporting}
         primaryCta={PROCESS_HERO.primaryCta}
       />
 
-      {/* Timeline of stages */}
-      <Section>
-        <div className={`${p.timeline} reveal`}>
-          {PROCESS_STEPS.map((step) => (
-            <div key={step.num} className={p.step}>
-              <span className={p.node} aria-hidden="true" />
-              <div className={p.head}>
-                <span className={p.num}>{step.num}</span>
-                <span className={p.title}>{step.title}</span>
-              </div>
-              <p className={p.text}>{step.text}</p>
+      <JourneyRail
+        label="Delivery Stages"
+        title="Every Stage Visible. Every Decision Clear."
+        supporting="Follow each stage from discovery through launch and ongoing improvement — every step stays readable."
+        layout="vertical"
+        steps={PROCESS_STEPS.map((step) => ({
+          num: step.num,
+          title: step.title,
+          text: [
+            step.text,
+            step.activities.length > 0 ? `Focus: ${step.activities.slice(0, 4).join(", ")}.` : "",
+            step.output ? `Output: ${step.output}` : "",
+          ]
+            .filter(Boolean)
+            .join(" "),
+        }))}
+      />
 
-              {step.activities.length > 0 && (
-                <>
-                  <div className={p.activitiesLabel}>{step.activitiesLabel}</div>
-                  <div className={p.chips}>
-                    {step.activities.map((a) => (
-                      <span key={a} className={home.chip}>
-                        {a}
-                      </span>
-                    ))}
-                  </div>
-                </>
-              )}
+      <PrincipleDeck
+        label={PROCESS_ENGAGEMENT.label}
+        title={PROCESS_ENGAGEMENT.heading}
+        items={PROCESS_ENGAGEMENT.models}
+        eyebrowPrefix="Model"
+        altBg
+      />
 
-              {step.output && (
-                <div className={p.output}>
-                  <span className={p.outputLabel}>Output</span>
-                  {step.output}
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      {/* Engagement models */}
-      <Section className={home.altBg}>
-        <div className="reveal">
-          <SectionHeader label={PROCESS_ENGAGEMENT.label} title={PROCESS_ENGAGEMENT.heading} />
-        </div>
-        <div className={`${home.grid} ${home.cols2} reveal`}>
-          {PROCESS_ENGAGEMENT.models.map((model) => (
-            <Card key={model.title}>
-              <div className={home.cardTitle}>{model.title}</div>
-              <p className={home.cardText}>{model.text}</p>
-            </Card>
-          ))}
-        </div>
-      </Section>
-
-      {/* Final CTA */}
-      <Section>
-        <div className={`${home.finalCta} reveal`} style={{ position: "relative" }}>
-          <div className="circuit-bg" />
-          <div style={{ position: "relative", zIndex: 1 }}>
-            <Eyebrow>{PROCESS_FINAL.label}</Eyebrow>
-            <h2 className={home.finalHeading}>{PROCESS_FINAL.heading}</h2>
-            <p className={home.finalSupporting}>{PROCESS_FINAL.supporting}</p>
-            <div className={home.finalCtas}>
-              <Button variant="primary" to={PROCESS_FINAL.primaryCta.to}>
-                {PROCESS_FINAL.primaryCta.label}
-              </Button>
-              <Button variant="outline" to={PROCESS_FINAL.secondaryCta.to}>
-                {PROCESS_FINAL.secondaryCta.label}
-              </Button>
-            </div>
-          </div>
-        </div>
-      </Section>
-    </>
+      <FinalCtaSection
+        label={PROCESS_FINAL.label}
+        heading={PROCESS_FINAL.heading}
+        supporting={PROCESS_FINAL.supporting}
+        primaryCta={PROCESS_FINAL.primaryCta}
+        secondaryCta={PROCESS_FINAL.secondaryCta}
+      />
+    </DomainShell>
   );
 }

@@ -1,8 +1,14 @@
+import { ArrowRight, Compass, Eye, Layers, Target, Users } from "lucide-react";
+
 import { LeadForm } from "@/components/forms/LeadForm";
+import { FinalCtaSection } from "@/components/sections/FinalCtaSection";
 import { PageHero } from "@/components/sections/PageHero";
 import c from "@/components/sections/contact/Contact.module.css";
-import home from "@/components/sections/home/Home.module.css";
-import { Button, Card, Section, SectionHeader, Eyebrow } from "@/components/ui";
+import {
+PrincipleDeck,
+  DomainShell,
+} from "@/components/sections/elevated/Elevate";
+import { Section } from "@/components/ui";
 import {
   CONSULT_DISCUSS,
   CONSULT_FINAL,
@@ -14,29 +20,26 @@ import {
 import { useDocumentMeta } from "@/hooks/useDocumentMeta";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
+const DISCUSS_ICONS = [Target, Eye, Users, Layers, Compass, ArrowRight];
+
 export function ConsultationPage() {
   useDocumentMeta(CONSULT_SEO.title, CONSULT_SEO.description);
   useScrollReveal();
 
   return (
-    <>
-      <PageHero label={CONSULT_HERO.label} title={CONSULT_HERO.title} supporting={CONSULT_HERO.supporting} />
+    <DomainShell domain="contact">
+      <>
+      <PageHero domain="contact" label={CONSULT_HERO.label} title={CONSULT_HERO.title} supporting={CONSULT_HERO.supporting} />
 
       {/* What we can discuss */}
-      <Section className={home.altBg}>
-        <div className="reveal">
-          <SectionHeader label={CONSULT_DISCUSS.label} title={CONSULT_DISCUSS.heading} />
-        </div>
-        <div className={`${home.grid} ${home.cols3} reveal`}>
-          {CONSULT_DISCUSS.points.map((point) => (
-            <Card key={point.num}>
-              <div className={home.cardNum}>{point.num}</div>
-              <div className={home.cardTitle}>{point.title}</div>
-              <p className={home.cardText}>{point.text}</p>
-            </Card>
-          ))}
-        </div>
-      </Section>
+      <PrincipleDeck
+        label={CONSULT_DISCUSS.label}
+        title={CONSULT_DISCUSS.heading}
+        items={CONSULT_DISCUSS.points}
+        icons={DISCUSS_ICONS}
+        eyebrowPrefix="Topic"
+        altBg
+      />
 
       {/* Consultation form */}
       <Section>
@@ -53,23 +56,13 @@ export function ConsultationPage() {
           </div>
         </div>
       </Section>
-
-      {/* Final CTA */}
-      <Section className={home.altBg}>
-        <div className={`${home.finalCta} reveal`} style={{ position: "relative" }}>
-          <div className="circuit-bg" />
-          <div style={{ position: "relative", zIndex: 1 }}>
-            <Eyebrow>{CONSULT_FINAL.label}</Eyebrow>
-            <h2 className={home.finalHeading}>{CONSULT_FINAL.heading}</h2>
-            <p className={home.finalSupporting}>{CONSULT_FINAL.supporting}</p>
-            <div className={home.finalCtas}>
-              <Button variant="primary" to={CONSULT_FINAL.primaryCta.to}>
-                {CONSULT_FINAL.primaryCta.label}
-              </Button>
-            </div>
-          </div>
-        </div>
-      </Section>
+      <FinalCtaSection
+        label={CONSULT_FINAL.label}
+        heading={CONSULT_FINAL.heading}
+        supporting={CONSULT_FINAL.supporting}
+        primaryCta={CONSULT_FINAL.primaryCta}
+      />
     </>
+    </DomainShell>
   );
 }

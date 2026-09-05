@@ -1,10 +1,18 @@
 import { Link } from "react-router-dom";
+import { BrainCircuit, Cloud, Code2, Database, Eye, Layers, Workflow } from "lucide-react";
 
+import { FinalCtaSection } from "@/components/sections/FinalCtaSection";
 import { PageHero } from "@/components/sections/PageHero";
+import {
+  DomainShell,
+  ExplorerList,
+  JourneyRail,
+  PrincipleDeck,
+  WorkGallery,
+} from "@/components/sections/elevated/Elevate";
 import home from "@/components/sections/home/Home.module.css";
-import { ProjectCard } from "@/components/sections/work/ProjectCard";
 import work from "@/components/sections/work/Work.module.css";
-import { Button, Card, Section, SectionHeader, Eyebrow } from "@/components/ui";
+import { Button, Section, SectionHeader } from "@/components/ui";
 import {
   CASE_STUDIES,
   FEATURED_CASE_STUDY_SLUGS,
@@ -26,13 +34,29 @@ const featuredCaseStudies = FEATURED_CASE_STUDY_SLUGS.map((slug) =>
   CASE_STUDIES.find((cs) => cs.slug === slug),
 ).filter((cs): cs is (typeof CASE_STUDIES)[number] => Boolean(cs));
 
+const DEMONSTRATES_ICONS = [BrainCircuit, Workflow, Layers, Eye, Cloud];
+const EXPERTISE_ICONS = [BrainCircuit, Database, Eye, Cloud, Code2];
+
+/** Projects without a published write-up fall back to the hero's consultation CTA. */
+const projectCards = PROJECTS.map((project) => ({
+  title: project.title,
+  category: project.category,
+  description: project.description,
+  capabilities: project.aiFocus,
+  technology: project.technologies.join(" · "),
+  ...(project.hasCaseStudy
+    ? { to: `/work/case-studies/${project.slug}`, cta: "View Project Write-Up" }
+    : { to: WORK_HERO.primaryCta.to, cta: WORK_HERO.primaryCta.label }),
+}));
+
 export function WorkPage() {
   useDocumentMeta(WORK_SEO.title, WORK_SEO.description);
   useScrollReveal();
 
   return (
-    <>
+    <DomainShell domain="work">
       <PageHero
+        domain="work"
         label={WORK_HERO.label}
         title={WORK_HERO.title}
         supporting={WORK_HERO.supporting}
@@ -41,71 +65,43 @@ export function WorkPage() {
       />
 
       {/* Selected Projects */}
-      <Section className={home.altBg}>
-        <div className="reveal">
-          <SectionHeader label={WORK_SELECTED.label} title={WORK_SELECTED.heading} />
-          <p className={home.supporting}>{WORK_SELECTED.supporting}</p>
-          <p className={home.sectionNote}>{WORK_SELECTED.note}</p>
-        </div>
-        <div className={`${home.grid} ${home.cols3} reveal`}>
-          {PROJECTS.map((project) => (
-            <ProjectCard key={project.slug} project={project} />
-          ))}
-        </div>
-      </Section>
+      <WorkGallery
+        label={WORK_SELECTED.label}
+        title={WORK_SELECTED.heading}
+        supporting={WORK_SELECTED.supporting}
+        note={WORK_SELECTED.note}
+        cards={projectCards}
+        altBg
+      />
 
       {/* What This Work Demonstrates */}
-      <Section>
-        <div className="reveal">
-          <SectionHeader label={WORK_DEMONSTRATES.label} title={WORK_DEMONSTRATES.heading} />
-        </div>
-        <div className={`${home.grid} ${home.cols3} reveal`}>
-          {WORK_DEMONSTRATES.cards.map((card) => (
-            <Card key={card.title}>
-              <div className={home.cardTitle}>{card.title}</div>
-              <p className={home.cardText}>{card.text}</p>
-            </Card>
-          ))}
-        </div>
-      </Section>
+      <PrincipleDeck
+        label={WORK_DEMONSTRATES.label}
+        title={WORK_DEMONSTRATES.heading}
+        items={WORK_DEMONSTRATES.cards}
+        icons={DEMONSTRATES_ICONS}
+        eyebrowPrefix="Capability"
+      />
 
       {/* Technical Expertise */}
-      <Section className={home.altBg}>
-        <div className="reveal">
-          <SectionHeader label={WORK_EXPERTISE.label} title={WORK_EXPERTISE.heading} />
-        </div>
-        <div className={`${home.techGrid} reveal`}>
-          {WORK_EXPERTISE.groups.map((group) => (
-            <div key={group.title} className={home.techCat}>
-              <div className={home.techTitle}>{group.title}</div>
-              <p className={home.cardText}>{group.text}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
+      <ExplorerList
+        label={WORK_EXPERTISE.label}
+        title={WORK_EXPERTISE.heading}
+        icons={EXPERTISE_ICONS}
+        altBg
+        items={WORK_EXPERTISE.groups.map((group) => ({
+          title: group.title,
+          text: group.text,
+        }))}
+      />
 
       {/* How We Deliver */}
-      <Section>
-        <div className="reveal">
-          <SectionHeader label={WORK_DELIVERY.label} title={WORK_DELIVERY.heading} />
-        </div>
-        <div className={`${work.delivery} reveal`}>
-          {WORK_DELIVERY.steps.map((step) => (
-            <div key={step.num} className={home.step}>
-              <div className={home.stepNode}>
-                <span className={home.stepNum}>{step.num}</span>
-              </div>
-              <div className={home.stepTitle}>{step.title}</div>
-              <p className={home.stepText}>{step.text}</p>
-            </div>
-          ))}
-        </div>
-        <div className={`${home.sectionCtas} reveal`}>
-          <Link to={WORK_DELIVERY.cta.to} className={home.cardCta}>
-            {WORK_DELIVERY.cta.label} →
-          </Link>
-        </div>
-      </Section>
+      <JourneyRail
+        label={WORK_DELIVERY.label}
+        title={WORK_DELIVERY.heading}
+        steps={WORK_DELIVERY.steps}
+        footerCta={{ ...WORK_DELIVERY.cta, variant: "outline" }}
+      />
 
       {/* Industries */}
       <Section className={home.altBg}>
@@ -127,49 +123,29 @@ export function WorkPage() {
       </Section>
 
       {/* Case Studies teaser */}
-      <Section>
-        <div className="reveal">
-          <SectionHeader label={WORK_CASE_STUDIES_TEASER.label} title={WORK_CASE_STUDIES_TEASER.heading} />
-          <p className={home.supporting}>{WORK_CASE_STUDIES_TEASER.supporting}</p>
-        </div>
-        <div className={`${home.grid} ${home.cols3} reveal`}>
-          {featuredCaseStudies.map((cs) => (
-            <Card key={cs.slug}>
-              <div className={home.cardCategory}>{cs.category}</div>
-              <div className={home.cardTitle}>{cs.title}</div>
-              <p className={home.cardText}>{cs.lead}</p>
-              <Link to={`/work/case-studies/${cs.slug}`} className={home.cardCta}>
-                View Case Study →
-              </Link>
-            </Card>
-          ))}
-        </div>
-        <div className={`${home.sectionCtas} reveal`}>
-          <Button variant="primary" to={WORK_CASE_STUDIES_TEASER.cta.to}>
-            {WORK_CASE_STUDIES_TEASER.cta.label} →
-          </Button>
-        </div>
-      </Section>
+      <WorkGallery
+        label={WORK_CASE_STUDIES_TEASER.label}
+        title={WORK_CASE_STUDIES_TEASER.heading}
+        supporting={WORK_CASE_STUDIES_TEASER.supporting}
+        cards={featuredCaseStudies.map((cs) => ({
+          title: cs.title,
+          category: cs.category,
+          description: cs.lead,
+          capabilities: cs.focus.points,
+          technology: cs.technologies.join(" · "),
+          to: `/work/case-studies/${cs.slug}`,
+          cta: "View Project Write-Up",
+        }))}
+        footerCta={WORK_CASE_STUDIES_TEASER.cta}
+      />
 
-      {/* Final CTA */}
-      <Section className={home.altBg}>
-        <div className={`${home.finalCta} reveal`} style={{ position: "relative" }}>
-          <div className="circuit-bg" />
-          <div style={{ position: "relative", zIndex: 1 }}>
-            <Eyebrow>{WORK_FINAL.label}</Eyebrow>
-            <h2 className={home.finalHeading}>{WORK_FINAL.heading}</h2>
-            <p className={home.finalSupporting}>{WORK_FINAL.supporting}</p>
-            <div className={home.finalCtas}>
-              <Button variant="primary" to={WORK_FINAL.primaryCta.to}>
-                {WORK_FINAL.primaryCta.label}
-              </Button>
-              <Button variant="outline" to={WORK_FINAL.secondaryCta.to}>
-                {WORK_FINAL.secondaryCta.label}
-              </Button>
-            </div>
-          </div>
-        </div>
-      </Section>
-    </>
+      <FinalCtaSection
+        label={WORK_FINAL.label}
+        heading={WORK_FINAL.heading}
+        supporting={WORK_FINAL.supporting}
+        primaryCta={WORK_FINAL.primaryCta}
+        secondaryCta={WORK_FINAL.secondaryCta}
+      />
+    </DomainShell>
   );
 }

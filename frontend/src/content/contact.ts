@@ -1,7 +1,6 @@
 /**
  * VAELKODE /contact — primary client-acquisition page.
- * Only display contact details that actually exist; the email below is a
- * placeholder to be replaced with the configured company address.
+ * Contact details are sourced from COMPANY — do not hard-code alternate emails here.
  */
 import type { LeadFieldConfig } from "@/components/forms/LeadForm";
 import { COMPANY } from "@/constants/company";
@@ -131,7 +130,7 @@ export const CONTACT_FORM = {
 };
 
 export const CONTACT_FINAL = {
-  label: "Not Sure Where to Start?",
+  label: "Need a Starting Point?",
   heading: "Not Sure Where to Start?",
   supporting:
     "That's okay. You don't need a complete specification before contacting us. Tell us what you're trying to achieve, and we can start from there.",
