@@ -1,29 +1,33 @@
 /**
- * VAELKODE /solutions landing page — approved production copy.
+ * VAELKODE /solutions landing page. Approved production copy.
  * No invented statistics, clients, testimonials, awards, or results.
  */
 
-export const SOLUTIONS_SEO = {
-  title: "Solutions | AI, Software & Digital Engineering | VAELKODE",
+import { CTA, FINAL_PAIR } from "@/content/shared";
+import type { ChallengeSection, FaqSection, FinalCta, PageHero, SeoMeta, WorkSection } from "@/content/shared";
+
+
+export const SOLUTIONS_SEO: SeoMeta = {
+  title: "Services | Web, Software, AI & Digital Engineering | VAELKODE",
   description:
-    "Explore VAELKODE's AI, custom software, web, mobile, cloud, DevOps, and technology consulting solutions for modern digital transformation.",
+    "Explore VAELKODE services: web development, custom software, AI automation, mobile apps, cloud & DevOps, and technology consulting.",
 };
 
-export const SOL_HERO = {
-  label: "Our Solutions",
-  title: "Technology Solutions Built Around Your Business.",
+export const SOL_HERO: PageHero = {
+  label: "Our Services",
+  title: "Start with the challenge, not the stack.",
   supporting:
-    "From artificial intelligence and automation to custom software, cloud engineering, and digital transformation, VAELKODE helps organizations turn complex challenges into scalable digital solutions.",
-  primaryCta: { label: "Book a Consultation", to: "/consultation" },
-  secondaryCta: { label: "Tell Us About Your Project", to: "/contact" },
+    "Six clear service lines, from websites and custom software to AI, mobile, cloud, and consulting. Pick what matches your problem.",
+  primaryCta: CTA.bookConsultation,
+  secondaryCta: CTA.tellUsAboutProject,
 };
 
 export const SOL_INTRO = {
   label: "How We Help",
-  heading: "Start With the Problem. Build the Right Solution.",
+  heading: "Start with the problem, then build the right solution.",
   paragraphs: [
-    "Technology should support the way your organization works—not force your business to work around technology.",
-    "We begin by understanding your objectives, workflows, users, data, and operational challenges. From there, we identify the right combination of strategy, software engineering, artificial intelligence, automation, and cloud technologies to create a solution that fits your needs.",
+    "Technology should support the way your organization works, not force your business to work around technology.",
+    "We begin with your objectives, workflows, users, and constraints. From there, we identify the right mix of strategy, engineering, AI, automation, and cloud, rather than a one-size catalogue.",
   ],
   principles: [
     { title: "Understand", text: "Identify the business challenge and the outcome you want to achieve." },
@@ -35,124 +39,100 @@ export const SOL_INTRO = {
 
 export const SOL_CORE = {
   label: "What We Do",
-  heading: "Our Core Technology Solutions",
+  heading: "Six services with plain outcomes.",
   supporting:
-    "Our capabilities cover the complete digital product lifecycle—from strategy and engineering to deployment and continuous improvement.",
+    "Pick the service that matches your problem. Each page explains what we include and how we work.",
   solutions: [
     {
-      title: "AI & Intelligent Automation",
+      id: "web",
+      pathTag: "/WEB DEVELOPMENT",
+      title: "Web Development",
       description:
-        "Transform repetitive and data-intensive processes with practical artificial intelligence and intelligent automation.",
-      capabilities: [
-        "Generative AI",
-        "AI Assistants",
-        "AI Agents",
-        "Document Intelligence",
-        "OCR & Data Extraction",
-        "Computer Vision",
-        "Natural Language Processing",
-        "Predictive Analytics",
-        "Intelligent Workflow Automation",
-        "AI Integration",
-      ],
-      cta: "Explore AI Solutions",
-      to: "/solutions/ai-automation",
-    },
-    {
-      title: "Custom Software Development",
-      description:
-        "Build software around the way your organization actually works. We develop scalable business applications, enterprise platforms, internal systems, and SaaS products tailored to specific operational requirements.",
-      capabilities: [
-        "Enterprise Applications",
-        "Business Management Systems",
-        "ERP & CRM Platforms",
-        "HR & Workforce Systems",
-        "Workflow Management",
-        "SaaS Platforms",
-        "Internal Portals",
-        "API Development",
-        "System Integration",
-      ],
-      cta: "Explore Custom Software",
-      to: "/solutions/custom-software",
-    },
-    {
-      title: "Web & Digital Platforms",
-      description:
-        "Create modern digital experiences that are fast, accessible, scalable, and designed around your users and business objectives.",
-      capabilities: [
-        "Corporate Websites",
-        "Web Applications",
-        "Customer Portals",
-        "SaaS Interfaces",
-        "E-commerce Platforms",
-        "Dashboards",
-        "Progressive Web Applications",
-        "API-Driven Platforms",
-      ],
+        "Business websites, stores, portals, and web apps that communicate clearly and perform reliably.",
+      tags: ["Websites", "Stores", "Portals", "CMS"],
+      highlightLabel: "Includes",
+      highlightValue: "Sites · Apps",
+      preview: "web" as const,
+      accent: "sky" as const,
       cta: "Explore Web Development",
       to: "/solutions/web-development",
     },
     {
-      title: "Mobile Application Development",
+      id: "software",
+      pathTag: "/CUSTOM SOFTWARE",
+      title: "Custom Software",
       description:
-        "Extend your products and services to customers and teams through intuitive mobile experiences built for performance, reliability, and scale.",
-      capabilities: [
-        "iOS Applications",
-        "Android Applications",
-        "Cross-Platform Applications",
-        "React Native",
-        "Flutter",
-        "Mobile APIs",
-        "Push Notifications",
-        "Mobile Authentication",
-      ],
+        "Applications and platforms shaped around how your organization actually works, instead of forcing you into a generic template.",
+      tags: ["Apps", "Portals", "APIs", "Workflows"],
+      highlightLabel: "Built for",
+      highlightValue: "Your process",
+      preview: "software" as const,
+      accent: "violet" as const,
+      cta: "Explore Custom Software",
+      to: "/solutions/custom-software",
+    },
+    {
+      id: "ai",
+      pathTag: "/AI & AUTOMATION",
+      title: "AI & Automation",
+      description:
+        "Practical AI for documents, assistants, and workflows, used only where it removes real friction.",
+      tags: ["Docs", "Assistants", "Agents", "RAG"],
+      highlightLabel: "Approach",
+      highlightValue: "Problem first",
+      preview: "ai" as const,
+      accent: "fuchsia" as const,
+      cta: "Explore AI & Automation",
+      to: "/solutions/ai-automation",
+    },
+    {
+      id: "mobile",
+      pathTag: "/MOBILE DEVELOPMENT",
+      title: "Mobile Development",
+      description:
+        "iOS, Android, and cross-platform apps connected to the systems behind them.",
+      tags: ["iOS", "Android", "PWA", "APIs"],
+      highlightLabel: "Ships as",
+      highlightValue: "iOS · Android",
+      preview: "mobile" as const,
+      accent: "amber" as const,
       cta: "Explore Mobile Development",
       to: "/solutions/mobile-development",
     },
     {
-      title: "Cloud & DevOps Engineering",
+      id: "cloud",
+      pathTag: "/CLOUD & DEVOPS",
+      title: "Cloud & DevOps",
       description:
-        "Build reliable technology infrastructure that supports secure deployment, operational efficiency, scalability, and continuous delivery.",
-      capabilities: [
-        "Cloud Architecture",
-        "AWS",
-        "Azure",
-        "Google Cloud",
-        "Docker",
-        "Kubernetes",
-        "CI/CD",
-        "Infrastructure Automation",
-        "Monitoring",
-        "Cloud Migration",
-        "Application Deployment",
-      ],
+        "Cloud setup, calm releases, monitoring, and environments that stay consistent.",
+      tags: ["CI/CD", "Cloud", "Monitor", "Secure"],
+      highlightLabel: "Goal",
+      highlightValue: "Calm releases",
+      preview: "cloud" as const,
+      accent: "teal" as const,
       cta: "Explore Cloud & DevOps",
       to: "/solutions/cloud-devops",
     },
     {
+      id: "consulting",
+      pathTag: "/TECH CONSULTING",
       title: "Technology Consulting",
       description:
-        "Make better technology decisions with clear technical strategy, architecture guidance, modernization planning, and digital transformation roadmaps.",
-      capabilities: [
-        "Digital Transformation Strategy",
-        "Solution Architecture",
-        "AI Strategy",
-        "Technical Audits",
-        "Application Modernization",
-        "Technology Roadmaps",
-        "Architecture Reviews",
-        "Technical Planning",
-      ],
-      cta: "Explore Technology Consulting",
+        "Clarity before you spend. Discovery, architecture, build-vs-buy, and roadmaps.",
+      tags: ["Discovery", "Architecture", "Roadmaps", "Audits"],
+      highlightLabel: "Starts with",
+      highlightValue: "Clear options",
+      preview: "consulting" as const,
+      accent: "rose" as const,
+      cta: "Explore Consulting",
       to: "/solutions/technology-consulting",
     },
   ],
 };
 
-export const SOL_CHALLENGES = {
+export const SOL_CHALLENGES: ChallengeSection = {
   label: "Find Your Solution",
-  heading: "Not Sure Where to Start? Start With the Challenge.",
+  heading: "Not sure where to start? Start with the challenge.",
   supporting:
     "You don't need to know which technology you need before talking to us. Tell us what you're trying to improve, and we'll help identify the right approach.",
   items: [
@@ -171,17 +151,17 @@ export const SOL_CHALLENGES = {
     { question: "Need to move to the cloud?", cta: "Explore Cloud & DevOps", to: "/solutions/cloud-devops" },
     {
       question: "Have an idea but don't know where to begin?",
-      cta: "Book a Consultation",
-      to: "/consultation",
+      cta: CTA.bookConsultation.label,
+      to: CTA.bookConsultation.to,
     },
   ],
 };
 
 export const SOL_PRINCIPLES = {
   label: "Engineering Principles",
-  heading: "Built for Today. Designed for Tomorrow.",
+  heading: "Useful now, and still useful as you grow.",
   supporting:
-    "The technology we build should remain useful as your organization evolves. We consider maintainability, scalability, security, performance, and future integration from the beginning.",
+    "What we build should stay useful as your organization changes. We think about maintainability, security, performance, and future integration from the start.",
   items: [
     {
       num: "01",
@@ -211,16 +191,16 @@ export const SOL_PRINCIPLES = {
     {
       num: "06",
       title: "AI Where It Adds Value",
-      text: "Use AI because it solves a meaningful problem—not simply because it is available.",
+      text: "Use AI because it solves a meaningful problem, not simply because it is available.",
     },
   ],
 };
 
 export const SOL_TECH = {
   label: "Technology Stack",
-  heading: "Modern Technologies. Purposeful Engineering.",
+  heading: "Modern technologies chosen with purpose.",
   supporting:
-    "We select technologies according to the requirements of each solution, balancing performance, maintainability, scalability, security, and long-term business needs.",
+    "We pick technologies for each solution based on performance, maintainability, security, and long-term fit.",
   categories: [
     { title: "AI & Data", items: ["Python", "PyTorch", "TensorFlow", "Hugging Face", "LLM Technologies"] },
     { title: "Frontend", items: ["React", "Next.js", "TypeScript", "Tailwind CSS"] },
@@ -237,51 +217,28 @@ export const SOL_TECH = {
 };
 
 export const SOL_DELIVERY = {
-  label: "Delivery Model",
-  heading: "From First Conversation to Continuous Improvement.",
+  label: "How We Deliver",
+  heading: "Four steps from first talk to continuous improvement.",
   steps: [
-    { num: "01", title: "Discovery", text: "Understand the business challenge, users, requirements, and goals." },
-    { num: "02", title: "Strategy", text: "Define the solution, architecture, roadmap, and priorities." },
-    { num: "03", title: "Design", text: "Create the user experience and technical foundations." },
-    { num: "04", title: "Development", text: "Build, integrate, test, and refine the solution." },
-    {
-      num: "05",
-      title: "Deployment",
-      text: "Move the solution into production with appropriate infrastructure and monitoring.",
-    },
-    { num: "06", title: "Support & Growth", text: "Continue improving the product as business needs evolve." },
+    { num: "01", title: "Discover", text: "Understand the challenge, users, and goals." },
+    { num: "02", title: "Plan", text: "Agree the approach, scope, and first useful release." },
+    { num: "03", title: "Build", text: "Design, develop, and test in short visible cycles." },
+    { num: "04", title: "Launch & grow", text: "Go live carefully, then keep improving." },
   ],
-  cta: { label: "Discuss Your Project", to: "/consultation" },
+  cta: CTA.discussYourProject,
 };
 
-export const SOL_WHO = {
-  label: "Industries",
-  heading: "Solutions Across Modern Industries.",
-  supporting:
-    "Our technology capabilities can be applied across organizations with complex workflows, growing digital needs, and opportunities for automation.",
-  cards: [
-    { title: "Government & Public Sector", to: "/industries/government" },
-    { title: "Education", to: "/industries/education" },
-    { title: "Healthcare", to: "/industries/healthcare" },
-    { title: "Agriculture", to: "/industries/agriculture" },
-    { title: "Finance", to: "/industries/finance" },
-    { title: "Logistics", to: "/industries/logistics" },
-    { title: "Retail & Commerce", to: "/industries/retail" },
-  ],
-  cta: { label: "Explore Industries", to: "/industries" },
-};
-
-export const SOL_WORK = {
+export const SOL_WORK: WorkSection = {
   label: "Selected Work",
-  heading: "See What These Capabilities Can Become.",
+  heading: "See what these capabilities can become.",
   supporting:
     "Explore selected solutions and technology initiatives that demonstrate our approach to solving complex digital challenges.",
-  cta: { label: "View All Work", to: "/work" },
+  cta: CTA.viewAllWork,
 };
 
-export const SOL_FAQ = {
+export const SOL_FAQ: FaqSection = {
   label: "Frequently Asked Questions",
-  heading: "Questions About Our Solutions?",
+  heading: "Questions about our solutions?",
   items: [
     {
       q: "What types of projects does VAELKODE work on?",
@@ -308,14 +265,13 @@ export const SOL_FAQ = {
       a: "The process begins with a conversation about your objectives and challenges. From there, we can assess the requirements and determine the appropriate next steps.",
     },
   ],
-  cta: { label: "Book a Consultation", to: "/consultation" },
+  cta: CTA.bookConsultation,
 };
 
-export const SOL_FINAL = {
+export const SOL_FINAL: FinalCta = {
   label: "Start a Conversation",
-  heading: "Have a Challenge Worth Solving?",
+  heading: "Have a challenge worth solving?",
   supporting:
-    "Whether you're starting a new digital product, modernizing an existing system, or exploring how AI can improve your organization, let's talk about what you're trying to achieve.",
-  primaryCta: { label: "Book a Consultation", to: "/consultation" },
-  secondaryCta: { label: "Request a Proposal", to: "/request-proposal" },
+    "Starting a product, modernizing a system, or exploring AI? Tell us what you're trying to achieve and we'll help you map the next step.",
+  ...FINAL_PAIR,
 };

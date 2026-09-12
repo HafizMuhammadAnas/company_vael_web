@@ -16,46 +16,19 @@ export interface NavItem {
 export const NAV_ITEMS: NavItem[] = [
   { label: "Home", to: "/" },
   {
-    label: "Solutions",
+    label: "Services",
     to: "/solutions",
     children: [
-      { label: "AI & Intelligent Automation", to: "/solutions/ai-automation" },
-      { label: "Custom Software Development", to: "/solutions/custom-software" },
       { label: "Web Development", to: "/solutions/web-development" },
-      { label: "Mobile App Development", to: "/solutions/mobile-development" },
+      { label: "Custom Software", to: "/solutions/custom-software" },
+      { label: "AI & Automation", to: "/solutions/ai-automation" },
+      { label: "Mobile Development", to: "/solutions/mobile-development" },
       { label: "Cloud & DevOps", to: "/solutions/cloud-devops" },
       { label: "Technology Consulting", to: "/solutions/technology-consulting" },
     ],
   },
-  {
-    label: "Industries",
-    to: "/industries",
-    children: [
-      { label: "Government & Public Sector", to: "/industries#government" },
-      { label: "Education", to: "/industries#education" },
-      { label: "Healthcare", to: "/industries#healthcare" },
-      { label: "Agriculture", to: "/industries#agriculture" },
-      { label: "Finance", to: "/industries#finance" },
-      { label: "Logistics & Supply Chain", to: "/industries#logistics" },
-      { label: "Retail & Commerce", to: "/industries#retail" },
-    ],
-  },
-  {
-    label: "Work",
-    to: "/work",
-    children: [
-      { label: "Project Write-Ups", to: "/work/case-studies" },
-      { label: "Portfolio", to: "/work/portfolio" },
-    ],
-  },
-  {
-    label: "Insights",
-    to: "/insights",
-    children: [
-      { label: "Blog", to: "/insights#blog" },
-      { label: "Resources", to: "/insights#resources" },
-    ],
-  },
+  { label: "Portfolio", to: "/portfolio" },
+  { label: "Insights", to: "/insights" },
   {
     label: "About",
     to: "/about",

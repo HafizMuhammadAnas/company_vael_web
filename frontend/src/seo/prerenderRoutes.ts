@@ -7,7 +7,6 @@ import { CONTACT_SEO } from "@/content/contact";
 import { CS_SEO } from "@/content/customSoftware";
 import { FAQ_SEO } from "@/content/faqs";
 import { HOME_SEO } from "@/content/home";
-import { IND_SEO } from "@/content/industries";
 import { INSIGHTS_SEO } from "@/content/insights";
 import { COOKIE_POLICY, PRIVACY_POLICY, TERMS_AND_CONDITIONS } from "@/content/legal";
 import { MOB_SEO } from "@/content/mobileDevelopment";
@@ -17,10 +16,7 @@ import { SOLUTIONS_SEO } from "@/content/solutions";
 import { TC_SEO } from "@/content/technologyConsulting";
 import { WEB_SEO } from "@/content/webDevelopment";
 import {
-  CASE_STUDIES,
-  CASE_STUDIES_SEO,
   PORTFOLIO_SEO,
-  WORK_SEO,
 } from "@/content/work";
 
 export interface PrerenderRoute {
@@ -66,8 +62,6 @@ export const PRERENDER_ROUTES: PrerenderRoute[] = [
   route("/solutions/cloud-devops", CLOUD_SEO.title, CLOUD_SEO.description),
   route("/solutions/technology-consulting", TC_SEO.title, TC_SEO.description),
 
-  route("/industries", IND_SEO.title, IND_SEO.description, { priority: 0.85 }),
-
   route("/about", ABOUT_SEO.title, ABOUT_SEO.description),
   route("/about/process", PROCESS_SEO.title, PROCESS_SEO.description),
   route("/careers", CAREERS_SEO.title, CAREERS_SEO.description),
@@ -76,14 +70,7 @@ export const PRERENDER_ROUTES: PrerenderRoute[] = [
   route("/consultation", CONSULT_SEO.title, CONSULT_SEO.description),
   route("/request-proposal", PROPOSAL_SEO.title, PROPOSAL_SEO.description),
 
-  route("/work", WORK_SEO.title, WORK_SEO.description),
-  route("/work/portfolio", PORTFOLIO_SEO.title, PORTFOLIO_SEO.description),
-  route("/work/case-studies", CASE_STUDIES_SEO.title, CASE_STUDIES_SEO.description),
-  ...CASE_STUDIES.map((study) =>
-    route(`/work/case-studies/${study.slug}`, study.seo.title, study.seo.description, {
-      priority: 0.65,
-    }),
-  ),
+  route("/portfolio", PORTFOLIO_SEO.title, PORTFOLIO_SEO.description, { priority: 0.85 }),
 
   route("/insights", INSIGHTS_SEO.title, INSIGHTS_SEO.description),
   route("/faqs", FAQ_SEO.title, FAQ_SEO.description),

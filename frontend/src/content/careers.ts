@@ -1,19 +1,23 @@
 /**
- * VAELKODE /careers — kept intentionally simple until active hiring.
+ * VAELKODE /careers. Kept intentionally simple until active hiring.
  * No invented job openings.
  */
 
-export const CAREERS_SEO = {
+import { CTA } from "@/content/shared";
+import type { FinalCta, PageHero, SeoMeta } from "@/content/shared";
+
+
+export const CAREERS_SEO: SeoMeta = {
   title: "Careers | VAELKODE",
   description:
-    "Build what comes next with VAELKODE — an AI-first digital engineering company focused on software engineering, AI, digital products, and practical technology solutions.",
+    "Build what comes next with VAELKODE. An AI-first digital engineering company focused on software engineering, AI, digital products, and practical technology solutions.",
 };
 
-export const CAREERS_HERO = {
+export const CAREERS_HERO: PageHero = {
   label: "Careers",
   title: "Build What Comes Next With VAELKODE.",
   supporting:
-    "We are building an AI-first digital engineering company focused on software engineering, AI, digital products, and practical technology solutions. As VAELKODE grows, we will be looking for people who enjoy solving difficult problems, learning continuously, and building technology that has a real purpose.",
+    "We're building an AI-first digital engineering company focused on software engineering, AI, digital products, and practical technology solutions. As VAELKODE grows, we'll look for people who enjoy solving hard problems, keep learning, and want to build technology with a real purpose.",
 };
 
 export const CAREERS_WHY = {
@@ -59,10 +63,10 @@ export const CAREERS_OPPORTUNITIES = {
   cta: { label: "Send Your Profile", href: "mailto:careers@vaelkode.com" },
 };
 
-export const CAREERS_FINAL = {
+export const CAREERS_FINAL: FinalCta = {
   label: "Grow With Us",
   heading: "Interested in Growing With VAELKODE?",
   supporting:
     "Follow VAELKODE as we grow and create new opportunities across engineering, AI, product, design, and technology.",
-  primaryCta: { label: "Contact VAELKODE", to: "/contact" },
+  primaryCta: CTA.contact,
 };

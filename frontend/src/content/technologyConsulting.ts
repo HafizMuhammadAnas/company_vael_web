@@ -1,67 +1,122 @@
 /**
- * VAELKODE /solutions/technology-consulting — Technology Consulting.
+ * VAELKODE /solutions/technology-consulting. Technology Consulting.
  * Approved production copy. No invented consulting clients, certifications,
  * consultants, project outcomes, savings percentages, technology partnerships,
  * or measurable results. Requirements-driven, advisory positioning.
  */
 
-export const TC_SEO = {
+import { COMPANY } from "@/constants/company";
+import { CTA, DISCLAIMERS, FINAL_PAIR_TELL_US, consultationCta, contactCta } from "@/content/shared";
+import type { FaqSection, FinalCta, PageHero, SeoMeta, WorkEmptySection } from "@/content/shared";
+
+
+export const TC_SEO: SeoMeta = {
   title: "Technology Consulting Services | VAELKODE",
   description:
     "VAELKODE provides technology consulting, solution architecture, system assessments, digital transformation, technology strategy, technical roadmaps, and technology evaluation.",
 };
 
-export const TC_HERO = {
+export const TC_HERO: PageHero = {
   label: "Technology Consulting",
-  title: "Make Better Technology Decisions With a Clearer Path Forward.",
+  title: "Clarity before you build or buy.",
   supporting:
-    "VAELKODE helps organizations evaluate technology, define digital strategies, design technical architectures, and create practical roadmaps for building, modernizing, and improving software systems.",
-  primaryCta: { label: "Book a Consultation", to: "/consultation" },
-  secondaryCta: { label: "Discuss Your Technology Challenge", to: "/contact" },
+    "We help you choose the right approach, architecture, and plan so money and time go into solutions that fit your business.",
+  primaryCta: CTA.bookConsultation,
+  secondaryCta: contactCta("Discuss Your Technology Challenge"),
   tags: [
-    "Technology Strategy",
-    "Solution Architecture",
-    "System Assessment",
-    "Digital Transformation",
-    "Technical Roadmaps",
-    "Technology Advisory",
+    "Discovery",
+    "Architecture",
+    "Build vs buy",
+    "Roadmaps",
+    "Audits",
+    "Scoping",
+  ],
+};
+
+export const TC_SUB_SERVICES = {
+  label: "Consulting services",
+  heading: "Clarity before you commit budget.",
+  supporting: "Use consulting when the decision is expensive and guessing would cost more.",
+  items: [
+    {
+      title: "Discovery & requirements workshops",
+      text: "Map the problem, users, constraints, and success criteria before anyone writes code or buys a platform.",
+      highlights: ["Users and goals clarified", "Constraints on the table", "Success criteria agreed"],
+      stacks: ["Workshops", "Requirements", "Success criteria"],
+    },
+    {
+      title: "Architecture & tech selection",
+      text: "Choose a stack and structure that can grow with you, without over-engineering from the start.",
+      highlights: ["System shape that fits", "Stack trade-offs explained", "Pragmatic starting point"],
+      stacks: ["System design", "Stack selection", "Trade-offs"],
+    },
+    {
+      title: "Build vs buy advice",
+      text: "Decide when to use existing products and when custom software is worth it, against your real requirements.",
+      highlights: ["Vendor options mapped", "Cost and fit trade-offs", "Clear recommendation"],
+      stacks: ["Vendor options", "Cost trade-offs", "Fit analysis"],
+    },
+    {
+      title: "Digital & product roadmaps",
+      text: "A practical sequence of what to ship first, next, and later so teams stop debating forever.",
+      highlights: ["Priorities you can defend", "Phased delivery", "Sensible sequencing"],
+      stacks: ["Priorities", "Phases", "Sequencing"],
+    },
+    {
+      title: "Technical due diligence & audits",
+      text: "Review systems, risks, and debt so you know what you’re inheriting or investing in.",
+      highlights: ["Architecture review", "Risk and debt map", "Clear recommendations"],
+      stacks: ["Technical review", "Risk assessment", "Debt map"],
+    },
+    {
+      title: "Vendor & platform evaluation",
+      text: "Compare tools and partners against your real requirements rather than marketing promises.",
+      highlights: ["Requirements-led comparison", "Side-by-side evaluation", "Selection rationale"],
+      stacks: ["Requirements fit", "Comparison", "Selection"],
+    },
+    {
+      title: "Delivery planning & scoping",
+      text: "Turn ideas into a clear scope, phases, and decision points your team can run with.",
+      highlights: ["Scoped phases", "Decision points", "Handoff-ready plan"],
+      stacks: ["Scope", "Phases", "Decision points"],
+    },
   ],
 };
 
 export const TC_INTRO = {
   label: "Technology Decisions",
-  heading: "Technology Should Solve a Business Problem.",
+  heading: "Technology should solve a business problem.",
   paragraphs: [
-    "Choosing a technology stack, developing a new platform, replacing an existing system, or moving to the cloud can involve significant time and investment.",
-    "The challenge is not simply knowing what technologies exist. It is understanding which approach makes sense for your organization, your users, your existing systems, and your long-term objectives.",
-    "VAELKODE helps turn complex technology questions into clear technical options, priorities, and actionable next steps.",
+    "Choosing a stack, replacing a system, or moving to the cloud can involve significant time and investment.",
+    "The hard part isn't knowing what technologies exist; it's knowing which approach fits your users, systems, and long-term objectives.",
+    "VAELKODE turns complex technology questions into clear options, priorities, and practical next steps.",
   ],
   cards: [
     {
-      title: "Understand",
-      text: "Assess your current environment, business requirements, technical constraints, and opportunities.",
+      title: "Assess",
+      text: "Understand your current environment, requirements, constraints, and opportunities.",
     },
     {
-      title: "Decide",
-      text: "Compare practical approaches and make technology decisions based on requirements rather than trends.",
+      title: "Compare",
+      text: "Weigh practical approaches and decide based on requirements rather than trends.",
     },
     {
-      title: "Execute",
-      text: "Turn the selected direction into an actionable architecture, roadmap, and implementation plan.",
+      title: "Plan",
+      text: "Turn the selected direction into a clear architecture, roadmap, and implementation plan.",
     },
   ],
 };
 
 export const TC_SERVICES = {
   label: "What We Help With",
-  heading: "Technology Guidance for Complex Decisions.",
+  heading: "Technology guidance for complex decisions.",
   supporting:
-    "Our consulting services can support organizations at different stages—from defining a new product to improving an existing technology environment.",
+    "Our consulting can support organizations at different stages, from defining a new product to improving an existing technology environment.",
   cards: [
     {
       title: "Technology Strategy",
       description:
-        "Define how technology can support your business objectives, operational requirements, and future growth.",
+        "Define how technology can support your business objectives, operational needs, and future growth.",
       items: [
         "Technology Assessment",
         "Strategic Planning",
@@ -74,7 +129,7 @@ export const TC_SERVICES = {
     {
       title: "Solution Architecture",
       description:
-        "Define the technical structure required to turn business requirements into a practical software solution.",
+        "Define the technical structure needed to turn business requirements into a practical software solution.",
       items: ["Application Architecture", "System Components", "APIs", "Data Architecture", "Integrations", "Infrastructure"],
     },
     {
@@ -93,7 +148,7 @@ export const TC_SERVICES = {
     {
       title: "Digital Transformation",
       description:
-        "Help organizations identify opportunities to replace manual or fragmented processes with more connected digital systems.",
+        "Help organizations find opportunities to replace manual or fragmented processes with more connected digital systems.",
       items: [
         "Process Digitization",
         "Workflow Improvement",
@@ -105,7 +160,7 @@ export const TC_SERVICES = {
     },
     {
       title: "Technology & Platform Selection",
-      description: "Evaluate technology options against the actual requirements of the product or organization.",
+      description: "Evaluate technology options against what the product or organization actually needs.",
       items: [
         "Framework Selection",
         "Cloud Platforms",
@@ -133,13 +188,13 @@ export const TC_SERVICES = {
 
 export const TC_WHEN = {
   label: "Common Questions",
-  heading: "Not Sure What Technology Approach You Need?",
+  heading: "Not sure what technology approach you need?",
   supporting:
-    "Technology decisions become difficult when there are multiple possible approaches and the consequences of choosing incorrectly can be expensive.",
+    "Technology decisions get difficult when there are multiple possible approaches and choosing incorrectly can be expensive.",
   cards: [
     {
       title: "\u201CWe have an idea, but don't know where to start.\u201D",
-      text: "You need to understand the product requirements, technical options, scope, and appropriate first steps.",
+      text: "You need to understand the product requirements, technical options, scope, and sensible first steps.",
       focus: "Product & Technical Discovery",
     },
     {
@@ -149,7 +204,7 @@ export const TC_WHEN = {
     },
     {
       title: "\u201CWe want to move to the cloud.\u201D",
-      text: "You need to understand whether migration makes sense and what architecture and migration strategy are appropriate.",
+      text: "You need to understand whether migration makes sense and what architecture and migration strategy fit.",
       focus: "Cloud Strategy & Architecture",
     },
     {
@@ -159,7 +214,7 @@ export const TC_WHEN = {
     },
     {
       title: "\u201CWe need to automate our processes.\u201D",
-      text: "You need to identify which processes are suitable for automation and what technology should support them.",
+      text: "You need to identify which processes suit automation and what technology should support them.",
       focus: "Automation Strategy",
     },
     {
@@ -172,10 +227,10 @@ export const TC_WHEN = {
 
 export const TC_ASSESSMENT = {
   label: "Assess Before You Invest",
-  heading: "Understand Your Technology Before You Change It.",
+  heading: "Understand your technology before you change it.",
   paragraphs: [
     "Replacing or rebuilding a system without understanding the current environment can introduce unnecessary cost, risk, and disruption.",
-    "An assessment provides a structured view of the existing technology environment and helps identify what should be retained, improved, replaced, or redesigned.",
+    "An assessment gives a structured view of the existing technology environment and helps identify what should be retained, improved, replaced, or redesigned.",
   ],
   cards: [
     {
@@ -201,12 +256,12 @@ export const TC_ASSESSMENT = {
       text: "Areas that may affect application responsiveness, scalability, or operational behavior.",
     },
   ],
-  cta: { label: "Request a Technology Assessment", to: "/consultation" },
+  cta: consultationCta("Request a Technology Assessment"),
 };
 
 export const TC_ARCHITECTURE = {
   label: "Architecture",
-  heading: "Turn Requirements Into a Technical Blueprint.",
+  heading: "Turn requirements into a technical blueprint.",
   paragraphs: [
     "Before development begins, important architectural decisions can shape the future of the product.",
     "We translate business and functional requirements into a technical structure that defines how the major components of the system should work together.",
@@ -217,7 +272,7 @@ export const TC_ARCHITECTURE = {
     { title: "APIs", text: "Determine how systems and services should communicate." },
     { title: "Data Architecture", text: "Plan how important information is stored, accessed, and exchanged." },
     { title: "Integrations", text: "Identify required connections with internal and external systems." },
-    { title: "Infrastructure", text: "Determine the appropriate environment for running and supporting the application." },
+    { title: "Infrastructure", text: "Determine the right environment for running and supporting the application." },
     {
       title: "Security",
       text: "Consider access, authentication, authorization, data protection, and other relevant security requirements.",
@@ -227,9 +282,9 @@ export const TC_ARCHITECTURE = {
 
 export const TC_TRANSFORM = {
   label: "Transform Operations",
-  heading: "Move From Fragmented Processes to Connected Digital Systems.",
+  heading: "Move from fragmented processes to connected digital systems.",
   supporting:
-    "Digital transformation is not simply replacing paper with software. It involves understanding how an organization operates and identifying where technology can improve information flow, workflows, decision-making, and service delivery.",
+    "Digital transformation isn't simply replacing paper with software. It means understanding how an organization operates and finding where technology can improve information flow, workflows, decision-making, and service delivery.",
   cards: [
     { title: "Discover", text: "Understand existing processes, systems, users, information flows, and operational challenges." },
     { title: "Prioritize", text: "Identify which problems have the greatest business and operational value to address." },
@@ -241,39 +296,39 @@ export const TC_TRANSFORM = {
 
 export const TC_BUILD_BUY = {
   label: "Make the Right Choice",
-  heading: "Build, Buy, Integrate—or Combine?",
+  heading: "Build, buy, integrate, or combine?",
   paragraphs: [
     "Not every business problem requires custom software.",
-    "Sometimes an existing product is the right choice. Sometimes customization or integration is sufficient. In other situations, the organization's requirements justify building a purpose-built solution.",
+    "Sometimes an existing product is the right choice. Sometimes customization or integration is enough. In other situations, the organization's requirements justify building a purpose-built solution.",
     "The right decision depends on the requirements, costs, constraints, integrations, ownership, flexibility, and long-term objectives.",
   ],
   cards: [
     {
       title: "Build",
-      text: "Appropriate when requirements are highly specific or existing products cannot adequately support the desired workflow.",
+      text: "Makes sense when requirements are highly specific or existing products can't adequately support the desired workflow.",
     },
     {
       title: "Buy",
-      text: "Appropriate when an established product already meets most requirements and can be adopted effectively.",
+      text: "Makes sense when an established product already meets most requirements and can be adopted effectively.",
     },
     {
       title: "Integrate",
-      text: "Appropriate when existing systems can satisfy different parts of the requirement but need to work together.",
+      text: "Makes sense when existing systems can satisfy different parts of the requirement but need to work together.",
     },
     {
       title: "Combine",
       text: "Use commercial products alongside custom software where that provides the most practical overall solution.",
     },
   ],
-  cta: { label: "Discuss Your Options", to: "/consultation" },
+  cta: consultationCta("Discuss Your Options"),
 };
 
 export const TC_EVALUATION = {
   label: "Technology Selection",
-  heading: "Choose Technology Based on Requirements — Not Hype.",
+  heading: "Choose technology based on requirements, not hype.",
   paragraphs: [
-    "New frameworks, platforms, cloud services, and AI technologies appear constantly. The newest technology is not automatically the best technology for your project.",
-    "We evaluate technical options according to the actual needs of the product and organization.",
+    "New frameworks, platforms, cloud services, and AI technologies appear constantly. The newest technology isn't automatically the best technology for your project.",
+    "We evaluate technical options according to what the product and organization actually need.",
   ],
   cards: [
     { title: "Business Requirements", text: "Does the technology support what the organization actually needs?" },
@@ -287,14 +342,14 @@ export const TC_EVALUATION = {
     { title: "Scalability", text: "Can the technology support expected future requirements?" },
     {
       title: "Ecosystem",
-      text: "Is there an appropriate ecosystem, tooling, documentation, and support around the technology?",
+      text: "Is there a solid ecosystem, tooling, documentation, and support around the technology?",
     },
   ],
 };
 
 export const TC_AI = {
   label: "Emerging Technology",
-  heading: "Understand Where New Technology Actually Fits.",
+  heading: "Understand where new technology actually fits.",
   paragraphs: [
     "AI and emerging technologies can create valuable opportunities, but they should be introduced where they solve a meaningful business problem.",
     "We can help organizations evaluate potential applications of AI, automation, data-driven systems, and other emerging technologies within their existing or planned digital environment.",
@@ -316,7 +371,7 @@ export const TC_AI = {
 
 export const TC_ROADMAP = {
   label: "From Strategy to Execution",
-  heading: "A Strategy Is Only Useful If You Can Act on It.",
+  heading: "A strategy is only useful if you can act on it.",
   paragraphs: [
     "Technology recommendations should result in clear next steps.",
     "We translate technical direction into a practical roadmap that can guide implementation and investment decisions.",
@@ -348,44 +403,56 @@ export const TC_ROADMAP = {
 };
 
 export const TC_PROCESS = {
-  label: "Our Approach",
-  heading: "From Technology Question to Actionable Direction.",
+  label: "How we work",
+  headingBefore: "From question to clear next move: ",
+  headingAccent: "our process",
+  supporting: "Consulting should end with something you can act on, not a deck that gathers dust.",
   steps: [
     {
       num: "01",
       title: "Understand",
-      text: "Learn about your organization, current systems, users, business objectives, and technical challenges.",
+      text: "Learn your goals, systems, users, and constraints.",
+      milestone: "Brief locked",
+      tone: "sky" as const,
     },
     {
       num: "02",
       title: "Assess",
-      text: "Review the relevant applications, processes, architecture, infrastructure, data, and constraints.",
+      text: "Review what you have and where the real friction is.",
+      milestone: "Findings shared",
+      tone: "violet" as const,
     },
     {
       num: "03",
-      title: "Explore",
-      text: "Identify potential approaches and evaluate their technical and business implications.",
+      title: "Recommend",
+      text: "Compare practical options and recommend a clear path.",
+      milestone: "Options compared",
+      tone: "amber" as const,
     },
     {
       num: "04",
-      title: "Recommend",
-      text: "Present practical recommendations based on the available information and project requirements.",
-    },
-    { num: "05", title: "Roadmap", text: "Define priorities, dependencies, implementation phases, and next steps." },
-    {
-      num: "06",
-      title: "Support",
-      text: "Where required, continue into architecture, development, modernization, cloud, AI, or other implementation work.",
+      title: "Roadmap",
+      text: "Define priorities and next steps, including build support if needed.",
+      milestone: "Clear plan",
+      tone: "teal" as const,
     },
   ],
 };
 
+export const TC_PROJECTS = {
+  label: "Selected projects",
+  heading: "Consulting work we'll share as it goes public.",
+  supporting: "We don't invent case studies. Public consulting and architecture projects will appear here when they're ready to show.",
+  viewAll: { label: "View full portfolio", to: "/portfolio" },
+  emptyState: "Consulting and architecture projects will be featured here as they become available for public presentation.",
+};
+
 export const TC_DELIVERABLES = {
   label: "What You Receive",
-  heading: "Consulting Should Produce Something Useful.",
+  heading: "Consulting should produce something useful.",
   supporting:
-    "The exact deliverables depend on the engagement, but a consulting engagement should result in practical outputs that help the organization make and execute technology decisions.",
-  note: "Possible deliverables — actual outputs depend on the engagement.",
+    "The exact deliverables depend on the engagement, but consulting should leave you with practical outputs that help the organization make and execute technology decisions.",
+  note: DISCLAIMERS.deliverablesDepend,
   cards: [
     { title: "Technology Assessment", text: "Findings from the review of the relevant technology environment." },
     { title: "Architecture Recommendations", text: "Proposed technical architecture and key architectural decisions." },
@@ -406,7 +473,7 @@ export const TC_DELIVERABLES = {
 
 export const TC_WHO = {
   label: "Who We Work With",
-  heading: "Technology Guidance for Organizations at Different Stages.",
+  heading: "Technology guidance for organizations at different stages.",
   cards: [
     {
       title: "Startups & Founders",
@@ -432,64 +499,50 @@ export const TC_WHO = {
 };
 
 // Selected Work: no publicly approved consulting case studies yet.
-export const TC_WORK = {
+export const TC_WORK: WorkEmptySection = {
   label: "Selected Work",
-  heading: "Technology Decisions That Lead to Real Solutions.",
+  heading: "Technology decisions that lead to real solutions.",
   supporting:
-    "Selected consulting, architecture, and technology initiatives will be presented here as projects become available for public presentation.",
+    "Selected consulting, architecture, and technology initiatives will appear here as projects become available for public presentation.",
   emptyState: "Consulting and architecture projects will be featured here as they become available for public presentation.",
-  cta: { label: "View Available Work", to: "/work" },
+  cta: CTA.viewAvailableWork,
 };
 
-export const TC_FAQ = {
-  label: "Technology Consulting FAQ",
-  heading: "Questions About Technology Consulting?",
+export const TC_FAQ: FaqSection = {
+  label: "FAQ",
+  heading: "Common questions",
   items: [
     {
-      q: "What does a technology consultant actually do?",
-      a: "Technology consulting helps organizations understand technology-related problems, evaluate possible approaches, make technical decisions, and create practical plans for implementation.",
+      q: "What does technology consulting cover?",
+      a: "Helping you understand the problem, compare approaches, make technical decisions, and leave with a practical plan.",
     },
     {
-      q: "Do we need to know exactly what technology we want before contacting VAELKODE?",
-      a: "No. Consulting can begin with a business problem, technical challenge, or project idea. The purpose of an initial discussion is to understand what you are trying to achieve and determine what type of technical guidance may be useful.",
+      q: "Do we need to know the technology already?",
+      a: "No. Start with the business problem or idea. We’ll help figure out what guidance is useful.",
     },
     {
       q: "Can you assess our existing software?",
-      a: "Yes. An assessment can examine areas such as application architecture, code maintainability, integrations, data, infrastructure, performance considerations, and technical risks.",
+      a: "Yes. Architecture, maintainability, integrations, data, infrastructure, and technical risk.",
     },
     {
-      q: "Can you help us decide whether to build or buy software?",
-      a: "Yes. Build-versus-buy decisions can be evaluated based on requirements, available products, customization needs, integration requirements, costs, ownership, and long-term considerations.",
+      q: "Can you help with build vs buy?",
+      a: "Yes. We weigh requirements, available products, customization, integration, ownership, and long-term cost.",
     },
     {
-      q: "Can you design the architecture before development starts?",
-      a: "Yes. Architecture planning can be performed before development to establish how application components, data, APIs, integrations, infrastructure, and other technical elements should work together.",
+      q: "Can consulting lead into development?",
+      a: "Yes. Where it fits, advice can continue into architecture, software, AI, web, mobile, or cloud delivery.",
     },
     {
-      q: "Can consulting continue into development?",
-      a: "Yes. Where appropriate, consulting can lead into architecture, software development, AI implementation, web development, mobile development, cloud, or other technical services.",
-    },
-    {
-      q: "Can you work with our existing IT or development team?",
-      a: "Yes. Consulting can be structured to complement an existing technical team, depending on the organization's requirements and responsibilities.",
-    },
-    {
-      q: "Do you provide a fixed consulting package?",
-      a: "Consulting requirements vary significantly between organizations. The appropriate scope, deliverables, and engagement model can be discussed after understanding the specific challenge.",
-    },
-    {
-      q: "Can you help with AI strategy?",
-      a: "Yes. AI opportunities can be assessed in relation to business processes, available data, existing systems, expected value, technical feasibility, and implementation requirements.",
+      q: "Can you work with our existing team?",
+      a: "Yes. Engagements can complement your IT or development team based on roles and needs.",
     },
   ],
-  cta: { label: "Book a Consultation", to: "/consultation" },
+  cta: CTA.bookConsultation,
 };
 
-export const TC_FINAL = {
-  label: "Start With Clarity",
-  heading: "Have a Technology Decision to Make?",
-  supporting:
-    "You don't need to have every technical answer before starting the conversation. Tell us what you're trying to achieve, what you're struggling with, or what you're considering—and we can explore the right path forward.",
-  primaryCta: { label: "Book a Consultation", to: "/consultation" },
-  secondaryCta: { label: "Request a Proposal", to: "/request-proposal" },
+export const TC_FINAL: FinalCta = {
+  label: "Next step",
+  heading: "Have a technology decision to make?",
+  supporting: `You don’t need every answer first. Tell us what you’re trying to achieve. Email ${COMPANY.contact.email} or book a consultation and we’ll explore the right path.`,
+  ...FINAL_PAIR_TELL_US,
 };

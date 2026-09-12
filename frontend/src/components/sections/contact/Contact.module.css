@@ -1,121 +1,328 @@
-/* Contact page — two-column info + form layout. */
+/* Contact / consultation / proposal — shared form stage */
+
 .layout {
   display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  gap: 3.5rem;
+  gap: 1.75rem;
   align-items: start;
 }
 
-.info {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+@media (min-width: 960px) {
+  .layout {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.2fr);
+    gap: 2rem 2.25rem;
+  }
 }
+
+.info {
+  display: grid;
+  gap: 1.15rem;
+}
+
 .infoHeading {
+  margin: 0;
   font-family: var(--font-display);
-  font-size: 1.6rem;
+  font-size: clamp(1.35rem, 2.4vw, 1.7rem);
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: -0.03em;
   color: var(--text-primary);
 }
-.email {
-  font-family: var(--font-mono);
-  font-size: 1rem;
-  letter-spacing: 0.04em;
-  color: var(--neon);
-  transition: text-shadow var(--transition-fast);
-  word-break: break-all;
+
+.channelCard {
+  display: grid;
+  gap: 0.85rem;
+  padding: 1.15rem 1.2rem;
+  border-radius: 1.05rem;
+  border: 1px solid color-mix(in srgb, var(--neon) 20%, transparent);
+  background:
+    linear-gradient(160deg, color-mix(in srgb, #161d2c 92%, transparent), color-mix(in srgb, #0c111a 96%, transparent));
 }
-.email:hover {
-  text-shadow: 0 0 12px var(--neon);
+
+.channel {
+  display: grid;
+  gap: 0.25rem;
 }
-.block {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
+
 .blockLabel {
   font-family: var(--font-mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.24em;
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--bronze);
 }
-.blockText {
+
+.email {
+  font-family: var(--font-mono);
   font-size: 0.92rem;
-  color: var(--text-secondary);
-  line-height: 1.7;
+  letter-spacing: 0.02em;
+  color: var(--neon);
+  word-break: break-all;
+  transition: color var(--transition-fast);
 }
-.helpList {
+
+.email:hover {
+  color: var(--neon-bright);
+}
+
+.helpLabel {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--bronze);
+  margin: 0.25rem 0 0;
+}
+
+.helpChips {
   list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
+  flex-wrap: wrap;
+  gap: 0.4rem;
 }
-.helpList li {
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-  font-size: 0.92rem;
-  color: var(--text-secondary);
+
+.helpChips li {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  padding: 0.35rem 0.55rem;
+  border-radius: 0.4rem;
+  border: 1px solid color-mix(in srgb, var(--neon) 22%, transparent);
+  color: color-mix(in srgb, var(--neon) 70%, var(--slate));
+  background: color-mix(in srgb, var(--neon) 6%, transparent);
 }
-.helpList li::before {
-  content: "";
-  width: 6px;
-  height: 6px;
-  background: var(--bronze);
-  flex-shrink: 0;
+
+.company {
+  padding: 1rem 1.15rem;
+  border-radius: 1rem;
+  border: 1px solid color-mix(in srgb, var(--bronze) 22%, transparent);
+  background: color-mix(in srgb, #0c111a 70%, transparent);
+}
+
+.companyLabel {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--bronze);
 }
 
 .details {
-  display: flex;
-  flex-direction: column;
-  gap: 0.7rem;
+  margin: 0;
+  display: grid;
+  gap: 0.55rem;
 }
+
 .detailRow {
-  display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
+  display: grid;
+  gap: 0.1rem;
 }
+
 .detailRow dt {
   font-family: var(--font-mono);
-  font-size: 0.58rem;
-  letter-spacing: 0.16em;
+  font-size: 0.55rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--slate);
 }
+
 .detailRow dd {
-  font-size: 0.9rem;
+  margin: 0;
+  font-size: 0.86rem;
   color: var(--text-secondary);
-  line-height: 1.5;
+  line-height: 1.45;
 }
 
-.formWrap {
-  border: 1px solid var(--border-neon);
-  background: var(--obsidian-2);
-  padding: 2.4rem;
+.formShell {
+  position: relative;
+  border-radius: 1.25rem;
+  border: 1px solid color-mix(in srgb, var(--neon) 18%, transparent);
+  background:
+    radial-gradient(ellipse 55% 45% at 8% 0%, color-mix(in srgb, var(--neon) 10%, transparent), transparent 55%),
+    radial-gradient(ellipse 45% 40% at 100% 100%, color-mix(in srgb, var(--bronze) 10%, transparent), transparent 50%),
+    linear-gradient(165deg, color-mix(in srgb, #151c2b 94%, transparent), color-mix(in srgb, #0c111a 96%, transparent));
+  padding: 1.35rem 1.2rem 1.25rem;
+  overflow: hidden;
 }
+
+.formShell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(color-mix(in srgb, #94a3b8 6%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, #94a3b8 6%, transparent) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(ellipse 75% 70% at 50% 20%, #000 15%, transparent 72%);
+  pointer-events: none;
+  opacity: 0.45;
+}
+
+@media (min-width: 720px) {
+  .formShell {
+    padding: 1.55rem 1.45rem 1.4rem;
+  }
+}
+
+.formHead {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
 .formTitle {
-  font-family: var(--font-mono);
-  font-size: 0.66rem;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--bronze);
-  margin-bottom: 1.8rem;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
 }
 
-@media (max-width: 900px) {
-  .layout {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
+.formHint {
+  margin: 0.35rem 0 0;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  max-width: 28rem;
+}
+
+.formBadge {
+  flex-shrink: 0;
+  padding: 0.45rem 0.7rem;
+  border-radius: 0.5rem;
+  border: 1px solid color-mix(in srgb, var(--bronze) 35%, transparent);
+  background: color-mix(in srgb, #0b1018 70%, transparent);
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--bronze-light);
+}
+
+.formBody {
+  position: relative;
+  z-index: 1;
+}
+
+/* Keep old name as alias for any residual imports */
+.formWrap {
+  position: relative;
+  border-radius: 1.25rem;
+  border: 1px solid color-mix(in srgb, var(--neon) 18%, transparent);
+  background:
+    radial-gradient(ellipse 55% 45% at 8% 0%, color-mix(in srgb, var(--neon) 10%, transparent), transparent 55%),
+    radial-gradient(ellipse 45% 40% at 100% 100%, color-mix(in srgb, var(--bronze) 10%, transparent), transparent 50%),
+    linear-gradient(165deg, color-mix(in srgb, #151c2b 94%, transparent), color-mix(in srgb, #0c111a 96%, transparent));
+  padding: 1.35rem 1.2rem 1.25rem;
+  overflow: hidden;
+}
+
+.discussHead {
+  max-width: 32rem;
+  margin-bottom: 1.25rem;
+}
+
+.discussTitle {
+  margin: 0.7rem 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.55rem, 3vw, 2.15rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--text-primary);
+}
+
+.discussTitle span {
+  color: color-mix(in srgb, var(--bronze-light) 88%, #fff);
+  font-style: italic;
+  font-weight: 600;
+}
+
+.discussGrid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+@media (min-width: 900px) {
+  .discussGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
-  .formWrap {
-    padding: 1.8rem 1.4rem;
-  }
+}
+
+.discussChip {
+  display: grid;
+  gap: 0.65rem;
+  padding: 1.05rem 1rem 1.1rem;
+  border-radius: 1rem;
+  border: 1px solid color-mix(in srgb, var(--bronze) 22%, transparent);
+  background:
+    linear-gradient(160deg, color-mix(in srgb, #161d2c 92%, transparent), color-mix(in srgb, #0c111a 96%, transparent));
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.4s ease;
+}
+
+.discussChip:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--bronze) 45%, transparent);
+}
+
+.discussIcon {
+  display: grid;
+  place-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 0.65rem;
+  border: 1px solid color-mix(in srgb, var(--bronze) 35%, transparent);
+  color: var(--bronze-light);
+  background: color-mix(in srgb, var(--bronze) 12%, transparent);
+}
+
+.discussNum {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  color: color-mix(in srgb, var(--bronze) 60%, transparent);
+}
+
+.discussChip strong {
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.formSolo {
+  max-width: 44rem;
+  margin: 0 auto;
+}
+
+.altBg {
+  background: var(--obsidian-2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
 @media (max-width: 640px) {
+  .formShell,
   .formWrap {
-    padding: 1.4rem 1.1rem;
+    padding: 1.15rem 1rem 1.1rem;
+  }
+
+  .formHead {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }

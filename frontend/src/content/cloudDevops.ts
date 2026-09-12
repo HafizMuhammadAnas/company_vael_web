@@ -1,40 +1,94 @@
 /**
- * VAELKODE /solutions/cloud-devops — Cloud & DevOps Engineering.
+ * VAELKODE /solutions/cloud-devops. Cloud & DevOps Engineering.
  * Approved production copy. No invented certifications, client infrastructure
  * projects, uptime percentages, cost savings, deployment statistics, or
  * absolute security guarantees. Technology is presented as requirements-driven.
  */
 
-export const CLOUD_SEO = {
+import { COMPANY } from "@/constants/company";
+import { CTA, FINAL_PAIR_TELL_US, contactCta } from "@/content/shared";
+import type { FaqSection, FinalCta, PageHero, SeoMeta, WorkEmptySection } from "@/content/shared";
+
+export const CLOUD_SEO: SeoMeta = {
   title: "Cloud & DevOps Engineering Services | VAELKODE",
   description:
     "VAELKODE provides cloud and DevOps engineering services including cloud infrastructure, CI/CD, containerization, deployment automation, cloud migration, monitoring, and infrastructure modernization.",
 };
 
-export const CLOUD_HERO = {
-  label: "Cloud & DevOps Engineering",
-  title: "Infrastructure That Helps Your Software Run Reliably.",
+export const CLOUD_HERO: PageHero = {
+  label: "Cloud & DevOps",
+  title: "Reliable hosting, calm releases, clear visibility.",
   supporting:
-    "VAELKODE helps organizations deploy, modernize, automate, and operate their applications through practical cloud and DevOps engineering.",
-  primaryCta: { label: "Book a Consultation", to: "/consultation" },
-  secondaryCta: { label: "Discuss Your Infrastructure", to: "/contact" },
+    "We set up cloud environments, automated deployments, and monitoring so shipping software is repeatable, and problems show up before customers feel them.",
+  primaryCta: CTA.bookConsultation,
+  secondaryCta: contactCta("Discuss Your Infrastructure"),
   tags: [
-    "Cloud Infrastructure",
+    "Cloud setup",
     "CI/CD",
-    "Docker & Containers",
-    "Deployment Automation",
+    "Migration",
     "Monitoring",
-    "Cloud Migration",
+    "Security basics",
+    "Environments",
+  ],
+};
+
+export const CLOUD_SUB_SERVICES = {
+  label: "Cloud & DevOps services",
+  heading: "What we set up for reliable delivery.",
+  supporting: "Infrastructure should support the product rather than slow every release.",
+  items: [
+    {
+      title: "Cloud setup",
+      text: "Practical AWS, Azure, or Google Cloud environments sized for your application, with networks, compute, and data basics included.",
+      highlights: ["Provider fit for your stack", "App, data, and CDN pieces", "Environments you can operate"],
+      stacks: ["AWS", "Azure", "Google Cloud"],
+    },
+    {
+      title: "Cloud migration",
+      text: "Move suitable apps and workloads from older hosting to modern cloud infrastructure with a planned cutover.",
+      highlights: ["Workload assessment", "Cutover plan", "Aligned environments"],
+      stacks: ["Assessment", "Cutover", "Environments"],
+    },
+    {
+      title: "CI/CD & release pipelines",
+      text: "Automated build and deploy paths so releases are consistent and less stressful for the team.",
+      highlights: ["Build → test → deploy", "Repeatable releases", "Fewer manual steps"],
+      stacks: ["CI/CD", "Docker", "Automated deploy"],
+    },
+    {
+      title: "Monitoring & alerting",
+      text: "See when services slow down or fail, and get notified before users complain.",
+      highlights: ["Health and latency signals", "Alerts that matter", "Logs you can follow"],
+      stacks: ["Alerts", "Logging", "Health checks"],
+    },
+    {
+      title: "Security hardening basics",
+      text: "Sensible access controls, secrets handling, and secure defaults for your stack, without theatre.",
+      highlights: ["Access roles", "Secrets management", "Hardened defaults"],
+      stacks: ["Access control", "Secrets", "Hardening"],
+    },
+    {
+      title: "Cost optimization",
+      text: "Reduce wasteful spend without cutting the reliability your product needs. Right-size and trim idle capacity.",
+      highlights: ["Right-sizing reviews", "Idle waste reduction", "Ongoing cost checks"],
+      stacks: ["Right-sizing", "Waste reduction", "Reviews"],
+    },
+    {
+      title: "Dev, staging & production environments",
+      text: "Keep environments aligned so “it worked on my machine” stops being a surprise at release time.",
+      highlights: ["Dev / staging / prod parity", "Shared config patterns", "Safer promotions"],
+      stacks: ["Dev / Staging / Prod", "Consistency", "Config"],
+    },
   ],
 };
 
 export const CLOUD_INTRO = {
   label: "Beyond Development",
-  heading: "Building Software Is Only Part of the Journey.",
+  heading: "Building software is only part of the journey.",
   paragraphs: [
-    "An application needs a reliable environment in which to run, deploy, monitor, and evolve.",
-    "As applications grow, teams can encounter deployment bottlenecks, inconsistent environments, infrastructure complexity, limited visibility, or difficulty scaling their systems.",
-    "VAELKODE helps address these challenges by connecting application development with practical infrastructure and DevOps practices.",
+    "An application needs a reliable place to run, deploy, monitor, and evolve.",
+    "As products grow, teams often hit deployment bottlenecks, inconsistent environments, limited visibility, or difficulty scaling.",
+    "VAELKODE connects application development with practical infrastructure and DevOps practices so delivery stays predictable.",
   ],
   cards: [
     {
@@ -43,31 +97,31 @@ export const CLOUD_INTRO = {
     },
     {
       title: "Consistent Environments",
-      text: "Reduce differences between development, testing, and production environments through appropriate automation and containerization.",
+      text: "Reduce differences between development, testing, and production through automation and containerization where they help.",
     },
     {
       title: "Operational Visibility",
-      text: "Introduce appropriate monitoring, logging, and diagnostics to help teams understand application behavior.",
+      text: "Introduce monitoring, logging, and diagnostics so teams can understand application behavior in production.",
     },
   ],
 };
 
 export const CLOUD_SERVICES = {
   label: "What We Do",
-  heading: "Practical Cloud & DevOps Engineering.",
+  heading: "Practical cloud and DevOps engineering.",
   supporting:
-    "Our services cover the infrastructure and delivery practices required to deploy and maintain modern applications.",
+    "Our services cover the infrastructure and delivery practices needed to deploy and maintain modern applications.",
   cards: [
     {
       title: "Cloud Infrastructure",
       description:
-        "Design and configure cloud environments appropriate for your application's architecture, workloads, security requirements, and operational needs.",
+        "Design and configure cloud environments that fit your application's architecture, workloads, security needs, and how you operate day to day.",
       items: ["Compute", "Storage", "Networking", "Databases", "Access Management", "Environment Configuration"],
     },
     {
       title: "CI/CD & Deployment Automation",
       description:
-        "Automate appropriate parts of the software delivery process so applications can move through development, testing, and deployment more consistently.",
+        "Automate the parts of software delivery that should be automatic, so applications move through development, testing, and deployment more consistently.",
       items: [
         "Build Pipelines",
         "Automated Testing",
@@ -80,7 +134,7 @@ export const CLOUD_SERVICES = {
     {
       title: "Containers & Application Packaging",
       description:
-        "Package applications and their dependencies into consistent environments that simplify development, deployment, and operational management.",
+        "Package applications and their dependencies into consistent environments that simplify development, deployment, and day-to-day operations.",
       items: [
         "Docker",
         "Container Images",
@@ -93,7 +147,7 @@ export const CLOUD_SERVICES = {
     {
       title: "Cloud Migration",
       description:
-        "Help organizations move suitable applications, services, and workloads from existing environments to appropriate cloud infrastructure.",
+        "Help organizations move suitable applications, services, and workloads from existing environments to the right cloud infrastructure.",
       items: [
         "Migration Planning",
         "Environment Assessment",
@@ -106,7 +160,7 @@ export const CLOUD_SERVICES = {
     {
       title: "Infrastructure Modernization",
       description:
-        "Improve existing deployment and infrastructure environments where outdated processes or architecture are limiting development and operations.",
+        "Improve existing deployment and infrastructure setups where outdated processes or architecture are holding development and operations back.",
       items: [
         "Infrastructure Assessment",
         "Environment Modernization",
@@ -119,7 +173,7 @@ export const CLOUD_SERVICES = {
     {
       title: "Monitoring & Operational Visibility",
       description:
-        "Establish appropriate monitoring, logging, and diagnostics to help teams understand system health and investigate operational issues.",
+        "Set up monitoring, logging, and diagnostics so teams can understand system health and investigate operational issues.",
       items: ["Application Monitoring", "Infrastructure Monitoring", "Logs", "Alerts", "Health Checks", "Diagnostics"],
     },
   ],
@@ -127,13 +181,13 @@ export const CLOUD_SERVICES = {
 
 export const CLOUD_CHALLENGES = {
   label: "Common Challenges",
-  heading: "When Deployment Becomes a Bottleneck.",
+  heading: "When deployment becomes a bottleneck.",
   supporting:
-    "As development teams and applications grow, infrastructure and deployment processes can become increasingly difficult to manage manually.",
+    "As development teams and applications grow, infrastructure and deployment processes can get harder to manage by hand.",
   cards: [
     {
       title: "Manual Deployments",
-      text: "Releases depend heavily on manual steps, making deployments slower and more difficult to reproduce.",
+      text: "Releases depend heavily on manual steps, making deployments slower and harder to reproduce.",
       approach: "Deployment Automation",
     },
     {
@@ -148,7 +202,7 @@ export const CLOUD_CHALLENGES = {
     },
     {
       title: "Limited Visibility",
-      text: "Teams have difficulty understanding application or infrastructure health.",
+      text: "Teams struggle to understand application or infrastructure health.",
       approach: "Monitoring, Logging & Alerts",
     },
     {
@@ -166,16 +220,16 @@ export const CLOUD_CHALLENGES = {
 
 export const CLOUD_PIPELINE = {
   label: "Continuous Delivery",
-  heading: "From Code Commit to Deployment.",
+  heading: "From code commit to deployment.",
   supporting:
-    "A well-structured delivery pipeline can reduce repetitive manual work and provide a more consistent path from development to production.",
+    "A well-structured delivery pipeline can cut repetitive manual work and give you a more consistent path from development to production.",
   flow: ["Developer", "Code Repository", "Build", "Automated Tests", "Package", "Staging", "Validation", "Production"],
   note: "The exact pipeline depends on the application, team, infrastructure, testing strategy, and release requirements. We design the workflow around the project rather than forcing every application into the same deployment model.",
 };
 
 export const CLOUD_CONTAINERS = {
   label: "Consistent Environments",
-  heading: "Build Once. Deploy Consistently.",
+  heading: "Build once, deploy consistently.",
   paragraphs: [
     "Differences between development, testing, and production environments can introduce avoidable deployment problems.",
     "Containerization can help package applications and their dependencies into consistent environments, making development and deployment easier to manage.",
@@ -190,17 +244,17 @@ export const CLOUD_CONTAINERS = {
 
 export const CLOUD_PLATFORMS = {
   label: "Cloud Technology",
-  heading: "Cloud Infrastructure Aligned With Your Application.",
+  heading: "Cloud infrastructure aligned with your application.",
   supporting:
-    "Cloud architecture should follow the application's actual requirements. There is no single infrastructure model that is appropriate for every product.",
+    "Cloud architecture should follow what the application actually needs. There's no single infrastructure model that fits every product.",
   cards: [
     {
       title: "AWS",
-      text: "Cloud infrastructure and application services using Amazon Web Services where appropriate to the project.",
+      text: "Cloud infrastructure and application services using Amazon Web Services where they fit the project.",
     },
     {
       title: "Microsoft Azure",
-      text: "Cloud infrastructure and services for applications requiring Microsoft's cloud ecosystem.",
+      text: "Cloud infrastructure and services for applications that need Microsoft's cloud ecosystem.",
     },
     {
       title: "Google Cloud",
@@ -222,9 +276,9 @@ export const CLOUD_PLATFORMS = {
 
 export const CLOUD_IAC = {
   label: "Automated Infrastructure",
-  heading: "Infrastructure Should Be Reproducible Too.",
+  heading: "Infrastructure should be reproducible too.",
   supporting:
-    "Where appropriate, infrastructure configuration can be managed through code and automation rather than relying entirely on manual configuration.",
+    "Where it helps, infrastructure configuration can be managed through code and automation rather than relying entirely on manual setup.",
   cards: [
     { title: "Reproducibility", text: "Recreate environments using defined configurations." },
     { title: "Version Control", text: "Track infrastructure changes alongside the development lifecycle." },
@@ -237,13 +291,13 @@ export const CLOUD_IAC = {
 
 export const CLOUD_SECURITY = {
   label: "Secure Infrastructure",
-  heading: "Infrastructure With Security in Mind.",
+  heading: "Infrastructure with security in mind.",
   supporting:
     "Infrastructure decisions affect application security, data access, deployment processes, and operational risk.",
   cards: [
     {
       title: "Access Control",
-      text: "Apply appropriate permissions to infrastructure, services, applications, and deployment systems.",
+      text: "Apply the right permissions to infrastructure, services, applications, and deployment systems.",
     },
     {
       title: "Secrets Management",
@@ -251,90 +305,97 @@ export const CLOUD_SECURITY = {
     },
     {
       title: "Network Security",
-      text: "Configure appropriate network boundaries, access rules, and service communication.",
+      text: "Configure sensible network boundaries, access rules, and service communication.",
     },
     {
       title: "Secure Deployment",
       text: "Protect deployment processes and production environments from unnecessary access.",
     },
-    { title: "Updates", text: "Keep infrastructure and application dependencies appropriately maintained." },
+    { title: "Updates", text: "Keep infrastructure and application dependencies properly maintained." },
   ],
 };
 
 export const CLOUD_MONITORING = {
   label: "See What Is Happening",
-  heading: "You Can't Improve What You Can't See.",
+  heading: "You can't improve what you can't see.",
   supporting:
-    "Applications and infrastructure need appropriate visibility so teams can understand system health, investigate problems, and identify operational issues.",
+    "Applications and infrastructure need enough visibility so teams can understand system health, investigate problems, and spot operational issues.",
   cards: [
     { title: "Application Monitoring", text: "Understand application health and important runtime conditions." },
     { title: "Infrastructure Monitoring", text: "Monitor relevant infrastructure resources and services." },
-    { title: "Logging", text: "Centralize or structure application and infrastructure logs where appropriate." },
+    { title: "Logging", text: "Centralize or structure application and infrastructure logs where it helps." },
     { title: "Alerts", text: "Configure meaningful alerts around important conditions and failures." },
     {
       title: "Health Checks",
-      text: "Provide mechanisms for identifying whether important services are operating as expected.",
+      text: "Provide ways to tell whether important services are operating as expected.",
     },
   ],
 };
 
 export const CLOUD_CONTINUITY = {
   label: "Engineering Continuity",
-  heading: "Development and Infrastructure Should Work Together.",
+  heading: "Development and infrastructure should work together.",
   supporting:
-    "When application development and infrastructure decisions are considered together, teams can make better decisions about deployment, environments, scalability, monitoring, and operational requirements.",
+    "When application development and infrastructure decisions are considered together, teams make better choices about deployment, environments, scalability, monitoring, and day-to-day operations.",
   flow: ["Product", "Application", "API & Services", "Containers", "CI/CD", "Cloud Infrastructure", "Monitoring"],
   statement:
-    "VAELKODE can work across the application and infrastructure layers where the project requires an integrated engineering approach.",
+    "VAELKODE can work across the application and infrastructure layers when the project needs an integrated engineering approach.",
 };
 
 export const CLOUD_PROCESS = {
-  label: "Our Approach",
-  heading: "Understand. Design. Automate. Improve.",
+  label: "How we work",
+  headingBefore: "From assessment to calmer releases: ",
+  headingAccent: "our process",
+  supporting: "We start from your current setup rather than rewriting everything from scratch.",
   steps: [
     {
       num: "01",
       title: "Assess",
-      text: "Understand the current application, infrastructure, deployment process, environments, dependencies, and operational requirements.",
+      text: "Understand your apps, environments, and how you ship today.",
+      milestone: "Current-state map",
+      tone: "sky" as const,
     },
     {
       num: "02",
       title: "Plan",
-      text: "Define the target architecture, migration approach, automation priorities, environments, and implementation sequence.",
+      text: "Agree the target setup, automation priorities, and sequence.",
+      milestone: "Target agreed",
+      tone: "violet" as const,
     },
     {
       num: "03",
       title: "Build",
-      text: "Configure infrastructure, containers, pipelines, monitoring, integrations, and supporting services according to the agreed architecture.",
+      text: "Configure infrastructure, pipelines, and monitoring.",
+      milestone: "Pipelines live",
+      tone: "amber" as const,
     },
     {
       num: "04",
-      title: "Test",
-      text: "Validate deployments, application behavior, infrastructure configuration, integrations, and recovery procedures where required.",
-    },
-    {
-      num: "05",
-      title: "Deploy",
-      text: "Move the application into the target environment using the agreed release and deployment process.",
-    },
-    { num: "06", title: "Monitor", text: "Establish appropriate monitoring, logging, alerts, and operational visibility." },
-    {
-      num: "07",
-      title: "Improve",
-      text: "Continue optimizing infrastructure, deployment processes, reliability, and operational workflows as requirements evolve.",
+      title: "Run & improve",
+      text: "Go live carefully, then keep improving reliability and delivery.",
+      milestone: "Stable delivery",
+      tone: "teal" as const,
     },
   ],
 };
 
+export const CLOUD_PROJECTS = {
+  label: "Selected projects",
+  heading: "Infrastructure work we'll share as it goes public.",
+  supporting: "We don't invent case studies. Public cloud and DevOps projects will appear here when they're ready to show.",
+  viewAll: { label: "View full portfolio", to: "/portfolio" },
+  emptyState: "Cloud and DevOps projects will be featured here as they become available for public presentation.",
+};
+
 export const CLOUD_WHO = {
   label: "Cloud & DevOps for Different Teams",
-  heading: "Support for Different Stages of Technical Growth.",
+  heading: "Support for different stages of technical growth.",
   supporting:
-    "Cloud and DevOps requirements vary depending on the organization's size, application maturity, infrastructure, and development practices.",
+    "Cloud and DevOps needs vary with the organization's size, application maturity, infrastructure, and development practices.",
   cards: [
     {
       title: "Startups & New Products",
-      text: "Establish practical environments and deployment workflows without introducing unnecessary infrastructure complexity.",
+      text: "Establish practical environments and deployment workflows without unnecessary infrastructure complexity.",
     },
     {
       title: "Growing Technology Teams",
@@ -342,7 +403,7 @@ export const CLOUD_WHO = {
     },
     {
       title: "Established Organizations",
-      text: "Modernize existing infrastructure, improve deployment processes, and connect applications with more appropriate cloud environments.",
+      text: "Modernize existing infrastructure, improve deployment processes, and connect applications with more suitable cloud environments.",
     },
     {
       title: "Development Teams",
@@ -351,66 +412,52 @@ export const CLOUD_WHO = {
   ],
 };
 
-// Selected Work: no publicly approved Cloud/DevOps case studies yet — neutral
+// Selected Work: no publicly approved Cloud/DevOps case studies yet. Neutral
 // empty state instead of fabricated infrastructure projects.
-export const CLOUD_WORK = {
+export const CLOUD_WORK: WorkEmptySection = {
   label: "Selected Work",
-  heading: "Infrastructure Behind Digital Products.",
+  heading: "Infrastructure behind digital products.",
   supporting:
-    "Selected infrastructure and engineering work will be presented here as projects become available for public presentation.",
+    "Selected infrastructure and engineering work will appear here as projects become available for public presentation.",
   emptyState: "Cloud and DevOps projects will be featured here as they become available for public presentation.",
-  cta: { label: "View Available Work", to: "/work" },
+  cta: CTA.viewAvailableWork,
 };
 
-export const CLOUD_FAQ = {
-  label: "Cloud & DevOps FAQ",
-  heading: "Questions About Cloud & DevOps Engineering?",
+export const CLOUD_FAQ: FaqSection = {
+  label: "FAQ",
+  heading: "Common questions",
   items: [
     {
       q: "What is DevOps?",
-      a: "DevOps brings development and operations practices closer together to improve how software is built, tested, deployed, and operated.",
+      a: "Practices that bring development and operations closer so software is easier to build, test, deploy, and run.",
     },
     {
-      q: "Can VAELKODE deploy our existing application?",
-      a: "Yes. An existing application can be assessed and deployed to an appropriate environment based on its architecture, dependencies, infrastructure requirements, and deployment model.",
+      q: "Can you deploy our existing application?",
+      a: "Yes. We assess architecture and dependencies, then deploy to an environment that fits the app.",
     },
     {
-      q: "Can you migrate our application to the cloud?",
-      a: "Yes. Cloud migration can include assessment, planning, infrastructure configuration, application migration, database migration where required, testing, and production deployment.",
+      q: "Can you migrate us to the cloud?",
+      a: "Yes. Assessment, planning, infrastructure, migration, testing, and production cutover where needed.",
     },
     {
-      q: "Can you set up CI/CD for our development team?",
-      a: "Yes. CI/CD pipelines can automate appropriate parts of the build, testing, packaging, and deployment process.",
-    },
-    {
-      q: "Do you work with Docker?",
-      a: "Docker and containerization can be used where they provide a practical benefit for application packaging, development environments, or deployment.",
+      q: "Can you set up CI/CD for our team?",
+      a: "Yes. Pipelines can automate build, testing, packaging, and deployment for your stack.",
     },
     {
       q: "Do we need Kubernetes?",
-      a: "Not necessarily. Kubernetes can be valuable for certain architectures and operational requirements, but it should not be introduced simply because an application is running in the cloud. Infrastructure should match the actual requirements of the project.",
+      a: "Not always. We introduce it only when the architecture and operations actually benefit, not by default.",
     },
     {
-      q: "Can you work with our existing development team?",
-      a: "Yes. Cloud and DevOps work can be delivered alongside an existing development team where responsibilities, environments, and technical requirements are clearly defined.",
-    },
-    {
-      q: "Can you monitor our application after deployment?",
-      a: "Appropriate monitoring, logging, alerts, and operational support can be included depending on the project's requirements and agreed support model.",
-    },
-    {
-      q: "Which cloud provider should we use?",
-      a: "The appropriate provider depends on the application's architecture, requirements, existing systems, team capabilities, cost considerations, and operational needs. The decision should be made based on the project rather than a fixed provider preference.",
+      q: "Can you work with our existing team?",
+      a: "Yes. Cloud and DevOps work can sit alongside your developers when roles and environments are clear.",
     },
   ],
-  cta: { label: "Book a Consultation", to: "/consultation" },
+  cta: CTA.bookConsultation,
 };
 
-export const CLOUD_FINAL = {
-  label: "Modernize Your Infrastructure",
-  heading: "Make Your Software Easier to Deploy, Operate, and Evolve.",
-  supporting:
-    "Whether you are launching a new application, improving an existing deployment process, or moving workloads to the cloud, let's discuss your infrastructure requirements.",
-  primaryCta: { label: "Book a Consultation", to: "/consultation" },
-  secondaryCta: { label: "Request a Proposal", to: "/request-proposal" },
+export const CLOUD_FINAL: FinalCta = {
+  label: "Next step",
+  heading: "Make shipping and running software calmer.",
+  supporting: `If you're launching, migrating, or tightening how you deploy, email ${COMPANY.contact.email} or book a consultation and we’ll map a practical path.`,
+  ...FINAL_PAIR_TELL_US,
 };

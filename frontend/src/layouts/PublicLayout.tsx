@@ -6,8 +6,7 @@ import { Nav } from "@/components/layout/Nav";
 
 /**
  * Handles scroll behaviour on navigation:
- * - with a `#hash`, scroll the matching section into view (used by the
- *   single-page Industries anchors and the redirected /industries/* routes);
+ * - with a `#hash`, scroll the matching section into view (e.g. `/#industries`);
  * - otherwise reset to the top of the page.
  */
 function ScrollManager() {

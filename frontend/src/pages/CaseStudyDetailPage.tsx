@@ -17,7 +17,7 @@ export function CaseStudyDetailPage() {
   useDocumentMeta(
     study?.seo.title ?? "Project Write-Up | VAELKODE",
     study?.seo.description ??
-      "Selected professional project write-up — not a VAELKODE-brand client delivery.",
+      "Selected professional project write-up. Not a VAELKODE-brand client delivery.",
   );
   useScrollReveal();
 

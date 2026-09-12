@@ -6,7 +6,7 @@ import { Button } from "@/components/ui";
 
 export function ThankYouPage() {
   useEffect(() => {
-    document.title = "Thank you — VAELKODE";
+    document.title = "Thank you | VAELKODE";
   }, []);
 
   return (

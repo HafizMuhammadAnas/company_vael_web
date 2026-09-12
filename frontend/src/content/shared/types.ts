@@ -1,13 +1,11 @@
 /**
  * Shared TypeScript shapes for marketing content blocks.
  *
- * Annotate page content exports with these types so missing fields, wrong
- * CTA shapes, and FAQ drift fail at compile time — not on the live site.
+ * Annotate page exports with these types so missing CTAs, FAQ fields, or
+ * SEO fields fail at compile time. Not on the live site.
  */
 
 import type { CtaLink } from "./ctas";
-
-export type { CtaLink };
 
 /** Page `<title>` + meta description. */
 export interface SeoMeta {
@@ -15,38 +13,21 @@ export interface SeoMeta {
   description: string;
 }
 
-/**
- * Inner-page hero (PageHero).
- * `heading` is intentionally not used — heroes use `title`.
- */
+/** Inner-page hero (PageHero component). */
 export interface PageHero {
   label: string;
   title: string;
   supporting: string;
+  /** Optional second lede paragraph (Insights and similar). */
+  intro?: string;
   primaryCta?: CtaLink;
   secondaryCta?: CtaLink;
   tags?: string[];
 }
 
-/** Homepage hero — accent word split + orbit terms. */
-export interface HomeHero {
-  eyebrow: string;
-  titleBefore: string;
-  titleAccent: string;
-  titleRest: string;
-  description: string;
-  primaryCta: CtaLink;
-  secondaryCta?: CtaLink;
-  microcopy?: string;
-  orbitTerms?: string[];
-}
-
-/**
- * Closing CTA band (FinalCtaSection).
- * `label` is optional in the UI but preferred for consistency.
- */
+/** Closing CTA band (FinalCtaSection). */
 export interface FinalCta {
-  label?: string;
+  label: string;
   heading: string;
   supporting: string;
   primaryCta: CtaLink;
@@ -59,7 +40,7 @@ export interface FaqItem {
   a: string;
 }
 
-/** FAQ section used on solution / industry pages. */
+/** FAQ section on a solution / industry page. */
 export interface FaqSection {
   label: string;
   heading: string;
@@ -67,7 +48,7 @@ export interface FaqSection {
   cta?: CtaLink;
 }
 
-/** Category on the global /faqs page. */
+/** Category group on the global /faqs page. */
 export interface FaqCategory {
   id: string;
   label: string;
@@ -76,106 +57,133 @@ export interface FaqCategory {
   items: FaqItem[];
 }
 
-/** Common section chrome — label + heading (+ optional supporting). */
-export interface SectionChrome {
-  label: string;
-  heading: string;
-  supporting?: string;
-}
-
-/** Title + body card (principles, why points, audiences). */
-export interface TitleTextItem {
+/** Selected-work teaser (often empty-state until public projects exist). */
+export interface WorkCard {
   title: string;
-  text: string;
-  num?: string;
-  tags?: string[];
-  href?: string;
-  cta?: string;
-  to?: string;
-}
-
-/** Service / capability card with longer description + bullet items. */
-export interface ServiceCard {
-  title: string;
-  description: string;
-  items?: string[];
-  examples?: string[];
-  capabilities?: string[];
-}
-
-/** Numbered process / delivery step. */
-export interface ProcessStep {
-  num: string;
-  title: string;
-  text: string;
-  activitiesLabel?: string;
-  activities?: string[];
-  output?: string;
-}
-
-/** Tech stack category. */
-export interface TechCategory {
-  title: string;
-  items: string[];
-}
-
-/** Challenge → next-step row (solutions finder). */
-export interface ChallengeItem {
-  question: string;
-  cta: string;
-  to: string;
-}
-
-/** Linked teaser card (industries, who-we-help). */
-export interface LinkCardItem {
-  title: string;
-  text?: string;
-  to?: string;
-  cta?: string;
-}
-
-/** Selected-work gallery card (demonstrations / write-up teasers). */
-export interface WorkCardItem {
-  title: string;
+  description?: string;
   category?: string;
-  description: string;
   capabilities?: string[];
   technology?: string;
   to?: string;
   cta?: string;
 }
 
-/** Selected-work section with optional empty state or cards. */
-export interface WorkSection extends SectionChrome {
+export interface WorkSection {
+  label: string;
+  heading: string;
+  supporting?: string;
   note?: string;
   emptyState?: string;
-  cards?: WorkCardItem[];
+  cta?: CtaLink;
+  cards?: WorkCard[];
+}
+
+/** Work teaser with a guaranteed empty-state + CTA (common on solution pages). */
+export interface WorkEmptySection {
+  label: string;
+  heading: string;
+  supporting: string;
+  emptyState: string;
+  cta: CtaLink;
+}
+
+/** Work section with demonstration cards always present. */
+export interface WorkShowcaseSection {
+  label: string;
+  heading: string;
+  supporting?: string;
+  note?: string;
+  cards: WorkCard[];
   cta?: CtaLink;
 }
 
-/** Narrative intro with paragraphs + optional highlight cards. */
-export interface NarrativeSection extends SectionChrome {
+/** Hero that always includes a primary CTA. */
+export interface PageHeroWithCta extends PageHero {
+  primaryCta: CtaLink;
+  secondaryCta?: CtaLink;
+}
+
+/** Simple title + body card used across intro / principle decks. */
+export interface TitleTextItem {
+  title: string;
+  text: string;
+  num?: string;
+  tags?: string[];
+}
+
+/** Explicit sub-service list under a main service class page. */
+export interface SubServicesSection {
+  label: string;
+  heading: string;
+  supporting: string;
+  items: TitleTextItem[];
+}
+
+/**
+ * Common labeled section chrome.
+ * Prefer this (or a more specific interface) over untyped section objects.
+ */
+export interface SectionChrome {
+  label: string;
+  heading: string;
+  supporting?: string;
+}
+
+/** Narrative intro with optional paragraphs and cards. */
+export interface IntroSection extends SectionChrome {
   paragraphs?: string[];
   cards?: TitleTextItem[];
-  highlight?: string;
 }
 
-/** FAQ-style section of title/text cards (no Q&A). */
-export interface CardSection extends SectionChrome {
-  cards: TitleTextItem[] | ServiceCard[] | LinkCardItem[];
-  note?: string;
-  cta?: CtaLink;
-  footerCta?: CtaLink;
+/** Challenge / signal row that links somewhere. */
+export interface ChallengeItem {
+  question: string;
+  cta: string;
+  to: string;
 }
 
-/** Process / journey section. */
-export interface ProcessSection extends SectionChrome {
-  steps: ProcessStep[];
-  cta?: CtaLink;
-  footerCta?: CtaLink;
+export interface ChallengeSection extends SectionChrome {
+  items: ChallengeItem[];
 }
 
-/** Tech stacks section. */
+/** Tech stack category (title + chip list). */
+export interface TechCategory {
+  title: string;
+  items: string[];
+}
+
 export interface TechSection extends SectionChrome {
   categories: TechCategory[];
+}
+
+/** Process / journey step. */
+export interface ProcessStep {
+  num: string;
+  title: string;
+  text: string;
+  activitiesLabel: string;
+  activities: string[];
+  output?: string;
+}
+
+export interface ProcessSection extends SectionChrome {
+  steps: ProcessStep[];
+  footerCta?: CtaLink;
+}
+
+/** Generic labeled link (nav chips, related capability links, etc.). */
+export interface NavLink {
+  label: string;
+  to: string;
+  title?: string;
+  description?: string;
+  cta?: string;
+  anchor?: string;
+}
+
+/** Form chrome around LeadForm (heading + trust line). */
+export interface FormChrome {
+  heading: string;
+  trust?: string;
+  submitLabel?: string;
 }

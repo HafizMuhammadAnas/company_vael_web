@@ -1,5 +1,5 @@
 /**
- * Shared marketing content primitives (CTAs + disclaimers + block types).
+ * Shared marketing content primitives (CTAs, disclaimers, block types).
  * Import from here or from the specific module.
  */
 
@@ -18,28 +18,30 @@ export {
 export {
   CASE_STUDIES_NOTE,
   DISCLAIMERS,
-  PORTFOLIO_NOTE,
 } from "./disclaimers";
 
 export type {
-  CardSection,
   ChallengeItem,
+  ChallengeSection,
   FaqCategory,
   FaqItem,
   FaqSection,
   FinalCta,
-  HomeHero,
-  LinkCardItem,
-  NarrativeSection,
+  FormChrome,
+  IntroSection,
+  NavLink,
   PageHero,
+  PageHeroWithCta,
   ProcessSection,
   ProcessStep,
   SectionChrome,
   SeoMeta,
-  ServiceCard,
+  SubServicesSection,
   TechCategory,
   TechSection,
   TitleTextItem,
-  WorkCardItem,
+  WorkCard,
+  WorkEmptySection,
   WorkSection,
+  WorkShowcaseSection,
 } from "./types";

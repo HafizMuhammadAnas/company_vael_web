@@ -1,0 +1,32 @@
+---
+description: VAELKODE marketing voice, claims rules, and content module conventions
+globs: frontend/src/content/**/*.ts,frontend/src/constants/company.ts
+alwaysApply: false
+---
+
+# Content voice & claims
+
+Follow [CONTENT.md](../../CONTENT.md) when editing marketing copy.
+
+## Must
+
+- Keep positioning as **AI-first digital engineering**.
+- Pull company facts (contact, legal, default SEO) from `frontend/src/constants/company.ts` — do not duplicate or invent.
+- Reuse `@/content/shared` for CTAs (`CTA`, `contactCta`, `consultationCta`, `FINAL_PAIR*`) and `DISCLAIMERS`.
+- Annotate page blocks with shared types (`SeoMeta`, `PageHero`, `FinalCta`, `FaqSection`, etc.).
+
+## Must not invent
+
+- Metrics (uptime %, savings, ROI, user counts)
+- Testimonials, logos, awards, certifications not held
+- Guarantees (“100%”, “always”, “zero downtime”)
+- Fake client case-study results, fake jobs, fake blog/resources
+- Company size, years of experience, or unapproved locations
+
+## Work / portfolio
+
+Public copy must read as a live site — never “placeholder / demo / when approved” notes in the UI. Portfolio shows projects without disclaimer strips. Do not invent Results, metrics, or fake client outcomes.
+
+## Voice
+
+Clear over clever. Prefer “you” and buyer situations over capability catalogues. Short scannable sections; solution pages: hero → problem → what we build → ≤4 steps → work → FAQ → CTA. Avoid hype and jargon walls.

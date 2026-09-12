@@ -1,66 +1,127 @@
 /**
- * VAELKODE /solutions/web-development — Web & Digital Platforms.
+ * VAELKODE /solutions/web-development. Web & Digital Platforms.
  * Approved production copy. No invented clients, statistics, awards,
  * testimonials, project results, certifications, or unsupported capabilities.
  */
 
-export const WEB_SEO = {
+import { COMPANY } from "@/constants/company";
+import { CTA, DISCLAIMERS, FINAL_PAIR_TELL_US, consultationCta, contactCta } from "@/content/shared";
+import type { FaqSection, FinalCta, PageHero, SeoMeta, WorkSection } from "@/content/shared";
+
+
+export const WEB_SEO: SeoMeta = {
   title: "Web Development & Digital Platforms | VAELKODE",
   description:
     "VAELKODE designs and develops modern websites, web applications, customer portals, e-commerce platforms, SaaS products, and digital experiences.",
 };
 
-export const WEB_HERO = {
-  label: "Web & Digital Platforms",
-  title: "Digital Experiences Built to Move Your Business Forward.",
+export const WEB_HERO: PageHero = {
+  label: "Web Development",
+  title: "Websites and digital platforms that work for your business.",
   supporting:
-    "VAELKODE designs and develops modern websites, web applications, customer portals, e-commerce platforms, and digital experiences that combine thoughtful design with reliable engineering.",
-  primaryCta: { label: "Book a Consultation", to: "/consultation" },
-  secondaryCta: { label: "Discuss Your Web Project", to: "/contact" },
+    "From a clear company website to portals, stores, and web apps. We build digital experiences people understand and trust.",
+  primaryCta: CTA.bookConsultation,
+  secondaryCta: contactCta("Discuss Your Web Project"),
   tags: [
-    "Corporate Websites",
-    "Web Applications",
-    "Customer Portals",
+    "Business websites",
     "E-commerce",
-    "SaaS Platforms",
-    "Digital Experiences",
+    "Portals",
+    "Web apps",
+    "Redesigns",
+    "Integrations",
+  ],
+};
+
+export const WEB_SUB_SERVICES = {
+  label: "Web services",
+  heading: "Everything we can build for you on the web.",
+  supporting: "Each service includes the stacks we commonly use. We pick what fits your project.",
+  items: [
+    {
+      title: "Business & marketing websites",
+      text: "A multi-page site that presents your company, services, and proof points clearly, so visitors understand who you are and how to get in touch.",
+      highlights: ["Home, about, services, contact", "Brand-led layout & messaging", "Contact paths that are easy to find"],
+      stacks: ["React", "Next.js", "TypeScript", "SEO-ready"],
+    },
+    {
+      title: "Landing pages",
+      text: "Single-purpose pages for campaigns and launches: one message, one offer, one clear next step. Built to turn attention into enquiries.",
+      highlights: ["Campaign or product focus", "Strong headline + CTA", "Form or booking handoff"],
+      stacks: ["Next.js", "Forms", "Analytics", "A/B ready"],
+    },
+    {
+      title: "E-commerce stores",
+      text: "Online shops where customers can browse products, add to cart, and check out, with catalogue, payments, and order basics that match how you sell.",
+      highlights: ["Product catalogue & detail pages", "Cart and checkout flow", "Payment provider integration"],
+      stacks: ["Shopify", "WooCommerce", "Payments", "Catalogue"],
+    },
+    {
+      title: "CMS websites",
+      text: "Editable sites your team can update without waiting on a developer. Pages, posts, and media managed from a clear content admin.",
+      highlights: ["Pages, posts, and media", "Roles for editors & admins", "WordPress or headless CMS"],
+      stacks: ["WordPress", "Headless CMS", "Custom admin"],
+    },
+    {
+      title: "Website redesign & migration",
+      text: "Move from an outdated look or fragile platform to a modern build while keeping URLs, content, and SEO foundations intact where it matters.",
+      highlights: ["Content & URL mapping", "Responsive rebuild", "Launch with redirects in place"],
+      stacks: ["Migration", "Responsive", "Performance"],
+    },
+    {
+      title: "Web apps & portals",
+      text: "Secure, logged-in experiences for customers or internal teams. Dashboards, workflows, documents, and accounts behind authentication.",
+      highlights: ["Sign-in and user roles", "Dashboards & task flows", "API-backed data"],
+      stacks: ["React", "APIs", "Auth", "PostgreSQL"],
+    },
+    {
+      title: "Performance & SEO foundations",
+      text: "Technical groundwork so pages load cleanly, stay stable on mobile, and give search engines a clear structure to work with.",
+      highlights: ["Core Web Vitals focus", "Clean headings & metadata", "Accessibility basics"],
+      stacks: ["Core Web Vitals", "Schema", "Accessibility"],
+    },
+    {
+      title: "Booking & lead capture",
+      text: "Enquiry forms, booking steps, and confirmation paths that collect the right details and route them to your inbox, CRM, or calendar.",
+      highlights: ["Custom forms & validation", "Booking or request flow", "Email, SMS, or CRM handoff"],
+      stacks: ["Forms", "CRM sync", "Email / SMS"],
+    },
   ],
 };
 
 export const WEB_INTRO = {
-  label: "Beyond a Website",
-  heading: "Your Website Is More Than a Digital Brochure.",
+  label: "Beyond a Brochure",
+  heading: "Start with presence, grow into a product when you need it.",
   paragraphs: [
-    "Your digital presence is often the first interaction a customer, partner, employee, or stakeholder has with your organization.",
-    "A modern digital platform should communicate your value clearly, provide a strong user experience, perform reliably, and support your business objectives.",
-    "VAELKODE combines design, frontend engineering, backend development, integrations, performance, and deployment to create digital experiences built around your goals.",
+    "Your digital presence is often the first interaction a customer, partner, or stakeholder has with your organization.",
+    "A modern platform should communicate your value clearly, guide people to the right action, and stay reliable as traffic and features grow.",
+    "When the brief goes beyond a brochure into portals, applications, or commerce, we treat the experience as a product rather than a one-off page.",
   ],
   cards: [
     {
       title: "Communicate",
-      text: "Present your organization, products, and services through a clear and professional digital experience.",
+      text: "Present your organization, products, and services through a clear, professional digital experience.",
     },
     {
       title: "Engage",
-      text: "Create intuitive experiences that help users discover information, interact with your business, and complete tasks.",
+      text: "Create intuitive experiences that help people find information, interact with your business, and complete tasks.",
     },
     {
       title: "Convert",
-      text: "Design digital journeys that guide visitors toward meaningful actions such as contacting you, requesting a service, making a purchase, or starting a conversation.",
+      text: "Shape journeys that guide visitors toward useful next steps: getting in touch, requesting a service, or completing a purchase.",
     },
   ],
 };
 
 export const WEB_BUILD = {
   label: "Digital Solutions",
-  heading: "From Business Websites to Complete Digital Platforms.",
+  heading: "From business websites to full digital platforms.",
   supporting:
-    "Whether you need a high-performance corporate website or a complex web application, we build digital platforms according to the needs of your users and organization.",
+    "From a high-performance corporate site to a complex web application, we build around your users and how your organization actually works.",
   cards: [
     {
       title: "Corporate & Business Websites",
       description:
-        "Professional websites designed to communicate your organization's capabilities, establish credibility, and create opportunities for business growth.",
+        "Professional websites that communicate your organization's capabilities, establish credibility, and open doors for growth.",
       items: [
         "Corporate Websites",
         "Company Profiles",
@@ -73,7 +134,7 @@ export const WEB_BUILD = {
     {
       title: "Marketing & Lead Generation Websites",
       description:
-        "Digital experiences designed around your marketing objectives, messaging, audience, and conversion journey.",
+        "Digital experiences shaped around your marketing objectives, messaging, audience, and conversion journey.",
       items: [
         "Landing Pages",
         "Campaign Pages",
@@ -86,13 +147,13 @@ export const WEB_BUILD = {
     {
       title: "Web Applications",
       description:
-        "Interactive software delivered through the browser, built around specific workflows, users, data, and business requirements.",
+        "Interactive software in the browser, built around specific workflows, users, data, and business requirements.",
       items: ["Business Applications", "Dashboards", "Portals", "Workflow Systems", "User Management", "API Integration"],
     },
     {
       title: "Customer & Client Portals",
       description:
-        "Secure digital environments where customers and partners can access services, information, documents, applications, and workflows.",
+        "Secure environments where customers and partners can access services, information, documents, applications, and workflows.",
       items: [
         "User Accounts",
         "Authentication",
@@ -105,7 +166,7 @@ export const WEB_BUILD = {
     {
       title: "E-commerce Platforms",
       description:
-        "Build digital commerce experiences that help businesses present products, manage customers, process orders, and connect with operational systems.",
+        "Commerce experiences that help you present products, manage customers, process orders, and connect with operational systems.",
       items: [
         "Product Catalogues",
         "Shopping Experience",
@@ -118,7 +179,7 @@ export const WEB_BUILD = {
     {
       title: "SaaS & Digital Products",
       description:
-        "Develop browser-based products and platforms designed to serve users through scalable digital experiences.",
+        "Browser-based products and platforms that serve users through scalable digital experiences.",
       items: ["SaaS Applications", "User Management", "Subscription Systems", "Dashboards", "APIs", "Cloud Deployment"],
     },
   ],
@@ -126,55 +187,55 @@ export const WEB_BUILD = {
 
 export const WEB_MODERN = {
   label: "Digital Experience",
-  heading: "Designed for People. Engineered for Performance.",
+  heading: "Built for people, tuned for performance.",
   supporting:
-    "A successful digital platform needs more than an attractive interface. It needs to work reliably across devices, communicate clearly, perform efficiently, and support the goals behind the project.",
+    "A successful digital platform needs more than an attractive interface. It has to work reliably across devices, communicate clearly, perform well, and support the goals behind the project.",
   cards: [
     {
       title: "User Experience",
-      text: "Create intuitive journeys that help visitors and users find information and complete important actions.",
+      text: "Create intuitive journeys that help visitors find information and complete important actions.",
     },
     {
       title: "Responsive Design",
-      text: "Deliver consistent experiences across desktops, tablets, and mobile devices.",
+      text: "Deliver consistent experiences across desktops, tablets, and phones.",
     },
     {
       title: "Performance",
-      text: "Build interfaces and applications with performance and efficient delivery in mind.",
+      text: "Build interfaces and applications with speed and efficient delivery in mind.",
     },
     {
       title: "Accessibility",
-      text: "Design experiences that consider accessibility and usability for a broad range of users.",
+      text: "Consider accessibility and usability so a broader range of people can use the experience.",
     },
     {
       title: "SEO Foundation",
-      text: "Structure websites with search-engine-friendly content, metadata, performance, and technical foundations.",
+      text: "Structure sites with clear content, metadata, performance, and technical foundations that search engines can work with.",
     },
     {
       title: "Conversion",
-      text: "Design calls to action, forms, navigation, and page journeys around meaningful business outcomes.",
+      text: "Shape calls to action, forms, navigation, and page journeys around outcomes that matter to the business.",
     },
   ],
 };
 
 export const WEB_CAPABILITIES = {
   label: "Engineering Capabilities",
-  heading: "Everything Behind the Digital Experience.",
+  heading: "Everything behind the digital experience.",
   supporting:
-    "Our web development capabilities span the visible user experience and the systems that power it.",
+    "Our web work covers the visible experience and the systems that power it.",
   cards: [
-    { title: "Frontend Development", text: "Build responsive, interactive interfaces using modern frontend technologies." },
+    { title: "Frontend Development", text: "Build responsive, interactive interfaces with modern frontend technologies." },
     {
       title: "Backend Development",
       text: "Develop application logic, APIs, workflows, authentication, and data services.",
     },
     {
       title: "API Integration",
-      text: "Connect websites and applications with business systems, third-party services, payment platforms, and other APIs.",
+      text: "Connect sites and apps with business systems, third-party services, payment platforms, and other APIs.",
     },
     {
       title: "Database Development",
-      text: "Design data structures that support application requirements, reliability, and performance.",
+      text: "Design data structures that support reliability, performance, and what the application needs to do.",
     },
     {
       title: "Authentication & Authorization",
@@ -182,62 +243,77 @@ export const WEB_CAPABILITIES = {
     },
     {
       title: "Content Management",
-      text: "Create content structures and management workflows appropriate for the project's requirements.",
+      text: "Set up content structures and editing workflows that fit the project.",
     },
     {
       title: "Analytics & Tracking",
-      text: "Integrate appropriate analytics and measurement tools to understand digital performance and user behavior.",
+      text: "Wire in analytics and measurement so you can understand performance and how people use the site.",
     },
     {
       title: "Deployment & Infrastructure",
-      text: "Prepare applications for reliable deployment and operation across appropriate cloud or hosting environments.",
+      text: "Prepare applications for reliable deployment and operation on the right cloud or hosting setup.",
     },
   ],
 };
 
 export const WEB_PROCESS = {
-  label: "Our Process",
-  heading: "From First Concept to Digital Experience.",
-  supporting:
-    "We combine business understanding, user experience, design, engineering, and testing to turn ideas into working digital platforms.",
+  label: "How we work",
+  headingBefore: "From idea to launch: ",
+  headingAccent: "our process",
+  supporting: "Transparent and collaborative. You’re involved at every milestone.",
   steps: [
     {
       num: "01",
-      title: "Discover",
-      text: "Understand your organization, audience, goals, requirements, content, competitors, and technical environment.",
+      title: "Discovery & briefing",
+      text: "We learn your business, audience, and goals before anything is designed. A clear brief keeps everyone aligned from the start.",
+      milestone: null,
+      tone: "sky" as const,
     },
     {
       num: "02",
-      title: "Plan",
-      text: "Define the sitemap, user journeys, content structure, functionality, technical architecture, and project priorities.",
+      title: "Design & structure",
+      text: "We shape layouts, visual direction, and key pages so you can see the site before development starts.",
+      milestone: "Design review shared",
+      tone: "violet" as const,
     },
-    { num: "03", title: "Design", text: "Create the visual language, interface structure, responsive layouts, and user experience." },
-    { num: "04", title: "Develop", text: "Build the frontend, backend, APIs, integrations, database, and required functionality." },
+    {
+      num: "03",
+      title: "Feedback & approval",
+      text: "You request changes to layout, content blocks, and look-and-feel until the direction feels right.",
+      milestone: "You sign off",
+      tone: "amber" as const,
+    },
+    {
+      num: "04",
+      title: "Build & live preview",
+      text: "We turn the approved design into a working site and share a private preview link so you can follow progress.",
+      milestone: "Preview link shared",
+      tone: "teal" as const,
+    },
     {
       num: "05",
-      title: "Test",
-      text: "Validate the experience across devices, browsers, functionality, performance, accessibility, and integrations.",
+      title: "Content & polish",
+      text: "We refine copy, images, forms, and details so the site matches your brand and converts visitors.",
+      milestone: null,
+      tone: "gold" as const,
     },
     {
       num: "06",
-      title: "Launch",
-      text: "Prepare the production environment, configure deployment, connect domains and services, and release the platform.",
-    },
-    {
-      num: "07",
-      title: "Improve",
-      text: "Continue improving content, functionality, performance, and user experience as your business evolves.",
+      title: "QA & go live",
+      text: "Final checks for speed, mobile, forms, and browsers. Then launch and a clear handover for your team.",
+      milestone: "Site live",
+      tone: "rose" as const,
     },
   ],
 };
 
 export const WEB_MORE = {
   label: "More Than a Website",
-  heading: "When Your Website Needs to Do More.",
+  heading: "When your website needs to do more.",
   paragraphs: [
     "Not every project is simply a website.",
-    "Sometimes your digital platform needs authentication, dashboards, business workflows, payments, integrations, data processing, or user-specific experiences.",
-    "In those cases, we can combine web development with backend engineering, APIs, databases, cloud infrastructure, and other technologies to build a complete digital application.",
+    "Sometimes the platform needs authentication, dashboards, business workflows, payments, integrations, data processing, or user-specific experiences.",
+    "In those cases, we combine web development with backend engineering, APIs, databases, cloud infrastructure, and related work to build a complete digital application.",
   ],
   flow: [
     "Marketing Website",
@@ -246,183 +322,220 @@ export const WEB_MORE = {
     "Web Application",
     "Integrated Business Platform",
   ],
-  cta: { label: "Discuss Your Requirements", to: "/consultation" },
+  cta: consultationCta("Discuss Your Requirements"),
 };
 
 export const WEB_INTEGRATIONS = {
   label: "Connected Digital Experiences",
-  heading: "Connect Your Website to the Systems You Already Use.",
+  heading: "Connect your website to the systems you already use.",
   supporting:
-    "A modern digital platform often needs to communicate with other services and systems. We can design integrations around the requirements of your business and application.",
+    "A modern digital platform often needs to talk to other services and systems. We design integrations around what your business and application actually need.",
   cards: [
-    { title: "Payment Services", text: "Connect digital platforms with appropriate payment providers." },
+    { title: "Payment Services", text: "Connect digital platforms with the right payment providers." },
     {
       title: "CRM & Business Systems",
-      text: "Synchronize website activity and customer information with business applications.",
+      text: "Keep website activity and customer information in sync with your business applications.",
     },
-    { title: "Communication", text: "Integrate email, messaging, notifications, and communication workflows." },
-    { title: "Authentication", text: "Connect identity and authentication services where required." },
-    { title: "External APIs", text: "Consume and expose APIs to connect different applications and services." },
+    { title: "Communication", text: "Integrate email, messaging, notifications, and related workflows." },
+    { title: "Authentication", text: "Connect identity and authentication services where you need them." },
+    { title: "External APIs", text: "Consume and expose APIs so different applications and services can work together." },
     {
       title: "Internal Systems",
-      text: "Connect customer-facing platforms with internal databases and operational applications where appropriate.",
+      text: "Link customer-facing platforms with internal databases and operational applications where it makes sense.",
     },
   ],
 };
 
 export const WEB_TECH = {
-  label: "Web Technology",
-  heading: "Modern Technologies. Flexible Architecture.",
+  label: "Technology stack",
+  heading: "Which tools can we use to build your website?",
   supporting:
-    "We select the technology stack according to the project's requirements, complexity, performance needs, integrations, and long-term maintenance considerations.",
+    "We pick the stack that fits your goals, timeline, and maintenance rather than a one-size catalogue. These are the tools we commonly use for web work.",
   categories: [
-    { title: "Frontend", items: ["React", "Next.js", "TypeScript", "Tailwind CSS"] },
-    { title: "Backend", items: ["Python", "FastAPI", "Django", "Laravel", "Node.js"] },
+    { title: "Frontend", items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "HTML / CSS"] },
+    { title: "Backend", items: ["Node.js", "Python", "FastAPI", "Django", "Laravel"] },
+    { title: "CMS & content", items: ["WordPress", "Headless CMS", "Custom admin"] },
     { title: "Data", items: ["PostgreSQL", "MySQL", "Redis"] },
-    { title: "Infrastructure", items: ["AWS", "Azure", "Google Cloud", "Docker", "Kubernetes", "CI/CD"] },
+    { title: "Cloud & delivery", items: ["AWS", "Azure", "Google Cloud", "Docker", "CI/CD"] },
     {
-      title: "APIs & Integrations",
-      items: ["REST APIs", "Third-Party APIs", "Webhooks", "Authentication", "Payment Integrations"],
-    },
-    {
-      title: "Optional AI Capabilities",
-      items: [
-        "Generative AI",
-        "AI Assistants",
-        "Intelligent Search",
-        "Document Processing",
-        "Recommendation Systems",
-        "Automation",
-      ],
+      title: "Integrations",
+      items: ["REST APIs", "Payments", "CRM", "Email / SMS", "Analytics"],
     },
   ],
 };
 
 export const WEB_QUALITY = {
-  label: "Quality by Design",
-  heading: "A Digital Platform Should Work as Well as It Looks.",
+  label: "Quality checks",
+  heading: "How we verify your site before launch.",
   supporting:
-    "Design and development need to work together. We consider technical quality throughout the lifecycle rather than treating it as something added at the end.",
-  cards: [
+    "Each check has a clear method: what the team does, in order, before we call it ready.",
+  checks: [
     {
+      id: "performance",
       title: "Performance",
-      text: "Optimize the delivery and behavior of digital experiences around the needs of users and applications.",
+      summary: "Fast on real devices, not only on a fast office Wi‑Fi.",
+      outcome: "Key pages feel quick on phone and desktop.",
+      steps: [
+        "Open the site on a mid-range phone and a desktop browser.",
+        "Walk the main journeys (home, key service page, contact/form).",
+        "Note slow images, heavy scripts, or layout jumps.",
+        "Compress images, defer non-critical scripts, and re-check.",
+      ],
     },
     {
-      title: "Security",
-      text: "Consider authentication, authorization, data protection, secure integrations, and application security.",
+      id: "responsive",
+      title: "Responsive layout",
+      summary: "Clean layouts on phone, tablet, and desktop.",
+      outcome: "No broken columns, overlapping text, or cut-off buttons.",
+      steps: [
+        "Resize through phone, tablet, and desktop breakpoints.",
+        "Check navigation, hero, forms, and footer at each size.",
+        "Fix wrapping, spacing, and tap targets that feel too small.",
+        "Confirm landscape and common device widths look intentional.",
+      ],
     },
     {
-      title: "Reliability",
-      text: "Build systems with appropriate error handling, monitoring, and operational considerations.",
+      id: "seo",
+      title: "SEO foundations",
+      summary: "Search engines can understand the pages you care about.",
+      outcome: "Titles, headings, and structure are clear and consistent.",
+      steps: [
+        "Review page titles, meta descriptions, and H1/H2 hierarchy.",
+        "Confirm important pages are linked from the main navigation.",
+        "Check image alt text on key visuals.",
+        "Validate a clean URL structure and basic indexing readiness.",
+      ],
     },
     {
-      title: "Maintainability",
-      text: "Use structured, reusable, and understandable engineering practices to make future development easier.",
+      id: "accessibility",
+      title: "Accessibility basics",
+      summary: "More people can read, navigate, and complete actions.",
+      outcome: "Keyboard paths and contrast work for common journeys.",
+      steps: [
+        "Tab through menus, links, and forms without a mouse.",
+        "Check contrast on text, buttons, and form labels.",
+        "Confirm focus states are visible on interactive elements.",
+        "Fix any traps, missing labels, or unreadable contrast.",
+      ],
     },
     {
-      title: "Scalability",
-      text: "Consider future users, content, functionality, integrations, and infrastructure requirements.",
+      id: "security",
+      title: "Security basics",
+      summary: "Forms and integrations use sensible defaults.",
+      outcome: "Enquiries and sensitive flows are handled carefully.",
+      steps: [
+        "Review forms for validation and spam protection where needed.",
+        "Confirm HTTPS and secure form submission endpoints.",
+        "Check third-party embeds (chat, analytics, payments) are intentional.",
+        "Remove leftover test credentials, debug flags, or open admin paths.",
+      ],
     },
     {
-      title: "Testing",
-      text: "Validate important functionality and user experiences before production release.",
+      id: "handover",
+      title: "Handover ready",
+      summary: "Your team knows how to update and what happens next.",
+      outcome: "You can maintain content without guessing.",
+      steps: [
+        "Walk through how to edit common content (pages, images, forms).",
+        "Share where assets, logins, and hosting details live.",
+        "Confirm backup / update expectations after launch.",
+        "Leave a short punch-list of recommended next improvements.",
+      ],
     },
   ],
 };
 
-export const WEB_INDUSTRIES = {
-  label: "Digital Experiences Across Industries",
-  heading: "Digital Platforms for Different Business Needs.",
-  supporting:
-    "Every industry has different users, workflows, regulations, and expectations. We adapt the digital experience and technical approach to the organization's requirements.",
-  cards: [
-    {
-      title: "Government & Public Sector",
-      text: "Public-facing websites, portals, information systems, applications, and digital services.",
-    },
-    {
-      title: "Education",
-      text: "Institutional websites, portals, learning experiences, management systems, and digital services.",
-    },
-    {
-      title: "Healthcare",
-      text: "Information portals, patient-facing experiences, operational applications, and secure digital workflows.",
-    },
-    {
-      title: "Agriculture",
-      text: "Data platforms, information systems, monitoring applications, and digital services.",
-    },
-    {
-      title: "Finance",
-      text: "Secure digital platforms, customer experiences, dashboards, applications, and integrations.",
-    },
-    {
-      title: "Logistics",
-      text: "Tracking platforms, operational dashboards, customer portals, and workflow applications.",
-    },
-    {
-      title: "Retail & Commerce",
-      text: "E-commerce platforms, product experiences, customer portals, and commerce integrations.",
-    },
-  ],
-  cta: { label: "Explore Industries", to: "/industries" },
-};
-
-export const WEB_WORK = {
-  label: "Selected Work",
-  heading: "Digital Platforms Built Around Real Requirements.",
-  supporting:
-    "Explore selected digital solutions and platform concepts demonstrating our approach to modern web development and software engineering.",
-  note: "Selected solutions & digital platform demonstrations — not client case studies.",
-  cta: { label: "View All Work", to: "/work" },
-};
-
-export const WEB_FAQ = {
-  label: "Web Development FAQ",
-  heading: "Questions About Web Development?",
+export const WEB_WHY = {
+  label: "Why VAELKODE",
+  heading: "A web partner who starts with your business rather than a template pitch.",
+  supporting: "Clear scope, practical choices, and a site your team can actually run.",
   items: [
     {
-      q: "Does VAELKODE build both websites and web applications?",
-      a: "Yes. Projects can range from corporate and marketing websites to interactive web applications, customer portals, e-commerce platforms, and larger digital products.",
+      num: "01",
+      title: "Clarity before code",
+      text: "We agree who the site is for, what it must do, and what “done” looks like.",
     },
     {
-      q: "Can you build a website from an existing design?",
-      a: "Yes. Existing designs, brand guidelines, wireframes, or design systems can be used as the foundation for development.",
+      num: "02",
+      title: "Design that converts",
+      text: "Structure and messaging that guide visitors to enquire, book, or buy.",
     },
     {
-      q: "Can you design the website as well as develop it?",
-      a: "Yes. Depending on the project requirements, the engagement can include user experience, interface design, frontend development, backend development, integrations, and deployment.",
+      num: "03",
+      title: "Built to maintain",
+      text: "Clean build and content setup so the next update isn’t a rewrite.",
     },
     {
-      q: "Can you integrate our website with existing systems?",
-      a: "Yes. Websites and web applications can be connected to APIs, business systems, databases, payment services, communication platforms, and other third-party services where appropriate.",
-    },
-    {
-      q: "Can you redesign an existing website?",
-      a: "Yes. An existing website can be assessed and redesigned to improve its structure, visual experience, responsiveness, performance, content presentation, and functionality.",
-    },
-    {
-      q: "Can you build an e-commerce platform?",
-      a: "Yes. E-commerce requirements can include product management, customer accounts, shopping experiences, orders, payments, integrations, and operational workflows.",
-    },
-    {
-      q: "Will the website be mobile responsive?",
-      a: "Responsive behavior should be part of the design and development process so the experience works appropriately across supported screen sizes and devices.",
-    },
-    {
-      q: "Can you maintain the website after launch?",
-      a: "Yes. Post-launch work can include maintenance, content and functionality improvements, performance optimization, security updates, and continued development depending on the project's requirements.",
+      num: "04",
+      title: "Plain communication",
+      text: "Visible progress each week, in plain language.",
     },
   ],
-  cta: { label: "Book a Consultation", to: "/consultation" },
 };
 
-export const WEB_FINAL = {
-  label: "Build Your Digital Experience",
-  heading: "Ready to Build Something Better for the Web?",
+export const WEB_PROJECTS = {
+  label: "Selected projects",
+  heading: "Websites we're proud to show.",
+  supporting: "Hover a preview to scroll the full page, then open the live site.",
+  viewAll: { label: "View full portfolio", to: "/portfolio" },
+};
+
+export const WEB_PITCH = {
+  label: "Start a conversation",
+  heading: "Tell us about the website you want to build.",
   supporting:
-    "Whether you need a professional business website, a customer portal, an e-commerce platform, or a complete web application, let's discuss what you want to achieve.",
-  primaryCta: { label: "Book a Consultation", to: "/consultation" },
-  secondaryCta: { label: "Request a Proposal", to: "/request-proposal" },
+    "Share your goals, timeline, and any references. We’ll reply with a practical next step, without a hard sell.",
+  points: [
+    "Business site, store, portal, or redesign",
+    "Rough timeline and budget if you have them",
+    "Links to sites you like (optional)",
+  ],
+};
+
+export const WEB_WORK: WorkSection = {
+  label: "Selected Work",
+  heading: "Digital platforms built around real requirements.",
+  supporting:
+    "Selected digital solutions and platform concepts that show how we approach modern web development and software engineering.",
+  note: DISCLAIMERS.digitalPlatformDemonstrations,
+  cta: CTA.viewAllWork,
+};
+
+export const WEB_FAQ: FaqSection = {
+  label: "FAQ",
+  heading: "Common questions",
+  items: [
+    {
+      q: "Do you build websites and web apps?",
+      a: "Yes. From business and marketing sites to portals, stores, and fuller web applications.",
+    },
+    {
+      q: "Can you work from an existing design?",
+      a: "Yes. Brand guidelines, Figma files, or wireframes can be the foundation for development.",
+    },
+    {
+      q: "Do you design and develop?",
+      a: "Yes. Engagements can include UX/UI, frontend, backend, integrations, and launch.",
+    },
+    {
+      q: "Can you redesign an existing site?",
+      a: "Yes. We assess structure, content, performance, and experience, then rebuild what needs to change.",
+    },
+    {
+      q: "Will it be mobile responsive?",
+      a: "Yes. Responsive behavior is part of design and development across supported devices.",
+    },
+    {
+      q: "Can you maintain the site after launch?",
+      a: "Yes. Updates, improvements, security, and ongoing development can continue after go-live.",
+    },
+  ],
+  cta: CTA.bookConsultation,
+};
+
+export const WEB_FINAL: FinalCta = {
+  label: "Next step",
+  heading: "Ready to build a better website?",
+  supporting: `Tell us what you need: a new site, a redesign, a store, or a portal. Email ${COMPANY.contact.email} or book a consultation and we’ll help you find the right approach.`,
+  ...FINAL_PAIR_TELL_US,
 };

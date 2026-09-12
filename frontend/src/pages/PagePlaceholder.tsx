@@ -16,7 +16,7 @@ interface PagePlaceholderProps {
  */
 export function PagePlaceholder({ title, kicker }: PagePlaceholderProps) {
   useEffect(() => {
-    document.title = `${title} — VAELKODE`;
+    document.title = `${title} | VAELKODE`;
   }, [title]);
 
   return (
@@ -24,7 +24,7 @@ export function PagePlaceholder({ title, kicker }: PagePlaceholderProps) {
       <SectionHeader
         label={kicker ?? "VAELKODE"}
         title={title}
-        lineText="Page scaffolded — awaiting content"
+        lineText="Page scaffolded. Awaiting content."
       />
     </Section>
   );

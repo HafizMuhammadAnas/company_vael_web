@@ -259,7 +259,10 @@ class LeadService:
         if not submission.privacy_consent:
             errors["privacy_consent"] = "Privacy consent is required."
 
-        if not submission.payload.get("description", "").strip():
+        if submission.form_type == "contact":
+            if not submission.payload.get("message", "").strip():
+                errors["message"] = "Message is required."
+        elif not submission.payload.get("description", "").strip():
             errors["description"] = "Project description is required."
 
         if submission.form_type == "proposal":

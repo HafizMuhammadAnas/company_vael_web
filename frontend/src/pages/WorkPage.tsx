@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { BrainCircuit, Cloud, Code2, Database, Eye, Layers, Workflow } from "lucide-react";
 
 import { FinalCtaSection } from "@/components/sections/FinalCtaSection";
@@ -10,9 +9,6 @@ import {
   PrincipleDeck,
   WorkGallery,
 } from "@/components/sections/elevated/Elevate";
-import home from "@/components/sections/home/Home.module.css";
-import work from "@/components/sections/work/Work.module.css";
-import { Button, Section, SectionHeader } from "@/components/ui";
 import {
   CASE_STUDIES,
   FEATURED_CASE_STUDY_SLUGS,
@@ -23,7 +19,6 @@ import {
   WORK_EXPERTISE,
   WORK_FINAL,
   WORK_HERO,
-  WORK_INDUSTRIES,
   WORK_SEO,
   WORK_SELECTED,
 } from "@/content/work";
@@ -101,26 +96,8 @@ export function WorkPage() {
         title={WORK_DELIVERY.heading}
         steps={WORK_DELIVERY.steps}
         footerCta={{ ...WORK_DELIVERY.cta, variant: "outline" }}
+        altBg
       />
-
-      {/* Industries */}
-      <Section className={home.altBg}>
-        <div className="reveal">
-          <SectionHeader label={WORK_INDUSTRIES.label} title={WORK_INDUSTRIES.heading} />
-        </div>
-        <div className={`${work.industryChips} reveal`}>
-          {WORK_INDUSTRIES.items.map((item) => (
-            <Link key={item.label} to={item.to} className={work.industryChip}>
-              {item.label}
-            </Link>
-          ))}
-        </div>
-        <div className="reveal">
-          <Button variant="outline" to={WORK_INDUSTRIES.cta.to}>
-            {WORK_INDUSTRIES.cta.label} →
-          </Button>
-        </div>
-      </Section>
 
       {/* Case Studies teaser */}
       <WorkGallery

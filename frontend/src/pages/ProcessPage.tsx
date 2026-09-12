@@ -28,7 +28,7 @@ export function ProcessPage() {
       <JourneyRail
         label="Delivery Stages"
         title="Every Stage Visible. Every Decision Clear."
-        supporting="Follow each stage from discovery through launch and ongoing improvement — every step stays readable."
+        supporting="Follow each stage from discovery through launch and ongoing improvement. Every step stays readable."
         layout="vertical"
         steps={PROCESS_STEPS.map((step) => ({
           num: step.num,

@@ -1,0 +1,242 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 6rem 0 0;
+  background:
+    radial-gradient(
+      ellipse 70% 55% at 18% 18%,
+      color-mix(in srgb, var(--neon) 26%, transparent),
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 55% 50% at 88% 12%,
+      color-mix(in srgb, var(--violet) 30%, transparent),
+      transparent 58%
+    ),
+    radial-gradient(ellipse 80% 70% at 50% 40%, #1a2440 0%, var(--obsidian) 72%);
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 0 var(--page-gutter) 2.35rem;
+}
+
+.layout {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (min-width: 960px) {
+  .layout {
+    grid-template-columns: minmax(0, 1.2fr) minmax(15.5rem, 0.8fr);
+    gap: 2rem 1.25rem;
+    min-height: 20rem;
+  }
+}
+
+.copy {
+  min-width: 0;
+  text-align: left;
+}
+
+.eyebrow {
+  margin-bottom: 0;
+}
+
+.title {
+  margin: 1rem 0 0;
+  max-width: 12ch;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 3.15rem);
+  font-weight: 650;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  color: var(--text-primary);
+}
+
+.accent {
+  color: var(--neon-bright);
+  text-shadow: 0 0 28px var(--neon-glow);
+}
+
+.supporting {
+  margin: 1rem 0 0;
+  max-width: 30rem;
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.ctas {
+  display: flex;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  margin-top: 1.35rem;
+}
+
+.stats {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  justify-content: center;
+}
+
+@media (min-width: 960px) {
+  .stats {
+    min-height: 17rem;
+  }
+}
+
+.statCard {
+  width: min(100%, 15rem);
+  padding: 1rem 1.2rem 0.95rem;
+  border-radius: 0.95rem;
+  border: 1px solid transparent;
+  background: color-mix(in srgb, var(--obsidian-1) 74%, transparent);
+  backdrop-filter: blur(10px);
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease;
+}
+
+.statCard:hover {
+  transform: translateY(-3px) scale(1.02);
+}
+
+.statOffset0 {
+  align-self: flex-start;
+}
+
+.statOffset1 {
+  align-self: flex-end;
+}
+
+.statOffset2 {
+  align-self: flex-start;
+  margin-left: 0.85rem;
+}
+
+.statValue {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: clamp(1.75rem, 3.2vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.statLabel {
+  margin: 0.45rem 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1.35;
+  opacity: 0.92;
+}
+
+.statViolet {
+  border-color: color-mix(in srgb, var(--violet) 55%, transparent);
+  box-shadow:
+    0 0 28px -6px color-mix(in srgb, var(--violet) 45%, transparent),
+    0 18px 40px -28px rgba(0, 0, 0, 0.75);
+  color: #c4b5fd;
+}
+
+.statNeon {
+  border-color: color-mix(in srgb, var(--neon) 55%, transparent);
+  box-shadow:
+    0 0 28px -6px color-mix(in srgb, var(--neon) 40%, transparent),
+    0 18px 40px -28px rgba(0, 0, 0, 0.75);
+  color: var(--neon-bright);
+}
+
+.statPink {
+  border-color: color-mix(in srgb, #f472b6 55%, transparent);
+  box-shadow:
+    0 0 28px -6px color-mix(in srgb, #f472b6 40%, transparent),
+    0 18px 40px -28px rgba(0, 0, 0, 0.75);
+  color: #f9a8d4;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .copy,
+  .statCard {
+    opacity: 0;
+    animation: portfolioHeroIn 0.85s ease forwards;
+  }
+  .copy {
+    animation-delay: 0.12s;
+  }
+  .statOffset0 {
+    animation-delay: 0.26s;
+  }
+  .statOffset1 {
+    animation-delay: 0.38s;
+  }
+  .statOffset2 {
+    animation-delay: 0.5s;
+  }
+}
+
+@keyframes portfolioHeroIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 959px) {
+  .stats {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .statCard {
+    width: calc(50% - 0.4rem);
+    min-width: 9rem;
+  }
+
+  .statOffset0,
+  .statOffset1,
+  .statOffset2 {
+    align-self: auto;
+    margin: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding-top: 5.25rem;
+  }
+
+  .content {
+    max-width: none;
+    padding: 0 var(--page-gutter) 1.75rem;
+  }
+
+  .title {
+    max-width: none;
+  }
+
+  .ctas {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .statCard {
+    width: 100%;
+  }
+}

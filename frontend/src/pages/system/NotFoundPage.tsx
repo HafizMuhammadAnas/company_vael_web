@@ -5,7 +5,7 @@ import { Button } from "@/components/ui";
 
 export function NotFoundPage() {
   useEffect(() => {
-    document.title = "Page not found — VAELKODE";
+    document.title = "Page not found | VAELKODE";
   }, []);
 
   return (

@@ -1,30 +1,27 @@
 /**
- * VAELKODE /about/process — how an engagement actually works.
+ * VAELKODE /about/process. How an engagement actually works.
  * Approved production copy.
  */
 
-export const PROCESS_SEO = {
+import { CTA, FINAL_PAIR } from "@/content/shared";
+import type { FinalCta, PageHero, ProcessStep, SeoMeta } from "@/content/shared";
+
+
+export const PROCESS_SEO: SeoMeta = {
   title: "Our Process | VAELKODE",
   description:
     "A clear path from problem to product: how VAELKODE discovers, analyzes, designs, builds, validates, launches, and evolves software projects.",
 };
 
-export const PROCESS_HERO = {
+export const PROCESS_HERO: PageHero = {
   label: "Our Process",
   title: "A Clear Path From Problem to Product.",
   supporting:
-    "Good software development starts before the first line of code. Our process is designed to understand the problem, define the right solution, build it systematically, and continuously improve it.",
-  primaryCta: { label: "Start a Project", to: "/consultation" },
+    "Good software starts before the first line of code. We use this process to understand the problem, define the right solution, build it in a structured way, and keep improving it.",
+  primaryCta: CTA.startProject,
 };
 
-export interface ProcessStep {
-  num: string;
-  title: string;
-  text: string;
-  activitiesLabel: string;
-  activities: string[];
-  output?: string;
-}
+export type { ProcessStep } from "@/content/shared";
 
 export const PROCESS_STEPS: ProcessStep[] = [
   {
@@ -144,29 +141,28 @@ export const PROCESS_STEPS: ProcessStep[] = [
 
 export const PROCESS_ENGAGEMENT = {
   label: "Engagement Models",
-  heading: "Different Projects Need Different Delivery Models.",
+  heading: "Different projects need different delivery models.",
   models: [
-    { title: "Fixed Scope", text: "Suitable when requirements and deliverables are clearly defined." },
+    { title: "Fixed Scope", text: "A good fit when requirements and deliverables are clearly defined." },
     {
       title: "Iterative Delivery",
-      text: "Suitable when the product needs to evolve through regular feedback and releases.",
+      text: "A good fit when the product needs to evolve through regular feedback and releases.",
     },
     {
       title: "Dedicated Engineering Support",
-      text: "Suitable when an organization needs additional technical capacity alongside an existing team.",
+      text: "A good fit when you need extra technical capacity alongside an existing team.",
     },
     {
       title: "Discovery First",
-      text: "Suitable when the problem is clear but the exact solution still needs to be explored.",
+      text: "A good fit when the problem is clear but the exact solution still needs exploring.",
     },
   ],
 };
 
-export const PROCESS_FINAL = {
+export const PROCESS_FINAL: FinalCta = {
   label: "Let's Define the First Step",
   heading: "Have a Project in Mind? Let's Define the First Step.",
   supporting:
     "Tell us what you're trying to build or improve. We'll start by understanding the problem and mapping a practical path forward.",
-  primaryCta: { label: "Book a Consultation", to: "/consultation" },
-  secondaryCta: { label: "Request a Proposal", to: "/request-proposal" },
+  ...FINAL_PAIR,
 };

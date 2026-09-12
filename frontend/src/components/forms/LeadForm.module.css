@@ -1,63 +1,82 @@
 .form {
   display: flex;
   flex-direction: column;
-  gap: 1.4rem;
+  gap: 1.05rem;
 }
 
 .helper {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: var(--slate);
-  line-height: 1.6;
-  margin-top: -0.2rem;
+  line-height: 1.55;
+  margin-top: -0.1rem;
 }
 
-/* File input + selected file list */
 .fileInput {
   cursor: pointer;
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  border-radius: 0.65rem;
+  border: 1px dashed color-mix(in srgb, var(--neon) 28%, transparent);
+  background: color-mix(in srgb, #080c14 70%, transparent);
+  color: var(--text-secondary);
+  font-size: 0.88rem;
 }
+
 .fileInput::file-selector-button {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.62rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--neon);
-  background: transparent;
-  border: 1px solid var(--border-neon);
-  padding: 0.4rem 0.8rem;
-  margin-right: 0.9rem;
+  background: color-mix(in srgb, var(--neon) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--neon) 30%, transparent);
+  border-radius: 0.4rem;
+  padding: 0.4rem 0.75rem;
+  margin-right: 0.85rem;
   cursor: pointer;
-  transition: border-color var(--transition-fast);
-}
-.fileInput::file-selector-button:hover {
-  border-color: var(--neon-dim);
-}
-.fileList {
-  list-style: none;
-  margin-top: 0.6rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
-.fileChip {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  color: var(--neon-dim);
-  border: 1px solid rgba(0, 212, 255, 0.18);
-  padding: 0.25rem 0.6rem;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
 }
 
-/* Privacy / consent checkbox */
+.fileInput::file-selector-button:hover {
+  border-color: color-mix(in srgb, var(--neon) 55%, transparent);
+  background: color-mix(in srgb, var(--neon) 16%, transparent);
+}
+
+.fileList {
+  list-style: none;
+  margin-top: 0.55rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.fileChip {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--neon-dim);
+  border: 1px solid color-mix(in srgb, var(--neon) 22%, transparent);
+  border-radius: 0.35rem;
+  padding: 0.25rem 0.55rem;
+  background: color-mix(in srgb, var(--neon) 6%, transparent);
+}
+
 .consent {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.35rem;
+  padding: 0.85rem 0.95rem;
+  border-radius: 0.75rem;
+  border: 1px solid color-mix(in srgb, var(--neon) 14%, transparent);
+  background: color-mix(in srgb, #080c14 55%, transparent);
 }
+
 .consentLabel {
   display: flex;
   align-items: flex-start;
   gap: 0.7rem;
   cursor: pointer;
 }
+
 .consentBox {
   flex-shrink: 0;
   width: 1.05rem;
@@ -66,99 +85,108 @@
   accent-color: var(--neon);
   cursor: pointer;
 }
+
 .consentText {
-  font-size: 0.88rem;
-  line-height: 1.65;
+  font-size: 0.84rem;
+  line-height: 1.6;
   color: var(--text-secondary);
 }
+
 .consentLink {
   color: var(--neon);
   text-decoration: underline;
+  text-underline-offset: 2px;
 }
+
 .consentLink:hover {
-  color: var(--neon-dim);
+  color: var(--neon-bright);
 }
+
 .consentError {
-  font-size: 0.8rem;
-  color: #ffb4b4;
+  font-size: 0.75rem;
+  color: #fb7185;
   padding-left: 1.75rem;
 }
 
-/* Submit row */
 .actions {
   display: flex;
   align-items: center;
-  gap: 1.2rem;
+  gap: 1rem;
   flex-wrap: wrap;
-  margin-top: 0.6rem;
-}
-.trust {
-  font-size: 0.82rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
-  margin-top: 0.4rem;
+  margin-top: 0.35rem;
+  padding-top: 0.35rem;
 }
 
-/* Server-side error banner */
-.banner {
-  border: 1px solid rgba(255, 107, 107, 0.4);
-  background: rgba(255, 107, 107, 0.06);
-  color: #ffb4b4;
-  padding: 1rem 1.2rem;
-  font-size: 0.9rem;
-  line-height: 1.6;
+.trust {
+  font-size: 0.8rem;
+  color: var(--slate);
+  line-height: 1.55;
+  max-width: 22rem;
 }
+
+.banner {
+  border: 1px solid color-mix(in srgb, #fb7185 40%, transparent);
+  background: color-mix(in srgb, #fb7185 8%, transparent);
+  color: #fecdd3;
+  padding: 0.9rem 1rem;
+  border-radius: 0.65rem;
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
 .banner a {
   color: var(--neon);
   text-decoration: underline;
 }
 
-/* Inline success state (used when no redirect target) */
 .success {
-  border: 1px solid var(--neon-dim);
-  background: rgba(0, 212, 255, 0.04);
-  padding: 2.5rem 2rem;
+  position: relative;
+  border: 1px solid color-mix(in srgb, var(--neon) 35%, transparent);
+  border-radius: 1rem;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 0%, color-mix(in srgb, var(--neon) 12%, transparent), transparent 60%),
+    color-mix(in srgb, #0c111a 90%, transparent);
+  padding: 2.25rem 1.5rem;
   text-align: center;
 }
+
 .successTitle {
   font-family: var(--font-display);
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: -0.02em;
   color: var(--text-primary);
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.65rem;
 }
+
 .successText {
   color: var(--text-secondary);
-  font-size: 0.98rem;
-  line-height: 1.8;
-  max-width: 460px;
+  font-size: 0.94rem;
+  line-height: 1.7;
+  max-width: 26rem;
   margin: 0 auto;
 }
 
 @media (max-width: 640px) {
-  .fileInput {
-    font-size: 0.85rem;
-  }
   .fileInput::file-selector-button {
     display: block;
-    margin: 0 0 0.6rem;
+    margin: 0 0 0.55rem;
     width: 100%;
   }
   .success {
-    padding: 1.75rem 1.2rem;
+    padding: 1.6rem 1.1rem;
   }
   .successTitle {
-    font-size: 1.15rem;
-  }
-  .successText {
-    font-size: 0.92rem;
+    font-size: 1.1rem;
   }
   .actions {
     flex-direction: column;
     align-items: stretch;
   }
+  .trust {
+    max-width: none;
+  }
   .consentText {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
   }
 }

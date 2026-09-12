@@ -4,9 +4,16 @@
 }
 
 .inner {
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: var(--section-pad-y) var(--page-gutter);
+}
+
+/* Optional boxed layout for reading-heavy pages (legal, etc.) */
+.contained .inner {
   max-width: var(--content-max);
-  margin: 0 auto;
-  padding: var(--space-xl) var(--space-md);
+  margin-inline: auto;
 }
 
 .labelRow {
@@ -15,11 +22,12 @@
 
 .title {
   font-family: var(--font-display);
-  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-size: var(--section-heading);
   font-weight: 700;
   color: var(--text-primary);
-  letter-spacing: -0.02em;
-  margin-bottom: 0.75rem;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+  margin: 0.65rem 0 0;
 }
 
 .accent {
@@ -30,7 +38,7 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 0.85rem;
+  margin: 0.75rem 0 0.55rem;
 }
 
 .lineBar {
@@ -49,11 +57,11 @@
 }
 
 .supporting {
-  max-width: 42rem;
-  margin: 0 0 1.75rem;
+  max-width: 38rem;
+  margin: 0.55rem 0 1.15rem;
   color: var(--text-secondary);
-  font-size: 1.02rem;
-  line-height: 1.75;
+  font-size: var(--section-lede);
+  line-height: 1.6;
 }
 
 .supporting p + p {
@@ -74,27 +82,14 @@
 }
 
 @media (max-width: 900px) {
-  .inner {
-    padding: var(--space-lg) 1.25rem;
-  }
-  .title {
-    letter-spacing: 0.05em;
-  }
   .line {
-    margin-bottom: 1.35rem;
+    margin-bottom: 0.85rem;
   }
 }
 
 @media (max-width: 640px) {
-  .inner {
-    padding: 2.5rem 1.1rem;
-  }
-  .title {
-    font-size: clamp(1.4rem, 7vw, 1.9rem);
-    letter-spacing: 0.04em;
-  }
   .line {
-    margin-bottom: 1.15rem;
+    margin-bottom: 0.75rem;
     gap: 0.75rem;
   }
   .lineBar {

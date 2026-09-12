@@ -26,16 +26,23 @@ export function RequestProposalPage() {
       />
 
       <Section>
-        <div className="reveal" style={{ maxWidth: 760, margin: "0 auto" }}>
-          <div className={c.formWrap}>
-            <div className={c.formTitle}>{PROPOSAL_FORM.heading}</div>
-            <LeadForm
-              formType="proposal"
-              fields={PROPOSAL_FORM_FIELDS}
-              submitLabel={PROPOSAL_FORM.submitLabel}
-              trust={PROPOSAL_FORM.trust}
-              redirectTo="/thank-you"
-            />
+        <div className={`${c.formSolo} reveal`}>
+          <div className={c.formShell}>
+            <div className={c.formHead}>
+              <div>
+                <h2 className={c.formTitle}>{PROPOSAL_FORM.heading}</h2>
+              </div>
+              <span className={c.formBadge}>Proposal</span>
+            </div>
+            <div className={c.formBody}>
+              <LeadForm
+                formType="proposal"
+                fields={PROPOSAL_FORM_FIELDS}
+                submitLabel={PROPOSAL_FORM.submitLabel}
+                trust={PROPOSAL_FORM.trust}
+                redirectTo="/thank-you"
+              />
+            </div>
           </div>
         </div>
       </Section>

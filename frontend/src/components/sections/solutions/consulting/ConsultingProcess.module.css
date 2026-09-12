@@ -1,0 +1,456 @@
+/* Consulting process — decision path / advisory map (unique to this page) */
+
+.wrap {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+.stage {
+  position: relative;
+}
+
+.head {
+  margin-bottom: 1.35rem;
+  max-width: 42rem;
+}
+
+.title {
+  margin: 0.65rem 0 0;
+  font-family: var(--font-display);
+  font-size: var(--section-heading);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+  color: var(--text-primary);
+}
+
+.accent {
+  background: linear-gradient(105deg, #f59e0b 0%, #fb7185 45%, #818cf8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.lede {
+  margin: 0.55rem 0 0;
+  font-size: var(--section-lede);
+  line-height: 1.6;
+  color: var(--text-secondary);
+  max-width: 40rem;
+}
+
+.focus {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 0.85rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff7ed;
+  background: #7c2d12;
+  border: 1px solid color-mix(in srgb, #fb923c 45%, transparent);
+}
+
+.map {
+  margin-top: 0.65rem;
+  border-radius: 1.1rem;
+  border: 1px solid color-mix(in srgb, #c2410c 30%, transparent);
+  background:
+    radial-gradient(ellipse 50% 40% at 5% 15%, color-mix(in srgb, #f59e0b 12%, transparent), transparent 55%),
+    radial-gradient(ellipse 45% 40% at 95% 85%, color-mix(in srgb, #818cf8 12%, transparent), transparent 50%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 23px,
+      color-mix(in srgb, #64748b 8%, transparent) 23px,
+      color-mix(in srgb, #64748b 8%, transparent) 24px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 23px,
+      color-mix(in srgb, #64748b 8%, transparent) 23px,
+      color-mix(in srgb, #64748b 8%, transparent) 24px
+    ),
+    #111827;
+  overflow: hidden;
+  padding: 1.05rem 0.95rem 1.2rem;
+}
+
+.mapHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+  padding: 0 0.25rem 0.35rem;
+}
+
+.legendStart,
+.legendEnd {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.qMark {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.45rem;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #fff7ed;
+  background: linear-gradient(145deg, #f59e0b, #ea580c);
+}
+
+.legendStart strong,
+.legendEnd strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #f8fafc;
+}
+
+.legendStart em,
+.legendEnd em {
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
+.legendEnd {
+  color: #c4b5fd;
+}
+
+.legendTrail {
+  flex: 1;
+  min-width: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+}
+
+.legendTrail span {
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 50%;
+  background: color-mix(in srgb, #fb923c 55%, transparent);
+}
+
+.legendTrail span:nth-child(2) {
+  width: 0.45rem;
+  height: 0.45rem;
+  background: color-mix(in srgb, #fbbf24 70%, transparent);
+}
+
+.path {
+  position: relative;
+  height: 1.5rem;
+  margin: 0.55rem 0.4rem 0.2rem;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: center;
+}
+
+.pathLine {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 50%;
+  height: 0;
+  border-top: 2px dashed color-mix(in srgb, #fb923c 50%, transparent);
+  transform: translateY(-50%);
+}
+
+.pathNode {
+  --tone: #f59e0b;
+  position: relative;
+  z-index: 1;
+  justify-self: center;
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 50%;
+  background: var(--tone);
+  border: 2px solid #111827;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--tone) 30%, transparent);
+}
+
+.pathDiamond {
+  width: 0.95rem;
+  height: 0.95rem;
+  border-radius: 0.15rem;
+  transform: rotate(45deg);
+}
+
+.pathFlag {
+  border-radius: 0.2rem 0.55rem 0.55rem 0.2rem;
+}
+
+.toneSky { --tone: #38bdf8; }
+.toneViolet { --tone: #a78bfa; }
+.toneAmber { --tone: #fbbf24; }
+.toneTeal { --tone: #2dd4bf; }
+
+.waypoints {
+  list-style: none;
+  margin: 0.4rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.85rem;
+}
+
+@media (min-width: 960px) {
+  .waypoints {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.75rem;
+    align-items: stretch;
+  }
+}
+
+.waypoint {
+  --tone: #f59e0b;
+  --wp-i: 0;
+  min-width: 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  height: 100%;
+  min-height: 15rem;
+  padding: 1rem 0.95rem 0.9rem;
+  border-radius: 0.9rem;
+  background: #faf8f5;
+  border: 1px solid color-mix(in srgb, #0f172a 8%, transparent);
+  border-top: 3px solid var(--tone);
+  box-shadow: 0 16px 32px -26px rgba(0, 0, 0, 0.55);
+  animation: wpIn 0.5s ease both;
+  animation-delay: calc(var(--wp-i) * 0.09s);
+}
+
+.waypointDecision .card {
+  background:
+    linear-gradient(180deg, color-mix(in srgb, #fef3c7 55%, #fff), #faf8f5);
+  box-shadow:
+    0 16px 32px -26px rgba(0, 0, 0, 0.55),
+    0 0 0 1px color-mix(in srgb, #f59e0b 25%, transparent);
+}
+
+@keyframes wpIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.nodeIcon {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: var(--tone);
+  flex-shrink: 0;
+}
+
+.nodeNum {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  color: #64748b;
+}
+
+.pathTag {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.4rem;
+  border-radius: 999px;
+  color: color-mix(in srgb, var(--tone) 90%, #0f172a);
+  background: color-mix(in srgb, var(--tone) 16%, #fff);
+  border: 1px solid color-mix(in srgb, var(--tone) 35%, transparent);
+}
+
+.card h3 {
+  margin: 0.15rem 0 0;
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #0f172a;
+}
+
+.card p {
+  margin: 0;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: #475569;
+}
+
+.briefChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.briefChips span {
+  padding: 0.22rem 0.4rem;
+  border-radius: 0.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #075985;
+  background: #e0f2fe;
+  border: 1px solid color-mix(in srgb, #38bdf8 35%, transparent);
+}
+
+.findings {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.5rem;
+  border-radius: 0.4rem;
+  background: color-mix(in srgb, #a78bfa 10%, #fff);
+  border: 1px solid color-mix(in srgb, #a78bfa 30%, transparent);
+}
+
+.findDot {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: #a78bfa;
+}
+
+.findings em {
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #6d28d9;
+}
+
+.fork {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.option {
+  padding: 0.28rem 0.45rem;
+  border-radius: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #78716c;
+  background: #f5f5f4;
+  border: 1px dashed color-mix(in srgb, #a8a29e 55%, transparent);
+}
+
+.optionPick {
+  color: #92400e;
+  background: #fef3c7;
+  border-style: solid;
+  border-color: color-mix(in srgb, #f59e0b 50%, transparent);
+  font-weight: 700;
+}
+
+.planStrip {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.5rem;
+  border-radius: 0.4rem;
+  background: color-mix(in srgb, #2dd4bf 10%, #fff);
+  border: 1px solid color-mix(in srgb, #2dd4bf 35%, transparent);
+}
+
+.planStrip span {
+  width: 1.15rem;
+  height: 1.15rem;
+  border-radius: 0.3rem;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: #fff;
+  background: #14b8a6;
+}
+
+.planStrip em {
+  margin-left: 0.15rem;
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #0f766e;
+}
+
+.milestone {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: auto;
+  width: fit-content;
+  padding: 0.3rem 0.5rem;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #0f172a;
+  background: color-mix(in srgb, var(--tone) 16%, #fff);
+  border: 1px solid color-mix(in srgb, var(--tone) 35%, transparent);
+}
+
+@media (max-width: 959px) {
+  .path {
+    display: none;
+  }
+
+  .legendTrail {
+    display: none;
+  }
+
+  .card {
+    min-height: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    animation: none;
+  }
+}

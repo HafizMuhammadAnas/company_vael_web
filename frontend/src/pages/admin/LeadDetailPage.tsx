@@ -103,7 +103,7 @@ export function LeadDetailPage() {
         </article>
 
         <article className={styles.card}>
-          <h2>{formatFormType(formType)} — submission details</h2>
+          <h2>{formatFormType(formType)}: submission details</h2>
           <div className={styles.dl}>
             {payloadEntries.length === 0 && (
               <p className={styles.muted}>No extra fields submitted.</p>

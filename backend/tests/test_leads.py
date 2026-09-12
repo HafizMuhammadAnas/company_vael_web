@@ -48,17 +48,17 @@ def test_create_proposal_lead_with_attachment(client: TestClient) -> None:
     assert response.status_code == 201, response.text
 
 
-def test_rejects_missing_description(client: TestClient) -> None:
+def test_rejects_missing_message(client: TestClient) -> None:
     payload = {
         "form_type": "contact",
-        "full_name": "No Description",
-        "email": "test-nodesc@example.com",
+        "full_name": "No Message",
+        "email": "test-nomsg@example.com",
         "privacy_consent": "yes",
     }
     response = client.post("/api/v1/public/leads", json=payload)
     assert response.status_code == 422
     detail = response.json()["detail"]
-    assert detail["errors"]["description"]
+    assert detail["errors"]["message"]
 
 
 def test_rejects_missing_privacy_consent(client: TestClient) -> None:
@@ -66,7 +66,7 @@ def test_rejects_missing_privacy_consent(client: TestClient) -> None:
         "form_type": "contact",
         "full_name": "No Consent",
         "email": "test-noconsent@example.com",
-        "description": "Valid description here.",
+        "message": "Valid message here.",
         "privacy_consent": "no",
     }
     response = client.post("/api/v1/public/leads", json=payload)
@@ -79,7 +79,7 @@ def test_rejects_invalid_form_type(client: TestClient) -> None:
         "form_type": "newsletter",
         "full_name": "Bad Type",
         "email": "test-badtype@example.com",
-        "description": "Valid description here.",
+        "message": "Valid message here.",
         "privacy_consent": "yes",
     }
     response = client.post("/api/v1/public/leads", json=payload)
