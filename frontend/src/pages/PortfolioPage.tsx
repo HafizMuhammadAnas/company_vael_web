@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { ArrowRight } from "lucide-react";
 
@@ -35,8 +36,14 @@ function PortfolioFloatBar() {
 }
 
 export function PortfolioPage() {
+  const [portalReady, setPortalReady] = useState(false);
   useDocumentMeta(PORTFOLIO_SEO.title, PORTFOLIO_SEO.description);
   useScrollReveal();
+
+  // Portals need `document`; skip during SSG/SSR and mount after hydration.
+  useEffect(() => {
+    setPortalReady(true);
+  }, []);
 
   return (
     <DomainShell domain="work">
@@ -54,7 +61,7 @@ export function PortfolioPage() {
         </ul>
       </Section>
 
-      {createPortal(<PortfolioFloatBar />, document.body)}
+      {portalReady ? createPortal(<PortfolioFloatBar />, document.body) : null}
     </DomainShell>
   );
 }
