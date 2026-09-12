@@ -1,80 +1,67 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
+import { ArrowRight } from "lucide-react";
 
-import { PageHero } from "@/components/sections/PageHero";
+import { ClientLogos } from "@/components/sections/home/ClientLogos";
+import { DomainShell } from "@/components/sections/domain/DomainShell";
+import { PortfolioHero } from "@/components/sections/work/PortfolioHero";
+import { PortfolioProjectCard } from "@/components/sections/work/PortfolioProjectCard";
+import { Button, Section } from "@/components/ui";
 import {
-WorkGallery,
-  DomainShell,
-} from "@/components/sections/elevated/Elevate";
-import home from "@/components/sections/home/Home.module.css";
-import work from "@/components/sections/work/Work.module.css";
-import { Section } from "@/components/ui";
-import {
-  PORTFOLIO_HERO,
-  PORTFOLIO_NOTE,
+  PORTFOLIO_FLOATING_CTA,
+  PORTFOLIO_PROJECTS,
   PORTFOLIO_SEO,
-  PROJECTS,
-  WORK_FILTERS,
-  WORK_HERO,
-  WORK_SELECTED,
-  type WorkFilter,
-} from "@/content/work";
+} from "@/content/portfolio";
 import { useDocumentMeta } from "@/hooks/useDocumentMeta";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
+import styles from "@/components/sections/work/Portfolio.module.css";
+
+function PortfolioFloatBar() {
+  return (
+    <div className={styles.floatBar} role="region" aria-label="Portfolio call to action">
+      <p className={styles.floatPrompt}>
+        {PORTFOLIO_FLOATING_CTA.prompt} <ArrowRight size={14} aria-hidden />
+      </p>
+      <div className={styles.floatActions}>
+        <Button variant="primary" to={PORTFOLIO_FLOATING_CTA.primary.to}>
+          {PORTFOLIO_FLOATING_CTA.primary.label}
+        </Button>
+        <Button variant="outline" to={PORTFOLIO_FLOATING_CTA.secondary.to}>
+          {PORTFOLIO_FLOATING_CTA.secondary.label}
+        </Button>
+      </div>
+    </div>
+  );
+}
+
 export function PortfolioPage() {
+  const [portalReady, setPortalReady] = useState(false);
   useDocumentMeta(PORTFOLIO_SEO.title, PORTFOLIO_SEO.description);
   useScrollReveal();
 
-  const [active, setActive] = useState<WorkFilter>("All");
-  const visible = active === "All" ? PROJECTS : PROJECTS.filter((p) => p.tags.includes(active));
+  // Portals need `document`; skip during SSG/SSR and mount after hydration.
+  useEffect(() => {
+    setPortalReady(true);
+  }, []);
 
   return (
     <DomainShell domain="work">
-      <>
-      <PageHero domain="work" label={PORTFOLIO_HERO.label} title={PORTFOLIO_HERO.title} supporting={PORTFOLIO_HERO.supporting} />
+      <PortfolioHero />
 
-      <Section>
-        <div className={work.filters}>
-          {WORK_FILTERS.map((filter) => (
-            <button
-              key={filter}
-              type="button"
-              className={`${work.filterBtn} ${active === filter ? work.filterActive : ""}`}
-              onClick={() => setActive(filter)}
-              aria-pressed={active === filter}
-            >
-              {filter}
-            </button>
+      <ClientLogos variant="marquee" />
+
+      <Section className={styles.stage}>
+        <ul className={`${styles.grid} reveal`}>
+          {PORTFOLIO_PROJECTS.map((project) => (
+            <li key={project.id}>
+              <PortfolioProjectCard project={project} />
+            </li>
           ))}
-        </div>
+        </ul>
       </Section>
 
-      {visible.length > 0 ? (
-        <WorkGallery
-          // Remount on filter change so the gallery re-cycles from the first panel.
-          key={active}
-          label={WORK_SELECTED.label}
-          title={WORK_SELECTED.heading}
-          note={PORTFOLIO_NOTE}
-          altBg
-          cards={visible.map((project) => ({
-            title: project.title,
-            category: project.category,
-            description: project.description,
-            capabilities: project.aiFocus,
-            technology: project.technologies.join(" · "),
-            ...(project.hasCaseStudy
-              ? { to: `/work/case-studies/${project.slug}`, cta: "View Project Write-Up" }
-              : { to: WORK_HERO.primaryCta.to, cta: WORK_HERO.primaryCta.label }),
-          }))}
-        />
-      ) : (
-        <Section className={home.altBg}>
-          <p className={home.sectionNote}>{PORTFOLIO_NOTE}</p>
-          <div className={home.emptyState}>No projects in this category yet.</div>
-        </Section>
-      )}
-    </>
+      {portalReady ? createPortal(<PortfolioFloatBar />, document.body) : null}
     </DomainShell>
   );
 }

@@ -23,71 +23,81 @@ export function ContactPage() {
   return (
     <DomainShell domain="contact">
       <>
-      <PageHero domain="contact" label={CONTACT_HERO.label} title={CONTACT_HERO.title} supporting={CONTACT_HERO.supporting} />
+        <PageHero
+          domain="contact"
+          label={CONTACT_HERO.label}
+          title={CONTACT_HERO.title}
+          supporting={CONTACT_HERO.supporting}
+        />
 
-      <Section>
-        <div className={`${c.layout} reveal`}>
-          <div className={c.info}>
-            <div className={c.infoHeading}>{CONTACT_INFO.heading}</div>
-            <div className={c.block}>
-              <span className={c.blockLabel}>Email</span>
-              <a className={c.email} href={`mailto:${CONTACT_INFO.email}`}>
-                {CONTACT_INFO.email}
-              </a>
-            </div>
-            <div className={c.block}>
-              <span className={c.blockLabel}>Phone</span>
-              <a className={c.email} href={`tel:${CONTACT_INFO.phone}`}>
-                {CONTACT_INFO.phoneDisplay}
-              </a>
-            </div>
-            {CONTACT_INFO.blocks.map((block) => (
-              <div key={block.label} className={c.block}>
-                <span className={c.blockLabel}>{block.label}</span>
-                <span className={c.blockText}>{block.text}</span>
+        <Section>
+          <div className={`${c.layout} reveal`}>
+            <aside className={c.info}>
+              <h2 className={c.infoHeading}>{CONTACT_INFO.heading}</h2>
+
+              <div className={c.channelCard}>
+                <div className={c.channel}>
+                  <span className={c.blockLabel}>Email</span>
+                  <a className={c.email} href={`mailto:${CONTACT_INFO.email}`}>
+                    {CONTACT_INFO.email}
+                  </a>
+                </div>
+                <div className={c.channel}>
+                  <span className={c.blockLabel}>Phone</span>
+                  <a className={c.email} href={`tel:${CONTACT_INFO.phone}`}>
+                    {CONTACT_INFO.phoneDisplay}
+                  </a>
+                </div>
+                <p className={c.helpLabel}>{CONTACT_INFO.helpLabel}</p>
+                <ul className={c.helpChips}>
+                  {CONTACT_INFO.help.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
               </div>
-            ))}
-            <div className={c.block}>
-              <span className={c.blockLabel}>{CONTACT_INFO.helpLabel}</span>
-              <ul className={c.helpList}>
-                {CONTACT_INFO.help.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-            <div className={c.block}>
-              <span className={c.blockLabel}>{CONTACT_COMPANY.label}</span>
-              <dl className={c.details}>
-                {CONTACT_COMPANY.rows.map((row) => (
-                  <div key={row.label} className={c.detailRow}>
-                    <dt>{row.label}</dt>
-                    <dd>{row.value}</dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
-          </div>
 
-          <div className={c.formWrap}>
-            <div className={c.formTitle}>{CONTACT_FORM.heading}</div>
-            <LeadForm
-              formType="contact"
-              fields={CONTACT_FORM_FIELDS}
-              submitLabel={CONTACT_FORM.submitLabel}
-              trust={CONTACT_FORM.trust}
-              successTitle={CONTACT_FORM.successTitle}
-              successText={CONTACT_FORM.successText}
-            />
+              <div className={c.company}>
+                <span className={c.companyLabel}>{CONTACT_COMPANY.label}</span>
+                <dl className={c.details}>
+                  {CONTACT_COMPANY.rows.map((row) => (
+                    <div key={row.label} className={c.detailRow}>
+                      <dt>{row.label}</dt>
+                      <dd>{row.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            </aside>
+
+            <div className={c.formShell}>
+              <div className={c.formHead}>
+                <div>
+                  <h2 className={c.formTitle}>{CONTACT_FORM.heading}</h2>
+                  <p className={c.formHint}>{CONTACT_FORM.hint}</p>
+                </div>
+                <span className={c.formBadge}>{CONTACT_FORM.badge}</span>
+              </div>
+              <div className={c.formBody}>
+                <LeadForm
+                  formType="contact"
+                  fields={CONTACT_FORM_FIELDS}
+                  submitLabel={CONTACT_FORM.submitLabel}
+                  trust={CONTACT_FORM.trust}
+                  successTitle={CONTACT_FORM.successTitle}
+                  successText={CONTACT_FORM.successText}
+                />
+              </div>
+            </div>
           </div>
-        </div>
-      </Section>
-      <FinalCtaSection
-        label={CONTACT_FINAL.label}
-        heading={CONTACT_FINAL.heading}
-        supporting={CONTACT_FINAL.supporting}
-        primaryCta={CONTACT_FINAL.primaryCta}
-      />
-    </>
+        </Section>
+
+        <FinalCtaSection
+          label={CONTACT_FINAL.label}
+          heading={CONTACT_FINAL.heading}
+          supporting={CONTACT_FINAL.supporting}
+          primaryCta={CONTACT_FINAL.primaryCta}
+        />
+      </>
     </DomainShell>
   );
 }

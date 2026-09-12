@@ -1,19 +1,21 @@
 /**
- * VAELKODE /request-proposal — for prospects with a reasonably defined project.
+ * VAELKODE /request-proposal. For prospects with a reasonably defined project.
  */
+
+import type { PageHero, SeoMeta } from "@/content/shared";
 import type { LeadFieldConfig } from "@/components/forms/LeadForm";
 
-export const PROPOSAL_SEO = {
+export const PROPOSAL_SEO: SeoMeta = {
   title: "Request a Proposal | VAELKODE",
   description:
-    "Share your project requirements with VAELKODE so our team can understand the scope, objectives, and expected outcome.",
+    "Share your project requirements with VAELKODE so we can understand the scope, objectives, and expected outcome.",
 };
 
-export const PROPOSAL_HERO = {
+export const PROPOSAL_HERO: PageHero = {
   label: "Request a Proposal",
   title: "Tell Us What You Need to Build.",
   supporting:
-    "Share your project requirements with VAELKODE and provide enough information for our team to understand the scope, objectives, and expected outcome.",
+    "Share enough about scope, objectives, and expected outcome for our team to understand the project and respond thoughtfully.",
 };
 
 export const PROPOSAL_FORM_FIELDS: LeadFieldConfig[] = [
@@ -49,7 +51,7 @@ export const PROPOSAL_FORM_FIELDS: LeadFieldConfig[] = [
     name: "description",
     label: "Project Description",
     type: "textarea",
-    placeholder: "Describe the problem you are trying to solve and the solution you have in mind.",
+    placeholder: "Describe the problem you're trying to solve and the solution you have in mind.",
     required: true,
   },
   { name: "target_users", label: "Target Users", type: "textarea", placeholder: "Who will use the system?" },

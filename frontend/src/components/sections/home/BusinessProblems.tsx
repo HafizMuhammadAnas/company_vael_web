@@ -1,89 +1,89 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowUpRight, Boxes, Eye, Link2, RefreshCcw, TrendingUp } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
-import { Section, SectionHeader } from "@/components/ui";
+import { Eyebrow, Section } from "@/components/ui";
 import { PROBLEMS } from "@/content/home";
-import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 
-import styles from "./Interactive.module.css";
+import styles from "./BusinessProblems.module.css";
 
-const ICONS = [RefreshCcw, Link2, Boxes, Eye, TrendingUp];
+const ACCENTS = [
+  styles.accentAmber,
+  styles.accentViolet,
+  styles.accentSky,
+  styles.accentTeal,
+  styles.accentRose,
+] as const;
 
+type VizKind = "manual" | "systems" | "fit" | "sight" | "grow";
+
+const VIZ: VizKind[] = ["manual", "systems", "fit", "sight", "grow"];
+
+function FrictionViz({ kind }: { kind: VizKind }) {
+  switch (kind) {
+    case "manual":
+      return (
+        <div className={styles.vizManual} aria-hidden>
+          <span /><span /><span /><span /><span /><span />
+        </div>
+      );
+    case "systems":
+      return (
+        <div className={styles.vizSystems} aria-hidden>
+          <i /><i /><i />
+        </div>
+      );
+    case "fit":
+      return <div className={styles.vizFit} aria-hidden />;
+    case "sight":
+      return <div className={styles.vizSight} aria-hidden />;
+    case "grow":
+      return (
+        <div className={styles.vizGrow} aria-hidden>
+          <i /><i /><i /><i />
+        </div>
+      );
+    default:
+      return null;
+  }
+}
+
+/** Problems — visual signals, minimal copy. */
 export function BusinessProblems() {
-  const reduced = usePrefersReducedMotion();
-  const [active, setActive] = useState(0);
-  const current = PROBLEMS.cards[active];
-
   return (
     <Section id="challenges" className={styles.stage}>
-      <div className="reveal">
-        <SectionHeader
-          label={PROBLEMS.label}
-          title={PROBLEMS.heading}
-          supporting={PROBLEMS.supporting.map((para) => (
-            <p key={para}>{para}</p>
-          ))}
-        />
-      </div>
+      <header className={`${styles.head} reveal`}>
+        <Eyebrow>{PROBLEMS.label}</Eyebrow>
+        <h2 className={styles.heading}>
+          Problems we <span>fix.</span>
+        </h2>
+      </header>
 
-      <div className={styles.track}>
-        <div className={styles.conduit} aria-hidden>
-          {!reduced && (
-            <>
-              <span className={styles.trace} />
-              <span className={styles.trace} style={{ animationDelay: "2.1s", width: "3.5rem" }} />
-            </>
-          )}
-        </div>
-        <ol className={styles.stages}>
-          {PROBLEMS.cards.map((card, i) => {
-            const Icon = ICONS[i];
-            const isActive = i === active;
-            return (
-              <li key={card.num}>
-                <button
-                  type="button"
-                  className={styles.stageBtn}
-                  aria-pressed={isActive}
-                  onClick={() => setActive(i)}
-                  onMouseEnter={() => setActive(i)}
-                  onFocus={() => setActive(i)}
-                >
-                  <span className={`${styles.node} ${isActive ? styles.nodeActive : ""}`}>
-                    {isActive && !reduced && <span className={styles.nodePulse} />}
-                    <Icon size={20} className={isActive ? styles.iconActive : styles.icon} />
-                  </span>
-                  <span>
-                    <span className={styles.coreLabel}>{card.num}</span>
-                    <span className={`${styles.coreTitle} ${isActive ? "" : styles.muted}`}>{card.title}</span>
-                  </span>
-                </button>
-              </li>
-            );
-          })}
-        </ol>
-      </div>
+      <ul className={`${styles.board} reveal`}>
+        {PROBLEMS.cards.map((card, i) => (
+          <li key={card.num}>
+            <Link
+              to={card.to}
+              className={[styles.card, ACCENTS[i] ?? styles.accentTeal].join(" ")}
+              aria-label={`${card.title}. ${card.shift}`}
+              title={card.text}
+            >
+              <div className={styles.visual}>
+                <FrictionViz kind={VIZ[i] ?? "manual"} />
+              </div>
 
-      <div className={styles.panel} key={current.num}>
-        <div className={styles.panelCell}>
-          <p className={styles.panelLabel}>friction</p>
-          <p className={styles.panelText}>{current.text}</p>
-        </div>
-        <div className={`${styles.panelCell} ${styles.panelMid}`}>
-          <p className={`${styles.panelLabel} ${styles.panelSignal}`}>engineering shift</p>
-          <p className={styles.panelText} style={{ color: "var(--text-primary)" }}>
-            {current.shift}
-          </p>
-        </div>
-        <div className={styles.panelCell}>
-          <p className={styles.panelLabel}>next step</p>
-          <Link to={current.to} className={styles.panelCta}>
-            {current.cta}
-            <ArrowUpRight size={16} />
-          </Link>
-        </div>
-      </div>
+              <div className={styles.meta}>
+                <span className={styles.num}>{card.num}</span>
+                <h3 className={styles.title}>{card.title}</h3>
+                <p className={styles.shift}>{card.shift}</p>
+              </div>
+
+              <span className={styles.cta} aria-hidden>
+                <ArrowUpRight size={16} />
+              </span>
+            </Link>
+          </li>
+        ))}
+      </ul>
     </Section>
   );
 }

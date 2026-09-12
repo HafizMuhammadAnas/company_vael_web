@@ -24,13 +24,12 @@ const FORM_FIELDS: Record<LeadFormType, LeadFieldConfig[]> = {
 
 /** Payload-only field names in display order for each form type. */
 export const PAYLOAD_FIELD_ORDER: Record<LeadFormType, string[]> = {
-  contact: ["project_type", "description", "timeline", "budget"],
+  contact: ["message"],
   consultation: [
     "project_type",
-    "description",
     "contact_method",
+    "description",
     "preferred_time",
-    "additional",
   ],
   proposal: [
     "project_name",

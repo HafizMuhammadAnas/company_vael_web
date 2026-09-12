@@ -71,7 +71,7 @@ def test_get_lead_detail(
     body = response.json()
     assert body["id"] == lead_id
     assert body["email"] == contact_payload["email"]
-    assert body["payload"]["description"] == contact_payload["description"]
+    assert body["payload"]["message"] == contact_payload["message"]
 
 
 def test_update_lead_status(

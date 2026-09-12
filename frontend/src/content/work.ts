@@ -1,8 +1,8 @@
 /**
- * VAELKODE /work ecosystem content — Work landing, Portfolio, Case Studies,
+ * VAELKODE /work ecosystem content. Work landing, Portfolio, Case Studies,
  * and case-study detail pages.
  *
- * IMPORTANT — honesty rules for this section:
+ * IMPORTANT. Honesty rules for this section:
  *  - These projects represent selected professional / technical delivery
  *    experience across AI, software engineering, enterprise platforms,
  *    automation, and computer vision. They are framed as professional work,
@@ -11,6 +11,10 @@
  *    or "results" until factual, approved figures are provided. Case-study
  *    detail pages deliberately omit a Results section for now.
  */
+
+import { CTA, DISCLAIMERS, FINAL_PAIR } from "@/content/shared";
+import type { FinalCta, PageHero, PageHeroWithCta, SeoMeta } from "@/content/shared";
+
 
 export const WORK_FILTERS = [
   "All",
@@ -60,10 +64,10 @@ export const PROJECTS: Project[] = [
   {
     slug: "empowernow-agentic-ai",
     order: "02",
-    title: "EmpowerNow — Agentic AI Workflow Engine",
+    title: "EmpowerNow. Agentic AI Workflow Engine",
     category: "Agentic AI · Enterprise Automation",
     description:
-      "A WebSocket-driven agentic AI engine designed to generate structured enterprise workflows from user queries using GPT-4o, RAG, tool calling, and multi-agent orchestration.",
+      "A WebSocket-driven agentic AI engine that turns user queries into structured enterprise workflows using GPT-4o, RAG, tool calling, and multi-agent orchestration.",
     aiFocus: [
       "Structured enterprise workflow generation from natural-language queries",
       "Multi-agent orchestration with tool calling",
@@ -80,7 +84,7 @@ export const PROJECTS: Project[] = [
     title: "AI Sales Intelligence Pipeline",
     category: "AI · Enterprise Automation · Sales Intelligence",
     description:
-      "An end-to-end AI pipeline for processing sales conversations, documents, and emails to generate actionable insights, opportunity analysis, and automated CRM updates.",
+      "An AI pipeline that processes sales conversations, documents, and emails to surface useful insights, opportunity analysis, and automated CRM updates.",
     technologies: [
       "Azure OpenAI",
       "Azure Cognitive Search",
@@ -133,7 +137,7 @@ export const PROJECTS: Project[] = [
   {
     slug: "precision-agriculture-cv-geospatial",
     order: "08",
-    title: "Precision Agriculture — CV & Geospatial",
+    title: "Precision Agriculture. CV & Geospatial",
     category: "Computer Vision · Geospatial AI · Agriculture",
     description:
       "AI and geospatial initiatives covering crop classification, sugarcane variety detection, disease detection and risk mapping, and crop sowing date prediction using satellite imagery and computer vision.",
@@ -151,19 +155,18 @@ export const PROJECTS: Project[] = [
 
 /* ─────────────────────────  /work landing  ───────────────────────── */
 
-export const WORK_SEO = {
+export const WORK_SEO: SeoMeta = {
   title: "Our Work | VAELKODE",
   description:
     "Selected professional work across AI and intelligent automation, enterprise software, digital platforms, computer vision, cloud engineering, and data-driven solutions.",
 };
 
-export const WORK_HERO = {
+export const WORK_HERO: PageHeroWithCta = {
   label: "Our Work",
   title: "Building Intelligent Technology for Real-World Challenges.",
-  supporting:
-    "Selected professional and technical delivery experience across AI and intelligent automation, enterprise software, digital platforms, computer vision, cloud engineering, and data-driven solutions — not client projects delivered under the VAELKODE brand.",
-  primaryCta: { label: "Discuss Your Project", to: "/consultation" },
-  secondaryCta: { label: "Request a Proposal", to: "/request-proposal" },
+  supporting: DISCLAIMERS.workHeroSupporting,
+  primaryCta: CTA.discussYourProject,
+  secondaryCta: CTA.requestProposal,
 };
 
 export const WORK_SELECTED = {
@@ -171,7 +174,7 @@ export const WORK_SELECTED = {
   heading: "Selected Projects",
   supporting:
     "A selection of projects and technical initiatives across enterprise AI, government platforms, automation, computer vision, and geospatial technology.",
-  note: "Selected technical work and professional delivery experience across AI, software engineering, enterprise platforms, automation, and computer vision — not client projects delivered under the VAELKODE brand.",
+  note: DISCLAIMERS.selectedWork,
 };
 
 export const WORK_DEMONSTRATES = {
@@ -241,74 +244,49 @@ export const WORK_DELIVERY = {
   cta: { label: "Explore Our Process", to: "/about/process" },
 };
 
-export const WORK_INDUSTRIES = {
-  label: "Industries",
-  heading: "Technology Across Industries",
-  items: [
-    { label: "Government", to: "/industries#government" },
-    { label: "Education", to: "/industries#education" },
-    { label: "Healthcare", to: "/industries#healthcare" },
-    { label: "Agriculture", to: "/industries#agriculture" },
-    { label: "Finance", to: "/industries#finance" },
-    { label: "Logistics", to: "/industries#logistics" },
-    { label: "Retail & Commerce", to: "/industries#retail" },
-  ],
-  cta: { label: "Explore Industries", to: "/industries" },
-};
-
 export const WORK_CASE_STUDIES_TEASER = {
   label: "Project Write-Ups",
   heading: "Explore the Work in Detail",
   supporting:
     "Go beyond the technology stack and explore the challenges, approaches, architectures, and solutions behind selected professional projects.",
-  cta: { label: "View All Project Write-Ups", to: "/work/case-studies" },
+  cta: CTA.viewAllWriteUps,
 };
 
-export const WORK_FINAL = {
+export const WORK_FINAL: FinalCta = {
   label: "Let's Build",
   heading: "Have a Complex Technology Challenge?",
   supporting:
     "Tell us what you're trying to build, automate, improve, or solve. We'll help you explore the right technical approach.",
-  primaryCta: { label: "Book a Consultation", to: "/consultation" },
-  secondaryCta: { label: "Request a Proposal", to: "/request-proposal" },
+  ...FINAL_PAIR,
 };
 
 /* ─────────────────────────  /work/portfolio  ───────────────────────── */
+/* Portfolio showcase content lives in content/portfolio.ts */
 
-export const PORTFOLIO_SEO = {
-  title: "Portfolio | VAELKODE",
-  description:
-    "A broader view of projects and technical initiatives across AI, software engineering, automation, cloud, computer vision, and digital platforms.",
-};
+export {
+  PORTFOLIO_FLOATING_CTA,
+  PORTFOLIO_HERO,
+  PORTFOLIO_PROJECTS,
+  PORTFOLIO_SEO,
+  type PortfolioProject,
+} from "./portfolio";
 
-export const PORTFOLIO_HERO = {
-  label: "Portfolio",
-  title: "Our Portfolio",
-  supporting:
-    "A broader view of projects and technical initiatives across AI, software engineering, automation, cloud, computer vision, and digital platforms.",
-};
-
-export const PORTFOLIO_NOTE =
-  "These represent selected professional and technical projects. As VAELKODE completes client work, delivered VAELKODE projects will become the primary portfolio category.";
+export { CASE_STUDIES_NOTE } from "@/content/shared";
 
 /* ─────────────────────────  /work/case-studies  ───────────────────────── */
 
-export const CASE_STUDIES_SEO = {
+export const CASE_STUDIES_SEO: SeoMeta = {
   title: "Project Write-Ups | VAELKODE",
   description:
-    "Detailed write-ups of selected professional projects across software engineering, artificial intelligence, automation, and modern digital technologies — not VAELKODE-brand client deliveries.",
+    "Detailed write-ups of selected professional projects across software engineering, artificial intelligence, automation, and modern digital technologies. These aren't client deliveries under the VAELKODE brand.",
 };
 
-export const CASE_STUDIES_HERO = {
+export const CASE_STUDIES_HERO: PageHero = {
   label: "Project Write-Ups",
   title: "Project Write-Ups",
   supporting:
     "Explore how complex business and technical challenges were approached through software engineering, artificial intelligence, automation, and modern digital technologies.",
 };
-
-/** Shown on case-study index and detail pages — keep visible above the fold. */
-export const CASE_STUDIES_NOTE =
-  "These write-ups describe selected professional and technical delivery experience. They are not client projects delivered under the VAELKODE brand.";
 
 export interface CaseStudy {
   slug: string;
@@ -360,21 +338,20 @@ export const CASE_STUDIES: CaseStudy[] = [
     relatedCapabilities: [
       { label: "AI & Automation", to: "/solutions/ai-automation" },
       { label: "Custom Software", to: "/solutions/custom-software" },
-      { label: "Government & Public Sector", to: "/industries#government" },
     ],
   },
   {
     slug: "empowernow-agentic-ai",
     seo: {
-      title: "EmpowerNow — Agentic AI Workflow Engine | Project Write-Up | VAELKODE",
+      title: "EmpowerNow. Agentic AI Workflow Engine | Project Write-Up | VAELKODE",
       description:
         "A professional project write-up on a WebSocket-driven agentic AI engine that generates structured enterprise workflows using GPT-4o, RAG, tool calling, and multi-agent orchestration.",
     },
     category: "Agentic AI · Enterprise Automation",
-    title: "EmpowerNow — Agentic AI Workflow Engine",
+    title: "EmpowerNow. Agentic AI Workflow Engine",
     lead: "A real-time agentic AI engine that turns natural-language queries into structured enterprise workflows.",
     overview: [
-      "A WebSocket-driven agentic AI engine designed to generate structured enterprise workflows from user queries using GPT-4o, RAG, tool calling, and multi-agent orchestration.",
+      "A WebSocket-driven agentic AI engine that turns user queries into structured enterprise workflows using GPT-4o, RAG, tool calling, and multi-agent orchestration.",
     ],
     focus: {
       heading: "AI & Automation",
@@ -394,12 +371,12 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     slug: "precision-agriculture-cv-geospatial",
     seo: {
-      title: "Precision Agriculture — CV & Geospatial AI | Project Write-Up | VAELKODE",
+      title: "Precision Agriculture. CV & Geospatial AI | Project Write-Up | VAELKODE",
       description:
         "A professional project write-up on computer vision and geospatial AI for agriculture: crop classification, variety detection, disease and risk mapping, and sowing date prediction from satellite imagery.",
     },
     category: "Computer Vision · Geospatial AI · Agriculture",
-    title: "Precision Agriculture — CV & Geospatial AI",
+    title: "Precision Agriculture. CV & Geospatial AI",
     lead: "Computer vision and geospatial AI applied to satellite imagery for smarter agricultural decisions.",
     overview: [
       "AI and geospatial initiatives covering crop classification, sugarcane variety detection, disease detection and risk mapping, and crop sowing date prediction using satellite imagery and computer vision.",
@@ -416,7 +393,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     technologies: ["YOLOv8", "Detectron2", "Google Earth Engine", "GCP", "Python", "OpenCV"],
     relatedCapabilities: [
       { label: "AI & Automation", to: "/solutions/ai-automation" },
-      { label: "Agriculture", to: "/industries#agriculture" },
+      { label: "Custom Software", to: "/solutions/custom-software" },
     ],
   },
 ];

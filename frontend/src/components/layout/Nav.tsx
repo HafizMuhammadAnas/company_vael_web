@@ -15,6 +15,19 @@ import { useScrolled } from "@/hooks/useScrolled";
 import styles from "./Nav.module.css";
 
 function DesktopItem({ item }: { item: NavItem }) {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location.pathname]);
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+    const active = document.activeElement;
+    if (active instanceof HTMLElement) active.blur();
+  };
+
   if (!item.children) {
     return (
       <li className={styles.item}>
@@ -24,22 +37,47 @@ function DesktopItem({ item }: { item: NavItem }) {
       </li>
     );
   }
+
   return (
-    <li className={styles.item}>
+    <li
+      className={[styles.item, menuOpen ? styles.itemOpen : ""].filter(Boolean).join(" ")}
+      onMouseEnter={() => setMenuOpen(true)}
+      onMouseLeave={closeMenu}
+    >
       {item.to ? (
-        <Link to={item.to} className={styles.trigger} aria-haspopup="true">
+        <Link
+          to={item.to}
+          className={styles.trigger}
+          aria-haspopup="true"
+          aria-expanded={menuOpen}
+          onClick={closeMenu}
+          onFocus={() => setMenuOpen(true)}
+        >
           {item.label}
           <span className={styles.caret}>▾</span>
         </Link>
       ) : (
-        <button type="button" className={styles.trigger} aria-haspopup="true">
+        <button
+          type="button"
+          className={styles.trigger}
+          aria-haspopup="true"
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((v) => !v)}
+          onFocus={() => setMenuOpen(true)}
+        >
           {item.label}
           <span className={styles.caret}>▾</span>
         </button>
       )}
       <div className={styles.dropdown} role="menu">
         {item.children.map((child) => (
-          <Link key={child.to} to={child.to} className={styles.dropdownLink} role="menuitem">
+          <Link
+            key={child.to}
+            to={child.to}
+            className={styles.dropdownLink}
+            role="menuitem"
+            onClick={closeMenu}
+          >
             {child.label}
           </Link>
         ))}

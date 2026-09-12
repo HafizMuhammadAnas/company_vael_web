@@ -1,0 +1,447 @@
+.stage {
+  position: relative;
+}
+
+/* Pull blog content closer to the hero */
+.tightSection > div {
+  padding-top: clamp(0.75rem, 1.5vw, 1.15rem);
+}
+
+.intro {
+  max-width: 48rem;
+  margin-bottom: 1rem;
+}
+
+.pageTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 4vw, 2.85rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  color: var(--text-primary);
+}
+
+/* Category filters */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin: 0 0 1.35rem;
+}
+
+.filter {
+  appearance: none;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--obsidian-2) 88%, transparent);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.55rem 0.9rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.filter span {
+  opacity: 0.75;
+}
+
+.filter:hover {
+  border-color: color-mix(in srgb, var(--neon) 40%, var(--border));
+  color: var(--text-primary);
+}
+
+.filterActive {
+  background: color-mix(in srgb, var(--text-primary) 92%, var(--neon));
+  color: var(--obsidian);
+  border-color: transparent;
+}
+
+.filterActive span {
+  opacity: 0.7;
+}
+
+/* Promo banner */
+.banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0 0 1.75rem;
+  padding: 0.95rem 1.15rem;
+  border-radius: 1rem;
+  border: 1px solid color-mix(in srgb, var(--violet) 28%, var(--border));
+  background:
+    linear-gradient(
+      105deg,
+      color-mix(in srgb, var(--obsidian-3) 80%, transparent),
+      color-mix(in srgb, #1a1430 70%, transparent)
+    );
+}
+
+.bannerCopy {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.bannerCopy p {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.35;
+}
+
+.bannerIcon {
+  flex: 0 0 auto;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.55rem;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--neon) 45%, transparent), color-mix(in srgb, var(--violet) 55%, transparent)),
+    var(--obsidian-2);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, #fff 12%, transparent);
+}
+
+.bannerCta {
+  flex: 0 0 auto;
+}
+
+/* Card grid */
+.grid {
+  display: grid;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 720px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.35rem;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 0.35rem;
+  transition: transform 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+.cardSoon {
+  cursor: default;
+}
+
+.cardSoon:hover {
+  transform: none;
+}
+
+.cover {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  border-radius: 0.35rem;
+  background: #121826;
+}
+
+.coverGlow,
+.coverPattern {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.coverMesh {
+  background:
+    radial-gradient(circle at 30% 40%, color-mix(in srgb, #f472b6 45%, transparent), transparent 42%),
+    radial-gradient(circle at 70% 60%, color-mix(in srgb, #a78bfa 40%, transparent), transparent 45%),
+    #0f1422;
+}
+
+.coverMesh .coverPattern {
+  background-image:
+    linear-gradient(30deg, color-mix(in srgb, #f0abfc 22%, transparent) 1px, transparent 1px),
+    linear-gradient(150deg, color-mix(in srgb, #c4b5fd 18%, transparent) 1px, transparent 1px);
+  background-size: 28px 48px;
+  opacity: 0.55;
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000 20%, transparent 75%);
+}
+
+.coverOrbits {
+  background:
+    radial-gradient(circle at 50% 50%, color-mix(in srgb, #818cf8 35%, transparent), transparent 38%),
+    radial-gradient(circle at 50% 50%, transparent 28%, color-mix(in srgb, #38bdf8 35%, transparent) 29%, transparent 32%),
+    radial-gradient(circle at 50% 50%, transparent 40%, color-mix(in srgb, #a78bfa 40%, transparent) 41%, transparent 45%),
+    #0c1220;
+}
+
+.coverCircuits {
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 80%, color-mix(in srgb, #f472b6 35%, transparent), transparent 50%),
+    radial-gradient(ellipse 60% 50% at 85% 20%, color-mix(in srgb, #38bdf8 30%, transparent), transparent 50%),
+    #101626;
+}
+
+.coverCircuits .coverPattern {
+  background-image:
+    linear-gradient(90deg, color-mix(in srgb, #f9a8d4 30%, transparent) 1px, transparent 1px),
+    linear-gradient(0deg, color-mix(in srgb, #93c5fd 22%, transparent) 1px, transparent 1px);
+  background-size: 42px 42px;
+  opacity: 0.35;
+}
+
+.coverWaves {
+  background:
+    linear-gradient(160deg, #1e3a5f 0%, #312e81 40%, #9a3412 75%, #4c1d95 100%);
+}
+
+.coverWaves .coverPattern {
+  background:
+    radial-gradient(ellipse 120% 40% at 50% 30%, color-mix(in srgb, #38bdf8 35%, transparent), transparent 55%),
+    radial-gradient(ellipse 100% 35% at 40% 70%, color-mix(in srgb, #fb923c 30%, transparent), transparent 55%);
+}
+
+.coverNodes {
+  background:
+    radial-gradient(circle at 15% 20%, color-mix(in srgb, #f472b6 50%, transparent), transparent 25%),
+    radial-gradient(circle at 80% 70%, color-mix(in srgb, #22d3ee 35%, transparent), transparent 30%),
+    #0b1020;
+}
+
+.coverNodes .coverPattern {
+  background-image: radial-gradient(circle, color-mix(in srgb, #f9a8d4 70%, transparent) 1.5px, transparent 2px);
+  background-size: 26px 26px;
+  opacity: 0.55;
+}
+
+.coverBook {
+  background:
+    radial-gradient(circle at 70% 40%, color-mix(in srgb, #a78bfa 45%, transparent), transparent 40%),
+    linear-gradient(135deg, #1e1b4b, #0f172a 55%, #312e81);
+}
+
+.coverBook .coverPattern {
+  background:
+    linear-gradient(105deg, transparent 40%, color-mix(in srgb, #c4b5fd 25%, transparent) 50%, transparent 60%);
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: 0.85rem 0.1rem 0.25rem;
+}
+
+.tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+}
+
+.tags li {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--slate-light);
+  padding: 0.28rem 0.55rem;
+  border-radius: 0.35rem;
+  background: color-mix(in srgb, var(--obsidian-3) 80%, transparent);
+  border: 1px solid color-mix(in srgb, #fff 8%, transparent);
+}
+
+.cardTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  color: var(--text-primary);
+}
+
+.card:hover .cardTitle {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.cardSoon:hover .cardTitle {
+  text-decoration: none;
+}
+
+.cardExcerpt {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.meta {
+  margin: 0.15rem 0 0;
+  font-size: 0.78rem;
+  color: var(--slate);
+}
+
+.soon {
+  align-self: flex-start;
+  margin-top: 0.15rem;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--neon-bright);
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--neon) 35%, transparent);
+  background: color-mix(in srgb, var(--neon) 10%, transparent);
+}
+
+/* Featured wide row */
+.featured {
+  display: grid;
+  gap: 1.15rem;
+  align-items: center;
+  margin: 0.25rem 0 1.75rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+@media (min-width: 900px) {
+  .featured {
+    grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+.featuredMedia .cover {
+  aspect-ratio: 16 / 9;
+  min-height: 14rem;
+}
+
+.featuredCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 0.25rem 0;
+}
+
+.featuredTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.6vw, 1.85rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+/* Related */
+.related {
+  margin-top: 1.5rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--border);
+}
+
+.relatedEyebrow {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--neon-bright);
+}
+
+.relatedTitle {
+  margin: 0.45rem 0 1.15rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+}
+
+.relatedGrid {
+  display: grid;
+  gap: 1.1rem;
+}
+
+@media (min-width: 720px) {
+  .relatedGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1100px) {
+  .relatedGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.empty {
+  margin: 1rem 0 2rem;
+  color: var(--text-secondary);
+}
+
+.toTop {
+  position: fixed;
+  right: var(--page-gutter);
+  bottom: 1.5rem;
+  z-index: 40;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--obsidian-2) 92%, transparent);
+  color: var(--text-primary);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 10px 28px -18px rgba(0, 0, 0, 0.8);
+}
+
+.toTop:hover {
+  border-color: color-mix(in srgb, var(--neon) 45%, var(--border));
+  color: var(--neon-bright);
+}
+
+@media (max-width: 640px) {
+  .banner {
+    padding: 0.9rem 1rem;
+  }
+
+  .toTop {
+    right: 1rem;
+    bottom: 1rem;
+  }
+}

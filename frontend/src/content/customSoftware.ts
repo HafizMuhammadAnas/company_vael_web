@@ -1,43 +1,98 @@
 /**
- * VAELKODE /solutions/custom-software — Custom Software Development.
+ * VAELKODE /solutions/custom-software. Custom Software Development.
  * Approved production copy. No invented client names, outcomes, statistics,
  * testimonials, certifications, or unsupported capabilities.
  */
 
-export const CS_SEO = {
+import { COMPANY } from "@/constants/company";
+import { CTA, DISCLAIMERS, FINAL_PAIR_TELL_US, consultationCta, contactCta } from "@/content/shared";
+import type { FaqSection, FinalCta, PageHero, SeoMeta, WorkSection } from "@/content/shared";
+
+
+export const CS_SEO: SeoMeta = {
   title: "Custom Software Development Services | VAELKODE",
   description:
     "VAELKODE builds custom software, enterprise applications, business platforms, SaaS products, APIs, integrations, and digital systems tailored to your organization's needs.",
 };
 
-export const CS_HERO = {
+export const CS_HERO: PageHero = {
   label: "Custom Software Development",
-  title: "Software Built Around the Way Your Business Works.",
+  title: "Software built around how your business actually works.",
   supporting:
-    "VAELKODE designs and develops custom software that aligns with your organization's workflows, users, data, and business objectives—from internal business systems to enterprise platforms and SaaS products.",
-  primaryCta: { label: "Book a Consultation", to: "/consultation" },
-  secondaryCta: { label: "Discuss Your Software Project", to: "/contact" },
+    "When off-the-shelf tools force workarounds, we design and build applications, portals, and platforms that fit your processes instead of the other way around.",
+  primaryCta: CTA.bookConsultation,
+  secondaryCta: contactCta("Discuss Your Software Project"),
   tags: [
-    "Enterprise Applications",
-    "Business Systems",
-    "SaaS Platforms",
-    "Web Applications",
-    "APIs & Integrations",
-    "Workflow Automation",
+    "Business apps",
+    "Portals",
+    "Internal tools",
+    "Integrations",
+    "SaaS products",
+    "Modernization",
+  ],
+};
+
+export const CS_SUB_SERVICES = {
+  label: "Software services",
+  heading: "What we can build for your business.",
+  supporting: "Tell us the problem. We’ll recommend the smallest useful build, with stacks that fit.",
+  items: [
+    {
+      title: "Custom web applications",
+      text: "Business apps and SaaS-style products shaped around your users, data, and day-to-day workflows rather than a generic template.",
+      highlights: ["Screens tailored to real tasks", "APIs and data model that fit", "Room to grow features later"],
+      stacks: ["React", "TypeScript", "APIs", "PostgreSQL"],
+    },
+    {
+      title: "Client & employee portals",
+      text: "Secure places where customers or staff can log in, view information, and complete tasks without email ping-pong.",
+      highlights: ["Sign-in and role-based access", "Self-service views and actions", "Notifications when work moves"],
+      stacks: ["Auth", "Role-based access", "React", "APIs"],
+    },
+    {
+      title: "Internal tools & admin systems",
+      text: "Replace spreadsheet chaos with tools your team can run day to day. Search, filters, and clear ownership.",
+      highlights: ["Admin tables and dashboards", "Permissions for the right people", "Fewer manual copy-paste steps"],
+      stacks: ["Dashboards", "Workflows", "PostgreSQL"],
+    },
+    {
+      title: "Workflow & operations platforms",
+      text: "Systems that move work through approvals, statuses, and handoffs so everyone sees where things stand.",
+      highlights: ["Status flows and handoffs", "Approval checkpoints", "Alerts when action is needed"],
+      stacks: ["Approvals", "Status flows", "Notifications"],
+    },
+    {
+      title: "API & system integrations",
+      text: "Connect CRM, payments, ERPs, and other tools so data flows where it should, without brittle one-off scripts.",
+      highlights: ["REST APIs and webhooks", "Sync between key systems", "Clear error handling"],
+      stacks: ["REST APIs", "Webhooks", "CRM sync"],
+    },
+    {
+      title: "Legacy modernization",
+      text: "Improve or replace aging systems step by step. Keep what still works while you move risk out of the critical path.",
+      highlights: ["Incremental migration plan", "APIs around old systems", "No risky big-bang rewrite"],
+      stacks: ["Migration", "APIs", "Incremental rewrite"],
+    },
+    {
+      title: "MVP product engineering",
+      text: "Launch a first useful version fast, then grow features with real user feedback instead of building everything upfront.",
+      highlights: ["Tight MVP scope", "Ship to real users early", "Iterate from feedback"],
+      stacks: ["MVP scope", "React", "Cloud deploy"],
+    },
   ],
 };
 
 export const CS_WHY = {
   label: "The Right Fit",
-  heading: "Your Business Is Unique. Your Software Can Be Too.",
+  heading: "Buy what fits, build what doesn't.",
   paragraphs: [
-    "Off-the-shelf software can be effective for common business requirements, but organizations often reach a point where existing tools no longer fit their processes, data, integrations, or growth plans.",
-    "Custom software gives you the opportunity to design technology around the way your organization actually operates.",
+    "Off-the-shelf software can work well for common needs, but organizations often reach a point where existing tools no longer fit their processes, data, integrations, or growth plans.",
+    "Custom software makes sense when adapting your operations to rigid packages costs more than building around how you actually work.",
   ],
   cards: [
     {
       title: "Fit Your Workflow",
-      text: "Build processes around your organization's actual requirements instead of adapting your operations to rigid software.",
+      text: "Build processes around your organization's real requirements instead of bending operations to fit rigid software.",
     },
     {
       title: "Connect Your Systems",
@@ -52,20 +107,20 @@ export const CS_WHY = {
 
 export const CS_BUILD = {
   label: "Software Solutions",
-  heading: "From Business Applications to Complete Digital Platforms.",
+  heading: "From business applications to full digital platforms.",
   supporting:
-    "We develop software across different levels of complexity, from focused internal applications to large, connected platforms supporting multiple users, departments, and workflows.",
+    "We develop software across different levels of complexity, from focused internal tools to large, connected platforms supporting multiple users, departments, and workflows.",
   cards: [
     {
       title: "Enterprise Applications",
       description:
-        "Purpose-built applications designed to support complex organizational processes, departments, users, and operational requirements.",
+        "Purpose-built applications that support complex organizational processes, departments, users, and operational needs.",
       items: ["Role-Based Access", "Workflow Management", "Reporting", "Dashboards", "Data Management", "Integrations"],
     },
     {
       title: "Business Management Systems",
       description:
-        "Centralize business operations in software designed around your organization's workflows and information.",
+        "Centralize business operations in software shaped around your organization's workflows and information.",
       items: [
         "HR Management",
         "Operations Management",
@@ -78,7 +133,7 @@ export const CS_BUILD = {
     {
       title: "SaaS Platforms",
       description:
-        "Develop scalable software products designed to serve multiple organizations, teams, or user groups through a modern SaaS architecture.",
+        "Scalable software products that serve multiple organizations, teams, or user groups through a modern SaaS architecture.",
       items: [
         "Multi-Tenant Architecture",
         "User Management",
@@ -91,7 +146,7 @@ export const CS_BUILD = {
     {
       title: "Internal Platforms",
       description:
-        "Give teams purpose-built tools that improve operational efficiency, information management, and collaboration.",
+        "Give teams purpose-built tools that improve how they work, manage information, and collaborate.",
       items: [
         "Employee Portals",
         "Administrative Portals",
@@ -104,7 +159,7 @@ export const CS_BUILD = {
     {
       title: "Customer Portals",
       description:
-        "Create secure digital experiences where customers can access services, information, transactions, and support.",
+        "Secure digital experiences where customers can access services, information, transactions, and support.",
       items: [
         "Customer Accounts",
         "Service Portals",
@@ -132,23 +187,23 @@ export const CS_BUILD = {
 
 export const CS_PROBLEMS = {
   label: "Business Challenges",
-  heading: "When Existing Systems No Longer Fit.",
+  heading: "When existing systems no longer fit.",
   supporting:
-    "Custom software becomes valuable when technology limitations begin affecting the way your organization operates.",
+    "Custom software becomes valuable when technology limits start getting in the way of how your organization operates.",
   cards: [
     {
       title: "Disconnected Systems",
-      text: "Different applications hold different pieces of information, creating duplication and inefficient workflows.",
+      text: "Different applications hold different pieces of information, which leads to duplication and inefficient workflows.",
       solution: "System Integration",
     },
     {
       title: "Manual Processes",
-      text: "Teams spend time performing repetitive tasks that could be managed through structured digital workflows.",
+      text: "Teams spend time on repetitive tasks that structured digital workflows could handle.",
       solution: "Workflow Automation",
     },
     {
       title: "Legacy Applications",
-      text: "Existing software may be difficult to maintain, integrate, scale, or adapt to changing requirements.",
+      text: "Existing software may be hard to maintain, integrate, scale, or adapt as requirements change.",
       solution: "Application Modernization",
     },
     {
@@ -158,12 +213,12 @@ export const CS_PROBLEMS = {
     },
     {
       title: "Growing Complexity",
-      text: "As an organization grows, informal processes and disconnected tools can become increasingly difficult to manage.",
+      text: "As an organization grows, informal processes and disconnected tools get harder to manage.",
       solution: "Centralized Business Platform",
     },
     {
       title: "Unique Requirements",
-      text: "Your business may have processes that standard commercial software simply cannot support effectively.",
+      text: "Your business may have processes that standard commercial software simply can't support well.",
       solution: "Purpose-Built Software",
     },
   ],
@@ -171,17 +226,17 @@ export const CS_PROBLEMS = {
 
 export const CS_CAPABILITIES = {
   label: "Engineering Capabilities",
-  heading: "Everything Needed to Build a Modern Software Product.",
+  heading: "Everything needed to build modern software.",
   supporting:
-    "Our software engineering capabilities cover the product lifecycle from architecture and user experience through development, integration, deployment, and ongoing improvement.",
+    "Our engineering covers the product lifecycle from architecture and user experience through development, integration, deployment, and ongoing improvement.",
   cards: [
     {
       title: "Product Architecture",
-      text: "Define scalable technical foundations that support current requirements and future growth.",
+      text: "Define scalable technical foundations that support current needs and future growth.",
     },
     {
       title: "UX & Interface Development",
-      text: "Design intuitive interfaces around the needs of the people using the system.",
+      text: "Design intuitive interfaces around the people who use the system.",
     },
     {
       title: "Backend Engineering",
@@ -193,11 +248,11 @@ export const CS_CAPABILITIES = {
     },
     {
       title: "Database Engineering",
-      text: "Structure and manage application data with appropriate performance, reliability, and security considerations.",
+      text: "Structure and manage application data with performance, reliability, and security in mind.",
     },
     {
       title: "API Development",
-      text: "Create interfaces that allow applications and services to communicate reliably.",
+      text: "Create interfaces that let applications and services communicate reliably.",
     },
     {
       title: "Authentication & Authorization",
@@ -212,10 +267,10 @@ export const CS_CAPABILITIES = {
 
 export const CS_MODERNIZE = {
   label: "Modernize & Connect",
-  heading: "You Don't Always Need to Start From Scratch.",
+  heading: "You don't always need to start from scratch.",
   paragraphs: [
-    "Existing systems often contain valuable business logic, historical data, and workflows. Replacing everything may not be the right answer.",
-    "VAELKODE can help organizations assess, modernize, extend, and integrate existing applications where that approach makes better business and technical sense.",
+    "Existing systems often hold valuable business logic, historical data, and workflows. Replacing everything may not be the right answer.",
+    "VAELKODE can help you assess, modernize, extend, and integrate existing applications when that approach makes better business and technical sense.",
   ],
   cards: [
     {
@@ -235,24 +290,24 @@ export const CS_MODERNIZE = {
       text: "Add new capabilities to existing systems without rebuilding the entire platform.",
     },
   ],
-  cta: { label: "Discuss Your Existing System", to: "/consultation" },
+  cta: consultationCta("Discuss Your Existing System"),
 };
 
 export const CS_PRINCIPLES = {
   label: "How We Engineer",
-  heading: "Built to Be Used. Maintained. And Evolved.",
+  heading: "Built to be used, maintained, and evolved.",
   supporting:
-    "Good software is not only about getting the first version into production. It needs to remain understandable, secure, maintainable, and adaptable as the organization changes.",
+    "Good software isn't only about getting the first version into production. It needs to stay understandable, secure, maintainable, and adaptable as the organization changes.",
   cards: [
     {
       num: "01",
       title: "Clear Architecture",
-      text: "Structure applications so their responsibilities and dependencies remain understandable as the system grows.",
+      text: "Structure applications so their responsibilities and dependencies stay clear as the system grows.",
     },
     {
       num: "02",
       title: "Reusable Engineering",
-      text: "Use reusable components and patterns where appropriate to improve consistency and maintainability.",
+      text: "Use reusable components and patterns where they improve consistency and maintainability.",
     },
     {
       num: "03",
@@ -262,26 +317,26 @@ export const CS_PRINCIPLES = {
     {
       num: "04",
       title: "Performance",
-      text: "Design applications with appropriate performance considerations for users, data, integrations, and expected workloads.",
+      text: "Build with performance in mind for users, data, integrations, and expected workloads.",
     },
     {
       num: "05",
       title: "Testing",
-      text: "Validate important functionality through appropriate testing practices throughout the development lifecycle.",
+      text: "Validate important functionality with testing practices that fit the development lifecycle.",
     },
     {
       num: "06",
       title: "Documentation",
-      text: "Maintain the technical and operational documentation needed to support the product over time.",
+      text: "Keep the technical and operational documentation needed to support the product over time.",
     },
   ],
 };
 
 export const CS_TECH = {
   label: "Technology Stack",
-  heading: "Modern Engineering Technologies.",
+  heading: "Modern engineering technologies.",
   supporting:
-    "We select technologies according to the product's requirements, architecture, performance needs, team capabilities, and long-term maintainability.",
+    "We select technologies based on the product's requirements, architecture, performance needs, team capabilities, and long-term maintainability.",
   categories: [
     { title: "Frontend", items: ["React", "Next.js", "TypeScript", "Tailwind CSS"] },
     { title: "Backend", items: ["Python", "FastAPI", "Django", "Laravel", "Node.js"] },
@@ -299,122 +354,94 @@ export const CS_TECH = {
 };
 
 export const CS_PROCESS = {
-  label: "Our Development Process",
-  heading: "A Structured Path From Idea to Production.",
-  supporting:
-    "A clear development process reduces uncertainty and keeps the product aligned with business objectives throughout delivery.",
+  label: "How we work",
+  headingBefore: "From idea to live software: ",
+  headingAccent: "our process",
+  supporting: "You'll always know where we are and what needs a decision.",
   steps: [
-    { num: "01", title: "Discovery", text: "Understand your business, users, workflows, requirements, constraints, and objectives." },
+    {
+      num: "01",
+      title: "Discover",
+      text: "Understand your business, users, workflows, and constraints.",
+      milestone: "Shared brief",
+      tone: "sky" as const,
+    },
     {
       num: "02",
-      title: "Requirements",
-      text: "Translate business needs into functional requirements, user flows, technical requirements, and priorities.",
+      title: "Plan",
+      text: "Agree requirements, architecture, and a clear first release.",
+      milestone: "First release agreed",
+      tone: "violet" as const,
     },
     {
       num: "03",
-      title: "Architecture",
-      text: "Define the technical architecture, data model, integrations, infrastructure, and development approach.",
+      title: "Build",
+      text: "Design and develop in short cycles you can review.",
+      milestone: "Demo reviews",
+      tone: "amber" as const,
     },
-    { num: "04", title: "UX & Design", text: "Design the user experience and interfaces around the needs of your users." },
-    { num: "05", title: "Development", text: "Build the application incrementally with regular validation and feedback." },
-    { num: "06", title: "Testing", text: "Validate functionality, usability, security, performance, and integration requirements." },
-    { num: "07", title: "Deployment", text: "Prepare infrastructure and release the application into its production environment." },
     {
-      num: "08",
-      title: "Support & Evolution",
-      text: "Continue improving the system as requirements, users, and business priorities evolve.",
+      num: "04",
+      title: "Launch & improve",
+      text: "Ship carefully, then keep improving as priorities change.",
+      milestone: "Go live",
+      tone: "teal" as const,
     },
   ],
 };
 
-export const CS_WHO = {
-  label: "Who We Help",
-  heading: "Software for Organizations With Complex Digital Needs.",
+export const CS_PROJECTS = {
+  label: "Selected projects",
+  heading: "Platforms we're proud to show.",
   supporting:
-    "We work across industries where organizations need technology that fits their processes, connects their systems, and supports continued growth.",
-  cards: [
-    {
-      title: "Government & Public Sector",
-      text: "Digital platforms, workflow systems, administrative applications, reporting, and data management.",
-    },
-    {
-      title: "Education",
-      text: "Institutional systems, management platforms, portals, accreditation workflows, and reporting.",
-    },
-    {
-      title: "Healthcare",
-      text: "Operational systems, information management, workflow platforms, portals, and analytics.",
-    },
-    {
-      title: "Agriculture",
-      text: "Data-driven applications, monitoring platforms, operational systems, and decision-support tools.",
-    },
-    {
-      title: "Finance",
-      text: "Business applications, workflow automation, reporting, integrations, and secure digital platforms.",
-    },
-    {
-      title: "Logistics",
-      text: "Operations platforms, tracking systems, workflow management, integrations, and analytics.",
-    },
-    {
-      title: "Retail & Commerce",
-      text: "Commerce platforms, customer applications, inventory workflows, analytics, and integrations.",
-    },
-  ],
-  cta: { label: "Explore Industries", to: "/industries" },
+    "Live work from our public digital portfolio and platforms. Hover a preview, then open the site.",
+  viewAll: { label: "View full portfolio", to: "/portfolio" },
 };
 
-export const CS_WORK = {
+export const CS_WORK: WorkSection = {
   label: "Selected Work",
-  heading: "Software Built to Solve Real Problems.",
+  heading: "Software built to solve real problems.",
   supporting:
-    "Explore selected software solutions and digital platforms that demonstrate our approach to solving complex business and operational challenges.",
-  note: "Selected solutions & technology demonstrations — not client case studies.",
-  cta: { label: "View All Work", to: "/work" },
+    "Selected software solutions and digital platforms that show how we approach complex business and operational challenges.",
+  note: DISCLAIMERS.technologyDemonstrations,
+  cta: CTA.viewAllWork,
 };
 
-export const CS_FAQ = {
-  label: "Software Development FAQ",
-  heading: "Questions About Custom Software Development?",
+export const CS_FAQ: FaqSection = {
+  label: "FAQ",
+  heading: "Common questions",
   items: [
     {
-      q: "When should a business consider custom software?",
-      a: "Custom software can be appropriate when existing solutions cannot adequately support your workflows, integrations, user requirements, or long-term business objectives.",
+      q: "When should we consider custom software?",
+      a: "When off-the-shelf tools can’t support your workflows, integrations, or growth plans without costly workarounds.",
     },
     {
-      q: "Can VAELKODE build software from an idea?",
-      a: "Yes. A project can begin with a business idea, problem, or opportunity. We can help translate that starting point into requirements, architecture, design, and a development roadmap.",
+      q: "Can you build from an idea?",
+      a: "Yes. We help turn a business problem or idea into requirements, architecture, and a clear first release.",
     },
     {
       q: "Can you improve our existing application?",
-      a: "Yes. Existing systems can be assessed for modernization, integration, performance improvements, new functionality, or migration depending on their technical and business condition.",
+      a: "Yes. We can modernize, integrate, extend, or migrate existing systems based on their condition and your goals.",
     },
     {
-      q: "Can you integrate our existing systems?",
-      a: "Yes. We can design and implement integrations between applications, APIs, databases, and third-party services where the required access and technical interfaces are available.",
+      q: "Can you connect our existing systems?",
+      a: "Yes. We design integrations between apps, APIs, databases, and third-party services where access is available.",
     },
     {
-      q: "How do you decide which technology to use?",
-      a: "Technology selection should follow the product requirements, architecture, performance, security, maintainability, integrations, and long-term objectives rather than being driven by a single technology preference.",
+      q: "How do you choose the technology?",
+      a: "From the product’s requirements: architecture, security, maintainability, and long-term fit, rather than a fixed stack preference.",
     },
     {
-      q: "Can AI be included in a custom software project?",
-      a: "Yes. AI can be integrated into software where it provides a meaningful capability, such as intelligent search, document processing, automation, prediction, or natural-language interaction.",
-    },
-    {
-      q: "Do you provide support after launch?",
-      a: "Software can require ongoing maintenance, optimization, security updates, new features, and operational support. The appropriate support model can be discussed based on the project's requirements.",
+      q: "Do you support the software after launch?",
+      a: "Yes. Maintenance, updates, new features, and operational support can continue based on what the project needs.",
     },
   ],
-  cta: { label: "Book a Consultation", to: "/consultation" },
+  cta: CTA.bookConsultation,
 };
 
-export const CS_FINAL = {
-  label: "Build Your Solution",
-  heading: "Have a Software Challenge Worth Solving?",
-  supporting:
-    "Whether you need a new business platform, want to modernize an existing application, or have an idea that needs to become a working product, let's discuss what you're trying to achieve.",
-  primaryCta: { label: "Book a Consultation", to: "/consultation" },
-  secondaryCta: { label: "Request a Proposal", to: "/request-proposal" },
+export const CS_FINAL: FinalCta = {
+  label: "Next step",
+  heading: "Have a software challenge worth solving?",
+  supporting: `Tell us about the platform you need, the app you want to modernize, or the idea you're ready to build. Email ${COMPANY.contact.email} or book a consultation and we’ll help you find the right approach.`,
+  ...FINAL_PAIR_TELL_US,
 };

@@ -2,6 +2,7 @@ import { useState, type ChangeEvent, type FormEvent, type ReactNode } from "reac
 import { Link, useNavigate } from "react-router-dom";
 
 import { Button, Field, FieldRow, Select, TextArea, TextInput } from "@/components/ui";
+import { COMPANY } from "@/constants/company";
 import { submitLead } from "@/lib/api";
 
 import styles from "./LeadForm.module.css";
@@ -38,7 +39,7 @@ interface LeadFormProps {
 }
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const FALLBACK_EMAIL = "hello@vaelkode.com";
+const FALLBACK_EMAIL = COMPANY.contact.email;
 
 type Status = "idle" | "submitting" | "error" | "success";
 

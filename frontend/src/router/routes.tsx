@@ -3,21 +3,17 @@ import { Navigate, type RouteObject } from "react-router-dom";
 import { PublicLayout } from "@/layouts/PublicLayout";
 import { AboutPage } from "@/pages/AboutPage";
 import { CareersPage } from "@/pages/CareersPage";
-import { CaseStudiesPage } from "@/pages/CaseStudiesPage";
-import { CaseStudyDetailPage } from "@/pages/CaseStudyDetailPage";
 import { ConsultationPage } from "@/pages/ConsultationPage";
 import { ContactPage } from "@/pages/ContactPage";
 import { DetailPlaceholder } from "@/pages/DetailPlaceholder";
 import { FaqsPage } from "@/pages/FaqsPage";
 import { HomePage } from "@/pages/HomePage";
-import { IndustriesPage } from "@/pages/IndustriesPage";
 import { InsightsPage } from "@/pages/InsightsPage";
 import { LegalPage } from "@/pages/LegalPage";
 import { PortfolioPage } from "@/pages/PortfolioPage";
 import { ProcessPage } from "@/pages/ProcessPage";
 import { RequestProposalPage } from "@/pages/RequestProposalPage";
 import { SolutionsPage } from "@/pages/SolutionsPage";
-import { WorkPage } from "@/pages/WorkPage";
 import { AiAutomationPage } from "@/pages/solutions/AiAutomationPage";
 import { CustomSoftwarePage } from "@/pages/solutions/CustomSoftwarePage";
 import { WebDevelopmentPage } from "@/pages/solutions/WebDevelopmentPage";
@@ -30,8 +26,8 @@ import { COOKIE_POLICY, PRIVACY_POLICY, TERMS_AND_CONDITIONS } from "@/content/l
 import { adminRoutes } from "@/router/adminRoutes";
 
 /**
- * Legacy per-industry routes now redirect to the single /industries page
- * anchors, so existing links/bookmarks keep working without duplicate content.
+ * Legacy industry URLs redirect to the homepage industries strip.
+ * Industry names live on the homepage only — no dedicated industries section.
  */
 const industryAnchors = [
   "government",
@@ -43,9 +39,12 @@ const industryAnchors = [
   "retail",
 ];
 
-/** Routes that redirect until a dedicated page exists. */
+/** Routes that redirect until a dedicated page exists / legacy paths. */
 const redirectRoutes: { path: string; to: string }[] = [
   { path: "cookie-settings", to: "/cookie-policy" },
+  { path: "work", to: "/portfolio" },
+  { path: "work/portfolio", to: "/portfolio" },
+  { path: "work/case-studies", to: "/portfolio" },
 ];
 
 const children: RouteObject[] = [
@@ -57,11 +56,11 @@ const children: RouteObject[] = [
   { path: "solutions/mobile-development", element: <MobileDevelopmentPage /> },
   { path: "solutions/cloud-devops", element: <CloudDevOpsPage /> },
   { path: "solutions/technology-consulting", element: <TechnologyConsultingPage /> },
-  { path: "industries", element: <IndustriesPage /> },
 
+  { path: "industries", element: <Navigate to="/#industries" replace /> },
   ...industryAnchors.map((anchor) => ({
     path: `industries/${anchor}`,
-    element: <Navigate to={`/industries#${anchor}`} replace />,
+    element: <Navigate to="/#industries" replace />,
   })),
 
   { path: "about", element: <AboutPage /> },
@@ -72,14 +71,12 @@ const children: RouteObject[] = [
   { path: "consultation", element: <ConsultationPage /> },
   { path: "request-proposal", element: <RequestProposalPage /> },
 
-  { path: "work", element: <WorkPage /> },
-  { path: "work/portfolio", element: <PortfolioPage /> },
-  { path: "work/case-studies", element: <CaseStudiesPage /> },
-  { path: "work/case-studies/:slug", element: <CaseStudyDetailPage /> },
+  { path: "portfolio", element: <PortfolioPage /> },
+  { path: "work/case-studies/:slug", element: <Navigate to="/portfolio" replace /> },
 
   { path: "insights", element: <InsightsPage /> },
-  { path: "insights/blog", element: <Navigate to="/insights#blog" replace /> },
-  { path: "insights/resources", element: <Navigate to="/insights#resources" replace /> },
+  { path: "insights/blog", element: <Navigate to="/insights" replace /> },
+  { path: "insights/resources", element: <Navigate to="/insights" replace /> },
 
   { path: "faqs", element: <FaqsPage /> },
 

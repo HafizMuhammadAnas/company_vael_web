@@ -9,7 +9,7 @@
   justify-content: space-between;
   gap: 1rem;
   min-height: var(--nav-height);
-  padding: 0.85rem 4rem;
+  padding: 0.85rem var(--page-gutter);
   background: color-mix(in srgb, var(--obsidian) 86%, transparent);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border-neon);
@@ -112,6 +112,7 @@
   font-size: 0.6rem;
   transition: transform var(--transition-fast);
 }
+.itemOpen .caret,
 .item:hover .caret {
   transform: rotate(180deg);
 }
@@ -134,17 +135,28 @@
   gap: 0.15rem;
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
   transition:
     opacity var(--transition-fast),
     transform var(--transition-fast),
     visibility var(--transition-fast);
   z-index: var(--z-dropdown);
 }
-.item:hover .dropdown,
-.item:focus-within .dropdown {
+.itemOpen .dropdown {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
   transform: translateX(-50%) translateY(0);
+}
+
+/* Invisible hit area so the cursor can cross the gap without closing */
+.dropdown::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -1rem;
+  height: 1rem;
 }
 
 .dropdownLink {
@@ -307,7 +319,7 @@
 /* Laptop: tighten desktop nav */
 @media (max-width: 1280px) {
   .nav {
-    padding: 0.85rem 2rem;
+    padding: 0.85rem var(--page-gutter);
   }
   .links {
     gap: 1.15rem;
@@ -325,7 +337,7 @@
 
 @media (max-width: 1100px) {
   .nav {
-    padding: 0.85rem 1.5rem;
+    padding: 0.85rem var(--page-gutter);
   }
   .links {
     gap: 0.9rem;
@@ -350,7 +362,7 @@
 /* Phone */
 @media (max-width: 640px) {
   .nav {
-    padding: 0.75rem 1rem;
+    padding: 0.75rem var(--page-gutter);
   }
 
   .brand {

@@ -28,12 +28,17 @@ export function buildHeadTags(meta: PageHead, siteUrl = getSiteUrl()): string {
   return `<title>${title}</title>
     <meta name="description" content="${description}" />
     <link rel="canonical" href="${canonical}" />
+    <link rel="icon" href="${siteUrl}/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="${siteUrl}/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="${siteUrl}/apple-touch-icon.png" sizes="180x180" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="VAELKODE" />
     <meta property="og:title" content="${title}" />
     <meta property="og:description" content="${description}" />
     <meta property="og:url" content="${canonical}" />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:image" content="${siteUrl}/icon-512.png" />
+    <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="${title}" />
-    <meta name="twitter:description" content="${description}" />${robots}`;
+    <meta name="twitter:description" content="${description}" />
+    <meta name="twitter:image" content="${siteUrl}/icon-512.png" />${robots}`;
 }

@@ -31,7 +31,7 @@ export function LegalPage({ doc }: { doc: LegalDoc }) {
   useDocumentMeta(doc.seo.title, doc.seo.description);
 
   return (
-    <Section>
+    <Section contained>
       <div className={l.wrap}>
         <Eyebrow>Legal</Eyebrow>
         <h1 className={l.title}>{doc.title}</h1>

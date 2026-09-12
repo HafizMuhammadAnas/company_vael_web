@@ -61,12 +61,8 @@ def contact_payload() -> dict[str, str]:
         "full_name": "Test User",
         "email": "test-contact@example.com",
         "company": "Test Co",
-        "country": "United Kingdom",
         "phone": "+44 7700 900000",
-        "project_type": "Custom Software",
-        "description": "We need a custom platform for internal operations.",
-        "timeline": "1–3 months",
-        "budget": "Prefer to discuss",
+        "message": "I'd like to ask about your software services.",
         "privacy_consent": "yes",
     }
 

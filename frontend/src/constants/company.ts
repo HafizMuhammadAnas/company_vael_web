@@ -31,7 +31,7 @@ export const COMPANY = {
   ],
 
   contact: {
-    email: "hello@vaelkode.com",
+    email: "info@vaelkode.com",
     /** E.164 value for `tel:` / `mailto:` links. */
     phone: "+447774799808",
     /** Human-readable phone for display. */

@@ -7,6 +7,12 @@ Full-stack marketing site + lead admin for VAELKODE — an AI-first digital engi
 - **Database:** MySQL 8
 - **Auth:** JWT (access + refresh) with role-based access control (admin / editor / viewer)
 
+## Content & claims
+
+Marketing copy lives in `frontend/src/content/` (plus `frontend/src/constants/company.ts`).
+
+Before writing or reviewing page text, read **[CONTENT.md](./CONTENT.md)** — voice, approved positioning, and what must never be invented (metrics, testimonials, fake case studies, etc.). Shared CTAs and disclaimers are in `frontend/src/content/shared/`.
+
 ## Project structure
 
 ```

@@ -1,31 +1,33 @@
 /**
  * VAELKODE /consultation — lead-qualification page.
  */
+
+import { CTA } from "@/content/shared";
+import type { FinalCta, PageHero, SeoMeta } from "@/content/shared";
+
 import type { LeadFieldConfig } from "@/components/forms/LeadForm";
 
-export const CONSULT_SEO = {
+export const CONSULT_SEO: SeoMeta = {
   title: "Book a Consultation | VAELKODE",
   description:
-    "Schedule an initial conversation with VAELKODE to discuss your idea, technology challenge, existing system, or digital project.",
+    "Book an initial conversation with VAELKODE about your idea, system, or digital project.",
 };
 
-export const CONSULT_HERO = {
-  label: "Book a Consultation",
-  title: "Let's Explore Your Project.",
-  supporting:
-    "Schedule an initial conversation with VAELKODE to discuss your idea, technology challenge, existing system, or digital project.",
+export const CONSULT_HERO: PageHero = {
+  label: "Consultation",
+  title: "Let's explore the problem.",
+  supporting: "A short conversation to understand your goal, constraints, and the right next step.",
 };
 
 export const CONSULT_DISCUSS = {
-  label: "What We Can Discuss",
-  heading: "A Focused Conversation About Your Project.",
+  label: "What we cover",
+  heading: "Four things we clarify.",
+  accent: "clarify.",
   points: [
-    { num: "01", title: "Your Objective", text: "What are you trying to achieve?" },
-    { num: "02", title: "The Problem", text: "What isn't working today?" },
-    { num: "03", title: "Users", text: "Who will use the solution?" },
-    { num: "04", title: "Technology", text: "What systems, platforms, or technologies are already involved?" },
-    { num: "05", title: "Scope", text: "What are you considering building or improving?" },
-    { num: "06", title: "Next Steps", text: "What would a successful engagement look like?" },
+    { num: "01", title: "Your goal" },
+    { num: "02", title: "The problem" },
+    { num: "03", title: "Users & systems" },
+    { num: "04", title: "Next step" },
   ],
 };
 
@@ -33,8 +35,7 @@ export const CONSULT_FORM_FIELDS: LeadFieldConfig[] = [
   { name: "full_name", label: "Full Name", placeholder: "Your full name", required: true, half: true },
   { name: "email", label: "Work Email", type: "email", placeholder: "you@company.com", required: true, half: true },
   { name: "company", label: "Company", placeholder: "Company / Organization", half: true },
-  { name: "country", label: "Country", placeholder: "Where are you based?", half: true },
-  { name: "phone", label: "Phone / WhatsApp", type: "tel", placeholder: "Phone or WhatsApp number", half: true },
+  { name: "phone", label: "Phone / WhatsApp", type: "tel", placeholder: "Phone or WhatsApp", half: true },
   {
     name: "project_type",
     label: "Project Type",
@@ -53,31 +54,24 @@ export const CONSULT_FORM_FIELDS: LeadFieldConfig[] = [
     half: true,
   },
   {
-    name: "description",
-    label: "Brief Project Description",
-    type: "textarea",
-    placeholder: "Briefly describe your idea, problem, or project.",
-    required: true,
-  },
-  {
     name: "contact_method",
-    label: "Preferred Contact Method",
+    label: "Preferred Contact",
     type: "select",
-    placeholder: "Select a contact method",
+    placeholder: "How should we reach you?",
     options: ["Email", "Phone Call", "WhatsApp", "Video Call"],
     half: true,
   },
   {
-    name: "preferred_time",
-    label: "Preferred Date / Time",
-    placeholder: "e.g. Weekday mornings, next week",
-    half: true,
+    name: "description",
+    label: "What should we discuss?",
+    type: "textarea",
+    placeholder: "A short note on the idea, problem, or project.",
+    required: true,
   },
   {
-    name: "additional",
-    label: "Additional Information",
-    type: "textarea",
-    placeholder: "Anything else that would help us prepare for the conversation.",
+    name: "preferred_time",
+    label: "Preferred timing",
+    placeholder: "e.g. Weekday mornings",
   },
   {
     name: "privacy_consent",
@@ -89,15 +83,16 @@ export const CONSULT_FORM_FIELDS: LeadFieldConfig[] = [
 ];
 
 export const CONSULT_FORM = {
-  heading: "Consultation Request",
+  heading: "Request a consultation",
+  hint: "Share enough so we can prepare. The finer details can wait.",
+  badge: "Book",
   submitLabel: "Request Consultation",
-  trust: "Your information will only be used to prepare for and respond to your consultation request.",
+  trust: "Used only to prepare and reply to this request.",
 };
 
-export const CONSULT_FINAL = {
-  label: "Prefer a Detailed Proposal?",
-  heading: "Already Have a Defined Project?",
-  supporting:
-    "If your requirements are already fairly clear, you can share them in detail and request a proposal instead.",
-  primaryCta: { label: "Request a Proposal", to: "/request-proposal" },
+export const CONSULT_FINAL: FinalCta = {
+  label: "Already clear?",
+  heading: "Need a detailed proposal instead?",
+  supporting: "If requirements are already defined, request a proposal.",
+  primaryCta: CTA.requestProposal,
 };

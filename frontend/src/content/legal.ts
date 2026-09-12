@@ -1,5 +1,5 @@
 /**
- * VAELKODE legal pages — Privacy Policy, Terms & Conditions, Cookie Policy.
+ * VAELKODE legal pages. Privacy Policy, Terms & Conditions, Cookie Policy.
  *
  * Website-ready draft content (approved wording). Company registration details
  * are pulled from the central COMPANY config so they stay consistent. This is

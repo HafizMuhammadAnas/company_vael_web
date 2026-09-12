@@ -8,12 +8,18 @@ interface SectionProps {
   children: ReactNode;
   className?: string;
   style?: CSSProperties;
+  /** Keep a centered max-width box (legal / long-form reading). Default is full usable width. */
+  contained?: boolean;
 }
 
-/** Full-width section wrapper with the standard centered inner container. */
-export function Section({ id, children, className, style }: SectionProps) {
+/** Full-width section wrapper with the standard page gutters. */
+export function Section({ id, children, className, style, contained }: SectionProps) {
   return (
-    <section id={id} className={[styles.section, className].filter(Boolean).join(" ")} style={style}>
+    <section
+      id={id}
+      className={[styles.section, contained ? styles.contained : "", className].filter(Boolean).join(" ")}
+      style={style}
+    >
       <div className={styles.inner}>{children}</div>
     </section>
   );

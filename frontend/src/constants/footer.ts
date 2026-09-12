@@ -41,26 +41,14 @@ export const FOOTER_SOCIALS: FooterSocial[] = [
 
 export const FOOTER_COLUMNS: FooterColumn[] = [
   {
-    title: "Solutions",
+    title: "Services",
     links: [
-      { label: "AI & Intelligent Automation", to: "/solutions/ai-automation" },
-      { label: "Custom Software Development", to: "/solutions/custom-software" },
       { label: "Web Development", to: "/solutions/web-development" },
-      { label: "Mobile App Development", to: "/solutions/mobile-development" },
+      { label: "Custom Software", to: "/solutions/custom-software" },
+      { label: "AI & Automation", to: "/solutions/ai-automation" },
+      { label: "Mobile Development", to: "/solutions/mobile-development" },
       { label: "Cloud & DevOps", to: "/solutions/cloud-devops" },
       { label: "Technology Consulting", to: "/solutions/technology-consulting" },
-    ],
-  },
-  {
-    title: "Industries",
-    links: [
-      { label: "Government", to: "/industries/government" },
-      { label: "Education", to: "/industries/education" },
-      { label: "Healthcare", to: "/industries/healthcare" },
-      { label: "Agriculture", to: "/industries/agriculture" },
-      { label: "Finance", to: "/industries/finance" },
-      { label: "Logistics", to: "/industries/logistics" },
-      { label: "Retail & Commerce", to: "/industries/retail" },
     ],
   },
   {
@@ -77,7 +65,7 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
     links: [
       { label: "FAQs", to: "/faqs" },
       { label: "Insights", to: "/insights" },
-      { label: "Our Work", to: "/work" },
+      { label: "Portfolio", to: "/portfolio" },
     ],
   },
   {

@@ -1,239 +1,254 @@
 /**
- * VAELKODE /about — company page.
- * Approved production copy. No invented company size, years of experience,
- * employee/client/project counts, revenue, or geographic-presence claims.
+ * VAELKODE /about. Lean, visual-first.
+ * No invented headcount, years, clients, awards, ROI, or case results.
+ * Avoid em dashes; keep a plain, spoken tone.
  */
 
-export const ABOUT_SEO = {
+import { COMPANY } from "@/constants/company";
+import { CTA, FINAL_PAIR_CONTACT } from "@/content/shared";
+import type { FinalCta, PageHero, SeoMeta } from "@/content/shared";
+
+export const ABOUT_SEO: SeoMeta = {
   title: "About VAELKODE | AI-First Digital Engineering",
   description:
-    "VAELKODE is an AI-first digital engineering company building software, digital platforms, intelligent systems, and technology solutions around real business and operational needs.",
+    "VAELKODE is a UK-registered AI-first digital engineering company. We turn real business problems into software, AI systems, and digital platforms.",
 };
 
-export const ABOUT_HERO = {
-  label: "About VAELKODE",
-  title: "Technology Built With Purpose.",
+export const ABOUT_HERO: PageHero = {
+  label: "About",
+  title: "Technology your organization can actually run.",
   supporting:
-    "VAELKODE is an AI-first digital engineering company focused on building software, digital platforms, intelligent systems, and technology solutions around real business and operational needs. We combine software engineering, AI, automation, cloud technologies, and technology consulting to help organizations turn ideas, processes, and challenges into practical digital solutions.",
-  primaryCta: { label: "Work With VAELKODE", to: "/consultation" },
-  secondaryCta: { label: "Explore Our Solutions", to: "/solutions" },
+    "AI-first digital engineering for software, platforms, and intelligent workflows. We scope the work clearly and build carefully.",
+  primaryCta: CTA.workWithVaelkode,
+  secondaryCta: CTA.exploreSolutions,
+};
+
+export const ABOUT_SITUATIONS = {
+  label: "Sound familiar?",
+  heading: "Problems we take on.",
+  items: [
+    {
+      title: "Tools that don't match the work",
+      text: "Off-the-shelf software forces workarounds. Custom needs get ignored until the pain is expensive.",
+    },
+    {
+      title: "Ideas stuck before the first release",
+      text: "You know what should exist, but scope and the first shippable version stay unclear.",
+    },
+    {
+      title: "Manual work that should be automated",
+      text: "Documents, approvals, and reporting still eat hours that should go to judgment work.",
+    },
+    {
+      title: "Systems that are hard to change",
+      text: "Releases are stressful, environments drift, and every improvement feels risky.",
+    },
+    {
+      title: "Too many vendors, little ownership",
+      text: "Strategy, design, build, and infrastructure sit apart, so accountability gets lost.",
+    },
+    {
+      title: "AI interest without a clear use case",
+      text: "Pressure to \"do AI\" without a problem, data path, or success definition.",
+    },
+  ],
 };
 
 export const ABOUT_WHO = {
-  label: "Who We Are",
-  heading: "We Build Technology Around Real Problems.",
-  paragraphs: [
-    "Technology is most valuable when it solves a real problem.",
-    "At VAELKODE, we approach software development by first understanding what an organization is trying to achieve, how its people work, where its processes create friction, and what technology can realistically improve.",
-    "From a custom business application to an AI-powered workflow, a digital platform, a mobile application, or a cloud-based system, we focus on building solutions that are purposeful, maintainable, and aligned with the requirements of the organization.",
+  label: "Who we are",
+  heading: "Built around the problem,",
+  accent: "not the pitch.",
+  lede: `${COMPANY.name} designs and builds practical digital solutions: software, web and mobile, AI workflows, cloud delivery, and consulting.`,
+  highlight: "We start with the problem, design a fitting solution, and build it properly.",
+  facts: [
+    { label: "Legal name", value: COMPANY.legal.registeredName },
+    { label: "Company number", value: COMPANY.legal.companyNumber },
+    { label: "Registered in", value: COMPANY.legal.registeredIn },
+    { label: "Office", value: COMPANY.legal.registeredOffice },
+    { label: "Director", value: COMPANY.legal.director },
+    { label: "Contact", value: COMPANY.contact.email },
   ],
-  highlight: "Understand the problem. Design the right solution. Build it properly.",
 };
 
 export const ABOUT_CAPABILITIES = {
-  label: "Our Capabilities",
-  heading: "From Idea to Digital Product.",
-  supporting:
-    "VAELKODE brings together multiple technology capabilities so organizations can work with one engineering partner across different stages of a digital initiative.",
+  label: "What we deliver",
+  heading: "Six service lines,",
+  accent: "plain outcomes.",
   cards: [
     {
-      title: "Custom Software Development",
-      text: "Purpose-built applications designed around specific business processes, workflows, users, and operational requirements.",
+      short: "Software",
+      title: "Custom software",
+      outcome: "One clear system of work",
       to: "/solutions/custom-software",
+      text: "Applications and platforms shaped around how you work.",
     },
     {
-      title: "Web & Digital Platforms",
-      text: "Modern web applications, portals, dashboards, customer experiences, and digital services.",
+      short: "Web",
+      title: "Web & platforms",
+      outcome: "A digital front door that works",
       to: "/solutions/web-development",
+      text: "Sites, portals, stores, and web apps.",
     },
     {
-      title: "Mobile Applications",
-      text: "Mobile applications designed around users, workflows, services, and real-world operational requirements.",
+      short: "Mobile",
+      title: "Mobile products",
+      outcome: "Workflows in people's hands",
       to: "/solutions/mobile-development",
+      text: "iOS, Android, and cross-platform apps.",
     },
     {
-      title: "AI & Intelligent Automation",
-      text: "AI, machine learning, intelligent workflows, information processing, and automation for appropriate use cases.",
+      short: "AI",
+      title: "AI & automation",
+      outcome: "Less repetitive work",
       to: "/solutions/ai-automation",
+      text: "Automation where value is clear.",
     },
     {
+      short: "Cloud",
       title: "Cloud & DevOps",
-      text: "Cloud environments, deployment pipelines, application infrastructure, modernization, and operational engineering.",
+      outcome: "Calmer releases",
       to: "/solutions/cloud-devops",
+      text: "Environments, CI/CD, and monitoring.",
     },
     {
-      title: "Technology Consulting",
-      text: "Technology assessment, architecture, modernization planning, technical strategy, and solution design.",
+      short: "Advice",
+      title: "Consulting",
+      outcome: "Clarity before you spend",
       to: "/solutions/technology-consulting",
-    },
-  ],
-};
-
-export const ABOUT_MINDSET = {
-  label: "How We Think",
-  heading: "Technology Is a Means. Not the Destination.",
-  paragraphs: [
-    "New technology does not automatically create a better solution.",
-    "The right technology is the technology that fits the problem, the users, the existing environment, the organization's objectives, and the resources available to maintain it.",
-  ],
-  principles: [
-    { title: "Problem First", text: "We begin by understanding the problem before selecting the technology." },
-    {
-      title: "Purposeful Engineering",
-      text: "We build around defined requirements rather than adding complexity for its own sake.",
-    },
-    { title: "Practical Innovation", text: "We explore modern technologies where they can provide meaningful value." },
-    {
-      title: "Maintainable Systems",
-      text: "We consider how a system will be maintained, extended, integrated, and operated after delivery.",
-    },
-    {
-      title: "User-Centered Experiences",
-      text: "Technology should be understandable and usable by the people who depend on it.",
-    },
-    {
-      title: "Continuous Improvement",
-      text: "Digital products can evolve as organizations, users, and requirements change.",
-    },
-  ],
-};
-
-export const ABOUT_TECH = {
-  label: "Technology",
-  heading: "Modern Technology. Practical Engineering.",
-  supporting:
-    "Our technology capabilities span the layers required to design, develop, deploy, and evolve modern digital systems.",
-  categories: [
-    {
-      title: "Software Engineering",
-      items: ["Web Applications", "Backend Systems", "APIs", "Database Systems", "Enterprise Applications"],
-    },
-    {
-      title: "AI & Data",
-      items: [
-        "Artificial Intelligence",
-        "Machine Learning",
-        "Natural Language Processing",
-        "Computer Vision",
-        "Data Analytics",
-        "Intelligent Automation",
-      ],
-    },
-    {
-      title: "Cloud & Infrastructure",
-      items: ["Cloud Platforms", "DevOps", "Containerization", "Deployment", "Application Infrastructure"],
-    },
-    {
-      title: "Frontend & Experience",
-      items: ["Web Interfaces", "Responsive Applications", "Design Systems", "Dashboards", "Digital Experiences"],
-    },
-    {
-      title: "Mobile",
-      items: ["Mobile Applications", "Cross-Platform Development", "API Integration", "Mobile Workflows"],
+      text: "Discovery, architecture, and roadmaps.",
     },
   ],
 };
 
 export const ABOUT_WHO_WE_HELP = {
-  label: "Who We Help",
-  heading: "Technology for Organizations at Different Stages.",
-  supporting:
-    "VAELKODE can work with organizations at different stages of their technology journey — from teams building a new digital product to organizations modernizing existing systems.",
+  label: "Who we work with",
+  heading: "Teams that need technology for real work.",
   cards: [
+    { title: "Founders & new products", text: "An MVP real enough to learn from." },
+    { title: "Growing operations", text: "Software that fits how the team works." },
     {
-      title: "Startups & New Ventures",
-      text: "Turn an idea into a practical digital product, MVP, platform, or application.",
+      title: "Established organizations",
+      text: "Careful modernization rather than a big-bang rewrite.",
     },
-    {
-      title: "Growing Businesses",
-      text: "Improve existing operations through custom software, automation, integrations, and digital platforms.",
-    },
-    {
-      title: "Established Organizations",
-      text: "Modernize applications, improve workflows, connect systems, and develop new digital capabilities.",
-    },
-    {
-      title: "Organizations With Existing Technology Teams",
-      text: "Extend internal capabilities through specialized engineering, AI, cloud, or application development support.",
-    },
+    { title: "In-house tech teams", text: "Specialist capacity for AI, cloud, or delivery." },
   ],
 };
 
 export const ABOUT_APPROACH = {
-  label: "Our Approach",
-  heading: "Understand. Design. Build. Improve.",
+  label: "How we work",
+  heading: "Four clear steps",
+  accent: "from first talk to launch.",
   steps: [
-    { num: "01", title: "Understand", text: "Understand the organization, users, objectives, processes, systems, and constraints." },
-    { num: "02", title: "Design", text: "Translate requirements into a practical product, user experience, architecture, and delivery plan." },
-    { num: "03", title: "Build", text: "Develop, integrate, test, and refine the technology solution." },
-    { num: "04", title: "Improve", text: "Continue evolving the solution as requirements, users, and technology change." },
+    { num: "01", title: "Understand", output: "Shared problem definition" },
+    { num: "02", title: "Design", output: "Approach + first release" },
+    { num: "03", title: "Build", output: "Working software to review" },
+    { num: "04", title: "Improve", output: "Live system + next moves" },
   ],
-  cta: { label: "See How We Work", to: "/about/process" },
+  cta: { label: "See the full process", to: "/about/process" },
 };
 
-export const ABOUT_WHY = {
-  label: "Why VAELKODE",
-  heading: "A Technology Partner Focused on the Work Behind the Technology.",
-  points: [
+/** Merged beliefs + differentiators. Titles only on page. */
+export const ABOUT_PRINCIPLES = {
+  label: "How we show up",
+  heading: "Working standards.",
+  items: [
     {
-      title: "Engineering-Led",
-      text: "We approach digital products through engineering, architecture, software quality, and maintainability.",
+      title: "Problem before platform",
+      text: "We won't recommend AI, a rewrite, or a new stack until the outcome is clear.",
     },
     {
-      title: "Business-Aware",
-      text: "Technology decisions should be connected to the organization's actual objectives.",
-    },
-    { title: "Flexible", text: "Solutions can be adapted to the project's scale, technical environment, and requirements." },
-    {
-      title: "Modern",
-      text: "We work with modern software, AI, cloud, and development technologies where appropriate.",
+      title: "Useful releases",
+      text: "Progress means software you can try, not slide decks that hide risk.",
     },
     {
-      title: "Transparent",
-      text: "Clear communication, defined requirements, and visible progress are important throughout delivery.",
+      title: "Honest trade-offs",
+      text: "If something is expensive, fragile, or unnecessary, we say so early.",
     },
     {
-      title: "Long-Term Thinking",
-      text: "We consider not only how to build the system, but how it can evolve after launch.",
+      title: "Built to last",
+      text: "We plan for maintainability, handoff, and change, because systems outlive the first engagement.",
+    },
+  ],
+};
+
+export const ABOUT_TRUST = {
+  label: "Straight answers",
+  heading: "Before you trust a partner.",
+  items: [
+    {
+      q: "Do I need to know which technology I need?",
+      a: "No. Start with the problem and outcome. We'll help choose software, AI, cloud, consulting, or a smaller experiment.",
+    },
+    {
+      q: "Will you push AI into every project?",
+      a: "No. We're AI-capable, not AI-forced. We recommend it when friction, data, and oversight make sense.",
+    },
+    {
+      q: "Can you work with systems we already have?",
+      a: "Yes. We assess what to keep, integrate, modernize, or replace based on risk and value.",
+    },
+    {
+      q: "How do we start?",
+      a: "With a conversation. We clarify the challenge and propose a practical next step.",
     },
   ],
 };
 
 export const ABOUT_VISION = {
-  label: "Our Vision",
-  heading: "Build Technology That Makes Complex Things Simpler.",
-  paragraphs: [
-    "We believe technology should reduce unnecessary complexity, connect people and information, and create better ways of working.",
-    "Our vision is to build an AI-first digital engineering company that helps organizations move from ideas and operational challenges to reliable digital products and systems.",
-  ],
+  label: "Vision",
+  heading: "Technology that makes complex work simpler.",
 };
 
 export const ABOUT_MISSION = {
-  label: "Our Mission",
-  heading: "Turn Real-World Challenges Into Practical Digital Solutions.",
-  paragraphs: [
-    "Our mission is to combine engineering, technology, and problem-solving to create software and digital solutions that organizations can actually use, maintain, and grow.",
-  ],
+  label: "Mission",
+  heading: "Turn real challenges into practical digital solutions.",
+};
+
+export const ABOUT_FINAL: FinalCta = {
+  label: "Next step",
+  heading: "Tell us the challenge.",
+  supporting:
+    "Starting a product, modernizing a system, or clarifying a decision? Begin with the problem and we'll help map the next step.",
+  ...FINAL_PAIR_CONTACT,
+};
+
+/* ── Legacy aliases ────────────────────────────────────────────────── */
+
+export const ABOUT_BELIEFS = {
+  label: ABOUT_PRINCIPLES.label,
+  heading: ABOUT_PRINCIPLES.heading,
+  supporting: "",
+  items: ABOUT_PRINCIPLES.items,
+};
+
+export const ABOUT_WHY = {
+  label: "Why VAELKODE",
+  heading: "What makes this partnership different.",
+  points: ABOUT_PRINCIPLES.items,
 };
 
 export const ABOUT_JOURNEY = {
-  label: "Our Journey",
-  heading: "Building VAELKODE Step by Step.",
-  supporting:
-    "VAELKODE is being built with a long-term focus: establish a strong engineering foundation, work with organizations on meaningful technology problems, develop trusted client relationships, and grow through the quality of the work we deliver.",
+  label: "Our commitment",
+  heading: "Growing through the quality of the work.",
+  supporting: "Strong engineering habits first, then trusted delivery.",
   phases: [
-    { title: "Foundation", text: "Establishing the company, technology foundation, brand, and engineering practices." },
-    { title: "Building", text: "Developing products, solutions, partnerships, and client relationships." },
-    { title: "Growing", text: "Expanding capabilities, expertise, and the range of problems we can solve." },
-    { title: "Evolving", text: "Continuously improving our technology, processes, and approach as VAELKODE grows." },
+    { title: "Foundation", text: "Identity, standards, and a clear approach." },
+    { title: "Delivery", text: "Shipping useful software and advice." },
+    { title: "Depth", text: "Expanding what we take on well." },
+    { title: "Stewardship", text: "Long-term system care as we grow." },
   ],
 };
 
-export const ABOUT_FINAL = {
-  label: "Let's Build",
-  heading: "Have a Technology Challenge? Let's Talk.",
-  supporting:
-    "Tell us what you're trying to build, improve, automate, or solve. We'll start by understanding the problem and exploring the right technology approach.",
-  primaryCta: { label: "Book a Consultation", to: "/consultation" },
-  secondaryCta: { label: "Contact VAELKODE", to: "/contact" },
+export const ABOUT_MINDSET = {
+  label: ABOUT_PRINCIPLES.label,
+  heading: ABOUT_PRINCIPLES.heading,
+  paragraphs: [] as string[],
+  principles: ABOUT_PRINCIPLES.items,
+};
+
+export const ABOUT_TECH = {
+  label: "Technology",
+  heading: "Modern technology with practical engineering.",
+  supporting: "Choices are covered on each service page.",
+  categories: [] as { title: string; items: string[] }[],
 };

@@ -1,153 +1,180 @@
 /**
- * VAELKODE homepage content — approved production copy.
+ * VAELKODE homepage content. Plain-language, buyer-first.
  * No invented statistics, testimonials, client logos, or case-study results.
  */
 
-export const HOME_SEO = {
-  title: "VAELKODE | AI-First Digital Engineering Company",
+import { CTA, DISCLAIMERS, FINAL_PAIR_TELL_US } from "@/content/shared";
+import type { FinalCta, SeoMeta } from "@/content/shared";
+
+export const HOME_SEO: SeoMeta = {
+  title: "VAELKODE | Software, AI & Digital Solutions",
   description:
-    "VAELKODE is an AI-first digital engineering company delivering intelligent software, AI solutions, cloud engineering, and digital transformation for ambitious organizations.",
+    "VAELKODE builds software, AI automation, web and mobile apps, and cloud systems that help organizations work faster and with less friction.",
 };
 
 export const HERO = {
-  eyebrow: "AI-First Digital Engineering",
-  titleBefore: "Engineering",
-  titleAccent: "intelligent",
-  titleRest: "digital solutions.",
+  eyebrow: "Software · AI · Digital Products",
+  titleBefore: "We build software",
+  titleAccent: "that solves",
+  titleRest: "real business problems.",
   description:
-    "VAELKODE helps ambitious organizations turn complex business challenges into intelligent, scalable digital solutions through AI, modern software engineering, and cloud technologies.",
-  primaryCta: { label: "Book a Consultation", to: "/consultation" },
-  secondaryCta: { label: "Explore Our Solutions", to: "/solutions" },
-  microcopy: "Let's discuss your challenge, idea, or next digital initiative.",
-  orbitTerms: ["AI", "CODE", "DATA", "CLOUD", "AUTOMATION", "SYSTEMS", "PLATFORMS", "INTEGRATION"],
+    "From websites and custom apps to AI automation and cloud systems. Scoped clearly, delivered honestly, measured by what works for your business.",
+  primaryCta: CTA.bookConsultation,
+  secondaryCta: CTA.exploreSolutions,
+  microcopy: "Tell us what you're trying to fix or build. We'll help you find the right next step.",
 };
 
+/**
+ * Floating hero proof cards (right column).
+ * Replace values/labels with approved figures when you have them , 
+ * avoid inventing client ROI, uptime, or review counts here.
+ */
+export const HERO_STATS = [
+  {
+    id: "services",
+    value: "6+",
+    label: "Service lines",
+    accent: "violet" as const,
+  },
+  {
+    id: "delivery",
+    value: "4",
+    label: "Delivery steps",
+    accent: "neon" as const,
+  },
+  {
+    id: "focus",
+    value: "AI",
+    label: "First engineering",
+    accent: "pink" as const,
+  },
+];
+
+
+/** Kept for any residual imports; homepage no longer renders this section. */
 export const CAPABILITIES = {
-  label: "Engineering Capabilities",
-  heading: "One system core. Four connected disciplines.",
-  supporting:
-    "Hover, focus, or tap a module to inspect the capability. Everything orbits a single core — connected, not siloed.",
+  label: "What We Do",
+  heading: "Four ways we help.",
+  supporting: "Straight answers about what we build and why it helps.",
   items: [
     {
-      short: "Intelligence",
-      title: "AI & Intelligent Automation",
-      text: "Build intelligent systems that automate processes, understand data, and augment decision-making.",
-      tags: ["LLM systems", "RAG", "Document AI", "Forecasting"],
+      short: "AI",
+      title: "AI & Automation",
+      text: "Reduce manual work with intelligent systems that understand documents, data, and workflows.",
+      tags: ["Automation", "Documents", "Assistants"],
     },
     {
-      short: "Engineering",
-      title: "Software Engineering",
-      text: "Design and develop scalable applications built around real business requirements.",
-      tags: ["APIs", "Architecture", "Testing", "Integrations"],
+      short: "Software",
+      title: "Custom Software",
+      text: "Build applications around how your business actually works.",
+      tags: ["Apps", "Integrations", "Platforms"],
     },
     {
-      short: "Infrastructure",
+      short: "Cloud",
       title: "Cloud & DevOps",
-      text: "Deploy secure, resilient infrastructure designed for performance and growth.",
-      tags: ["Delivery automation", "Observability", "Resilience", "Cost control"],
+      text: "Deploy and run software reliably with clear environments and release processes.",
+      tags: ["Hosting", "Releases", "Monitoring"],
     },
     {
-      short: "Transformation",
-      title: "Digital Transformation",
-      text: "Modernize existing systems, streamline operations, and create connected digital experiences.",
-      tags: ["Legacy migration", "Process design", "Platform strategy"],
+      short: "Advice",
+      title: "Technology Consulting",
+      text: "Get clarity before you build or buy. Architecture, roadmap, and options.",
+      tags: ["Strategy", "Roadmaps"],
     },
   ],
 };
 
 export const PROBLEMS = {
-  label: "The Challenge",
-  heading: "Friction in. Integrated system out.",
+  label: "Sound Familiar?",
+  heading: "These are the problems we help fix.",
   supporting: [
-    "Businesses often outgrow the systems and processes they started with. Manual workflows, disconnected platforms, legacy applications, and fragmented data can slow growth and make everyday operations harder than they need to be.",
-    "Select a signal to trace how a familiar business problem becomes an engineered capability.",
+    "If any of these feel like your week, you're in the right place. Pick one and we'll show you how we usually approach it.",
   ],
   cards: [
     {
       num: "01",
-      title: "Manual Processes",
-      text: "Repetitive tasks consume valuable time and introduce avoidable errors.",
-      shift: "Automate the workflow, keep humans on judgement.",
-      cta: "Explore Automation",
+      title: "Too much manual work",
+      text: "Your team repeats the same tasks in spreadsheets, email, and documents. And mistakes creep in.",
+      shift: "We automate the busywork so people can focus on judgement.",
+      cta: "See AI & Automation",
       to: "/solutions/ai-automation",
     },
     {
       num: "02",
-      title: "Disconnected Systems",
-      text: "Critical information becomes fragmented when business systems cannot communicate with one another.",
-      shift: "Integrate through a clean, governed data layer.",
-      cta: "Explore Integration",
+      title: "Systems that don't talk",
+      text: "Customer, finance, and operations tools each hold part of the truth. Nobody has the full picture.",
+      shift: "We connect systems so information flows where it should.",
+      cta: "See Custom Software",
       to: "/solutions/custom-software",
     },
     {
       num: "03",
-      title: "Legacy Technology",
-      text: "Aging applications can become difficult to maintain, scale, and adapt to changing business needs.",
-      shift: "Modernize incrementally — no big-bang rewrite.",
-      cta: "Modernize Your Systems",
+      title: "Software that no longer fits",
+      text: "Off-the-shelf tools force workarounds. Old apps are hard to change and costly to keep alive.",
+      shift: "We modernize or replace what blocks you, one sensible step at a time.",
+      cta: "See Consulting",
       to: "/solutions/technology-consulting",
     },
     {
       num: "04",
-      title: "Limited Visibility",
-      text: "Organizations need reliable data and intelligent insights to make faster, better-informed decisions.",
-      shift: "Instrument the business and surface it in real time.",
-      cta: "Explore Intelligent Analytics",
+      title: "Hard to see what's going on",
+      text: "Decisions wait on reports someone builds by hand. Leaders don't trust the numbers.",
+      shift: "We put clear data and dashboards where people already work.",
+      cta: "See AI & Analytics",
       to: "/solutions/ai-automation",
     },
     {
       num: "05",
-      title: "Digital Growth",
-      text: "New products and services require technology foundations that can evolve as the business grows.",
-      shift: "Build a platform, not a one-off project.",
-      cta: "Build for Scale",
+      title: "Ready to grow, but the tech isn't",
+      text: "A new product, channel, or team needs a foundation that won't break as you scale.",
+      shift: "We build platforms that can grow with the business.",
+      cta: "See Cloud & DevOps",
       to: "/solutions/cloud-devops",
     },
   ],
 };
 
 export const SOLUTIONS = {
-  label: "Our Solutions",
-  heading: "A connected landscape, not a menu of parts.",
-  supporting:
-    "Explore the constellation — hover, focus, or tap any point to see how that capability plugs into the wider system we build around your business.",
+  label: "What We Build",
+  heading: "Clear services with plain outcomes.",
+  supporting: "Choose what matches your need. Every page explains the problem we solve, what we deliver, and how we work.",
   cards: [
     {
-      short: "Intelligence",
-      title: "AI & Intelligent Automation",
-      text: "Apply artificial intelligence where it creates measurable value—from intelligent assistants and document processing to workflow automation, predictive analytics, and computer vision.",
-      tags: ["Automation", "Insight", "Decision support"],
-      cta: "Explore AI Solutions",
-      to: "/solutions/ai-automation",
-      x: 50,
-      y: 50,
-    },
-    {
-      short: "Software",
-      title: "Custom Software Development",
-      text: "Build secure, scalable software tailored to your organization's workflows, users, and operational requirements.",
-      tags: ["Architecture", "Integrations", "Reliability"],
-      cta: "Explore Custom Software",
-      to: "/solutions/custom-software",
-      x: 17,
-      y: 24,
-    },
-    {
-      short: "Platforms",
-      title: "Web & Digital Platforms",
-      text: "Create modern web applications, customer portals, e-commerce platforms, and digital experiences designed for performance and usability.",
-      tags: ["Portals", "Commerce", "Experience"],
-      cta: "Explore Web Development",
+      short: "Web",
+      title: "Web Development",
+      text: "Websites, portals, and web apps that look professional and work reliably.",
+      tags: ["Sites", "Stores", "Portals"],
+      cta: "Explore Web",
       to: "/solutions/web-development",
       x: 83,
       y: 22,
     },
     {
+      short: "Software",
+      title: "Custom Software",
+      text: "Applications and platforms shaped around your processes, instead of forcing you into someone else's template.",
+      tags: ["Business apps", "Integrations"],
+      cta: "Explore Software",
+      to: "/solutions/custom-software",
+      x: 17,
+      y: 24,
+    },
+    {
+      short: "AI",
+      title: "AI & Intelligent Automation",
+      text: "Cut repetitive work. Process documents. Add assistants and smart workflows where they earn their place.",
+      tags: ["Automation", "Documents", "Assistants"],
+      cta: "Explore AI",
+      to: "/solutions/ai-automation",
+      x: 50,
+      y: 50,
+    },
+    {
       short: "Mobile",
-      title: "Mobile Applications",
-      text: "Deliver connected mobile experiences that extend your products and services to customers and teams wherever they are.",
+      title: "Mobile Apps",
+      text: "iOS and Android apps for customers and field teams. Connected to the systems behind them.",
       tags: ["Customer apps", "Field tools"],
-      cta: "Explore Mobile Development",
+      cta: "Explore Mobile",
       to: "/solutions/mobile-development",
       x: 20,
       y: 78,
@@ -155,18 +182,18 @@ export const SOLUTIONS = {
     {
       short: "Cloud",
       title: "Cloud & DevOps",
-      text: "Build and operate reliable cloud infrastructure with modern deployment, automation, monitoring, and scalability practices.",
-      tags: ["Delivery automation", "Observability", "Scale"],
-      cta: "Explore Cloud & DevOps",
+      text: "Hosting, deployments, and monitoring so releases are calm and environments stay consistent.",
+      tags: ["Hosting", "CI/CD", "Monitoring"],
+      cta: "Explore Cloud",
       to: "/solutions/cloud-devops",
       x: 80,
       y: 76,
     },
     {
-      short: "Consulting",
+      short: "Advice",
       title: "Technology Consulting",
-      text: "Turn complex technology decisions into clear strategies, architectures, and actionable roadmaps.",
-      tags: ["Audits", "Roadmaps"],
+      text: "Clarity before you spend: assess options, design architecture, and plan what to build or buy.",
+      tags: ["Strategy", "Roadmaps"],
       cta: "Explore Consulting",
       to: "/solutions/technology-consulting",
       x: 50,
@@ -177,182 +204,123 @@ export const SOLUTIONS = {
 
 export const WHY = {
   label: "Why VAELKODE",
-  heading: "More Than a Development Team. A Technology Partner.",
-  supporting:
-    "Great software starts with understanding the problem behind the requirement. We combine business thinking, engineering expertise, and emerging technology to build solutions that remain valuable long after launch.",
+  heading: "A partner who starts with your problem, not a tech pitch.",
+  supporting: "We keep the conversation practical so you always know what we're building and why.",
   items: [
     {
       num: "01",
-      title: "Business First",
-      text: "We begin by understanding your objectives, users, processes, and challenges before deciding what technology to build.",
+      title: "Business first",
+      text: "We learn your goals, users, and constraints before we recommend technology.",
     },
     {
       num: "02",
-      title: "AI-First Thinking",
-      text: "We identify practical opportunities for AI and automation where they can improve efficiency, decision-making, or customer experiences.",
+      title: "Practical AI",
+      text: "We use AI where it saves time or improves decisions. And say when it won't help.",
     },
     {
       num: "03",
-      title: "Engineering for Scale",
-      text: "Our solutions are designed with maintainability, security, performance, and future growth in mind.",
+      title: "Built to last",
+      text: "Clean structure, security, and room to grow so the next change isn't a rewrite.",
     },
     {
       num: "04",
-      title: "Long-Term Partnership",
-      text: "We don't disappear after deployment. We support continuous improvement, optimization, and future growth.",
+      title: "Clear communication",
+      text: "Plain updates and visible progress. You stay in control of the decisions.",
     },
   ],
 };
 
 export const FEATURED_WORK = {
   label: "Selected Work",
-  heading: "Turning Complex Challenges Into Digital Solutions.",
+  heading: "Examples of what this kind of engineering looks like.",
   supporting:
-    "Explore selected digital solutions and technology initiatives that demonstrate how VAELKODE approaches real-world business challenges through software engineering, artificial intelligence, automation, and modern digital platforms.",
-  // Clearly framed as capability demonstrations — NOT client case studies.
-  note: "Selected solutions & technology demonstrations — not client case studies.",
+    "These are selected technology demonstrations that show how we approach the work. They are not invented client results.",
+  note: DISCLAIMERS.technologyDemonstrations,
   cards: [
     {
-      category: "AI & Intelligent Automation",
-      title: "Intelligent Document Processing Platform",
+      category: "AI & Automation",
+      title: "Intelligent Document Processing",
       description:
-        "An AI-powered document processing concept designed to extract, classify, structure, and analyze information from business documents, reducing manual data handling and enabling faster digital workflows.",
-      capabilities: [
-        "Document Classification",
-        "OCR & Data Extraction",
-        "AI Processing",
-        "Workflow Automation",
-        "Structured Data Generation",
-      ],
+        "Extract, classify, and structure information from business documents so teams spend less time on manual data entry.",
+      capabilities: ["Document classification", "Data extraction", "Workflow automation"],
       technology: "AI · Python · Computer Vision · NLP",
-      cta: "Explore Solution",
+      cta: "Explore AI solutions",
       to: "/solutions/ai-automation",
     },
     {
-      category: "Enterprise Software",
-      title: "Integrated Workforce Management Platform",
+      category: "Custom Software",
+      title: "Workforce Management Platform",
       description:
-        "A centralized workforce management solution designed to bring employee information, organizational workflows, records, reporting, and operational processes into a unified digital platform.",
-      capabilities: [
-        "Employee Management",
-        "Organizational Structure",
-        "Workflow Management",
-        "Reporting & Analytics",
-        "Role-Based Access",
-      ],
-      technology: "Web Application · API · Database · Analytics",
-      cta: "Explore Solution",
+        "One place for employee records, workflows, reporting, and day-to-day operations instead of scattered tools.",
+      capabilities: ["Employee management", "Workflows", "Reporting"],
+      technology: "Web · API · Database",
+      cta: "Explore custom software",
       to: "/solutions/custom-software",
     },
     {
-      category: "Digital Transformation",
-      title: "Intelligent Business Management Platform",
+      category: "Digital Platforms",
+      title: "Business Management Platform",
       description:
-        "A modern business platform concept that connects operational workflows, structured data, reporting, and automation to help organizations move from fragmented processes toward a more connected digital environment.",
-      capabilities: [
-        "Business Workflows",
-        "Data Management",
-        "Dashboard & Reporting",
-        "Automation",
-        "System Integration",
-      ],
-      technology: "Web · APIs · Cloud · Data",
-      cta: "Explore Solution",
+        "Connect workflows, data, and reporting so operations run from a clearer digital foundation.",
+      capabilities: ["Workflows", "Dashboards", "Integrations"],
+      technology: "Web · APIs · Cloud",
+      cta: "Explore consulting",
       to: "/solutions/technology-consulting",
     },
   ],
-  primaryCta: { label: "View All Work", to: "/work" },
-  secondaryCta: { label: "View Project Write-Ups", to: "/work/case-studies" },
+  primaryCta: CTA.viewPortfolio,
+  secondaryCta: CTA.exploreSolutions,
 };
 
 export const INDUSTRIES = {
-  label: "Industries We Serve",
-  heading: "Technology for Industries That Move the World Forward.",
+  label: "Industries",
+  heading: "Sectors where we know the pitfalls.",
   supporting:
-    "We apply our engineering capabilities across industries where digital transformation can create meaningful operational and customer value.",
+    "Domain depth shortens discovery. We work best with industries that run on process, compliance, and data.",
   cards: [
-    {
-      title: "Government & Public Sector",
-      text: "Digital platforms, automation, data systems, and enterprise applications for modern public services.",
-      to: "/industries/government",
-    },
-    {
-      title: "Education",
-      text: "Intelligent platforms that improve learning, administration, assessment, accreditation, and institutional operations.",
-      to: "/industries/education",
-    },
-    {
-      title: "Healthcare",
-      text: "Digital systems designed to improve operational efficiency, information management, and patient experiences.",
-      to: "/industries/healthcare",
-    },
-    {
-      title: "Agriculture",
-      text: "Data-driven and AI-powered solutions for smarter agricultural operations and decision-making.",
-      to: "/industries/agriculture",
-    },
-    {
-      title: "Finance",
-      text: "Secure digital platforms, automation, analytics, and intelligent financial workflows.",
-      to: "/industries/finance",
-    },
-    {
-      title: "Logistics",
-      text: "Connected systems that improve visibility, workflow efficiency, fleet operations, and supply chain management.",
-      to: "/industries/logistics",
-    },
-    {
-      title: "Retail & Commerce",
-      text: "Digital commerce platforms, customer experiences, automation, and intelligent business systems.",
-      to: "/industries/retail",
-    },
+    { title: "Government & public sector", short: "Government" },
+    { title: "Education", short: "Education" },
+    { title: "Healthcare", short: "Healthcare" },
+    { title: "Agriculture", short: "Agriculture" },
+    { title: "Finance", short: "Finance" },
+    { title: "Logistics", short: "Logistics" },
+    { title: "Retail & commerce", short: "Retail" },
   ],
 };
 
 export const PROCESS = {
   label: "How We Work",
-  heading: "A delivery journey you can watch as it progresses.",
-  supporting:
-    "A structured approach helps us reduce uncertainty, maintain quality, and keep every project aligned with its business objectives.",
+  heading: "Four clear steps from first talk to launch.",
+  supporting: "You'll always know where we are, what's next, and what you need to decide.",
   steps: [
     {
       num: "01",
       title: "Discover",
-      text: "Understand the business, users, objectives, challenges, and technical environment.",
+      text: "We map the problem, users, and systems you already have.",
     },
     {
       num: "02",
-      title: "Define",
-      text: "Translate requirements into a clear product strategy, architecture, roadmap, and delivery plan.",
+      title: "Plan",
+      text: "We agree scope, approach, and a clear path to a first useful release.",
     },
     {
       num: "03",
-      title: "Design",
-      text: "Create intuitive experiences and scalable technical foundations before development begins.",
+      title: "Build",
+      text: "We design, develop, and test in short cycles you can see and review.",
     },
     {
       num: "04",
-      title: "Engineer",
-      text: "Build, integrate, test, and continuously improve the solution using modern engineering practices.",
-    },
-    {
-      num: "05",
-      title: "Launch",
-      text: "Deploy the solution, monitor performance, and ensure a smooth transition into production.",
-    },
-    {
-      num: "06",
-      title: "Evolve",
-      text: "Continue improving the product through optimization, new capabilities, automation, and support.",
+      title: "Launch & improve",
+      text: "We go live carefully, then keep improving as your needs change.",
     },
   ],
 };
 
+/** Kept for Insights page / residual use; not shown on the slim homepage. */
 export const TECHNOLOGY = {
   label: "Technology",
-  heading: "Built With Modern Engineering.",
-  supporting:
-    "We select technologies based on the problem, architecture, scalability requirements, and long-term needs of each project—not simply because they are popular.",
+  heading: "Modern tools chosen for the job.",
+  supporting: "We pick technology for fit, not for fashion.",
   categories: [
     {
       title: "Artificial Intelligence",
@@ -371,19 +339,17 @@ export const TECHNOLOGY = {
   ],
 };
 
+/** Kept for /insights; not shown on the slim homepage. */
 export const INSIGHTS = {
   label: "Insights",
-  heading: "Ideas, Engineering & Intelligent Technology.",
-  supporting:
-    "Practical perspectives on artificial intelligence, software engineering, digital transformation, and the technologies shaping modern businesses.",
-  // Article concepts shown as upcoming (Option A) until the full articles are written,
-  // so no card links to an empty article page yet.
+  heading: "Practical ideas on software and AI.",
+  supporting: "Short perspectives for people deciding what to build next.",
   articles: [
     {
       category: "Artificial Intelligence",
       title: "How Businesses Can Identify Practical AI Automation Opportunities",
       description:
-        "AI adoption does not start with choosing a model or technology. It starts by identifying repetitive, data-intensive, and decision-heavy processes where intelligent automation can create meaningful business value.",
+        "Useful AI usually starts with repetitive, data-heavy work, not with picking a model first.",
       readTime: "6 min read",
       comingSoon: true,
     },
@@ -391,7 +357,7 @@ export const INSIGHTS = {
       category: "Software Engineering",
       title: "When Should a Business Modernize a Legacy Application?",
       description:
-        "Legacy systems can remain valuable for years, but technical limitations eventually begin affecting scalability, security, maintenance, and business growth. Learn how to evaluate whether modernization is the right path.",
+        "How to tell when an old system is costing more than it saves, and what to do next.",
       readTime: "7 min read",
       comingSoon: true,
     },
@@ -399,7 +365,7 @@ export const INSIGHTS = {
       category: "Digital Transformation",
       title: "From Manual Workflows to Intelligent Business Systems",
       description:
-        "Digital transformation is more than replacing paper with software. It is about redesigning workflows, connecting systems, using data effectively, and creating technology that improves how an organization operates.",
+        "Digital change usually means better workflows and connected systems, not just new screens.",
       readTime: "6 min read",
       comingSoon: true,
     },
@@ -407,11 +373,10 @@ export const INSIGHTS = {
   cta: { label: "See What's Coming", to: "/insights" },
 };
 
-export const FINAL_CTA = {
-  label: "Let's Build",
-  heading: "Have a Complex Problem Worth Solving?",
+export const FINAL_CTA: FinalCta = {
+  label: "Next Step",
+  heading: "Have a problem worth solving?",
   supporting:
-    "Tell us what you're trying to achieve. We'll help you explore the right technology, architecture, and path forward.",
-  primaryCta: { label: "Book a Consultation", to: "/consultation" },
-  secondaryCta: { label: "Tell Us About Your Project", to: "/contact" },
+    "Tell us what you're trying to fix or build. We'll help you figure out a sensible next step without the sales theatre.",
+  ...FINAL_PAIR_TELL_US,
 };

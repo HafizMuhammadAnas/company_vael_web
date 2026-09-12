@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 48" fill="none">
+  <rect x="8" y="14" width="30" height="20" rx="3" fill="#22C55E"/>
+  <path d="M12 28h6M20 22h10M20 28h14" stroke="#052e16" stroke-width="2" stroke-linecap="round"/>
+  <text x="48" y="30" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="700" fill="#4ADE80" letter-spacing="0.3">GREENFIELD</text>
+</svg>

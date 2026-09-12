@@ -1,0 +1,128 @@
+.band {
+  background: #07090c;
+  border-block: 1px solid color-mix(in srgb, #fff 8%, transparent);
+  overflow: hidden;
+  padding-block: 1.25rem;
+}
+
+.marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+}
+
+.track {
+  display: flex;
+  align-items: center;
+  gap: 3.25rem;
+  width: max-content;
+  padding-inline: 1.5rem;
+  animation: logoMarquee 40s linear infinite;
+}
+
+/* Pause the whole strip while hovering any logo */
+.marquee:hover .track {
+  animation-play-state: paused;
+}
+
+.item {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 6.5rem;
+  height: 2.75rem;
+  cursor: default;
+}
+
+.logoImg {
+  display: block;
+  height: 2.15rem;
+  width: auto;
+  max-width: 9.5rem;
+  object-fit: contain;
+  /* Monochrome / white on the dark band */
+  filter: brightness(0) invert(1);
+  opacity: 0.72;
+  transition:
+    filter 0.28s ease,
+    opacity 0.28s ease,
+    transform 0.28s ease;
+}
+
+.item:hover .logoImg,
+.item:focus-within .logoImg {
+  /* Full brand color + slight lift */
+  filter: none;
+  opacity: 1;
+  transform: scale(1.08);
+}
+
+@keyframes logoMarquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 1120px;
+    margin-inline: auto;
+    gap: 1.5rem 2.5rem;
+    padding-inline: 1rem;
+  }
+}
+
+.panel {
+  padding-block: 3rem 0;
+}
+
+.panelInner {
+  width: min(1120px, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.panelIntro {
+  text-align: center;
+  max-width: 36rem;
+  margin: 0 auto 1.75rem;
+}
+
+.badge {
+  display: inline-flex;
+  margin: 0 0 0.85rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--neon-bright);
+}
+
+.panelHeading {
+  margin: 0 0 0.65rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3vw, 1.85rem);
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.panelSupporting {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.bandInPanel {
+  margin-top: 0.5rem;
+}

@@ -1,0 +1,166 @@
+.stage {
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--obsidian-1) 100%, transparent),
+      color-mix(in srgb, var(--obsidian-2) 55%, transparent)
+    );
+}
+
+/* Override Section.inner — almost full width, tighter vertical padding */
+.stage > div {
+  max-width: none;
+  width: 100%;
+  padding-block: 1.5rem 1.65rem;
+  padding-inline: var(--page-gutter);
+}
+
+.intro {
+  text-align: center;
+  max-width: 36rem;
+  margin: 0 auto 1.15rem;
+}
+
+.heading {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.45rem, 3vw, 1.95rem);
+  font-weight: 650;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--text-primary);
+}
+
+.accent {
+  color: var(--neon-bright);
+}
+
+.carousel {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 0.45rem;
+  align-items: center;
+}
+
+.track {
+  list-style: none;
+  margin: 0;
+  padding: 0.1rem 0.1rem 0.35rem;
+  display: flex;
+  gap: 0.85rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+.slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  min-width: 0;
+}
+
+@media (min-width: 720px) {
+  .slide {
+    flex-basis: calc((100% - 0.85rem) / 2);
+  }
+}
+
+@media (min-width: 960px) {
+  .slide {
+    flex-basis: calc((100% - 1.7rem) / 3);
+  }
+}
+
+.navBtn {
+  appearance: none;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--obsidian-2) 90%, transparent);
+  color: var(--text-primary);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition:
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.navBtn:hover,
+.navBtn:focus-visible {
+  outline: none;
+  border-color: color-mix(in srgb, var(--neon) 45%, transparent);
+  color: var(--neon-bright);
+}
+
+.footerRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-top: 0.85rem;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.dot {
+  appearance: none;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 999px;
+  border: 0;
+  padding: 0;
+  background: color-mix(in srgb, var(--text-secondary) 45%, transparent);
+  cursor: pointer;
+}
+
+.dotActive {
+  background: var(--neon-bright);
+  box-shadow: 0 0 10px var(--neon-glow);
+}
+
+.viewAll {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--neon-bright);
+  text-decoration: none;
+}
+
+.viewAll:hover,
+.viewAll:focus-visible {
+  text-decoration: underline;
+  outline: none;
+}
+
+@media (max-width: 720px) {
+  .stage > div {
+    padding-block: 1.25rem 1.4rem;
+  }
+
+  .carousel {
+    grid-template-columns: 1fr;
+  }
+
+  .navBtn {
+    display: none;
+  }
+
+  .slide {
+    flex-basis: 100%;
+  }
+}

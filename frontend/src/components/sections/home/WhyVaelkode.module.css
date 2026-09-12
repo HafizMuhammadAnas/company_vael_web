@@ -1,0 +1,247 @@
+/* Why VAELKODE — visual-first, light on copy */
+
+.stage {
+  position: relative;
+  overflow: hidden;
+}
+
+.stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 50% 45% at 20% 40%, color-mix(in srgb, var(--bronze) 14%, transparent), transparent 58%),
+    radial-gradient(ellipse 40% 35% at 90% 70%, color-mix(in srgb, var(--neon) 8%, transparent), transparent 52%);
+  pointer-events: none;
+}
+
+.wrap {
+  position: relative;
+  z-index: 1;
+}
+
+.head {
+  max-width: 28rem;
+  margin-bottom: 1.75rem;
+}
+
+.title {
+  margin: 0.7rem 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.65rem, 3.2vw, 2.35rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--text-primary);
+}
+
+.title span {
+  display: block;
+  color: color-mix(in srgb, var(--bronze-light) 88%, #fff);
+  font-style: italic;
+  font-weight: 600;
+}
+
+.stageGrid {
+  display: grid;
+  gap: 1.75rem;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .stageGrid {
+    grid-template-columns: minmax(14rem, 0.85fr) minmax(0, 1.25fr);
+    gap: 2.5rem;
+  }
+}
+
+/* Compass dial — the idea, not the essay */
+.dial {
+  position: relative;
+  width: min(100%, 17rem);
+  aspect-ratio: 1;
+  margin: 0 auto;
+}
+
+.dialRing {
+  position: absolute;
+  inset: 12%;
+  border-radius: 50%;
+  border: 1.5px solid color-mix(in srgb, var(--bronze) 48%, transparent);
+  background:
+    radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--bronze) 14%, transparent), transparent 62%),
+    #0a0f18;
+  display: grid;
+  place-items: center;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--bronze) 12%, transparent),
+    0 0 40px -8px color-mix(in srgb, var(--bronze) 35%, transparent);
+}
+
+.dialRing::before {
+  content: "";
+  position: absolute;
+  inset: 14%;
+  border-radius: 50%;
+  border: 1px dashed color-mix(in srgb, var(--bronze) 28%, transparent);
+}
+
+.dialNeedle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 32%;
+  margin: -32% 0 0 -1px;
+  background: linear-gradient(180deg, var(--bronze-light), transparent);
+  transform-origin: bottom center;
+  animation: sweep 5.5s ease-in-out infinite;
+  border-radius: 2px;
+  box-shadow: 0 0 12px color-mix(in srgb, var(--bronze) 55%, transparent);
+  z-index: 2;
+}
+
+.dialCore {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  display: grid;
+  gap: 0.15rem;
+}
+
+.dialCore em {
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  color: var(--bronze);
+}
+
+.dialCore strong {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  color: var(--bronze-light);
+}
+
+.dialOrbit {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.dialOrbit span {
+  --a: 0deg;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3.4rem;
+  margin: -0.7rem 0 0 -1.7rem;
+  transform: rotate(var(--a)) translateY(-7.4rem) rotate(calc(var(--a) * -1));
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--slate);
+}
+
+@media (max-width: 480px) {
+  .dialOrbit span {
+    transform: rotate(var(--a)) translateY(-6.2rem) rotate(calc(var(--a) * -1));
+    font-size: 0.52rem;
+  }
+}
+
+/* Principle chips — title + icon only */
+.principles {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.chip {
+  position: relative;
+  display: grid;
+  justify-items: start;
+  gap: 0.65rem;
+  padding: 1.15rem 1.1rem 1.2rem;
+  border-radius: 1rem;
+  border: 1px solid color-mix(in srgb, var(--bronze) 22%, transparent);
+  background:
+    linear-gradient(160deg, color-mix(in srgb, #161d2c 92%, transparent), color-mix(in srgb, #0c111a 96%, transparent));
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.chip:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--bronze) 48%, transparent);
+  box-shadow: 0 18px 40px -28px color-mix(in srgb, var(--bronze) 45%, transparent);
+}
+
+.chipIcon {
+  display: grid;
+  place-items: center;
+  width: 2.65rem;
+  height: 2.65rem;
+  border-radius: 0.7rem;
+  border: 1px solid color-mix(in srgb, var(--bronze) 35%, transparent);
+  color: var(--bronze-light);
+  background: color-mix(in srgb, var(--bronze) 12%, transparent);
+}
+
+.chipNum {
+  position: absolute;
+  top: 0.9rem;
+  right: 0.95rem;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  color: color-mix(in srgb, var(--bronze) 55%, transparent);
+}
+
+.chip strong {
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+@keyframes sweep {
+  0%,
+  100% {
+    transform: rotate(-42deg);
+  }
+  50% {
+    transform: rotate(48deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dialNeedle {
+    animation: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .principles {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.65rem;
+  }
+
+  .chip {
+    padding: 0.95rem 0.85rem 1rem;
+  }
+
+  .chip strong {
+    font-size: 0.92rem;
+  }
+}
