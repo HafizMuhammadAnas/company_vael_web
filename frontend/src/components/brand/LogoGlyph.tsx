@@ -42,13 +42,13 @@ export function LogoGlyph({ size = 44, className }: LogoGlyphProps) {
         </g>
       </g>
       <g className="inner-gear" style={{ transformOrigin: "50px 50px" }}>
-        <line x1="50" y1="20" x2="50" y2="35" stroke="#00d4ff" strokeWidth="1" opacity="0.6" />
-        <line x1="50" y1="65" x2="50" y2="80" stroke="#00d4ff" strokeWidth="1" opacity="0.6" />
-        <line x1="20" y1="50" x2="35" y2="50" stroke="#00d4ff" strokeWidth="1" opacity="0.6" />
-        <line x1="65" y1="50" x2="80" y2="50" stroke="#00d4ff" strokeWidth="1" opacity="0.6" />
-        <circle cx="50" cy="50" r="18" fill="none" stroke="#00d4ff" strokeWidth="1.5" opacity="0.8" />
-        <circle cx="50" cy="50" r="10" fill="rgba(0,212,255,0.08)" stroke="#00d4ff" strokeWidth="1" />
-        <circle cx="50" cy="50" r="4" fill="#00d4ff" opacity="0.9" />
+        <line x1="50" y1="20" x2="50" y2="35" stroke="#2ef2d0" strokeWidth="1" opacity="0.6" />
+        <line x1="50" y1="65" x2="50" y2="80" stroke="#2ef2d0" strokeWidth="1" opacity="0.6" />
+        <line x1="20" y1="50" x2="35" y2="50" stroke="#2ef2d0" strokeWidth="1" opacity="0.6" />
+        <line x1="65" y1="50" x2="80" y2="50" stroke="#2ef2d0" strokeWidth="1" opacity="0.6" />
+        <circle cx="50" cy="50" r="18" fill="none" stroke="#2ef2d0" strokeWidth="1.5" opacity="0.8" />
+        <circle cx="50" cy="50" r="10" fill="rgba(46,242,208,0.08)" stroke="#2ef2d0" strokeWidth="1" />
+        <circle cx="50" cy="50" r="4" fill="#2ef2d0" opacity="0.9" />
       </g>
       <g fontSize="5" fill="rgba(184,115,51,0.5)" textAnchor="middle" fontFamily="serif">
         <text x="50" y="10">

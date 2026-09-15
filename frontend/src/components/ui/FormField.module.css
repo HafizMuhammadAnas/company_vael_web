@@ -73,7 +73,7 @@
   font-family: var(--font-mono);
   font-size: 0.6rem;
   letter-spacing: 0.08em;
-  color: #fb7185;
+  color: var(--danger);
 }
 
 @media (max-width: 900px) {

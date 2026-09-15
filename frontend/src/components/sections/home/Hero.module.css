@@ -46,7 +46,7 @@
   margin-top: 1rem;
   max-width: 14ch;
   font-family: var(--font-display);
-  font-size: clamp(2rem, 4.6vw, 3.2rem);
+  font-size: var(--hero-heading);
   font-weight: 600;
   line-height: 1.08;
   letter-spacing: -0.03em;
@@ -55,7 +55,7 @@
 .description {
   margin-top: 1rem;
   max-width: 32rem;
-  font-size: 0.98rem;
+  font-size: var(--section-lede);
   color: var(--text-secondary);
   line-height: 1.65;
 }

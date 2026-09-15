@@ -25,7 +25,7 @@
 .heading {
   margin: 0.7rem 0 0;
   font-family: var(--font-display);
-  font-size: clamp(1.65rem, 3.2vw, 2.35rem);
+  font-size: var(--section-heading);
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.15;
@@ -99,7 +99,7 @@
   --tone: var(--neon);
 }
 .accentRose {
-  --tone: #fb7185;
+  --tone: var(--danger);
 }
 
 .visual {

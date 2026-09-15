@@ -15,9 +15,9 @@
 .pageTitle {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(1.85rem, 4vw, 2.85rem);
+  font-size: var(--section-heading);
   font-weight: 700;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.03em;
   line-height: 1.1;
   color: var(--text-primary);
 }
@@ -32,12 +32,12 @@
 
 .filter {
   appearance: none;
-  border: 1px solid var(--border);
-  background: color-mix(in srgb, var(--obsidian-2) 88%, transparent);
-  color: var(--text-secondary);
+  border: 1px solid color-mix(in srgb, var(--neon) 35%, transparent);
+  background: color-mix(in srgb, var(--obsidian-2) 55%, transparent);
+  color: color-mix(in srgb, var(--neon-bright) 70%, var(--text-secondary));
   font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.08em;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   padding: 0.55rem 0.9rem;
   border-radius: 999px;

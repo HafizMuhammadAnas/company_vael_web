@@ -4,6 +4,8 @@ import { Outlet, useLocation } from "react-router-dom";
 import { Footer } from "@/components/layout/Footer";
 import { Nav } from "@/components/layout/Nav";
 
+import styles from "./PublicLayout.module.css";
+
 /**
  * Handles scroll behaviour on navigation:
  * - with a `#hash`, scroll the matching section into view (e.g. `/#industries`);
@@ -33,13 +35,13 @@ function ScrollManager() {
 
 export function PublicLayout() {
   return (
-    <>
+    <div className={styles.shell}>
       <ScrollManager />
       <Nav />
-      <main style={{ paddingTop: "var(--nav-height)" }}>
+      <main className={styles.main}>
         <Outlet />
       </main>
       <Footer />
-    </>
+    </div>
   );
 }

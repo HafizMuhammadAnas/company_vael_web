@@ -39,11 +39,25 @@
   --space-lg: 3rem;
   --space-xl: 4rem;
 
-  /* Page shell — full usable width with light, consistent gutters */
+  /* Page shell — single source for side gutters (mobile → desktop).
+     ~20px phone, scales with viewport, caps ~48px. Use for Nav, Footer,
+     Section.inner, PageHero, and any full-bleed page edge — not card/UI padding. */
   --page-gutter: clamp(1.25rem, 3.5vw, 3rem);
   --section-pad-y: clamp(1.5rem, 3vw, 2.1rem);
   --section-heading: clamp(1.55rem, 3vw, 2.25rem);
   --section-lede: 0.95rem;
+  --hero-heading: clamp(1.95rem, 4.4vw, 3.1rem);
+  --cta-heading: clamp(1.85rem, 4.2vw, 3rem);
+  --card-title: clamp(1rem, 1.5vw, 1.05rem);
+  --card-body: 0.88rem;
+  --danger: #fb7185;
+  --danger-soft: #fecdd3;
+
+  /* Footer shell — single source for public footer rhythm (all pages via PublicLayout) */
+  --footer-pad-top: clamp(2.25rem, 4vw, 2.75rem);
+  --footer-pad-bottom: clamp(1.5rem, 3vw, 2rem);
+  --footer-gap: clamp(1.75rem, 3vw, 2.5rem);
+  --footer-bottom-gap: clamp(1.35rem, 2.5vw, 1.75rem);
 
   /* Optional reading / legacy boxed width (legal, contained sections) */
   --content-max: 1200px;

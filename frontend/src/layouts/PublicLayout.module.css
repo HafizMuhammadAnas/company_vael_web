@@ -1,0 +1,25 @@
+/* Sticky footer: keeps the footer at the viewport bottom on short pages
+   (legal, 404, thank-you) so no orphan gap appears under it. */
+.shell {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1 0 auto;
+  width: 100%;
+  padding-top: var(--nav-height);
+  display: flex;
+  flex-direction: column;
+}
+
+.main > :global(*) {
+  /* Let short pages (system / legal) stretch into the flex main */
+  width: 100%;
+}
+
+.shell :global(footer) {
+  flex-shrink: 0;
+}

@@ -16,7 +16,7 @@
 
 .cardActive {
   border-color: var(--neon);
-  box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
+  box-shadow: 0 0 20px color-mix(in srgb, var(--neon) 10%, transparent);
 }
 
 .cardHead,
@@ -91,13 +91,13 @@
 }
 
 .breakdownItem:hover {
-  border-color: rgba(0, 212, 255, 0.25);
-  background: rgba(0, 212, 255, 0.05);
+  border-color: color-mix(in srgb, var(--neon) 25%, transparent);
+  background: color-mix(in srgb, var(--neon) 5%, transparent);
 }
 
 .breakdownActive {
   border-color: var(--neon-dim);
-  background: rgba(0, 212, 255, 0.08);
+  background: color-mix(in srgb, var(--neon) 8%, transparent);
 }
 
 .breakdownStatic {
