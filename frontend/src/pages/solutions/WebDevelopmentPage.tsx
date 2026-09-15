@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 
 import { PageHero } from "@/components/sections/PageHero";
-import { DomainShell } from "@/components/sections/elevated/Elevate";
+import { DomainShell } from "@/components/sections/domain/DomainShell";
 import { WebHeroVisual } from "@/components/sections/solutions/hero";
 import { ServiceCardsSection } from "@/components/sections/solutions/ServiceJourney";
 import {
@@ -19,7 +19,6 @@ import {
   WebProcessSection,
   WebProjectsSection,
   WebQualitySection,
-  WebTestimonialsSection,
 } from "@/components/sections/solutions/web/WebDevelopmentVisuals";
 import { WEB_HERO, WEB_SEO, WEB_SUB_SERVICES } from "@/content/webDevelopment";
 import { useDocumentMeta } from "@/hooks/useDocumentMeta";
@@ -39,7 +38,7 @@ const SERVICE_ICONS = [
 /**
  * Visitor journey:
  * Hero → client logos → web services → projects → process →
- * quality checks → testimonials → FAQ + CTA row.
+ * quality checks → FAQ + CTA row.
  */
 export function WebDevelopmentPage() {
   useDocumentMeta(WEB_SEO.title, WEB_SEO.description);
@@ -67,7 +66,6 @@ export function WebDevelopmentPage() {
       <WebProjectsSection />
       <WebProcessSection />
       <WebQualitySection />
-      <WebTestimonialsSection />
       <WebFaqCtaSection />
     </DomainShell>
   );

@@ -1,16 +1,13 @@
-import { FinalCtaSection } from "@/components/sections/FinalCtaSection";
-import { FINAL_CTA } from "@/content/home";
+import { ServiceFaqCtaSection } from "@/components/sections/solutions/ServiceJourney";
+import { FINAL_CTA, HOME_FAQ } from "@/content/home";
 
-/** Homepage closing CTA — shared animated panel + home copy. */
+/** Homepage closing band — FAQ left, CTA card right (same row as solution pages). */
 export function FinalCta() {
   return (
-    <FinalCtaSection
+    <ServiceFaqCtaSection
       id="contact-cta"
-      label={FINAL_CTA.label}
-      heading={FINAL_CTA.heading}
-      supporting={FINAL_CTA.supporting}
-      primaryCta={FINAL_CTA.primaryCta}
-      secondaryCta={FINAL_CTA.secondaryCta}
+      faq={HOME_FAQ}
+      finalCta={FINAL_CTA}
       showPrimaryArrow
     />
   );

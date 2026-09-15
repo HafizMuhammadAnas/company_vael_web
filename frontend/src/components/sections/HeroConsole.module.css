@@ -1,0 +1,152 @@
+/* Shared hero console — matches homepage delivery card */
+
+.console {
+  position: relative;
+  width: 100%;
+  border-radius: 1.15rem;
+  border: 1px solid color-mix(in srgb, var(--domain-accent, var(--neon)) 22%, transparent);
+  background:
+    radial-gradient(
+      ellipse 60% 50% at 10% 0%,
+      color-mix(in srgb, var(--domain-accent, var(--neon)) 12%, transparent),
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 50% 45% at 100% 100%,
+      color-mix(in srgb, var(--domain-accent-2, var(--violet)) 14%, transparent),
+      transparent 50%
+    ),
+    linear-gradient(
+      165deg,
+      color-mix(in srgb, var(--obsidian-2) 94%, transparent),
+      color-mix(in srgb, var(--obsidian-1) 97%, transparent)
+    );
+  overflow: hidden;
+  box-shadow: 0 24px 50px -30px rgba(0, 0, 0, 0.75);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.65rem 0.95rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--viz-muted) 12%, transparent);
+}
+
+.dotR,
+.dotY,
+.dotG {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dotR {
+  background: color-mix(in srgb, var(--danger) 75%, transparent);
+}
+.dotY {
+  background: color-mix(in srgb, var(--amber) 75%, transparent);
+}
+.dotG {
+  background: color-mix(in srgb, var(--neon) 70%, transparent);
+}
+
+.bar em {
+  margin-left: 0.45rem;
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+
+.body {
+  padding: 1.15rem 1.05rem 1.05rem;
+  min-height: 11.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lane {
+  list-style: none;
+  margin: 0;
+  padding: 0.65rem 0.95rem 0.95rem;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.35rem;
+  border-top: 1px solid color-mix(in srgb, var(--viz-muted) 10%, transparent);
+}
+
+.lane li {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.4rem 0.35rem;
+  border-radius: 0.45rem;
+  border: 1px solid transparent;
+  text-align: center;
+}
+
+.lane b {
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.12em;
+  color: var(--slate);
+  font-weight: 500;
+}
+
+.lane span {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+}
+
+.laneOn {
+  border-color: color-mix(in srgb, var(--domain-accent, var(--neon)) 35%, transparent) !important;
+  background: color-mix(in srgb, var(--domain-accent, var(--neon)) 10%, transparent);
+}
+
+.laneOn b,
+.laneOn span {
+  color: var(--domain-accent, var(--neon-bright));
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .console {
+    opacity: 0;
+    animation: consoleIn 0.9s ease forwards;
+    animation-delay: 0.3s;
+  }
+}
+
+@keyframes consoleIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .console {
+    opacity: 1;
+    animation: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .body {
+    padding: 1rem 0.85rem 0.85rem;
+    min-height: 10rem;
+  }
+
+  .lane {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

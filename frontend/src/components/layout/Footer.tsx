@@ -73,8 +73,7 @@ export function Footer() {
           © {year} <span>{FOOTER_LEGAL.companyName}</span>. All rights reserved.
         </div>
         <div className={styles.legal}>
-          {FOOTER_LEGAL.companyName} · Company No. {FOOTER_LEGAL.companyNumber} · Registered office:{" "}
-          {FOOTER_LEGAL.registeredOffice}
+          {FOOTER_LEGAL.companyName} · {FOOTER_LEGAL.registeredOffice}
         </div>
       </div>
     </footer>

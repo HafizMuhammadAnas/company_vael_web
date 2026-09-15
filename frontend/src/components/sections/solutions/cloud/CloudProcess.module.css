@@ -22,14 +22,11 @@
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.12;
-  color: var(--text-primary);
+  color: var(--heading-color);
 }
 
 .accent {
-  background: linear-gradient(105deg, #38bdf8 0%, #67e8f9 45%, #34d399 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--heading-accent);
 }
 
 .lede {
@@ -51,19 +48,19 @@
   font-size: 0.68rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #ecfeff;
-  background: #164e63;
-  border: 1px solid color-mix(in srgb, #22d3ee 45%, transparent);
+  color: var(--viz-paper-mint);
+  background: color-mix(in srgb, var(--sky) 30%, var(--viz-ink));
+  border: 1px solid color-mix(in srgb, var(--sky-deep) 45%, transparent);
 }
 
 .console {
   margin-top: 0.65rem;
   border-radius: 1rem;
-  border: 1px solid color-mix(in srgb, #0e7490 40%, transparent);
+  border: 1px solid color-mix(in srgb, var(--sky-deep) 40%, transparent);
   background:
-    radial-gradient(ellipse 50% 40% at 10% 0%, color-mix(in srgb, #06b6d4 14%, transparent), transparent 55%),
-    radial-gradient(ellipse 45% 35% at 90% 100%, color-mix(in srgb, #10b981 10%, transparent), transparent 50%),
-    #071018;
+    radial-gradient(ellipse 50% 40% at 10% 0%, color-mix(in srgb, var(--sky-deep) 14%, transparent), transparent 55%),
+    radial-gradient(ellipse 45% 35% at 90% 100%, color-mix(in srgb, var(--emerald) 10%, transparent), transparent 50%),
+    var(--obsidian-1);
   overflow: hidden;
 }
 
@@ -73,8 +70,8 @@
   align-items: center;
   gap: 0.55rem 1rem;
   padding: 0.7rem 0.95rem;
-  border-bottom: 1px solid color-mix(in srgb, #22d3ee 18%, transparent);
-  background: color-mix(in srgb, #020617 55%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--sky-deep) 18%, transparent);
+  background: color-mix(in srgb, var(--obsidian-1) 55%, transparent);
 }
 
 .chromeDots {
@@ -86,19 +83,19 @@
   width: 0.55rem;
   height: 0.55rem;
   border-radius: 50%;
-  background: #334155;
+  background: var(--viz-slate);
 }
 
 .chromeDots span:nth-child(1) {
-  background: #f87171;
+  background: var(--danger);
 }
 
 .chromeDots span:nth-child(2) {
-  background: #fbbf24;
+  background: var(--amber);
 }
 
 .chromeDots span:nth-child(3) {
-  background: #34d399;
+  background: var(--emerald);
 }
 
 .chromeTitle {
@@ -108,7 +105,7 @@
   font-family: var(--font-mono);
   font-size: 0.68rem;
   letter-spacing: 0.04em;
-  color: #a5f3fc;
+  color: var(--sky-bright);
 }
 
 .chromeMeta {
@@ -124,7 +121,7 @@
   font-size: 0.58rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #64748b;
+  color: var(--viz-muted-2);
 }
 
 .livePill {
@@ -137,8 +134,8 @@
   font-size: 0.55rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #022c22;
-  background: #6ee7b7;
+  color: color-mix(in srgb, var(--emerald) 18%, var(--viz-ink));
+  background: var(--emerald);
 }
 
 .jobs {
@@ -159,17 +156,17 @@
 }
 
 .job {
-  --tone: #22d3ee;
+  --tone: var(--sky-deep);
   --job-i: 0;
   position: relative;
   display: grid;
   min-width: 0;
 }
 
-.toneSky { --tone: #38bdf8; }
-.toneViolet { --tone: #a78bfa; }
-.toneAmber { --tone: #fbbf24; }
-.toneTeal { --tone: #2dd4bf; }
+.toneSky { --tone: var(--sky-deep); }
+.toneViolet { --tone: var(--violet); }
+.toneAmber { --tone: var(--amber); }
+.toneTeal { --tone: var(--mint); }
 
 @media (min-width: 960px) {
   .job {
@@ -186,8 +183,8 @@
   min-height: 15rem;
   padding: 1rem 0.95rem 0.9rem;
   border-radius: 0.75rem;
-  background: #f4f7fb;
-  border: 1px solid color-mix(in srgb, #0f172a 8%, transparent);
+  background: var(--viz-paper-2);
+  border: 1px solid color-mix(in srgb, var(--viz-ink-2) 8%, transparent);
   border-top: 3px solid var(--tone);
   box-shadow: 0 16px 32px -26px rgba(0, 0, 0, 0.55);
   animation: jobIn 0.5s ease both;
@@ -217,7 +214,7 @@
   border-radius: 0.45rem;
   display: grid;
   place-items: center;
-  color: #fff;
+  color: var(--white);
   background: var(--tone);
   flex-shrink: 0;
 }
@@ -227,7 +224,7 @@
   font-size: 0.58rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #64748b;
+  color: var(--viz-muted-2);
 }
 
 .status {
@@ -242,23 +239,23 @@
 }
 
 .statusMapped {
-  color: #075985;
-  background: #e0f2fe;
+  color: var(--sky-deep);
+  background: var(--viz-paper-sky);
 }
 
 .statusQueued {
-  color: #5b21b6;
-  background: #ede9fe;
+  color: var(--violet);
+  background: var(--viz-paper-violet);
 }
 
 .statusRunning {
-  color: #92400e;
-  background: #fef3c7;
+  color: var(--bronze);
+  background: var(--viz-paper-warm);
 }
 
 .statusHealthy {
-  color: #065f46;
-  background: #d1fae5;
+  color: var(--neon-dim);
+  background: color-mix(in srgb, var(--emerald) 28%, var(--white));
 }
 
 .card h3 {
@@ -267,14 +264,14 @@
   font-size: 1.12rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: #0f172a;
+  color: var(--viz-ink-2);
 }
 
 .card p {
   margin: 0;
   font-size: 0.86rem;
   line-height: 1.5;
-  color: #475569;
+  color: var(--viz-muted-3);
 }
 
 .consoleBlock {
@@ -282,15 +279,15 @@
   gap: 0.22rem;
   padding: 0.45rem 0.55rem;
   border-radius: 0.4rem;
-  background: #0f172a;
-  border: 1px solid color-mix(in srgb, #22d3ee 25%, transparent);
+  background: var(--viz-ink-2);
+  border: 1px solid color-mix(in srgb, var(--sky-deep) 25%, transparent);
 }
 
 .consoleBlock code {
   font-family: var(--font-mono);
   font-size: 0.62rem;
   letter-spacing: 0.02em;
-  color: #67e8f9;
+  color: var(--sky-bright);
 }
 
 .pipeSteps {
@@ -311,19 +308,19 @@
 }
 
 .pipeDone {
-  color: #065f46;
-  background: #d1fae5;
+  color: var(--neon-dim);
+  background: color-mix(in srgb, var(--emerald) 28%, var(--white));
 }
 
 .pipeNow {
-  color: #92400e;
-  background: #fef3c7;
-  box-shadow: 0 0 0 1px color-mix(in srgb, #f59e0b 45%, transparent);
+  color: var(--bronze);
+  background: var(--viz-paper-warm);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--amber) 45%, transparent);
 }
 
 .pipeWait {
-  color: #64748b;
-  background: #e2e8f0;
+  color: var(--viz-muted-2);
+  background: color-mix(in srgb, var(--viz-muted) 35%, var(--viz-paper));
 }
 
 .monitorRow {
@@ -332,22 +329,22 @@
   gap: 0.45rem;
   padding: 0.4rem 0.5rem;
   border-radius: 0.4rem;
-  background: color-mix(in srgb, #2dd4bf 10%, #fff);
-  border: 1px solid color-mix(in srgb, #2dd4bf 35%, transparent);
+  background: color-mix(in srgb, var(--mint) 10%, var(--white));
+  border: 1px solid color-mix(in srgb, var(--mint) 35%, transparent);
 }
 
 .heart {
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 50%;
-  background: #14b8a6;
-  box-shadow: 0 0 0 0 color-mix(in srgb, #14b8a6 50%, transparent);
+  background: var(--neon-dim);
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--neon-dim) 50%, transparent);
   animation: heartBeat 1.6s ease-out infinite;
 }
 
 @keyframes heartBeat {
   0% {
-    box-shadow: 0 0 0 0 color-mix(in srgb, #14b8a6 50%, transparent);
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--neon-dim) 50%, transparent);
   }
   70% {
     box-shadow: 0 0 0 7px transparent;
@@ -362,7 +359,7 @@
   font-family: var(--font-mono);
   font-size: 0.55rem;
   letter-spacing: 0.04em;
-  color: #0f766e;
+  color: var(--neon-dim);
 }
 
 .milestone {
@@ -377,8 +374,8 @@
   font-size: 0.55rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #0f172a;
-  background: color-mix(in srgb, var(--tone) 16%, #fff);
+  color: var(--viz-ink-2);
+  background: color-mix(in srgb, var(--tone) 16%, var(--white));
   border: 1px solid color-mix(in srgb, var(--tone) 35%, transparent);
 }
 
@@ -397,7 +394,7 @@
   .flowArrow span {
     width: 100%;
     height: 0;
-    border-top: 2px solid color-mix(in srgb, #22d3ee 55%, transparent);
+    border-top: 2px solid color-mix(in srgb, var(--sky-deep) 55%, transparent);
     position: relative;
   }
 
@@ -407,7 +404,7 @@
     right: -1px;
     top: -4px;
     border: 4px solid transparent;
-    border-left-color: color-mix(in srgb, #22d3ee 70%, transparent);
+    border-left-color: color-mix(in srgb, var(--sky-deep) 70%, transparent);
   }
 }
 
@@ -416,16 +413,16 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.65rem 1rem 0.85rem;
-  border-top: 1px solid color-mix(in srgb, #22d3ee 14%, transparent);
+  border-top: 1px solid color-mix(in srgb, var(--sky-deep) 14%, transparent);
   font-family: var(--font-mono);
   font-size: 0.62rem;
   letter-spacing: 0.04em;
-  color: #64748b;
-  background: color-mix(in srgb, #020617 40%, transparent);
+  color: var(--viz-muted-2);
+  background: color-mix(in srgb, var(--obsidian-1) 40%, transparent);
 }
 
 .prompt {
-  color: #2dd4bf;
+  color: var(--mint);
   font-weight: 700;
 }
 
@@ -450,7 +447,7 @@
     width: 0;
     height: 1rem;
     border-top: none;
-    border-left: 2px solid color-mix(in srgb, #22d3ee 55%, transparent);
+    border-left: 2px solid color-mix(in srgb, var(--sky-deep) 55%, transparent);
   }
 
   .flowArrow span::after {
@@ -459,7 +456,7 @@
     top: auto;
     bottom: -1px;
     border-left-color: transparent;
-    border-top-color: color-mix(in srgb, #22d3ee 70%, transparent);
+    border-top-color: color-mix(in srgb, var(--sky-deep) 70%, transparent);
   }
 }
 

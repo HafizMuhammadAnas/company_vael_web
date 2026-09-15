@@ -3,10 +3,10 @@ import {
   ArrowUpRight,
   BarChart3,
   BookOpen,
+  Building2,
   ChevronLeft,
   ChevronRight,
   Heart,
-  Landmark,
   ShoppingBag,
   Sprout,
   Truck,
@@ -18,7 +18,7 @@ import { INDUSTRIES } from "@/content/home";
 import styles from "./Industries.module.css";
 
 const SECTOR_META = [
-  { Icon: Landmark, accent: styles.accentNeon },
+  { Icon: Building2, accent: styles.accentNeon },
   { Icon: BookOpen, accent: styles.accentViolet },
   { Icon: Heart, accent: styles.accentPink },
   { Icon: Sprout, accent: styles.accentNeon },

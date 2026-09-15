@@ -86,9 +86,9 @@
 
 /* Cloud — atmospheric cool layers */
 .domain_cloud {
-  --domain-accent: #7dd3fc;
+  --domain-accent: var(--sky-deep);
   --domain-wash:
-    radial-gradient(ellipse 90% 50% at 20% 0%, color-mix(in srgb, #38bdf8 12%, transparent), transparent 50%),
+    radial-gradient(ellipse 90% 50% at 20% 0%, color-mix(in srgb, var(--sky-deep) 12%, transparent), transparent 50%),
     radial-gradient(ellipse 70% 40% at 90% 10%, color-mix(in srgb, var(--neon) 8%, transparent), transparent 45%);
 }
 

@@ -78,9 +78,8 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
   },
 ];
 
-/** Official registration details, sourced from the central company config. */
+/** Public company details for the footer, sourced from the central company config. */
 export const FOOTER_LEGAL = {
   companyName: COMPANY.legal.registeredName,
-  companyNumber: COMPANY.legal.companyNumber,
   registeredOffice: COMPANY.legal.registeredOffice,
 };

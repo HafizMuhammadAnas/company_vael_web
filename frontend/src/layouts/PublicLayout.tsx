@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 
+import { AiAssistant } from "@/components/assistant/AiAssistant";
 import { Footer } from "@/components/layout/Footer";
 import { Nav } from "@/components/layout/Nav";
 
@@ -42,6 +43,7 @@ export function PublicLayout() {
         <Outlet />
       </main>
       <Footer />
+      <AiAssistant />
     </div>
   );
 }

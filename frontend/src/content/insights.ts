@@ -192,16 +192,6 @@ export const INS_BLOG = {
       status: "coming-soon" as const,
     },
   ] satisfies BlogPreview[],
-  /** Legacy list kept for any residual references. Prefer `previews`. */
-  inPreparationLabel: "Topics in preparation",
-  inPreparation: [
-    { category: "AI & Intelligent Automation", title: "How AI Can Transform Document-Heavy Business Processes" },
-    { category: "Agentic AI", title: "Understanding Agentic AI and Its Role in Enterprise Workflows" },
-    { category: "Software Engineering", title: "When Should a Business Build Custom Software?" },
-    { category: "Technology Strategy", title: "Build vs Buy: Choosing the Right Technology for Your Business" },
-    { category: "Cloud & DevOps", title: "Why Deployment Architecture Matters for Modern Applications" },
-    { category: "AI Integration", title: "How to Introduce AI Into an Existing Software System" },
-  ],
 };
 
 export const INS_RESOURCES = {

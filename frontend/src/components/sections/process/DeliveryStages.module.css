@@ -1,0 +1,379 @@
+/* Delivery Stages — animated roadmap */
+
+.stage {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 48% 36% at 12% 20%, color-mix(in srgb, var(--domain-accent) 10%, transparent), transparent 55%),
+    radial-gradient(ellipse 40% 32% at 90% 78%, color-mix(in srgb, var(--domain-accent-2) 8%, transparent), transparent 50%),
+    var(--obsidian-2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.wrap {
+  position: relative;
+  z-index: 1;
+}
+
+.head {
+  max-width: 34rem;
+  margin-bottom: 2rem;
+}
+
+.title {
+  margin: 0.7rem 0 0;
+  font-family: var(--font-display);
+  font-size: var(--section-heading);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--heading-color);
+}
+
+.lede {
+  margin: 0.85rem 0 0;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  max-width: 32rem;
+}
+
+.roadmap {
+  position: relative;
+}
+
+/* Desktop: horizontal path behind the nodes */
+.path {
+  display: none;
+}
+
+@media (min-width: 1100px) {
+  .path {
+    display: block;
+    position: absolute;
+    top: 1.9rem;
+    left: 4%;
+    right: 4%;
+    height: 3px;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .pathTrack {
+    position: absolute;
+    inset: 0;
+    border-radius: 3px;
+    background: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--sky-deep) 50%, transparent),
+      color-mix(in srgb, var(--violet) 50%, transparent),
+      color-mix(in srgb, var(--amber) 50%, transparent),
+      color-mix(in srgb, var(--neon) 55%, transparent)
+    );
+    opacity: 0.7;
+  }
+
+  .pathGlow {
+    position: absolute;
+    inset: -6px 0;
+    border-radius: 8px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in srgb, var(--neon) 22%, transparent),
+      transparent
+    );
+    animation: pathPulse 5.5s ease-in-out infinite;
+  }
+
+  .traveler {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 12%;
+    height: 5px;
+    margin-top: -2.5px;
+    border-radius: 5px;
+    background: linear-gradient(90deg, transparent, var(--white), transparent);
+    box-shadow: 0 0 18px color-mix(in srgb, var(--neon) 75%, transparent);
+    animation: travel 6.5s ease-in-out infinite;
+  }
+}
+
+.stops {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1.15rem;
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 720px) and (max-width: 1099px) {
+  .stops {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem 1rem;
+  }
+}
+
+@media (min-width: 1100px) {
+  .stops {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 0.65rem;
+    align-items: start;
+  }
+}
+
+.stop {
+  --tone: var(--neon);
+  position: relative;
+  display: grid;
+  gap: 0.75rem;
+  animation: stopIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(var(--stop-i, 0) * 80ms);
+}
+
+@media (max-width: 719px) {
+  .stop {
+    grid-template-columns: 3.1rem minmax(0, 1fr);
+    align-items: start;
+    gap: 0.85rem;
+  }
+
+  .stop:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    left: 1.45rem;
+    top: 3.15rem;
+    bottom: -1.15rem;
+    width: 2px;
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--tone) 50%, transparent),
+      color-mix(in srgb, var(--tone) 8%, transparent)
+    );
+    border-radius: 2px;
+  }
+
+  .stop:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: 1.45rem;
+    top: 3.15rem;
+    width: 2px;
+    height: 28%;
+    border-radius: 2px;
+    background: linear-gradient(180deg, var(--white), transparent);
+    box-shadow: 0 0 10px color-mix(in srgb, var(--tone) 55%, transparent);
+    animation: dropTravel 3.8s ease-in-out infinite;
+    animation-delay: calc(var(--stop-i, 0) * 0.35s);
+  }
+}
+
+.toneSky {
+  --tone: var(--sky-deep);
+}
+.toneViolet {
+  --tone: var(--violet-bright);
+}
+.toneAmber {
+  --tone: var(--amber);
+}
+.toneTeal {
+  --tone: var(--neon);
+}
+.toneRose {
+  --tone: color-mix(in srgb, var(--danger) 70%, var(--amber));
+}
+
+.node {
+  position: relative;
+  width: 3.1rem;
+  height: 3.1rem;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+}
+
+@media (max-width: 719px) {
+  .node {
+    margin: 0;
+  }
+}
+
+.nodeRing {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px dashed color-mix(in srgb, var(--tone) 40%, transparent);
+  animation: spin 16s linear infinite;
+}
+
+.nodeCore {
+  position: relative;
+  z-index: 2;
+  width: 2.45rem;
+  height: 2.45rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--text-primary);
+  border: 1.5px solid color-mix(in srgb, var(--tone) 55%, transparent);
+  background:
+    radial-gradient(circle at 40% 35%, color-mix(in srgb, var(--tone) 30%, transparent), transparent 62%),
+    var(--obsidian-1);
+  box-shadow: 0 0 16px color-mix(in srgb, var(--tone) 22%, transparent);
+}
+
+.nodeNum {
+  position: absolute;
+  bottom: -0.15rem;
+  right: -0.2rem;
+  z-index: 3;
+  min-width: 1.35rem;
+  height: 1.15rem;
+  padding: 0 0.25rem;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.06em;
+  color: var(--obsidian);
+  background: color-mix(in srgb, var(--tone) 88%, white);
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--tone) 35%, transparent);
+}
+
+.card {
+  text-align: center;
+  padding: 0.15rem 0.15rem 0;
+}
+
+@media (max-width: 719px) {
+  .card {
+    text-align: left;
+    padding: 0.2rem 0 0;
+  }
+}
+
+.card h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.card p {
+  margin: 0.4rem 0 0;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+@media (min-width: 1100px) {
+  .card p {
+    font-size: 0.78rem;
+    line-height: 1.45;
+  }
+
+  .stop:hover .card h3 {
+    color: color-mix(in srgb, var(--tone) 55%, var(--text-primary));
+  }
+
+  .stop:hover .nodeCore {
+    transform: scale(1.06);
+    border-color: color-mix(in srgb, var(--tone) 75%, transparent);
+    box-shadow: 0 0 22px color-mix(in srgb, var(--tone) 35%, transparent);
+  }
+
+  .nodeCore {
+    transition:
+      transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 0.35s ease,
+      box-shadow 0.35s ease;
+  }
+}
+
+@keyframes travel {
+  0% {
+    left: -4%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    left: 92%;
+    opacity: 0;
+  }
+}
+
+@keyframes pathPulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scaleX(0.92);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes dropTravel {
+  0% {
+    top: 3.15rem;
+    opacity: 0;
+    height: 12%;
+  }
+  20% {
+    opacity: 0.9;
+  }
+  80% {
+    opacity: 0.55;
+  }
+  100% {
+    top: calc(100% - 0.4rem);
+    opacity: 0;
+    height: 8%;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes stopIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .traveler,
+  .pathGlow,
+  .nodeRing,
+  .stop:not(:last-child)::after,
+  .stop {
+    animation: none;
+  }
+
+  .stop {
+    opacity: 1;
+    transform: none;
+  }
+}

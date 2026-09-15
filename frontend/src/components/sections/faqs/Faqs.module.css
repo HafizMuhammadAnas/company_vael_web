@@ -7,13 +7,14 @@
 
 .filterBtn {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.14em;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--text-secondary);
   background: var(--obsidian-2);
-  border: 1px solid var(--border-neon);
-  padding: 0.55rem 1rem;
+  border: 1px solid color-mix(in srgb, var(--neon) 35%, transparent);
+  border-radius: 999px;
+  padding: 0.45rem 0.95rem;
   cursor: pointer;
   white-space: nowrap;
   transition:
@@ -57,7 +58,8 @@
   }
   .filterBtn {
     flex: 0 0 auto;
-    font-size: 0.62rem;
-    padding: 0.5rem 0.85rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+    padding: 0.4rem 0.85rem;
   }
 }

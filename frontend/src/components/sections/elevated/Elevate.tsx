@@ -364,5 +364,3 @@ export function AudienceAtlas({
 }
 
 export { FeatureTiles, NarrativeBand };
-export { DomainShell } from "@/components/sections/domain/DomainShell";
-export type { PageDomain } from "@/components/sections/domain/DomainShell";

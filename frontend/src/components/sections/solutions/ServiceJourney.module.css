@@ -23,7 +23,7 @@
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.12;
-  color: var(--text-primary);
+  color: var(--heading-color);
 }
 
 .lede {
@@ -53,8 +53,8 @@
 }
 
 .serviceCard {
-  --svc: #5ec8ff;
-  --svc-2: #38bdf8;
+  --svc: var(--sky);
+  --svc-2: var(--sky-deep);
   --svc-soft: color-mix(in srgb, var(--svc) 16%, transparent);
   position: relative;
   isolation: isolate;
@@ -104,36 +104,36 @@
 }
 
 .svcAccentSky {
-  --svc: #38bdf8;
-  --svc-2: #818cf8;
+  --svc: var(--sky-deep);
+  --svc-2: var(--violet);
 }
 .svcAccentViolet {
-  --svc: #a78bfa;
-  --svc-2: #f0abfc;
+  --svc: var(--violet);
+  --svc-2: var(--violet-bright);
 }
 .svcAccentTeal {
-  --svc: #2dd4bf;
-  --svc-2: #34d399;
+  --svc: var(--mint);
+  --svc-2: var(--emerald);
 }
 .svcAccentAmber {
-  --svc: #fbbf24;
-  --svc-2: #fb923c;
+  --svc: var(--amber);
+  --svc-2: var(--bronze-light);
 }
 .svcAccentRose {
-  --svc: #fb7185;
-  --svc-2: #f472b6;
+  --svc: var(--danger);
+  --svc-2: var(--danger);
 }
 .svcAccentBlue {
-  --svc: #60a5fa;
-  --svc-2: #22d3ee;
+  --svc: var(--sky-mid);
+  --svc-2: var(--sky-deep);
 }
 .svcAccentMint {
-  --svc: #4ade80;
-  --svc-2: #2dd4bf;
+  --svc: var(--emerald-bright);
+  --svc-2: var(--mint);
 }
 .svcAccentFuchsia {
-  --svc: #e879f9;
-  --svc-2: #a78bfa;
+  --svc: var(--violet-bright);
+  --svc-2: var(--violet);
 }
 
 .serviceTop {
@@ -257,12 +257,12 @@
   border-color: color-mix(in srgb, var(--svc-2) 32%, transparent);
 }
 .stackToneC {
-  color: color-mix(in srgb, var(--svc) 70%, #fff);
+  color: color-mix(in srgb, var(--svc) 70%, var(--white));
   background: color-mix(in srgb, var(--svc) 10%, transparent);
   border-color: color-mix(in srgb, var(--svc) 26%, transparent);
 }
 .stackToneD {
-  color: color-mix(in srgb, var(--svc-2) 75%, #fff);
+  color: color-mix(in srgb, var(--svc-2) 75%, var(--white));
   background: color-mix(in srgb, var(--svc-2) 10%, transparent);
   border-color: color-mix(in srgb, var(--svc-2) 26%, transparent);
 }
@@ -403,7 +403,7 @@
 }
 
 .processAccent {
-  background: linear-gradient(105deg, #5ec8ff 0%, #a78bfa 45%, #f472b6 100%);
+  background: linear-gradient(105deg, var(--sky) 0%, var(--violet) 45%, var(--danger) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -420,9 +420,9 @@
   font-size: 0.68rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #0f172a;
-  background: #5ec8ff;
-  box-shadow: 0 0 24px -8px color-mix(in srgb, #5ec8ff 55%, transparent);
+  color: var(--viz-ink-2);
+  background: var(--sky);
+  box-shadow: 0 0 24px -8px color-mix(in srgb, var(--sky) 55%, transparent);
 }
 
 .timeline {
@@ -451,9 +451,9 @@
   border-radius: 999px;
   background: linear-gradient(
     180deg,
-    color-mix(in srgb, #38bdf8 55%, transparent),
-    color-mix(in srgb, #a78bfa 50%, transparent),
-    color-mix(in srgb, #f472b6 55%, transparent)
+    color-mix(in srgb, var(--sky-deep) 55%, transparent),
+    color-mix(in srgb, var(--violet) 50%, transparent),
+    color-mix(in srgb, var(--danger) 55%, transparent)
   );
   opacity: 0.55;
   overflow: hidden;
@@ -466,7 +466,7 @@
   background: linear-gradient(
     180deg,
     transparent 0%,
-    color-mix(in srgb, #fff 55%, transparent) 45%,
+    color-mix(in srgb, var(--white) 55%, transparent) 45%,
     transparent 70%
   );
   background-size: 100% 40%;
@@ -481,10 +481,10 @@
   height: 12px;
   margin-left: -6px;
   border-radius: 50%;
-  background: #fff;
+  background: var(--white);
   box-shadow:
-    0 0 0 3px color-mix(in srgb, #5ec8ff 55%, transparent),
-    0 0 18px 4px color-mix(in srgb, #a78bfa 65%, transparent);
+    0 0 0 3px color-mix(in srgb, var(--sky) 55%, transparent),
+    0 0 18px 4px color-mix(in srgb, var(--violet) 65%, transparent);
   animation: pathTravel 7.5s cubic-bezier(0.45, 0, 0.55, 1) infinite;
 }
 
@@ -515,7 +515,7 @@
 }
 
 .timelineItem {
-  --tone: #5ec8ff;
+  --tone: var(--sky);
   --step-i: 0;
   position: relative;
   width: 50%;
@@ -561,7 +561,7 @@
   border-radius: 50%;
   display: grid;
   place-items: center;
-  color: #fff;
+  color: var(--white);
   background: var(--tone);
   border: 3px solid var(--obsidian);
   box-shadow:
@@ -589,8 +589,8 @@
   position: relative;
   padding: 1.15rem 1.2rem 1.1rem;
   border-radius: 1.05rem;
-  background: #f7f8fb;
-  border: 1px solid color-mix(in srgb, #0f172a 8%, transparent);
+  background: var(--viz-paper-2);
+  border: 1px solid color-mix(in srgb, var(--viz-ink-2) 8%, transparent);
   border-top: 3px solid var(--tone);
   box-shadow: 0 18px 36px -28px rgba(0, 0, 0, 0.55);
 }
@@ -616,14 +616,14 @@
   font-size: 1.12rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: #0f172a;
+  color: var(--viz-ink-2);
 }
 
 .timelineCard p {
   margin: 0.45rem 0 0;
   font-size: 0.88rem;
   line-height: 1.55;
-  color: #475569;
+  color: var(--viz-muted-3);
 }
 
 .milestone {
@@ -637,17 +637,17 @@
   font-size: 0.58rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #0f172a;
-  background: color-mix(in srgb, var(--tone) 16%, #fff);
+  color: var(--viz-ink-2);
+  background: color-mix(in srgb, var(--tone) 16%, var(--white));
   border: 1px solid color-mix(in srgb, var(--tone) 35%, transparent);
 }
 
-.toneSky { --tone: #3b82f6; }
-.toneViolet { --tone: #8b5cf6; }
-.toneAmber { --tone: #f59e0b; }
-.toneTeal { --tone: #10b981; }
-.toneGold { --tone: #eab308; }
-.toneRose { --tone: #f43f5e; }
+.toneSky { --tone: var(--sky-mid); }
+.toneViolet { --tone: var(--violet); }
+.toneAmber { --tone: var(--amber); }
+.toneTeal { --tone: var(--emerald); }
+.toneGold { --tone: var(--amber); }
+.toneRose { --tone: var(--danger); }
 
 @media (prefers-reduced-motion: reduce) {
   .timelineTraveler,
@@ -746,15 +746,15 @@
 }
 
 .qaNavBtn:hover {
-  border-color: color-mix(in srgb, #5ec8ff 35%, var(--border));
+  border-color: color-mix(in srgb, var(--sky) 35%, var(--border));
 }
 
 .qaNavBtnActive {
-  border-color: color-mix(in srgb, #5ec8ff 50%, var(--border));
+  border-color: color-mix(in srgb, var(--sky) 50%, var(--border));
   background:
-    linear-gradient(105deg, color-mix(in srgb, #5ec8ff 12%, transparent), transparent 70%),
+    linear-gradient(105deg, color-mix(in srgb, var(--sky) 12%, transparent), transparent 70%),
     color-mix(in srgb, var(--obsidian-2) 92%, transparent);
-  box-shadow: 0 0 24px -16px color-mix(in srgb, #5ec8ff 55%, transparent);
+  box-shadow: 0 0 24px -16px color-mix(in srgb, var(--sky) 55%, transparent);
 }
 
 .qaNavIcon {
@@ -763,16 +763,16 @@
   border-radius: 0.65rem;
   display: grid;
   place-items: center;
-  color: #7dd3fc;
-  background: color-mix(in srgb, #5ec8ff 12%, transparent);
-  border: 1px solid color-mix(in srgb, #5ec8ff 28%, transparent);
+  color: var(--sky-deep);
+  background: color-mix(in srgb, var(--sky) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--sky) 28%, transparent);
 }
 
 .qaNavBtnActive .qaNavIcon {
-  color: #0f172a;
-  background: #5ec8ff;
+  color: var(--viz-ink-2);
+  background: var(--sky);
   border-color: transparent;
-  box-shadow: 0 0 16px -6px color-mix(in srgb, #5ec8ff 60%, transparent);
+  box-shadow: 0 0 16px -6px color-mix(in srgb, var(--sky) 60%, transparent);
 }
 
 .qaNavCopy {
@@ -798,15 +798,15 @@
 }
 
 .qaNavCheck {
-  color: #34d399;
+  color: var(--emerald);
 }
 
 .qaPanel {
   padding: 1.35rem 1.3rem 1.2rem;
   border-radius: 1.2rem;
-  border: 1px solid color-mix(in srgb, #5ec8ff 28%, var(--border));
+  border: 1px solid color-mix(in srgb, var(--sky) 28%, var(--border));
   background:
-    radial-gradient(ellipse 60% 45% at 100% 0%, color-mix(in srgb, #5ec8ff 14%, transparent), transparent 55%),
+    radial-gradient(ellipse 60% 45% at 100% 0%, color-mix(in srgb, var(--sky) 14%, transparent), transparent 55%),
     color-mix(in srgb, var(--obsidian-2) 94%, transparent);
   display: flex;
   flex-direction: column;
@@ -827,9 +827,9 @@
   border-radius: 0.9rem;
   display: grid;
   place-items: center;
-  color: #0f172a;
-  background: linear-gradient(135deg, #5ec8ff, #2ef2d0);
-  box-shadow: 0 0 22px -8px color-mix(in srgb, #5ec8ff 60%, transparent);
+  color: var(--viz-ink-2);
+  background: linear-gradient(135deg, var(--sky), var(--neon));
+  box-shadow: 0 0 22px -8px color-mix(in srgb, var(--sky) 60%, transparent);
 }
 
 .qaPanelEyebrow {
@@ -838,7 +838,7 @@
   font-size: 0.62rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #7dd3fc;
+  color: var(--sky-deep);
 }
 
 .qaPanelHead h3 {
@@ -882,8 +882,8 @@
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.06em;
-  color: #0f172a;
-  background: #5ec8ff;
+  color: var(--viz-ink-2);
+  background: var(--sky);
   width: 2rem;
   height: 2rem;
   border-radius: 0.55rem;
@@ -903,8 +903,8 @@
   margin-top: 1rem;
   padding: 0.85rem 1rem;
   border-radius: 0.85rem;
-  border: 1px solid color-mix(in srgb, #34d399 35%, var(--border));
-  background: color-mix(in srgb, #34d399 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--emerald) 35%, var(--border));
+  background: color-mix(in srgb, var(--emerald) 10%, transparent);
   display: grid;
   gap: 0.25rem;
 }
@@ -914,7 +914,7 @@
   font-size: 0.58rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #6ee7b7;
+  color: var(--emerald);
 }
 
 .qaOutcome strong {
@@ -951,8 +951,8 @@
 }
 
 .qaPagerBtn:hover:not(:disabled) {
-  border-color: color-mix(in srgb, #5ec8ff 40%, var(--border));
-  color: #7dd3fc;
+  border-color: color-mix(in srgb, var(--sky) 40%, var(--border));
+  color: var(--sky-deep);
 }
 
 .qaPagerBtn:disabled {
@@ -1131,7 +1131,7 @@
 }
 
 .railItem {
-  --tone: #5ec8ff;
+  --tone: var(--sky);
   position: relative;
   display: flex;
   flex-direction: column;

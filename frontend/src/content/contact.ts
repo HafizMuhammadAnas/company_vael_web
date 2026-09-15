@@ -36,13 +36,11 @@ export const CONTACT_INFO = {
   ],
 };
 
-/** Public company / registration details (single source: COMPANY config). */
+/** Public company details (single source: COMPANY config). */
 export const CONTACT_COMPANY = {
   label: "Company",
   rows: [
     { label: "Name", value: COMPANY.legal.registeredName },
-    { label: "Number", value: COMPANY.legal.companyNumber },
-    { label: "Registered in", value: COMPANY.legal.registeredIn },
     { label: "Office", value: COMPANY.legal.registeredOffice },
   ],
 };

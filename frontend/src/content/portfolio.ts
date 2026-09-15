@@ -21,20 +21,24 @@ export const PORTFOLIO_HERO = {
 };
 
 /**
- * Floating portfolio hero cards. Prefer counts derived from real project data
- * when possible; edit labels/values here for approved marketing figures.
+ * Floating portfolio hero cards.
+ * Numeric stats with `countTo` animate 0 → target on load.
  */
 export const PORTFOLIO_HERO_STATS = [
   {
     id: "projects",
-    /** When "auto", UI uses PORTFOLIO_PROJECTS.length */
-    value: "auto" as const,
+    value: "10+",
+    countTo: 10,
+    suffix: "+",
     label: "Selected projects",
     accent: "neon" as const,
   },
   {
     id: "industries",
     value: "auto-industries" as const,
+    /** Resolved from PORTFOLIO_PROJECTS at render time. */
+    countTo: "auto-industries" as const,
+    suffix: "",
     label: "Industries covered",
     accent: "violet" as const,
   },
@@ -44,7 +48,7 @@ export const PORTFOLIO_HERO_STATS = [
     label: "Hover-to-scroll previews",
     accent: "pink" as const,
   },
-];
+] as const;
 
 export interface PortfolioProject {
   id: string;
@@ -87,7 +91,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     title: "Cinemark Premiere",
     location: "Karachi, Pakistan",
     image:
-      "https://images.unsplash.com/photo-1489599849927-2ee91cede3dd?auto=format&fit=crop&w=900&h=2800&q=80",
+      "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=900&h=2800&q=80",
     imageAlt: "Cinemark Premiere website homepage preview",
     liveUrl: "https://example.com",
   },

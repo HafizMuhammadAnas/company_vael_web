@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 
 import { HeroAmbient } from "@/components/ambient/HeroAmbient";
+import { HeroConsole } from "@/components/sections/HeroConsole";
 import { Button, Eyebrow } from "@/components/ui";
 import { HERO, HERO_STATS } from "@/content/home";
 
@@ -41,15 +42,16 @@ export function Hero() {
           </div>
 
           <aside className={styles.scene} aria-label="How we deliver">
-            <div className={styles.console}>
-              <header className={styles.consoleBar}>
-                <span className={styles.dotR} />
-                <span className={styles.dotY} />
-                <span className={styles.dotG} />
-                <em>vaelkode · delivery</em>
-              </header>
-
-              <div className={styles.consoleBody}>
+            <HeroConsole
+              title="vaelkode · delivery"
+              lane={[
+                { label: "Discover" },
+                { label: "Plan" },
+                { label: "Build", active: true },
+                { label: "Launch" },
+              ]}
+            >
+              <div className={styles.delivery}>
                 <div className={styles.pole}>
                   <span className={styles.poleLabel}>Problem</span>
                   <div className={styles.poleFace}>
@@ -77,16 +79,7 @@ export function Hero() {
                   </div>
                 </div>
               </div>
-
-              <ul className={styles.lane}>
-                {["Discover", "Plan", "Build", "Launch"].map((step, i) => (
-                  <li key={step} className={i === 2 ? styles.laneOn : undefined}>
-                    <b>{String(i + 1).padStart(2, "0")}</b>
-                    <span>{step}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            </HeroConsole>
 
             <div className={styles.stats}>
               {HERO_STATS.map((stat, index) => (

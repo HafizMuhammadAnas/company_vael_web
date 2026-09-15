@@ -1,13 +1,15 @@
 import { ArrowRight } from "lucide-react";
 
 import { HeroAmbient } from "@/components/ambient/HeroAmbient";
-import { Button, Eyebrow } from "@/components/ui";
+import { HeroConsole } from "@/components/sections/HeroConsole";
+import { Accent, Button, Eyebrow } from "@/components/ui";
 import {
   PORTFOLIO_FLOATING_CTA,
   PORTFOLIO_HERO,
   PORTFOLIO_HERO_STATS,
   PORTFOLIO_PROJECTS,
 } from "@/content/portfolio";
+import { useCountUp } from "@/hooks/useCountUp";
 
 import styles from "./PortfolioHero.module.css";
 
@@ -17,17 +19,33 @@ const ACCENT_CLASS = {
   pink: styles.statPink,
 } as const;
 
-function resolveStatValue(value: string): string {
-  if (value === "auto") {
-    return String(PORTFOLIO_PROJECTS.length);
-  }
-  if (value === "auto-industries") {
-    return String(new Set(PORTFOLIO_PROJECTS.map((p) => p.industry)).size);
-  }
-  return value;
+const INDUSTRY_COUNT = new Set(PORTFOLIO_PROJECTS.map((p) => p.industry)).size;
+
+function resolveCountTo(stat: (typeof PORTFOLIO_HERO_STATS)[number]): number | null {
+  if (!("countTo" in stat) || stat.countTo === undefined) return null;
+  if (stat.countTo === "auto-industries") return INDUSTRY_COUNT;
+  return typeof stat.countTo === "number" ? stat.countTo : null;
 }
 
-/** Portfolio page hero — left narrative, right staggered highlight cards. */
+function AnimatedStatValue({
+  to,
+  suffix = "",
+  delay,
+}: {
+  to: number;
+  suffix?: string;
+  delay: number;
+}) {
+  const n = useCountUp({ to, duration: 1400, delay });
+  return (
+    <>
+      {n}
+      {suffix}
+    </>
+  );
+}
+
+/** Portfolio page hero — left narrative, right console with highlight cards. */
 export function PortfolioHero() {
   return (
     <section className={styles.hero} data-domain="work">
@@ -38,8 +56,7 @@ export function PortfolioHero() {
           <div className={styles.copy}>
             <Eyebrow className={styles.eyebrow}>{PORTFOLIO_HERO.label}</Eyebrow>
             <h1 className={styles.title}>
-              {PORTFOLIO_HERO.titleBefore}{" "}
-              <span className={styles.accent}>{PORTFOLIO_HERO.titleAccent}</span>
+              {PORTFOLIO_HERO.titleBefore} <Accent>{PORTFOLIO_HERO.titleAccent}</Accent>
             </h1>
             <p className={styles.supporting}>{PORTFOLIO_HERO.supporting}</p>
             <div className={styles.ctas}>
@@ -53,24 +70,53 @@ export function PortfolioHero() {
             </div>
           </div>
 
-          <aside className={styles.stats} aria-label="Portfolio highlights">
-            {PORTFOLIO_HERO_STATS.map((stat, index) => (
-              <div
-                key={stat.id}
-                className={[
-                  styles.statCard,
-                  ACCENT_CLASS[stat.accent],
-                  index === 0 ? styles.statOffset0 : "",
-                  index === 1 ? styles.statOffset1 : "",
-                  index === 2 ? styles.statOffset2 : "",
-                ]
-                  .filter(Boolean)
-                  .join(" ")}
-              >
-                <p className={styles.statValue}>{resolveStatValue(stat.value)}</p>
-                <p className={styles.statLabel}>{stat.label}</p>
+          <aside className={styles.scene} aria-label="Portfolio highlights">
+            <HeroConsole
+              title="vaelkode · work"
+              lane={[
+                { label: "Brief" },
+                { label: "Build" },
+                { label: "Ship", active: true },
+                { label: "Learn" },
+              ]}
+            >
+              <div className={styles.stats}>
+                <i className={styles.statsScan} aria-hidden />
+                {PORTFOLIO_HERO_STATS.map((stat, index) => {
+                  const countTo = resolveCountTo(stat);
+                  const suffix = "suffix" in stat ? stat.suffix : "";
+
+                  return (
+                    <div
+                      key={stat.id}
+                      className={[
+                        styles.statCard,
+                        ACCENT_CLASS[stat.accent],
+                        index === 0 ? styles.statOffset0 : "",
+                        index === 1 ? styles.statOffset1 : "",
+                        index === 2 ? styles.statOffset2 : "",
+                      ]
+                        .filter(Boolean)
+                        .join(" ")}
+                      style={{ ["--i" as string]: index }}
+                    >
+                      <p className={styles.statValue}>
+                        {countTo !== null ? (
+                          <AnimatedStatValue
+                            to={countTo}
+                            suffix={suffix}
+                            delay={350 + index * 120}
+                          />
+                        ) : (
+                          stat.value
+                        )}
+                      </p>
+                      <p className={styles.statLabel}>{stat.label}</p>
+                    </div>
+                  );
+                })}
               </div>
-            ))}
+            </HeroConsole>
           </aside>
         </div>
       </div>

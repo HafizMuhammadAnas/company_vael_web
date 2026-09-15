@@ -38,18 +38,15 @@
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.08;
-  color: var(--text-primary);
+  color: var(--heading-color);
 }
 
 .titleLine {
-  color: var(--text-primary);
+  color: var(--heading-color);
 }
 
 .titleAccent {
-  background: linear-gradient(105deg, var(--neon) 0%, #7dd3fc 48%, var(--bronze-light) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--heading-accent);
 }
 
 .lede {
@@ -79,7 +76,7 @@
   background:
     radial-gradient(ellipse 70% 80% at 15% 50%, color-mix(in srgb, var(--bronze) 16%, transparent), transparent 60%),
     radial-gradient(ellipse 70% 80% at 90% 50%, color-mix(in srgb, var(--neon) 14%, transparent), transparent 55%),
-    linear-gradient(160deg, #121826 0%, #0b1018 100%);
+    linear-gradient(160deg, var(--obsidian-2) 0%, var(--obsidian-1) 100%);
   overflow: hidden;
   min-height: 12.5rem;
 }
@@ -89,10 +86,10 @@
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(color-mix(in srgb, #94a3b8 7%, transparent) 1px, transparent 1px),
-    linear-gradient(90deg, color-mix(in srgb, #94a3b8 7%, transparent) 1px, transparent 1px);
+    linear-gradient(color-mix(in srgb, var(--viz-muted) 7%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--viz-muted) 7%, transparent) 1px, transparent 1px);
   background-size: 22px 22px;
-  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000 20%, transparent 75%);
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, var(--obsidian-1) 20%, transparent 75%);
   pointer-events: none;
   opacity: 0.7;
 }
@@ -112,7 +109,7 @@
   font-size: 0.58rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #94a3b8;
+  color: var(--viz-muted);
 }
 
 .poleFace {
@@ -122,7 +119,7 @@
   display: grid;
   place-items: center;
   position: relative;
-  background: color-mix(in srgb, #1a2233 90%, transparent);
+  background: color-mix(in srgb, var(--obsidian-3) 90%, transparent);
   border: 1px solid color-mix(in srgb, var(--bronze) 45%, transparent);
   box-shadow: inset 0 0 24px color-mix(in srgb, var(--bronze) 12%, transparent);
 }
@@ -271,7 +268,7 @@
   position: relative;
   z-index: 1;
   color: var(--neon);
-  background: #0b1018;
+  background: var(--obsidian-1);
   padding: 0.15rem;
 }
 
@@ -293,6 +290,208 @@
 @media (prefers-reduced-motion: reduce) {
   .bridgePulse,
   .solBars i {
+    animation: none;
+  }
+}
+
+/* Four moves — folio under the intro */
+.folio {
+  list-style: none;
+  margin: 2.25rem 0 0;
+  padding: 2rem 0 0;
+  border-top: 1px solid color-mix(in srgb, var(--border) 85%, transparent);
+  display: grid;
+  gap: 0;
+}
+
+@media (min-width: 900px) {
+  .folio {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+  }
+}
+
+.chapter {
+  --ch-i: 0;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.4rem minmax(0, 1fr);
+  gap: 0.85rem;
+  padding: 0 0 1.35rem;
+  animation: chapterIn 0.55s ease both;
+  animation-delay: calc(var(--ch-i) * 0.1s);
+}
+
+@media (min-width: 900px) {
+  .chapter {
+    grid-template-columns: 1fr;
+    padding: 0 0.85rem;
+    gap: 1rem;
+  }
+
+  .chapter:first-child {
+    padding-left: 0;
+  }
+
+  .chapter:last-child {
+    padding-right: 0;
+  }
+}
+
+@keyframes chapterIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.spine {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 0.35rem;
+}
+
+.spineDot {
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  background: var(--bronze);
+  border: 2px solid color-mix(in srgb, var(--bronze-pale) 55%, var(--obsidian));
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--bronze) 18%, transparent);
+  flex-shrink: 0;
+}
+
+.spineLine {
+  flex: 1;
+  width: 0;
+  margin-top: 0.35rem;
+  border-left: 1px solid color-mix(in srgb, var(--bronze) 35%, transparent);
+  min-height: 2rem;
+}
+
+@media (min-width: 900px) {
+  .spine {
+    flex-direction: row;
+    align-items: center;
+    padding-top: 0;
+    width: 100%;
+  }
+
+  .spineDot {
+    flex-shrink: 0;
+  }
+
+  .spineLine {
+    flex: 1;
+    width: auto;
+    height: 0;
+    min-height: 0;
+    margin-top: 0;
+    margin-left: 0.45rem;
+    border-left: none;
+    border-top: 1px solid color-mix(in srgb, var(--bronze) 35%, transparent);
+  }
+
+  .chapter:last-child .spineLine {
+    display: none;
+  }
+}
+
+.plate {
+  position: relative;
+  overflow: hidden;
+  padding: 1.15rem 1.1rem 1.2rem;
+  border-radius: 0.2rem;
+  background:
+    linear-gradient(165deg, color-mix(in srgb, var(--obsidian-3) 92%, var(--bronze)), var(--obsidian-2));
+  border: 1px solid color-mix(in srgb, var(--bronze) 28%, transparent);
+  border-top: 2px solid var(--bronze);
+  min-height: 12.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.watermark {
+  position: absolute;
+  right: 0.55rem;
+  bottom: -0.35rem;
+  font-family: var(--font-display);
+  font-size: clamp(3.8rem, 8vw, 5.2rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: color-mix(in srgb, var(--bronze) 14%, transparent);
+  pointer-events: none;
+  user-select: none;
+}
+
+.plateTop {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.chapterNo {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--bronze-light);
+}
+
+.plateIcon {
+  width: 1.85rem;
+  height: 1.85rem;
+  border-radius: 0.15rem;
+  display: grid;
+  place-items: center;
+  color: var(--bronze-pale);
+  border: 1px solid color-mix(in srgb, var(--bronze) 45%, transparent);
+  background: color-mix(in srgb, var(--bronze) 12%, transparent);
+}
+
+.plate h3 {
+  position: relative;
+  z-index: 1;
+  margin: 0.35rem 0 0;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.plate p {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  max-width: 16rem;
+}
+
+@media (max-width: 899px) {
+  .plate {
+    min-height: 0;
+  }
+
+  .plate p {
+    max-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chapter {
     animation: none;
   }
 }

@@ -17,7 +17,7 @@
   padding: 0.7rem 0.85rem;
   border-radius: 0.65rem;
   border: 1px dashed color-mix(in srgb, var(--neon) 28%, transparent);
-  background: color-mix(in srgb, #080c14 70%, transparent);
+  background: color-mix(in srgb, var(--obsidian-1) 70%, transparent);
   color: var(--text-secondary);
   font-size: 0.88rem;
 }
@@ -67,7 +67,7 @@
   padding: 0.85rem 0.95rem;
   border-radius: 0.75rem;
   border: 1px solid color-mix(in srgb, var(--neon) 14%, transparent);
-  background: color-mix(in srgb, #080c14 55%, transparent);
+  background: color-mix(in srgb, var(--obsidian-1) 55%, transparent);
 }
 
 .consentLabel {
@@ -145,7 +145,7 @@
   border-radius: 1rem;
   background:
     radial-gradient(ellipse 60% 50% at 50% 0%, color-mix(in srgb, var(--neon) 12%, transparent), transparent 60%),
-    color-mix(in srgb, #0c111a 90%, transparent);
+    color-mix(in srgb, var(--obsidian) 90%, transparent);
   padding: 2.25rem 1.5rem;
   text-align: center;
 }

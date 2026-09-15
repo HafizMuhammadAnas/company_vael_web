@@ -28,11 +28,11 @@
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.15;
-  color: var(--text-primary);
+  color: var(--heading-color);
 }
 
 .accent {
-  color: var(--neon-bright);
+  color: var(--heading-accent);
 }
 
 .carousel {

@@ -9,14 +9,13 @@ import {
 } from "lucide-react";
 
 import { PageHero } from "@/components/sections/PageHero";
-import { DomainShell } from "@/components/sections/elevated/Elevate";
+import { DomainShell } from "@/components/sections/domain/DomainShell";
 import { CloudHeroVisual } from "@/components/sections/solutions/hero";
 import { CloudProcessSection } from "@/components/sections/solutions/cloud/CloudProcess";
 import {
   ServiceCardsSection,
   ServiceClientsSection,
   ServiceFaqCtaSection,
-  ServiceTestimonialsSection,
 } from "@/components/sections/solutions/ServiceJourney";
 import {
   CLOUD_FAQ,
@@ -32,7 +31,7 @@ const SERVICE_ICONS = [Cloud, GitBranch, Container, Server, Shield, Activity, Bo
 
 /**
  * Visitor journey:
- * Hero → logos → cloud services → process → Google reviews → FAQ + CTA.
+ * Hero → logos → cloud services → process → FAQ + CTA.
  */
 export function CloudDevOpsPage() {
   useDocumentMeta(CLOUD_SEO.title, CLOUD_SEO.description);
@@ -58,7 +57,6 @@ export function CloudDevOpsPage() {
         visuals={["cloudSetup", "cloudMigrate", "cicd", "monitor", "secure", "cost", "envs"]}
       />
       <CloudProcessSection />
-      <ServiceTestimonialsSection />
       <ServiceFaqCtaSection faq={CLOUD_FAQ} finalCta={CLOUD_FINAL} />
     </DomainShell>
   );

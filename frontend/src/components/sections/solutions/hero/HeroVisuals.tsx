@@ -1,11 +1,13 @@
 /**
  * Right-column hero graphics for Services hub + individual service pages.
- * Each visual is intentionally distinct and themed to that service line.
+ * Each sits in the shared HeroConsole shell (homepage motion language).
  */
+
+import { HeroConsole } from "@/components/sections/HeroConsole";
 
 import styles from "./HeroVisuals.module.css";
 
-/* ─── Services hub: staggered badge stack (market-style stack) ─── */
+/* ─── Services hub: staggered badge stack ─── */
 
 const HUB_BADGES = [
   { label: "Web Dev", tone: "t0" },
@@ -18,20 +20,32 @@ const HUB_BADGES = [
 
 export function ServicesBadgeStack() {
   return (
-    <div className={styles.badgeStack}>
-      <div className={styles.badgeRail} aria-hidden />
-      <ul className={styles.badgeList}>
-        {HUB_BADGES.map((badge, index) => (
-          <li
-            key={badge.label}
-            className={[styles.badge, styles[badge.tone], styles[`offset${index % 3}`]].join(" ")}
-            style={{ animationDelay: `${0.2 + index * 0.08}s` }}
-          >
-            {badge.label}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <HeroConsole
+      title="vaelkode · services"
+      lane={[
+        { label: "Discover" },
+        { label: "Design" },
+        { label: "Build", active: true },
+        { label: "Ship" },
+      ]}
+    >
+      <div className={styles.badgeStack}>
+        <div className={styles.badgeRail} aria-hidden>
+          <i className={styles.badgeRailPulse} />
+        </div>
+        <ul className={styles.badgeList}>
+          {HUB_BADGES.map((badge, index) => (
+            <li
+              key={badge.label}
+              className={[styles.badge, styles[badge.tone], styles[`offset${index % 3}`]].join(" ")}
+              style={{ ["--i" as string]: index }}
+            >
+              {badge.label}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </HeroConsole>
   );
 }
 
@@ -39,36 +53,48 @@ export function ServicesBadgeStack() {
 
 export function WebHeroVisual() {
   return (
-    <div className={styles.webScene}>
-      <div className={`${styles.browser} ${styles.browserBack}`} aria-hidden>
-        <div className={styles.browserBar}>
-          <span /><span /><span />
+    <HeroConsole
+      title="vaelkode · web"
+      lane={[
+        { label: "Sites" },
+        { label: "Stores" },
+        { label: "Portals", active: true },
+        { label: "Launch" },
+      ]}
+    >
+      <div className={styles.webScene}>
+        <div className={`${styles.browser} ${styles.browserBack}`} aria-hidden>
+          <div className={styles.browserBar}>
+            <span /><span /><span />
+          </div>
+          <div className={styles.browserBody}>
+            <div className={styles.webBlock} />
+            <div className={styles.webRows}>
+              <i /><i /><i />
+            </div>
+          </div>
         </div>
-        <div className={styles.browserBody}>
-          <div className={styles.webBlock} />
-          <div className={styles.webRows}>
-            <i /><i /><i />
+        <div className={`${styles.browser} ${styles.browserFront}`}>
+          <div className={styles.browserBar}>
+            <span /><span /><span />
+            <em className={styles.url}>vaelkode.com</em>
+          </div>
+          <div className={styles.browserBody}>
+            <div className={styles.webHeroBand}>
+              <i className={styles.webScan} />
+            </div>
+            <div className={styles.webGrid}>
+              <i /><i /><i />
+            </div>
+            <ul className={styles.chipRow}>
+              <li>Sites</li>
+              <li>Stores</li>
+              <li>Portals</li>
+            </ul>
           </div>
         </div>
       </div>
-      <div className={`${styles.browser} ${styles.browserFront}`}>
-        <div className={styles.browserBar}>
-          <span /><span /><span />
-          <em className={styles.url}>vaelkode.com</em>
-        </div>
-        <div className={styles.browserBody}>
-          <div className={styles.webHeroBand} />
-          <div className={styles.webGrid}>
-            <i /><i /><i />
-          </div>
-          <ul className={styles.chipRow}>
-            <li>Sites</li>
-            <li>Stores</li>
-            <li>Portals</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    </HeroConsole>
   );
 }
 
@@ -84,59 +110,80 @@ const MODULES = [
 
 export function SoftwareHeroVisual() {
   return (
-    <div className={styles.moduleBoard}>
-      <svg className={styles.moduleLines} viewBox="0 0 100 100" aria-hidden>
-        <path d="M22 22 L40 48 M70 18 L48 48 M40 52 L22 76 M48 52 L68 72" />
-      </svg>
-      {MODULES.map((mod, index) => (
-        <div
-          key={mod.label}
-          className={styles.module}
-          style={{
-            left: `${mod.x}%`,
-            top: `${mod.y}%`,
-            animationDelay: `${0.22 + index * 0.07}s`,
-          }}
-        >
-          {mod.label}
-        </div>
-      ))}
-    </div>
+    <HeroConsole
+      title="vaelkode · software"
+      lane={[
+        { label: "Map" },
+        { label: "Design" },
+        { label: "Build", active: true },
+        { label: "Evolve" },
+      ]}
+    >
+      <div className={styles.moduleBoard}>
+        <svg className={styles.moduleLines} viewBox="0 0 100 100" aria-hidden>
+          <path className={styles.modulePath} d="M22 22 L40 48 M70 18 L48 48 M40 52 L22 76 M48 52 L68 72" />
+          <path className={styles.modulePathPulse} d="M22 22 L40 48 M70 18 L48 48 M40 52 L22 76 M48 52 L68 72" />
+        </svg>
+        {MODULES.map((mod, index) => (
+          <div
+            key={mod.label}
+            className={styles.module}
+            style={{
+              left: `${mod.x}%`,
+              top: `${mod.y}%`,
+              ["--i" as string]: index,
+            }}
+          >
+            {mod.label}
+          </div>
+        ))}
+      </div>
+    </HeroConsole>
   );
 }
 
 /* ─── AI: constellation / orbit nodes ─── */
 
 const AI_NODES = [
-  { label: "Docs", x: "50%", y: "8%" },
-  { label: "Assist", x: "88%", y: "35%" },
-  { label: "Agents", x: "78%", y: "78%" },
-  { label: "RAG", x: "22%", y: "78%" },
-  { label: "Vision", x: "12%", y: "35%" },
+  { label: "Docs", start: "0deg", duration: "22s" },
+  { label: "Assist", start: "72deg", duration: "26s" },
+  { label: "Agents", start: "144deg", duration: "30s" },
+  { label: "RAG", start: "216deg", duration: "24s" },
+  { label: "Vision", start: "288deg", duration: "20s" },
 ] as const;
 
 export function AiHeroVisual() {
   return (
-    <div className={styles.aiOrbit}>
-      <div className={styles.aiCore}>
-        <span>AI</span>
-      </div>
-      <div className={styles.aiRing} aria-hidden />
-      <div className={styles.aiRingOuter} aria-hidden />
-      {AI_NODES.map((node, index) => (
-        <div
-          key={node.label}
-          className={styles.aiNode}
-          style={{
-            ["--x" as string]: node.x,
-            ["--y" as string]: node.y,
-            animationDelay: `${0.2 + index * 0.06}s`,
-          }}
-        >
-          {node.label}
+    <HeroConsole
+      title="vaelkode · ai"
+      lane={[
+        { label: "Discover" },
+        { label: "Pilot" },
+        { label: "Ship", active: true },
+        { label: "Tune" },
+      ]}
+    >
+      <div className={styles.aiOrbit}>
+        <div className={styles.aiCore}>
+          <span>AI</span>
         </div>
-      ))}
-    </div>
+        <div className={styles.aiRing} aria-hidden />
+        <div className={styles.aiRingMid} aria-hidden />
+        <div className={styles.aiRingOuter} aria-hidden />
+        {AI_NODES.map((node) => (
+          <div
+            key={node.label}
+            className={styles.aiPlanet}
+            style={{
+              ["--start" as string]: node.start,
+              ["--dur" as string]: node.duration,
+            }}
+          >
+            <span className={styles.aiNode}>{node.label}</span>
+          </div>
+        ))}
+      </div>
+    </HeroConsole>
   );
 }
 
@@ -144,27 +191,39 @@ export function AiHeroVisual() {
 
 export function MobileHeroVisual() {
   return (
-    <div className={styles.phonePair}>
-      <div className={`${styles.phone} ${styles.phoneLeft}`}>
-        <div className={styles.phoneNotch} />
-        <div className={styles.phoneScreen}>
-          <div className={styles.phoneHeader} />
-          <div className={styles.phoneCard} />
-          <div className={styles.phoneCard} />
-          <span className={styles.phoneTag}>iOS</span>
-        </div>
-      </div>
-      <div className={`${styles.phone} ${styles.phoneRight}`}>
-        <div className={styles.phoneNotch} />
-        <div className={styles.phoneScreen}>
-          <div className={styles.phoneHeader} />
-          <div className={styles.phoneList}>
-            <i /><i /><i />
+    <HeroConsole
+      title="vaelkode · mobile"
+      lane={[
+        { label: "Idea" },
+        { label: "UX" },
+        { label: "Build", active: true },
+        { label: "Store" },
+      ]}
+    >
+      <div className={styles.phonePair}>
+        <div className={`${styles.phone} ${styles.phoneLeft}`}>
+          <div className={styles.phoneNotch} />
+          <div className={styles.phoneScreen}>
+            <div className={styles.phoneHeader} />
+            <div className={styles.phoneCard} />
+            <div className={styles.phoneCard} />
+            <span className={styles.phoneTag}>iOS</span>
           </div>
-          <span className={styles.phoneTag}>Android</span>
+          <i className={styles.phoneNotify} aria-hidden />
+        </div>
+        <div className={`${styles.phone} ${styles.phoneRight}`}>
+          <div className={styles.phoneNotch} />
+          <div className={styles.phoneScreen}>
+            <div className={styles.phoneHeader} />
+            <div className={styles.phoneList}>
+              <i /><i /><i />
+            </div>
+            <span className={styles.phoneTag}>Android</span>
+          </div>
+          <i className={styles.phoneNotify} aria-hidden />
         </div>
       </div>
-    </div>
+    </HeroConsole>
   );
 }
 
@@ -174,22 +233,36 @@ const PIPE_STEPS = ["Build", "Test", "Ship", "Watch"] as const;
 
 export function CloudHeroVisual() {
   return (
-    <div className={styles.pipeline}>
-      {PIPE_STEPS.map((step, index) => (
-        <div key={step} className={styles.pipeStep} style={{ animationDelay: `${0.2 + index * 0.1}s` }}>
-          <div className={styles.pipeNode}>
-            <span>{index + 1}</span>
+    <HeroConsole
+      title="vaelkode · cloud"
+      lane={[
+        { label: "Build" },
+        { label: "Test" },
+        { label: "Ship", active: true },
+        { label: "Watch" },
+      ]}
+    >
+      <div className={styles.pipeline}>
+        {PIPE_STEPS.map((step, index) => (
+          <div
+            key={step}
+            className={styles.pipeStep}
+            style={{ ["--i" as string]: index }}
+          >
+            <div className={styles.pipeNode}>
+              <span>{index + 1}</span>
+            </div>
+            <p>{step}</p>
+            {index < PIPE_STEPS.length - 1 && <div className={styles.pipeLink} aria-hidden />}
           </div>
-          <p>{step}</p>
-          {index < PIPE_STEPS.length - 1 && <div className={styles.pipeLink} aria-hidden />}
-        </div>
-      ))}
-      <ul className={styles.pipeMeta}>
-        <li>CI/CD</li>
-        <li>Cloud</li>
-        <li>Monitor</li>
-      </ul>
-    </div>
+        ))}
+        <ul className={styles.pipeMeta}>
+          <li>CI/CD</li>
+          <li>Cloud</li>
+          <li>Monitor</li>
+        </ul>
+      </div>
+    </HeroConsole>
   );
 }
 
@@ -204,18 +277,30 @@ const ROAD_STEPS = [
 
 export function ConsultingHeroVisual() {
   return (
-    <div className={styles.roadmap}>
-      <div className={styles.roadLine} aria-hidden />
-      {ROAD_STEPS.map((step, index) => (
-        <div
-          key={step.label}
-          className={[styles.roadItem, index % 2 === 0 ? styles.roadLeft : styles.roadRight].join(" ")}
-          style={{ animationDelay: `${0.2 + index * 0.09}s` }}
-        >
-          <span className={styles.roadNum}>{step.n}</span>
-          <span className={styles.roadLabel}>{step.label}</span>
+    <HeroConsole
+      title="vaelkode · consulting"
+      lane={[
+        { label: "Discover" },
+        { label: "Decide" },
+        { label: "Architect", active: true },
+        { label: "Roadmap" },
+      ]}
+    >
+      <div className={styles.roadmap}>
+        <div className={styles.roadLine} aria-hidden>
+          <i className={styles.roadPulse} />
         </div>
-      ))}
-    </div>
+        {ROAD_STEPS.map((step, index) => (
+          <div
+            key={step.label}
+            className={[styles.roadItem, index % 2 === 0 ? styles.roadLeft : styles.roadRight].join(" ")}
+            style={{ ["--i" as string]: index }}
+          >
+            <span className={styles.roadNum}>{step.n}</span>
+            <span className={styles.roadLabel}>{step.label}</span>
+          </div>
+        ))}
+      </div>
+    </HeroConsole>
   );
 }

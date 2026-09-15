@@ -45,7 +45,7 @@
   font-weight: 650;
   letter-spacing: -0.03em;
   line-height: 1.12;
-  color: var(--text-primary);
+  color: var(--heading-color);
   text-shadow: 0 0 40px color-mix(in srgb, var(--neon) 28%, transparent);
 }
 

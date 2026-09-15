@@ -8,14 +8,13 @@ import {
 } from "lucide-react";
 
 import { PageHero } from "@/components/sections/PageHero";
-import { DomainShell } from "@/components/sections/elevated/Elevate";
+import { DomainShell } from "@/components/sections/domain/DomainShell";
 import { MobileHeroVisual } from "@/components/sections/solutions/hero";
 import { MobileProcessSection } from "@/components/sections/solutions/mobile/MobileProcess";
 import {
   ServiceCardsSection,
   ServiceClientsSection,
   ServiceFaqCtaSection,
-  ServiceTestimonialsSection,
 } from "@/components/sections/solutions/ServiceJourney";
 import {
   MOB_FAQ,
@@ -31,7 +30,7 @@ const SERVICE_ICONS = [Smartphone, TabletSmartphone, AppWindow, LayoutTemplate, 
 
 /**
  * Visitor journey:
- * Hero → logos → mobile services → process → Google reviews → FAQ + CTA.
+ * Hero → logos → mobile services → process → FAQ + CTA.
  */
 export function MobileDevelopmentPage() {
   useDocumentMeta(MOB_SEO.title, MOB_SEO.description);
@@ -57,7 +56,6 @@ export function MobileDevelopmentPage() {
         visuals={["phones", "cross", "pwa", "appApi", "store", "maintain"]}
       />
       <MobileProcessSection />
-      <ServiceTestimonialsSection />
       <ServiceFaqCtaSection faq={MOB_FAQ} finalCta={MOB_FINAL} />
     </DomainShell>
   );

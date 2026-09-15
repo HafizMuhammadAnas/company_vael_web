@@ -1,14 +1,12 @@
 import { FinalCtaSection } from "@/components/sections/FinalCtaSection";
 import { PageHero } from "@/components/sections/PageHero";
-import { DomainShell } from "@/components/sections/elevated/Elevate";
+import { DomainShell } from "@/components/sections/domain/DomainShell";
 import {
   AboutApproachSection,
   AboutAudienceSection,
   AboutCapabilitiesSection,
   AboutHeroVisual,
-  AboutPrinciplesSection,
   AboutSituationsSection,
-  AboutTrustSection,
   AboutVisionMissionSection,
   AboutWhoSection,
 } from "@/components/sections/about/AboutSections";
@@ -18,7 +16,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 /**
  * About journey (lean):
- * Hero → situations → who → deliver → audience → approach → principles → FAQ → purpose → CTA
+ * Hero → situations → who → deliver → audience → approach → purpose → CTA
  */
 export function AboutPage() {
   useDocumentMeta(ABOUT_SEO.title, ABOUT_SEO.description);
@@ -42,8 +40,6 @@ export function AboutPage() {
       <AboutCapabilitiesSection />
       <AboutAudienceSection />
       <AboutApproachSection />
-      <AboutPrinciplesSection />
-      <AboutTrustSection />
       <AboutVisionMissionSection />
 
       <FinalCtaSection

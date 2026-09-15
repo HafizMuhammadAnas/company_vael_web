@@ -15,7 +15,7 @@
       color-mix(in srgb, var(--domain-accent-2, var(--violet)) 24%, transparent),
       transparent 58%
     ),
-    radial-gradient(ellipse 80% 70% at 50% 40%, #1a2440 0%, var(--obsidian) 72%);
+    radial-gradient(ellipse 80% 70% at 50% 40%, var(--hero-wash) 0%, var(--obsidian) 72%);
 }
 
 .heroSplit {
@@ -40,8 +40,8 @@
 
 @media (min-width: 960px) {
   .contentSplit {
-    grid-template-columns: minmax(0, 1.15fr) minmax(15rem, 0.9fr);
-    gap: 2.5rem 1.75rem;
+    grid-template-columns: minmax(0, 1fr) minmax(20rem, 1.15fr);
+    gap: 2.25rem 2rem;
     min-height: 22rem;
   }
 }
@@ -64,7 +64,7 @@
   font-weight: 600;
   letter-spacing: -0.03em;
   line-height: 1.1;
-  color: var(--text-primary);
+  color: var(--heading-color);
   text-shadow:
     0 0 32px color-mix(in srgb, var(--domain-accent, var(--neon)) 22%, transparent),
     0 0 56px color-mix(in srgb, var(--domain-accent-2, var(--violet)) 10%, transparent);
@@ -132,9 +132,14 @@
 .visual {
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: stretch;
   align-items: center;
   min-width: 0;
+  width: 100%;
+}
+
+.visual > * {
+  width: 100%;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -143,18 +148,10 @@
     animation: heroReveal 0.8s ease forwards 0.15s;
   }
 
-  .contentSplit .copy,
-  .contentSplit .visual {
+  .contentSplit .copy {
     opacity: 0;
     animation: heroReveal 0.85s ease forwards;
-  }
-
-  .contentSplit .copy {
     animation-delay: 0.12s;
-  }
-
-  .contentSplit .visual {
-    animation-delay: 0.28s;
   }
 }
 
@@ -196,7 +193,8 @@
   }
 
   .visual {
-    max-width: 22rem;
+    max-width: none;
+    width: 100%;
     margin-inline: auto;
   }
 }

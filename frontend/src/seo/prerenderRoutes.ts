@@ -15,9 +15,7 @@ import { PROPOSAL_SEO } from "@/content/requestProposal";
 import { SOLUTIONS_SEO } from "@/content/solutions";
 import { TC_SEO } from "@/content/technologyConsulting";
 import { WEB_SEO } from "@/content/webDevelopment";
-import {
-  PORTFOLIO_SEO,
-} from "@/content/work";
+import { PORTFOLIO_SEO } from "@/content/portfolio";
 
 export interface PrerenderRoute {
   path: string;
