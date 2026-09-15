@@ -1,33 +1,85 @@
 :root {
-  /* Palette — brighter signal teal + violet for a shinier Lovable-like look. */
+  /* ── Brand palette (single source for the full application) ── */
+  /* Surfaces — darkest → raised */
+  --obsidian-1: #0a0e16;
   --obsidian: #0e121c;
   --obsidian-2: #161c2c;
   --obsidian-3: #1e273a;
   --obsidian-4: #2a354c;
+  --hero-wash: #1a2440;
+
+  /* Primary signal (teal / neon) */
   --neon: #2ef2d0;
   --neon-bright: #7cffe8;
   --neon-dim: #1ec9b0;
+  --neon-hot: #9ffff0;
   --neon-glow: rgba(46, 242, 208, 0.28);
   --neon-glow-strong: rgba(46, 242, 208, 0.55);
   --signal: var(--neon);
-  --signal-foreground: #0e121c;
+  --signal-foreground: var(--obsidian);
+
+  /* Secondary (violet) */
   --violet: #a78bfa;
   --violet-bright: #c4b5fd;
   --violet-glow: rgba(167, 139, 250, 0.32);
+
+  /* Warm accents */
   --amber: #f0c14d;
   --bronze: #c9853f;
   --bronze-light: #e0a45a;
   --bronze-pale: #f0d08a;
+
+  /* Domain / atmosphere accents (constrained set — use these, not raw hex) */
+  --sky: #5ec8ff;
+  --sky-bright: #a8e0ff;
+  --sky-deep: #38bdf8;
+  --sky-mid: #60a5fa;
+  --sky-glow: rgba(94, 200, 255, 0.35);
+  --emerald: #34d399;
+  --emerald-bright: #4ade80;
+  --emerald-glow: rgba(52, 211, 153, 0.32);
+  --mint: #2dd4bf;
+
+  /* Neutrals / text */
   --slate: #8b98ad;
   --slate-light: #b6c2d4;
   --text-primary: #f7f9fc;
   --text-secondary: #b0bdcf;
+  --white: #ffffff;
+
+  /* Surfaces (transparent mixes) */
   --surface: color-mix(in srgb, var(--obsidian-2) 88%, transparent);
   --surface-2: var(--obsidian-3);
 
+  /* Borders */
   --border-neon: rgba(46, 242, 208, 0.28);
   --border-bronze: rgba(201, 133, 63, 0.28);
   --border: rgba(255, 255, 255, 0.14);
+
+  /* Semantic */
+  --danger: #fb7185;
+  --danger-soft: #fecdd3;
+  --success: var(--emerald);
+  --warning: var(--amber);
+
+  /* Viz / mock UI (Solutions diagrams — mapped to brand ladder) */
+  --viz-ink: #0b1220;
+  --viz-ink-2: #0f172a;
+  --viz-ink-3: #1e293b;
+  --viz-paper: var(--white);
+  --viz-paper-2: #f8fafc;
+  --viz-muted: #94a3b8;
+  --viz-muted-2: #64748b;
+  --viz-muted-3: #475569;
+  --viz-slate: #334155;
+  --viz-navy: #1e3a8a;
+  --viz-indigo: #312e81;
+  --viz-violet-deep: #1e1b4b;
+  --viz-paper-warm: #fef3c7;
+  --viz-paper-sky: #e0f2fe;
+  --viz-paper-peach: #ffedd5;
+  --viz-paper-violet: #ede9fe;
+  --viz-paper-mint: #ecfeff;
 
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-body: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
@@ -39,13 +91,25 @@
   --space-lg: 3rem;
   --space-xl: 4rem;
 
-  /* Page shell — full usable width with light, consistent gutters */
+  /* Page shell — single source for side gutters (mobile → desktop). */
   --page-gutter: clamp(1.25rem, 3.5vw, 3rem);
   --section-pad-y: clamp(1.5rem, 3vw, 2.1rem);
   --section-heading: clamp(1.55rem, 3vw, 2.25rem);
   --section-lede: 0.95rem;
+  /* Section heading color standard — body text white; accent word bronze */
+  --heading-color: var(--text-primary);
+  --heading-accent: var(--bronze-light);
+  --hero-heading: clamp(1.95rem, 4.4vw, 3.1rem);
+  --cta-heading: clamp(1.85rem, 4.2vw, 3rem);
+  --card-title: clamp(1rem, 1.5vw, 1.05rem);
+  --card-body: 0.88rem;
 
-  /* Optional reading / legacy boxed width (legal, contained sections) */
+  /* Footer shell */
+  --footer-pad-top: clamp(2.25rem, 4vw, 2.75rem);
+  --footer-pad-bottom: clamp(1.5rem, 3vw, 2rem);
+  --footer-gap: clamp(1.75rem, 3vw, 2.5rem);
+  --footer-bottom-gap: clamp(1.35rem, 2.5vw, 1.75rem);
+
   --content-max: 1200px;
   --nav-height: 76px;
 

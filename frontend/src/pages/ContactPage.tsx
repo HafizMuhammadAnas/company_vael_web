@@ -1,4 +1,4 @@
-import { DomainShell } from "@/components/sections/elevated/Elevate";
+import { DomainShell } from "@/components/sections/domain/DomainShell";
 import { LeadForm } from "@/components/forms/LeadForm";
 import { FinalCtaSection } from "@/components/sections/FinalCtaSection";
 import { PageHero } from "@/components/sections/PageHero";

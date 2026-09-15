@@ -4,7 +4,7 @@ import { LeadForm } from "@/components/forms/LeadForm";
 import { FinalCtaSection } from "@/components/sections/FinalCtaSection";
 import { PageHero } from "@/components/sections/PageHero";
 import c from "@/components/sections/contact/Contact.module.css";
-import { DomainShell } from "@/components/sections/elevated/Elevate";
+import { DomainShell } from "@/components/sections/domain/DomainShell";
 import { Eyebrow, Section } from "@/components/ui";
 import {
   CONSULT_DISCUSS,

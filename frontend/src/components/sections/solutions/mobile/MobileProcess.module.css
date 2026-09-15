@@ -22,14 +22,11 @@
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.12;
-  color: var(--text-primary);
+  color: var(--heading-color);
 }
 
 .accent {
-  background: linear-gradient(105deg, #38bdf8 0%, #818cf8 50%, #34d399 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--heading-accent);
 }
 
 .lede {
@@ -51,19 +48,19 @@
   font-size: 0.68rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #ecfeff;
-  background: #0c4a6e;
-  border: 1px solid color-mix(in srgb, #38bdf8 45%, transparent);
+  color: var(--viz-paper-mint);
+  background: color-mix(in srgb, var(--sky) 35%, var(--viz-ink));
+  border: 1px solid color-mix(in srgb, var(--sky-deep) 45%, transparent);
 }
 
 .journey {
   margin-top: 0.65rem;
   border-radius: 1.1rem;
-  border: 1px solid color-mix(in srgb, #0369a1 35%, transparent);
+  border: 1px solid color-mix(in srgb, var(--sky-deep) 35%, transparent);
   background:
-    radial-gradient(ellipse 55% 45% at 8% 20%, color-mix(in srgb, #0ea5e9 16%, transparent), transparent 55%),
-    radial-gradient(ellipse 45% 40% at 92% 80%, color-mix(in srgb, #34d399 12%, transparent), transparent 50%),
-    #0b1220;
+    radial-gradient(ellipse 55% 45% at 8% 20%, color-mix(in srgb, var(--sky-deep) 16%, transparent), transparent 55%),
+    radial-gradient(ellipse 45% 40% at 92% 80%, color-mix(in srgb, var(--emerald) 12%, transparent), transparent 50%),
+    var(--viz-ink);
   overflow: hidden;
   padding: 1.1rem 0.95rem 1.2rem;
 }
@@ -87,8 +84,8 @@
   width: 3.4rem;
   padding: 0.35rem 0.28rem 0.4rem;
   border-radius: 0.7rem;
-  background: linear-gradient(160deg, #1e293b, #0f172a);
-  border: 1px solid color-mix(in srgb, #94a3b8 35%, transparent);
+  background: linear-gradient(160deg, var(--viz-ink-3), var(--viz-ink-2));
+  border: 1px solid color-mix(in srgb, var(--viz-muted) 35%, transparent);
   box-shadow: 0 12px 28px -18px rgba(0, 0, 0, 0.7);
 }
 
@@ -98,7 +95,7 @@
   height: 0.22rem;
   margin: 0 auto 0.28rem;
   border-radius: 999px;
-  background: #334155;
+  background: var(--viz-slate);
 }
 
 .phoneScreen {
@@ -106,7 +103,7 @@
   gap: 0.22rem;
   padding: 0.35rem 0.3rem;
   border-radius: 0.35rem;
-  background: linear-gradient(180deg, #e0f2fe, #f0fdf4);
+  background: linear-gradient(180deg, var(--viz-paper-sky), color-mix(in srgb, var(--emerald) 12%, var(--white)));
   min-height: 3.4rem;
 }
 
@@ -114,13 +111,13 @@
   width: 0.45rem;
   height: 0.45rem;
   border-radius: 50%;
-  background: #38bdf8;
+  background: var(--sky-deep);
 }
 
 .screenLine {
   height: 0.18rem;
   border-radius: 999px;
-  background: color-mix(in srgb, #0ea5e9 35%, #fff);
+  background: color-mix(in srgb, var(--sky-deep) 35%, var(--white));
 }
 
 .screenLine:nth-of-type(3) {
@@ -131,8 +128,8 @@
   margin-top: 0.15rem;
   height: 1.1rem;
   border-radius: 0.25rem;
-  background: color-mix(in srgb, #34d399 28%, #fff);
-  border: 1px solid color-mix(in srgb, #34d399 40%, transparent);
+  background: color-mix(in srgb, var(--emerald) 28%, var(--white));
+  border: 1px solid color-mix(in srgb, var(--emerald) 40%, transparent);
 }
 
 .phoneHome {
@@ -141,7 +138,7 @@
   height: 0.22rem;
   margin: 0.35rem auto 0;
   border-radius: 999px;
-  background: #475569;
+  background: var(--viz-muted-3);
 }
 
 .phoneCaption {
@@ -150,7 +147,7 @@
   font-size: 0.58rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #94a3b8;
+  color: var(--viz-muted);
 }
 
 .storeEnd {
@@ -159,9 +156,9 @@
   gap: 0.55rem;
   padding: 0.55rem 0.75rem;
   border-radius: 0.65rem;
-  background: color-mix(in srgb, #022c22 70%, #0b1220);
-  border: 1px solid color-mix(in srgb, #34d399 40%, transparent);
-  color: #a7f3d0;
+  background: color-mix(in srgb, color-mix(in srgb, var(--emerald) 18%, var(--viz-ink)) 70%, var(--viz-ink));
+  border: 1px solid color-mix(in srgb, var(--emerald) 40%, transparent);
+  color: var(--emerald-bright);
 }
 
 .storeEnd strong {
@@ -170,7 +167,7 @@
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: -0.01em;
-  color: #ecfdf5;
+  color: color-mix(in srgb, var(--emerald) 18%, var(--white));
 }
 
 .storeEnd em {
@@ -179,7 +176,7 @@
   font-size: 0.55rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #6ee7b7;
+  color: var(--emerald);
   opacity: 0.85;
 }
 
@@ -199,13 +196,13 @@
   right: 8%;
   top: 50%;
   height: 0;
-  border-top: 2px solid color-mix(in srgb, #38bdf8 45%, transparent);
+  border-top: 2px solid color-mix(in srgb, var(--sky-deep) 45%, transparent);
   transform: translateY(-50%);
-  box-shadow: 0 0 18px color-mix(in srgb, #38bdf8 25%, transparent);
+  box-shadow: 0 0 18px color-mix(in srgb, var(--sky-deep) 25%, transparent);
 }
 
 .railStop {
-  --tone: #38bdf8;
+  --tone: var(--sky-deep);
   position: relative;
   z-index: 1;
   justify-self: center;
@@ -213,16 +210,16 @@
   height: 0.85rem;
   border-radius: 50%;
   background: var(--tone);
-  border: 2px solid #0b1220;
+  border: 2px solid var(--viz-ink);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--tone) 35%, transparent);
   animation: stopPulse 2.4s ease-in-out infinite;
   animation-delay: calc(var(--stop-i, 0) * 0.2s);
 }
 
-.toneSky { --tone: #38bdf8; }
-.toneViolet { --tone: #a78bfa; }
-.toneAmber { --tone: #fbbf24; }
-.toneTeal { --tone: #2dd4bf; }
+.toneSky { --tone: var(--sky-deep); }
+.toneViolet { --tone: var(--violet); }
+.toneAmber { --tone: var(--amber); }
+.toneTeal { --tone: var(--mint); }
 
 @keyframes stopPulse {
   0%,
@@ -251,7 +248,7 @@
 }
 
 .station {
-  --tone: #38bdf8;
+  --tone: var(--sky-deep);
   --station-i: 0;
   display: flex;
   flex-direction: column;
@@ -293,8 +290,8 @@
   min-height: 14.5rem;
   padding: 1rem 0.95rem 0.9rem;
   border-radius: 0.9rem;
-  background: #f7f8fc;
-  border: 1px solid color-mix(in srgb, #0f172a 8%, transparent);
+  background: var(--viz-paper-2);
+  border: 1px solid color-mix(in srgb, var(--viz-ink-2) 8%, transparent);
   border-top: 3px solid var(--tone);
   box-shadow: 0 16px 32px -26px rgba(0, 0, 0, 0.55);
   animation: stationIn 0.5s ease both;
@@ -324,7 +321,7 @@
   border-radius: 0.5rem;
   display: grid;
   place-items: center;
-  color: #fff;
+  color: var(--white);
   background: var(--tone);
   flex-shrink: 0;
 }
@@ -333,7 +330,7 @@
   font-family: var(--font-mono);
   font-size: 0.62rem;
   letter-spacing: 0.12em;
-  color: #64748b;
+  color: var(--viz-muted-2);
 }
 
 .hint {
@@ -344,8 +341,8 @@
   text-transform: uppercase;
   padding: 0.2rem 0.4rem;
   border-radius: 999px;
-  color: color-mix(in srgb, var(--tone) 90%, #0f172a);
-  background: color-mix(in srgb, var(--tone) 16%, #fff);
+  color: color-mix(in srgb, var(--tone) 90%, var(--viz-ink-2));
+  background: color-mix(in srgb, var(--tone) 16%, var(--white));
   border: 1px solid color-mix(in srgb, var(--tone) 35%, transparent);
 }
 
@@ -355,14 +352,14 @@
   font-size: 1.12rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: #0f172a;
+  color: var(--viz-ink-2);
 }
 
 .card p {
   margin: 0;
   font-size: 0.86rem;
   line-height: 1.5;
-  color: #475569;
+  color: var(--viz-muted-3);
 }
 
 .miniBrief {
@@ -370,15 +367,15 @@
   gap: 0.28rem;
   padding: 0.45rem 0.5rem;
   border-radius: 0.45rem;
-  background: color-mix(in srgb, #38bdf8 8%, #fff);
-  border: 1px solid color-mix(in srgb, #38bdf8 28%, transparent);
+  background: color-mix(in srgb, var(--sky-deep) 8%, var(--white));
+  border: 1px solid color-mix(in srgb, var(--sky-deep) 28%, transparent);
 }
 
 .miniBrief span {
   display: block;
   height: 0.28rem;
   border-radius: 999px;
-  background: color-mix(in srgb, #0ea5e9 35%, #e2e8f0);
+  background: color-mix(in srgb, var(--sky-deep) 35%, color-mix(in srgb, var(--viz-muted) 35%, var(--viz-paper)));
 }
 
 .miniBrief span:nth-child(2) {
@@ -394,8 +391,8 @@
   gap: 0.35rem;
   padding: 0.4rem 0.45rem;
   border-radius: 0.45rem;
-  background: color-mix(in srgb, #a78bfa 8%, #fff);
-  border: 1px solid color-mix(in srgb, #a78bfa 28%, transparent);
+  background: color-mix(in srgb, var(--violet) 8%, var(--white));
+  border: 1px solid color-mix(in srgb, var(--violet) 28%, transparent);
 }
 
 .miniScreens i {
@@ -403,10 +400,10 @@
   height: 2.1rem;
   border-radius: 0.35rem;
   background:
-    linear-gradient(180deg, color-mix(in srgb, #c4b5fd 45%, #fff) 28%, transparent 28%),
-    #f1f5f9;
-  border: 1px solid color-mix(in srgb, #a78bfa 30%, transparent);
-  box-shadow: inset 0 -0.55rem 0 color-mix(in srgb, #e2e8f0 80%, transparent);
+    linear-gradient(180deg, color-mix(in srgb, var(--violet-bright) 45%, var(--white)) 28%, transparent 28%),
+    var(--viz-paper-2);
+  border: 1px solid color-mix(in srgb, var(--violet) 30%, transparent);
+  box-shadow: inset 0 -0.55rem 0 color-mix(in srgb, color-mix(in srgb, var(--viz-muted) 35%, var(--viz-paper)) 80%, transparent);
 }
 
 .miniBuild {
@@ -416,8 +413,8 @@
   gap: 0.5rem;
   padding: 0.4rem 0.5rem;
   border-radius: 0.45rem;
-  background: color-mix(in srgb, #fbbf24 10%, #fff);
-  border: 1px solid color-mix(in srgb, #fbbf24 35%, transparent);
+  background: color-mix(in srgb, var(--amber) 10%, var(--white));
+  border: 1px solid color-mix(in srgb, var(--amber) 35%, transparent);
 }
 
 .miniBuild em {
@@ -426,7 +423,7 @@
   font-size: 0.55rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #92400e;
+  color: var(--bronze);
 }
 
 .buildBars {
@@ -440,7 +437,7 @@
   display: block;
   width: 0.28rem;
   border-radius: 999px 999px 0 0;
-  background: linear-gradient(180deg, #fcd34d, #f59e0b);
+  background: linear-gradient(180deg, var(--amber), var(--amber));
 }
 
 .buildBars i:nth-child(1) {
@@ -468,9 +465,9 @@
   font-size: 0.55rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #065f46;
-  background: color-mix(in srgb, #34d399 14%, #fff);
-  border: 1px solid color-mix(in srgb, #34d399 40%, transparent);
+  color: var(--neon-dim);
+  background: color-mix(in srgb, var(--emerald) 14%, var(--white));
+  border: 1px solid color-mix(in srgb, var(--emerald) 40%, transparent);
 }
 
 .milestone {
@@ -485,8 +482,8 @@
   font-size: 0.55rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #0f172a;
-  background: color-mix(in srgb, var(--tone) 16%, #fff);
+  color: var(--viz-ink-2);
+  background: color-mix(in srgb, var(--tone) 16%, var(--white));
   border: 1px solid color-mix(in srgb, var(--tone) 35%, transparent);
 }
 

@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 
 import { PageHero } from "@/components/sections/PageHero";
-import { DomainShell } from "@/components/sections/elevated/Elevate";
+import { DomainShell } from "@/components/sections/domain/DomainShell";
 import { AiHeroVisual } from "@/components/sections/solutions/hero";
 import { AiAutomationProcessSection } from "@/components/sections/solutions/ai/AiAutomationProcess";
 import {
@@ -18,7 +18,6 @@ import {
   ServiceClientsSection,
   ServiceFaqCtaSection,
   ServiceProjectsSection,
-  ServiceTestimonialsSection,
 } from "@/components/sections/solutions/ServiceJourney";
 import {
   AI_FAQ,
@@ -36,8 +35,7 @@ const SERVICE_ICONS = [Sparkles, Bot, FileText, Camera, Languages, TrendingUp, S
 
 /**
  * Visitor journey:
- * Hero → logos → AI services → projects → process →
- * Google reviews → FAQ + CTA.
+ * Hero → logos → AI services → projects → process → FAQ + CTA.
  */
 export function AiAutomationPage() {
   useDocumentMeta(AI_SEO.title, AI_SEO.description);
@@ -73,7 +71,6 @@ export function AiAutomationPage() {
       />
       <ServiceProjectsSection meta={AI_PROJECTS} projects={PORTFOLIO_PROJECTS} />
       <AiAutomationProcessSection />
-      <ServiceTestimonialsSection />
       <ServiceFaqCtaSection faq={AI_FAQ} finalCta={AI_FINAL} />
     </DomainShell>
   );

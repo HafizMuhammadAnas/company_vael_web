@@ -1,36 +1,38 @@
 .section {
   padding-block: 2rem 1.75rem;
-  background: #f7f8fa;
-  border-bottom: 1px solid color-mix(in srgb, #0b1220 8%, transparent);
+  background: var(--obsidian-2);
+  border-bottom: 1px solid var(--border);
 }
 
 .inner {
   width: 100%;
   max-width: none;
   margin-inline: 0;
-  padding-inline: 1rem;
+  padding-inline: var(--page-gutter);
 }
 
 @media (min-width: 960px) {
+  /* Right edge open so the review carousel can bleed */
   .inner {
-    padding-inline: 1.25rem 0;
+    padding-inline: var(--page-gutter) 0;
   }
 }
 
 .heading {
   margin: 0 auto 1.35rem;
   max-width: 38rem;
-  text-align: center;
+  text-align: left;
   font-family: var(--font-display);
-  font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+  font-size: var(--section-heading);
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   line-height: 1.3;
-  color: #1a2332;
+  color: var(--heading-color);
   padding-inline: 0.5rem;
 }
 
 /* Equal side padding — matches Proud Work / service page shell */
+
 .aligned {
   padding-block: clamp(1.5rem, 3vw, 2.1rem);
 }
@@ -44,6 +46,7 @@
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.12;
+  color: var(--heading-color);
   max-width: 40rem;
   margin-bottom: 1.15rem;
 }
@@ -76,7 +79,7 @@
   font-size: 0.95rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #202124;
+  color: var(--text-primary);
   font-weight: 700;
 }
 
@@ -89,7 +92,7 @@
 .basedOn {
   margin: 0.05rem 0 0;
   font-size: 0.82rem;
-  color: #5f6368;
+  color: var(--text-secondary);
 }
 
 .summaryGoogle {
@@ -104,7 +107,7 @@
   font-size: 1.35rem;
   font-weight: 500;
   letter-spacing: -0.02em;
-  color: #5f6368;
+  color: var(--text-secondary);
 }
 
 .carousel {
@@ -143,10 +146,10 @@
   flex-direction: column;
   gap: 0.4rem;
   padding: 0.85rem 0.95rem 0.8rem;
-  border: 1px solid #e8eaed;
+  border: 1px solid var(--border);
   border-radius: 0.75rem;
-  background: #fff;
-  box-shadow: 0 1px 2px color-mix(in srgb, #0b1220 4%, transparent);
+  background: var(--obsidian-3);
+  box-shadow: 0 1px 2px color-mix(in srgb, var(--obsidian-1) 25%, transparent);
 }
 
 .cardHead {
@@ -157,6 +160,7 @@
 }
 
 .avatar,
+
 .avatarImg {
   width: 2.15rem;
   height: 2.15rem;
@@ -170,7 +174,7 @@
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.88rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--text-primary);
 }
 
 .avatarImg {
@@ -186,7 +190,7 @@
   margin: 0;
   font-size: 0.86rem;
   font-weight: 600;
-  color: #202124;
+  color: var(--text-primary);
   line-height: 1.2;
   white-space: nowrap;
   overflow: hidden;
@@ -196,7 +200,7 @@
 .time {
   margin: 0.08rem 0 0;
   font-size: 0.72rem;
-  color: #80868b;
+  color: var(--slate);
 }
 
 .cardGoogle {
@@ -208,7 +212,7 @@
   flex: 1;
   font-size: 0.8rem;
   line-height: 1.45;
-  color: #3c4043;
+  color: var(--text-secondary);
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -219,15 +223,15 @@
   margin-top: auto;
   font-size: 0.78rem;
   font-weight: 500;
-  color: #1a73e8;
+  color: var(--neon);
   text-decoration: none;
   cursor: pointer;
 }
-
 a.readMore:hover,
 a.readMore:focus-visible {
   text-decoration: underline;
   outline: none;
+  color: var(--neon-bright);
 }
 
 .navBtn {
@@ -235,23 +239,25 @@ a.readMore:focus-visible {
   width: 2rem;
   height: 2rem;
   border-radius: 999px;
-  border: 1px solid #dadce0;
-  background: #fff;
-  color: #5f6368;
+  border: 1px solid var(--border);
+  background: var(--obsidian-3);
+  color: var(--text-secondary);
   display: grid;
   place-items: center;
   cursor: pointer;
-  box-shadow: 0 1px 3px color-mix(in srgb, #0b1220 8%, transparent);
+  box-shadow: 0 1px 3px color-mix(in srgb, var(--obsidian-1) 30%, transparent);
   transition:
     opacity 0.2s ease,
-    border-color 0.2s ease;
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .navBtn:hover:not(:disabled),
+
 .navBtn:focus-visible:not(:disabled) {
   outline: none;
-  border-color: #bdc1c6;
-  color: #202124;
+  border-color: var(--border-neon);
+  color: var(--text-primary);
 }
 
 .navBtn:disabled {
@@ -267,23 +273,18 @@ a.readMore:focus-visible {
   .section {
     padding-block: 1.75rem 1.5rem;
   }
-
   .inner {
     padding-inline: 0.85rem;
   }
-
   .carousel {
     grid-template-columns: 1fr;
   }
-
   .navBtn {
     display: none;
   }
-
   .scroller {
     padding-right: 0.15rem;
   }
-
   .scrollerItem {
     flex-basis: min(15rem, 82vw);
   }

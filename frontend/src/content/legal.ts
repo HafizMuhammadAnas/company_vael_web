@@ -7,7 +7,7 @@
  */
 import { COMPANY } from "@/constants/company";
 
-const { registeredName, companyNumber, registeredIn, registeredOffice } = COMPANY.legal;
+const { registeredName, registeredOffice } = COMPANY.legal;
 
 /** Shared "last updated" date for the legal documents. */
 export const LEGAL_UPDATED = "9 August 2026";
@@ -43,9 +43,8 @@ export const PRIVACY_POLICY: LegalDoc = {
     {
       heading: "1. Who We Are",
       blocks: [
-        { p: `${registeredName} is a company registered in the ${registeredIn}.` },
-        { p: `Company number: ${companyNumber}` },
-        { p: `Registered office: ${registeredOffice}` },
+        { p: `${registeredName} operates this website.` },
+        { p: `Office: ${registeredOffice}` },
         {
           p: "For privacy-related questions, you can contact us through the contact details provided on our website.",
         },
@@ -251,9 +250,8 @@ export const TERMS_AND_CONDITIONS: LegalDoc = {
     {
       heading: "1. About VAELKODE",
       blocks: [
-        { p: `This website is operated by ${registeredName}, a company registered in the ${registeredIn}.` },
-        { p: `Company number: ${companyNumber}` },
-        { p: `Registered office: ${registeredOffice}` },
+        { p: `This website is operated by ${registeredName}.` },
+        { p: `Office: ${registeredOffice}` },
       ],
     },
     {

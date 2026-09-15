@@ -30,13 +30,15 @@ import { adminRoutes } from "@/router/adminRoutes";
  * Industry names live on the homepage only — no dedicated industries section.
  */
 const industryAnchors = [
-  "government",
+  "real-estate",
   "education",
   "healthcare",
   "agriculture",
   "finance",
   "logistics",
   "retail",
+  // Legacy — still redirect to the industries strip
+  "government",
 ];
 
 /** Routes that redirect until a dedicated page exists / legacy paths. */

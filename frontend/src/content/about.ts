@@ -62,8 +62,6 @@ export const ABOUT_WHO = {
   highlight: "We start with the problem, design a fitting solution, and build it properly.",
   facts: [
     { label: "Legal name", value: COMPANY.legal.registeredName },
-    { label: "Company number", value: COMPANY.legal.companyNumber },
-    { label: "Registered in", value: COMPANY.legal.registeredIn },
     { label: "Office", value: COMPANY.legal.registeredOffice },
     { label: "Director", value: COMPANY.legal.director },
     { label: "Contact", value: COMPANY.contact.email },
@@ -147,53 +145,7 @@ export const ABOUT_APPROACH = {
   cta: { label: "See the full process", to: "/about/process" },
 };
 
-/** Merged beliefs + differentiators. Titles only on page. */
-export const ABOUT_PRINCIPLES = {
-  label: "How we show up",
-  heading: "Working standards.",
-  items: [
-    {
-      title: "Problem before platform",
-      text: "We won't recommend AI, a rewrite, or a new stack until the outcome is clear.",
-    },
-    {
-      title: "Useful releases",
-      text: "Progress means software you can try, not slide decks that hide risk.",
-    },
-    {
-      title: "Honest trade-offs",
-      text: "If something is expensive, fragile, or unnecessary, we say so early.",
-    },
-    {
-      title: "Built to last",
-      text: "We plan for maintainability, handoff, and change, because systems outlive the first engagement.",
-    },
-  ],
-};
-
-export const ABOUT_TRUST = {
-  label: "Straight answers",
-  heading: "Before you trust a partner.",
-  items: [
-    {
-      q: "Do I need to know which technology I need?",
-      a: "No. Start with the problem and outcome. We'll help choose software, AI, cloud, consulting, or a smaller experiment.",
-    },
-    {
-      q: "Will you push AI into every project?",
-      a: "No. We're AI-capable, not AI-forced. We recommend it when friction, data, and oversight make sense.",
-    },
-    {
-      q: "Can you work with systems we already have?",
-      a: "Yes. We assess what to keep, integrate, modernize, or replace based on risk and value.",
-    },
-    {
-      q: "How do we start?",
-      a: "With a conversation. We clarify the challenge and propose a practical next step.",
-    },
-  ],
-};
-
+/** Vision / mission twin. */
 export const ABOUT_VISION = {
   label: "Vision",
   heading: "Technology that makes complex work simpler.",
@@ -210,45 +162,4 @@ export const ABOUT_FINAL: FinalCta = {
   supporting:
     "Starting a product, modernizing a system, or clarifying a decision? Begin with the problem and we'll help map the next step.",
   ...FINAL_PAIR_CONTACT,
-};
-
-/* ── Legacy aliases ────────────────────────────────────────────────── */
-
-export const ABOUT_BELIEFS = {
-  label: ABOUT_PRINCIPLES.label,
-  heading: ABOUT_PRINCIPLES.heading,
-  supporting: "",
-  items: ABOUT_PRINCIPLES.items,
-};
-
-export const ABOUT_WHY = {
-  label: "Why VAELKODE",
-  heading: "What makes this partnership different.",
-  points: ABOUT_PRINCIPLES.items,
-};
-
-export const ABOUT_JOURNEY = {
-  label: "Our commitment",
-  heading: "Growing through the quality of the work.",
-  supporting: "Strong engineering habits first, then trusted delivery.",
-  phases: [
-    { title: "Foundation", text: "Identity, standards, and a clear approach." },
-    { title: "Delivery", text: "Shipping useful software and advice." },
-    { title: "Depth", text: "Expanding what we take on well." },
-    { title: "Stewardship", text: "Long-term system care as we grow." },
-  ],
-};
-
-export const ABOUT_MINDSET = {
-  label: ABOUT_PRINCIPLES.label,
-  heading: ABOUT_PRINCIPLES.heading,
-  paragraphs: [] as string[],
-  principles: ABOUT_PRINCIPLES.items,
-};
-
-export const ABOUT_TECH = {
-  label: "Technology",
-  heading: "Modern technology with practical engineering.",
-  supporting: "Choices are covered on each service page.",
-  categories: [] as { title: string; items: string[] }[],
 };

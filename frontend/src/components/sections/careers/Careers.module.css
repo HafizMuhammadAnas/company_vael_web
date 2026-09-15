@@ -1,0 +1,45 @@
+.altBg {
+  background: var(--obsidian-2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.chip {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 0.45rem 0.95rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--neon) 35%, transparent);
+  background: color-mix(in srgb, var(--obsidian-2) 55%, transparent);
+  color: color-mix(in srgb, var(--neon-bright) 70%, var(--text-secondary));
+}
+
+.sectionCtas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.emptyState {
+  border: 1px dashed var(--border-neon);
+  background: color-mix(in srgb, var(--neon) 2%, transparent);
+  padding: 3rem 2rem;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  color: var(--slate);
+}
+
+@media (max-width: 640px) {
+  .emptyState {
+    padding: 2rem 1.2rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+  }
+}

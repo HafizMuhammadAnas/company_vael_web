@@ -10,7 +10,6 @@ import {
   Cloud,
   Code2,
   Compass,
-  Eye,
   LayoutDashboard,
   Rocket,
   Smartphone,
@@ -19,14 +18,13 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
-import { Button, Eyebrow, Section } from "@/components/ui";
+import { Button, Eyebrow, Section, Accent } from "@/components/ui";
+import { HeroConsole } from "@/components/sections/HeroConsole";
 import {
   ABOUT_APPROACH,
   ABOUT_CAPABILITIES,
   ABOUT_MISSION,
-  ABOUT_PRINCIPLES,
   ABOUT_SITUATIONS,
-  ABOUT_TRUST,
   ABOUT_VISION,
   ABOUT_WHO,
   ABOUT_WHO_WE_HELP,
@@ -36,51 +34,45 @@ import styles from "./AboutSections.module.css";
 
 const CAP_ICONS: LucideIcon[] = [Code2, LayoutDashboard, Smartphone, BrainCircuit, Cloud, Compass];
 const AUDIENCE_ICONS: LucideIcon[] = [Rocket, Users, Building2, Code2];
-const PRINCIPLE_ICONS: LucideIcon[] = [Compass, Rocket, Eye, Building2];
 
 /** Hero right-column visual — problem → build → software. */
 export function AboutHeroVisual() {
   return (
-    <div className={styles.heroScene} aria-hidden>
-      <div className={styles.heroConsole}>
-        <header className={styles.heroBar}>
-          <span /><span /><span />
-          <em>vaelkode · about</em>
-        </header>
-        <div className={styles.heroBody}>
-          <div className={styles.heroPole}>
-            <span>Problem</span>
-            <div className={styles.heroFace}>
-              <i /><i /><i />
-              <strong>?</strong>
-            </div>
-          </div>
-          <div className={styles.heroBridge}>
-            <b />
-            <em>Build</em>
-          </div>
-          <div className={`${styles.heroPole} ${styles.heroOut}`}>
-            <span>Software</span>
-            <div className={styles.heroFace}>
-              <span className={styles.heroBars}>
-                <i style={{ height: "40%" }} />
-                <i style={{ height: "70%" }} />
-                <i style={{ height: "55%" }} />
-                <i style={{ height: "88%" }} />
-              </span>
-              <strong>✓</strong>
-            </div>
+    <HeroConsole
+      title="vaelkode · about"
+      lane={[
+        { label: "Understand" },
+        { label: "Design" },
+        { label: "Build", active: true },
+        { label: "Improve" },
+      ]}
+    >
+      <div className={styles.heroBody} aria-hidden>
+        <div className={styles.heroPole}>
+          <span>Problem</span>
+          <div className={styles.heroFace}>
+            <i /><i /><i />
+            <strong>?</strong>
           </div>
         </div>
-        <ul className={styles.heroLane}>
-          {["Understand", "Design", "Build", "Improve"].map((s, i) => (
-            <li key={s} className={i === 2 ? styles.heroLaneOn : undefined}>
-              {s}
-            </li>
-          ))}
-        </ul>
+        <div className={styles.heroBridge}>
+          <b />
+          <em>Build</em>
+        </div>
+        <div className={`${styles.heroPole} ${styles.heroOut}`}>
+          <span>Software</span>
+          <div className={styles.heroFace}>
+            <span className={styles.heroBars}>
+              <i style={{ height: "40%" }} />
+              <i style={{ height: "70%" }} />
+              <i style={{ height: "55%" }} />
+              <i style={{ height: "88%" }} />
+            </span>
+            <strong>✓</strong>
+          </div>
+        </div>
       </div>
-    </div>
+    </HeroConsole>
   );
 }
 
@@ -159,7 +151,7 @@ export function AboutCapabilitiesSection() {
           <Eyebrow>{ABOUT_CAPABILITIES.label}</Eyebrow>
           <h2 className={styles.title}>
             {ABOUT_CAPABILITIES.heading}{" "}
-            <span className={styles.accent}>{ABOUT_CAPABILITIES.accent}</span>
+            <Accent>{ABOUT_CAPABILITIES.accent}</Accent>
           </h2>
         </header>
         <ul className={styles.capMosaic}>
@@ -248,56 +240,6 @@ export function AboutApproachSection() {
               </li>
             ))}
           </ol>
-        </div>
-      </div>
-    </Section>
-  );
-}
-
-/** Principles — merged standards chips. */
-export function AboutPrinciplesSection() {
-  return (
-    <Section className={styles.stage}>
-      <div className={`${styles.wrap} reveal`}>
-        <header className={styles.head}>
-          <Eyebrow>{ABOUT_PRINCIPLES.label}</Eyebrow>
-          <h2 className={styles.title}>{ABOUT_PRINCIPLES.heading}</h2>
-        </header>
-        <ul className={styles.principleGrid}>
-          {ABOUT_PRINCIPLES.items.map((item, i) => {
-            const Icon = PRINCIPLE_ICONS[i] ?? Compass;
-            return (
-              <li key={item.title} className={styles.principle} title={item.text}>
-                <span className={styles.principleIcon} aria-hidden>
-                  <Icon size={18} strokeWidth={1.55} />
-                </span>
-                <span className={styles.principleNum}>{String(i + 1).padStart(2, "0")}</span>
-                <strong>{item.title}</strong>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-    </Section>
-  );
-}
-
-/** Trust FAQ — premium shell. */
-export function AboutTrustSection() {
-  return (
-    <Section className={[styles.stage, styles.altBg].join(" ")}>
-      <div className={`${styles.faqShell} reveal`}>
-        <header className={styles.faqHead}>
-          <Eyebrow>{ABOUT_TRUST.label}</Eyebrow>
-          <h2 className={styles.title}>{ABOUT_TRUST.heading}</h2>
-        </header>
-        <div className={styles.faqList}>
-          {ABOUT_TRUST.items.map((item) => (
-            <details key={item.q} className={styles.faqItem}>
-              <summary>{item.q}</summary>
-              <p>{item.a}</p>
-            </details>
-          ))}
         </div>
       </div>
     </Section>

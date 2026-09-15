@@ -26,7 +26,6 @@ import {
 import { Link } from "react-router-dom";
 
 import { HeroAmbient } from "@/components/ambient/HeroAmbient";
-import { GoogleReviews } from "@/components/sections/home/GoogleReviews";
 import { ClientLogos } from "@/components/sections/home/ClientLogos";
 import { PortfolioProjectCard } from "@/components/sections/work/PortfolioProjectCard";
 import ctaStyles from "@/components/sections/FinalCtaSection.module.css";
@@ -191,9 +190,9 @@ export function WebProcessSection() {
           >
             <defs>
               <linearGradient id="webRoadGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#38bdf8" />
-                <stop offset="45%" stopColor="#a78bfa" />
-                <stop offset="100%" stopColor="#f472b6" />
+                <stop offset="0%" stopColor="var(--sky-deep)" />
+                <stop offset="45%" stopColor="var(--violet)" />
+                <stop offset="100%" stopColor="var(--danger)" />
               </linearGradient>
               <filter id="webRoadSoft" x="-20%" y="-5%" width="140%" height="110%">
                 <feGaussianBlur stdDeviation="1.2" />
@@ -367,11 +366,6 @@ export function WebQualitySection() {
       </div>
     </Section>
   );
-}
-
-/** 8. What clients say — reuse Google reviews block. */
-export function WebTestimonialsSection() {
-  return <GoogleReviews aligned />;
 }
 
 /** FAQ + next-step CTA in one row. */

@@ -38,12 +38,14 @@ export const COMPANY = {
     phoneDisplay: "+44 7774 799808",
   },
 
-  /** Official UK Companies House record — public-facing details only. */
+  /** Public-facing company details (no confidential registration street / number on site). */
   legal: {
     registeredName: "VAELKODE LTD",
-    companyNumber: "17284196",
+    /** Not shown on the public site. */
+    companyNumber: "",
     registeredIn: "United Kingdom",
-    registeredOffice: "26 St. Anne Street, Liverpool, L3 3JP, United Kingdom",
+    /** City-level only — no street line on the public site. */
+    registeredOffice: "Liverpool, L3 3JP, United Kingdom",
     director: "Raahim Rana",
   },
 

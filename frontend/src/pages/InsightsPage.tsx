@@ -1,6 +1,7 @@
 import { FinalCtaSection } from "@/components/sections/FinalCtaSection";
 import { PageHero } from "@/components/sections/PageHero";
-import { DomainShell, WorkGallery } from "@/components/sections/elevated/Elevate";
+import { DomainShell } from "@/components/sections/domain/DomainShell";
+import { WorkGallery } from "@/components/sections/elevated/Elevate";
 import { InsightsBlogSection } from "@/components/sections/insights/InsightsBlog";
 import {
   INS_FEATURED,

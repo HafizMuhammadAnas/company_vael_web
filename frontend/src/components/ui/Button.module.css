@@ -26,7 +26,7 @@
     0 0 56px color-mix(in srgb, var(--neon) 22%, transparent);
 }
 .primary:hover {
-  background: linear-gradient(135deg, #9ffff0, var(--neon-bright) 45%, var(--neon));
+  background: linear-gradient(135deg, var(--neon-hot), var(--neon-bright) 45%, var(--neon));
   box-shadow:
     0 0 0 1px color-mix(in srgb, var(--neon-bright) 55%, transparent),
     0 0 40px var(--neon-glow-strong),
@@ -58,7 +58,7 @@
   box-shadow: 0 0 22px var(--neon-glow);
 }
 .cta:hover {
-  background: linear-gradient(135deg, #9ffff0, var(--neon-bright));
+  background: linear-gradient(135deg, var(--neon-hot), var(--neon-bright));
   box-shadow: 0 0 36px var(--neon-glow-strong);
 }
 
@@ -69,12 +69,12 @@
 @media (max-width: 640px) {
   .btn {
     font-size: 0.78rem;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.05em;
     padding: 0.9rem 1.5rem;
   }
   .cta {
     padding: 0.5rem 1.1rem;
     font-size: 0.72rem;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.05em;
   }
 }

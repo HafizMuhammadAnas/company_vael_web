@@ -9,14 +9,13 @@ import {
 } from "lucide-react";
 
 import { PageHero } from "@/components/sections/PageHero";
-import { DomainShell } from "@/components/sections/elevated/Elevate";
+import { DomainShell } from "@/components/sections/domain/DomainShell";
 import { SoftwareHeroVisual } from "@/components/sections/solutions/hero";
 import {
   ServiceCardsSection,
   ServiceClientsSection,
   ServiceFaqCtaSection,
   ServiceProjectsSection,
-  ServiceTestimonialsSection,
 } from "@/components/sections/solutions/ServiceJourney";
 import { CustomSoftwareProcessSection } from "@/components/sections/solutions/software/CustomSoftwareProcess";
 import {
@@ -35,8 +34,7 @@ const SERVICE_ICONS = [Code2, Layers, Settings, Workflow, Link2, RefreshCw, Boxe
 
 /**
  * Visitor journey:
- * Hero → logos → software services → projects → process →
- * Google reviews → FAQ + CTA.
+ * Hero → logos → software services → projects → process → FAQ + CTA.
  */
 export function CustomSoftwarePage() {
   useDocumentMeta(CS_SEO.title, CS_SEO.description);
@@ -63,7 +61,6 @@ export function CustomSoftwarePage() {
       />
       <ServiceProjectsSection meta={CS_PROJECTS} projects={PORTFOLIO_PROJECTS} />
       <CustomSoftwareProcessSection />
-      <ServiceTestimonialsSection />
       <ServiceFaqCtaSection faq={CS_FAQ} finalCta={CS_FINAL} />
     </DomainShell>
   );

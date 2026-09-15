@@ -13,7 +13,7 @@
 }
 
 .control {
-  background: color-mix(in srgb, #080c14 78%, transparent);
+  background: color-mix(in srgb, var(--obsidian-1) 78%, transparent);
   border: 1px solid color-mix(in srgb, var(--neon) 18%, transparent);
   border-radius: 0.65rem;
   color: var(--text-primary);
@@ -41,7 +41,7 @@
   box-shadow:
     0 0 0 3px color-mix(in srgb, var(--neon) 12%, transparent),
     0 0 24px -12px color-mix(in srgb, var(--neon) 45%, transparent);
-  background: color-mix(in srgb, #0a101a 88%, transparent);
+  background: color-mix(in srgb, var(--obsidian-1) 88%, transparent);
 }
 
 .select {
@@ -73,7 +73,7 @@
   font-family: var(--font-mono);
   font-size: 0.6rem;
   letter-spacing: 0.08em;
-  color: #fb7185;
+  color: var(--danger);
 }
 
 @media (max-width: 900px) {

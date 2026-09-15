@@ -9,14 +9,13 @@ import {
 } from "lucide-react";
 
 import { PageHero } from "@/components/sections/PageHero";
-import { DomainShell } from "@/components/sections/elevated/Elevate";
+import { DomainShell } from "@/components/sections/domain/DomainShell";
 import { ConsultingHeroVisual } from "@/components/sections/solutions/hero";
 import { ConsultingProcessSection } from "@/components/sections/solutions/consulting/ConsultingProcess";
 import {
   ServiceCardsSection,
   ServiceClientsSection,
   ServiceFaqCtaSection,
-  ServiceTestimonialsSection,
 } from "@/components/sections/solutions/ServiceJourney";
 import {
   TC_FAQ,
@@ -32,8 +31,7 @@ const SERVICE_ICONS = [Compass, Search, Map, Scale, Route, Lightbulb, ShieldChec
 
 /**
  * Visitor journey:
- * Hero → logos → consulting services → advisory decision map →
- * Google reviews → FAQ + CTA.
+ * Hero → logos → consulting services → advisory decision map → FAQ + CTA.
  */
 export function TechnologyConsultingPage() {
   useDocumentMeta(TC_SEO.title, TC_SEO.description);
@@ -67,7 +65,6 @@ export function TechnologyConsultingPage() {
         ]}
       />
       <ConsultingProcessSection />
-      <ServiceTestimonialsSection />
       <ServiceFaqCtaSection faq={TC_FAQ} finalCta={TC_FINAL} />
     </DomainShell>
   );

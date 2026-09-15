@@ -54,7 +54,6 @@ export function LegalPage({ doc }: { doc: LegalDoc }) {
 
         <div className={l.signature}>
           <strong>{COMPANY.legal.registeredName}</strong>
-          <span>Company No. {COMPANY.legal.companyNumber}</span>
           <span>{COMPANY.legal.registeredOffice}</span>
         </div>
       </div>

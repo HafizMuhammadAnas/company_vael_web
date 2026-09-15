@@ -23,7 +23,7 @@
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.12;
-  color: var(--text-primary);
+  color: var(--heading-color);
 }
 
 .lede {
@@ -41,8 +41,8 @@
 }
 
 .showcaseFeatured {
-  --svc: #38bdf8;
-  --svc-2: #818cf8;
+  --svc: var(--sky-deep);
+  --svc-2: var(--violet);
   display: grid;
   gap: 1.15rem;
   align-items: stretch;
@@ -102,42 +102,42 @@
 
 .vizSitemapSurface {
   background:
-    radial-gradient(circle at 28% 40%, color-mix(in srgb, #38bdf8 38%, transparent), transparent 42%),
-    radial-gradient(circle at 78% 65%, color-mix(in srgb, #818cf8 30%, transparent), transparent 45%),
-    #0f1422;
+    radial-gradient(circle at 28% 40%, color-mix(in srgb, var(--sky-deep) 38%, transparent), transparent 42%),
+    radial-gradient(circle at 78% 65%, color-mix(in srgb, var(--violet) 30%, transparent), transparent 45%),
+    var(--obsidian);
 }
 .vizFunnelSurface {
   background:
-    radial-gradient(circle at 50% 40%, color-mix(in srgb, #a78bfa 36%, transparent), transparent 48%),
-    #12101c;
+    radial-gradient(circle at 50% 40%, color-mix(in srgb, var(--violet) 36%, transparent), transparent 48%),
+    var(--obsidian-2);
 }
 .vizShopSurface {
-  background: linear-gradient(160deg, #1e3a5f 0%, #312e81 42%, #9a3412 100%);
+  background: linear-gradient(160deg, color-mix(in srgb, var(--sky) 25%, var(--viz-ink)) 0%, var(--viz-indigo) 42%, var(--bronze) 100%);
 }
 .vizCmsSurface {
   background:
-    radial-gradient(ellipse 70% 55% at 20% 80%, color-mix(in srgb, #2dd4bf 32%, transparent), transparent 55%),
-    #0e1a18;
+    radial-gradient(ellipse 70% 55% at 20% 80%, color-mix(in srgb, var(--mint) 32%, transparent), transparent 55%),
+    var(--obsidian);
 }
 .vizMigrateSurface {
   background:
-    radial-gradient(circle at 20% 30%, color-mix(in srgb, #fbbf24 34%, transparent), transparent 40%),
-    #1a140c;
+    radial-gradient(circle at 20% 30%, color-mix(in srgb, var(--amber) 34%, transparent), transparent 40%),
+    var(--obsidian-2);
 }
 .vizArchSurface {
   background:
-    radial-gradient(circle at 70% 40%, color-mix(in srgb, #60a5fa 40%, transparent), transparent 45%),
-    linear-gradient(135deg, #0f172a, #1e1b4b 60%);
+    radial-gradient(circle at 70% 40%, color-mix(in srgb, var(--sky-mid) 40%, transparent), transparent 45%),
+    linear-gradient(135deg, var(--viz-ink-2), var(--viz-violet-deep) 60%);
 }
 .vizVitalsSurface {
   background:
-    radial-gradient(circle at 40% 50%, color-mix(in srgb, #4ade80 32%, transparent), transparent 45%),
-    #052e16;
+    radial-gradient(circle at 40% 50%, color-mix(in srgb, var(--emerald-bright) 32%, transparent), transparent 45%),
+    color-mix(in srgb, var(--emerald) 22%, var(--viz-ink));
 }
 .vizFormsSurface {
   background:
-    radial-gradient(circle at 30% 30%, color-mix(in srgb, #e879f9 34%, transparent), transparent 42%),
-    #170f22;
+    radial-gradient(circle at 30% 30%, color-mix(in srgb, var(--violet-bright) 34%, transparent), transparent 42%),
+    var(--viz-violet-deep);
 }
 
 .coverGlow {
@@ -156,9 +156,9 @@
   border-radius: 0.85rem;
   display: grid;
   place-items: center;
-  color: var(--svc, #7dd3fc);
+  color: var(--svc, var(--sky-deep));
   background: color-mix(in srgb, var(--obsidian) 55%, transparent);
-  border: 1px solid color-mix(in srgb, var(--svc, #7dd3fc) 40%, transparent);
+  border: 1px solid color-mix(in srgb, var(--svc, var(--sky-deep)) 40%, transparent);
   backdrop-filter: blur(8px);
 }
 
@@ -169,9 +169,9 @@
   width: min(100%, 18rem);
   border-radius: 0.75rem;
   overflow: hidden;
-  background: color-mix(in srgb, #0b1220 72%, transparent);
-  border: 1px solid color-mix(in srgb, #38bdf8 38%, transparent);
-  box-shadow: 0 18px 40px -24px color-mix(in srgb, #38bdf8 55%, transparent);
+  background: color-mix(in srgb, var(--viz-ink) 72%, transparent);
+  border: 1px solid color-mix(in srgb, var(--sky-deep) 38%, transparent);
+  box-shadow: 0 18px 40px -24px color-mix(in srgb, var(--sky-deep) 55%, transparent);
 }
 
 .vizBrowserBar {
@@ -179,20 +179,20 @@
   align-items: center;
   gap: 0.35rem;
   padding: 0.45rem 0.65rem;
-  background: color-mix(in srgb, #020617 55%, transparent);
-  border-bottom: 1px solid color-mix(in srgb, #38bdf8 22%, transparent);
+  background: color-mix(in srgb, var(--obsidian-1) 55%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--sky-deep) 22%, transparent);
 }
 
 .vizBrowserBar i {
   width: 0.45rem;
   height: 0.45rem;
   border-radius: 50%;
-  background: color-mix(in srgb, #94a3b8 55%, transparent);
+  background: color-mix(in srgb, var(--viz-muted) 55%, transparent);
 }
 
-.vizBrowserBar i:nth-child(1) { background: #f87171; }
-.vizBrowserBar i:nth-child(2) { background: #fbbf24; }
-.vizBrowserBar i:nth-child(3) { background: #4ade80; }
+.vizBrowserBar i:nth-child(1) { background: var(--danger); }
+.vizBrowserBar i:nth-child(2) { background: var(--amber); }
+.vizBrowserBar i:nth-child(3) { background: var(--emerald-bright); }
 
 .vizBrowserBar em {
   margin-left: 0.35rem;
@@ -201,17 +201,17 @@
   font-family: var(--font-mono);
   font-size: 0.58rem;
   letter-spacing: 0.04em;
-  color: #94a3b8;
+  color: var(--viz-muted);
   padding: 0.2rem 0.45rem;
   border-radius: 0.3rem;
-  background: color-mix(in srgb, #1e293b 70%, transparent);
+  background: color-mix(in srgb, var(--viz-ink-3) 70%, transparent);
 }
 
 .vizBrowserNav {
   display: flex;
   gap: 0.55rem;
   padding: 0.55rem 0.75rem;
-  border-bottom: 1px solid color-mix(in srgb, #38bdf8 16%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--sky-deep) 16%, transparent);
 }
 
 .vizBrowserNav span {
@@ -219,7 +219,7 @@
   font-size: 0.55rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #cbd5e1;
+  color: var(--viz-muted);
 }
 
 .vizBrowserHero {
@@ -232,7 +232,7 @@
   display: block;
   height: 0.55rem;
   border-radius: 0.25rem;
-  background: color-mix(in srgb, #7dd3fc 35%, transparent);
+  background: color-mix(in srgb, var(--sky-deep) 35%, transparent);
 }
 
 .vizBrowserHero b:first-child {
@@ -252,8 +252,8 @@
   font-size: 0.55rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #0f172a;
-  background: #38bdf8;
+  color: var(--viz-ink-2);
+  background: var(--sky-deep);
   padding: 0.3rem 0.55rem;
   border-radius: 0.3rem;
 }
@@ -268,8 +268,8 @@
 .vizBrowserCards span {
   aspect-ratio: 1.1;
   border-radius: 0.4rem;
-  background: color-mix(in srgb, #38bdf8 18%, transparent);
-  border: 1px solid color-mix(in srgb, #38bdf8 28%, transparent);
+  background: color-mix(in srgb, var(--sky-deep) 18%, transparent);
+  border: 1px solid color-mix(in srgb, var(--sky-deep) 28%, transparent);
 }
 
 /* Landing page */
@@ -282,8 +282,8 @@
   justify-items: start;
   padding: 1.15rem 1.1rem;
   border-radius: 0.85rem;
-  background: color-mix(in srgb, #1e1b4b 55%, transparent);
-  border: 1px solid color-mix(in srgb, #a78bfa 40%, transparent);
+  background: color-mix(in srgb, var(--viz-violet-deep) 55%, transparent);
+  border: 1px solid color-mix(in srgb, var(--violet) 40%, transparent);
 }
 
 .vizLandingBadge {
@@ -291,24 +291,24 @@
   font-size: 0.55rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #c4b5fd;
+  color: var(--violet-bright);
   padding: 0.2rem 0.45rem;
   border-radius: 999px;
-  border: 1px solid color-mix(in srgb, #a78bfa 40%, transparent);
+  border: 1px solid color-mix(in srgb, var(--violet) 40%, transparent);
 }
 
 .vizLanding strong {
   font-family: var(--font-display);
   font-size: 1.15rem;
   letter-spacing: -0.02em;
-  color: #f5f3ff;
+  color: var(--viz-paper-violet);
 }
 
 .vizLanding p {
   margin: 0;
   font-size: 0.72rem;
   line-height: 1.45;
-  color: #c4b5fd;
+  color: var(--violet-bright);
 }
 
 .vizLandingCta {
@@ -317,8 +317,8 @@
   font-size: 0.62rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #0f172a;
-  background: linear-gradient(90deg, #c4b5fd, #7dd3fc);
+  color: var(--viz-ink-2);
+  background: linear-gradient(90deg, var(--violet-bright), var(--sky-deep));
   padding: 0.45rem 0.75rem;
   border-radius: 0.4rem;
 }
@@ -335,7 +335,7 @@
   display: block;
   height: 0.45rem;
   border-radius: 999px;
-  background: color-mix(in srgb, #a78bfa 45%, transparent);
+  background: color-mix(in srgb, var(--violet) 45%, transparent);
 }
 
 /* E-commerce */
@@ -356,9 +356,9 @@
   align-content: end;
   padding: 0.45rem;
   background:
-    linear-gradient(160deg, color-mix(in srgb, #fff 10%, transparent), transparent 50%),
-    color-mix(in srgb, #0b1220 50%, transparent);
-  border: 1px solid color-mix(in srgb, #fb923c 35%, transparent);
+    linear-gradient(160deg, color-mix(in srgb, var(--white) 10%, transparent), transparent 50%),
+    color-mix(in srgb, var(--viz-ink) 50%, transparent);
+  border: 1px solid color-mix(in srgb, var(--bronze-light) 35%, transparent);
 }
 
 .vizProduct i {
@@ -366,7 +366,7 @@
   inset: 0.55rem 0.55rem auto;
   height: 45%;
   border-radius: 0.4rem;
-  background: color-mix(in srgb, #fdba74 28%, transparent);
+  background: color-mix(in srgb, var(--bronze-pale) 28%, transparent);
 }
 
 .vizProduct em {
@@ -374,7 +374,7 @@
   font-style: normal;
   font-family: var(--font-mono);
   font-size: 0.62rem;
-  color: #ffedd5;
+  color: var(--viz-paper-peach);
 }
 
 .vizCart {
@@ -385,9 +385,9 @@
   gap: 0.4rem;
   padding: 0.55rem 0.75rem;
   border-radius: 999px;
-  color: #fff7ed;
-  background: color-mix(in srgb, #ea580c 50%, transparent);
-  border: 1px solid color-mix(in srgb, #fdba74 40%, transparent);
+  color: var(--viz-paper-peach);
+  background: color-mix(in srgb, var(--bronze) 50%, transparent);
+  border: 1px solid color-mix(in srgb, var(--bronze-pale) 40%, transparent);
   font-family: var(--font-mono);
   font-size: 0.68rem;
   letter-spacing: 0.08em;
@@ -409,8 +409,8 @@
   min-height: 12rem;
   padding: 0.65rem;
   border-radius: 0.75rem;
-  background: color-mix(in srgb, #022c22 55%, transparent);
-  border: 1px solid color-mix(in srgb, #2dd4bf 35%, transparent);
+  background: color-mix(in srgb, color-mix(in srgb, var(--emerald) 18%, var(--viz-ink)) 55%, transparent);
+  border: 1px solid color-mix(in srgb, var(--mint) 35%, transparent);
 }
 
 .vizCmsSidebar,
@@ -426,14 +426,14 @@
   font-size: 0.55rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #99f6e4;
+  color: var(--mint);
   padding: 0.35rem 0.4rem;
   border-radius: 0.3rem;
-  background: color-mix(in srgb, #2dd4bf 16%, transparent);
+  background: color-mix(in srgb, var(--mint) 16%, transparent);
 }
 
 .vizCmsSidebar em:first-child {
-  background: color-mix(in srgb, #2dd4bf 32%, transparent);
+  background: color-mix(in srgb, var(--mint) 32%, transparent);
 }
 
 .vizCmsTitle {
@@ -441,13 +441,13 @@
   font-size: 0.58rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #5eead4;
+  color: var(--mint);
 }
 
 .vizCmsMain b {
   display: block;
   border-radius: 0.3rem;
-  background: color-mix(in srgb, #5eead4 22%, transparent);
+  background: color-mix(in srgb, var(--mint) 22%, transparent);
 }
 
 .vizCmsMain b:nth-of-type(1) { height: 0.85rem; width: 70%; }
@@ -461,8 +461,8 @@
   font-size: 0.55rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #022c22;
-  background: #2dd4bf;
+  color: color-mix(in srgb, var(--emerald) 18%, var(--viz-ink));
+  background: var(--mint);
   padding: 0.3rem 0.55rem;
   border-radius: 0.3rem;
 }
@@ -488,7 +488,7 @@
   font-size: 0.55rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #fde68a;
+  color: var(--bronze-pale);
 }
 
 .vizMigrateOld,
@@ -501,14 +501,14 @@
 }
 
 .vizMigrateOld {
-  background: color-mix(in srgb, #78350f 45%, transparent);
-  border: 1px solid color-mix(in srgb, #fbbf24 30%, transparent);
+  background: color-mix(in srgb, var(--bronze) 45%, transparent);
+  border: 1px solid color-mix(in srgb, var(--amber) 30%, transparent);
   opacity: 0.85;
 }
 
 .vizMigrateNew {
-  background: color-mix(in srgb, #14532d 55%, transparent);
-  border: 1px solid color-mix(in srgb, #4ade80 40%, transparent);
+  background: color-mix(in srgb, color-mix(in srgb, var(--emerald) 28%, var(--viz-ink)) 55%, transparent);
+  border: 1px solid color-mix(in srgb, var(--emerald-bright) 40%, transparent);
 }
 
 .vizMigrateOld i,
@@ -519,7 +519,7 @@
 }
 
 .vizMigrateOld i {
-  background: color-mix(in srgb, #fbbf24 35%, transparent);
+  background: color-mix(in srgb, var(--amber) 35%, transparent);
 }
 
 .vizMigrateOld i:nth-child(1) { width: 55%; }
@@ -527,7 +527,7 @@
 .vizMigrateOld i:nth-child(3) { width: 40%; }
 
 .vizMigrateNew i {
-  background: color-mix(in srgb, #4ade80 40%, transparent);
+  background: color-mix(in srgb, var(--emerald-bright) 40%, transparent);
 }
 
 .vizMigrateNew i:nth-child(1) { width: 70%; height: 0.65rem; }
@@ -536,7 +536,7 @@
 
 .vizMigrate > em {
   font-style: normal;
-  color: #fde68a;
+  color: var(--bronze-pale);
   font-size: 1.15rem;
   flex-shrink: 0;
 }
@@ -551,8 +551,8 @@
   min-height: 12rem;
   border-radius: 0.75rem;
   overflow: hidden;
-  background: color-mix(in srgb, #0f172a 70%, transparent);
-  border: 1px solid color-mix(in srgb, #60a5fa 35%, transparent);
+  background: color-mix(in srgb, var(--viz-ink-2) 70%, transparent);
+  border: 1px solid color-mix(in srgb, var(--sky-mid) 35%, transparent);
 }
 
 .vizPortal aside {
@@ -560,8 +560,8 @@
   gap: 0.4rem;
   align-content: start;
   padding: 0.65rem 0.45rem;
-  background: color-mix(in srgb, #1e3a8a 40%, transparent);
-  border-right: 1px solid color-mix(in srgb, #60a5fa 25%, transparent);
+  background: color-mix(in srgb, var(--viz-navy) 40%, transparent);
+  border-right: 1px solid color-mix(in srgb, var(--sky-mid) 25%, transparent);
 }
 
 .vizPortal aside em {
@@ -570,7 +570,7 @@
   font-size: 0.5rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #bfdbfe;
+  color: var(--sky-bright);
   margin-bottom: 0.25rem;
 }
 
@@ -578,7 +578,7 @@
   display: block;
   height: 0.45rem;
   border-radius: 0.2rem;
-  background: color-mix(in srgb, #93c5fd 35%, transparent);
+  background: color-mix(in srgb, var(--sky-mid) 35%, transparent);
 }
 
 .vizPortal main {
@@ -600,7 +600,7 @@
   width: 45%;
   height: 0.55rem;
   border-radius: 0.2rem;
-  background: color-mix(in srgb, #93c5fd 40%, transparent);
+  background: color-mix(in srgb, var(--sky-mid) 40%, transparent);
 }
 
 .vizPortal main header span {
@@ -608,8 +608,8 @@
   font-size: 0.5rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #0f172a;
-  background: #38bdf8;
+  color: var(--viz-ink-2);
+  background: var(--sky-deep);
   padding: 0.2rem 0.4rem;
   border-radius: 999px;
 }
@@ -621,13 +621,13 @@
   height: 4.5rem;
   padding: 0.35rem;
   border-radius: 0.45rem;
-  background: color-mix(in srgb, #1e3a8a 28%, transparent);
+  background: color-mix(in srgb, var(--viz-navy) 28%, transparent);
 }
 
 .vizPortalCharts span {
   flex: 1;
   border-radius: 0.25rem 0.25rem 0 0;
-  background: linear-gradient(180deg, #93c5fd, #3b82f6);
+  background: linear-gradient(180deg, var(--sky-mid), var(--sky-mid));
 }
 
 .vizPortalRows {
@@ -639,7 +639,7 @@
   display: block;
   height: 0.7rem;
   border-radius: 0.25rem;
-  background: color-mix(in srgb, #60a5fa 22%, transparent);
+  background: color-mix(in srgb, var(--sky-mid) 22%, transparent);
 }
 
 /* Performance / SEO */
@@ -662,15 +662,15 @@
   font-family: var(--font-mono);
   font-size: 0.62rem;
   letter-spacing: 0.08em;
-  color: #bbf7d0;
+  color: color-mix(in srgb, var(--emerald) 35%, var(--white));
 }
 
 .vizVitalRow i {
   display: block;
   height: 0.7rem;
   border-radius: 999px;
-  background: linear-gradient(90deg, #4ade80, #2dd4bf);
-  box-shadow: 0 0 12px -4px color-mix(in srgb, #4ade80 70%, transparent);
+  background: linear-gradient(90deg, var(--emerald-bright), var(--mint));
+  box-shadow: 0 0 12px -4px color-mix(in srgb, var(--emerald-bright) 70%, transparent);
 }
 
 .vizVitalRow em {
@@ -679,7 +679,7 @@
   font-size: 0.55rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #86efac;
+  color: var(--emerald-bright);
 }
 
 .vizSeoList {
@@ -689,8 +689,8 @@
   display: grid;
   gap: 0.35rem;
   border-radius: 0.55rem;
-  background: color-mix(in srgb, #14532d 45%, transparent);
-  border: 1px solid color-mix(in srgb, #4ade80 28%, transparent);
+  background: color-mix(in srgb, color-mix(in srgb, var(--emerald) 28%, var(--viz-ink)) 45%, transparent);
+  border: 1px solid color-mix(in srgb, var(--emerald-bright) 28%, transparent);
 }
 
 .vizSeoList li {
@@ -698,12 +698,12 @@
   font-size: 0.58rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #dcfce7;
+  color: color-mix(in srgb, var(--emerald) 22%, var(--white));
 }
 
 .vizSeoList li::before {
   content: "\2713 ";
-  color: #4ade80;
+  color: var(--emerald-bright);
 }
 
 /* Booking / lead capture */
@@ -715,8 +715,8 @@
   width: min(100%, 15rem);
   padding: 1rem;
   border-radius: 0.75rem;
-  background: color-mix(in srgb, #2e1065 50%, transparent);
-  border: 1px solid color-mix(in srgb, #e879f9 35%, transparent);
+  background: color-mix(in srgb, var(--viz-violet-deep) 50%, transparent);
+  border: 1px solid color-mix(in srgb, var(--violet-bright) 35%, transparent);
 }
 
 .vizFormsCal {
@@ -734,16 +734,16 @@
   font-size: 0.5rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #f5d0fe;
-  background: color-mix(in srgb, #f5d0fe 12%, transparent) !important;
-  border: 1px solid color-mix(in srgb, #e879f9 22%, transparent);
+  color: var(--violet-bright);
+  background: color-mix(in srgb, var(--violet-bright) 12%, transparent) !important;
+  border: 1px solid color-mix(in srgb, var(--violet-bright) 22%, transparent);
   border-radius: 0.3rem;
 }
 
 .vizFormsDayOn {
-  background: color-mix(in srgb, #c026d3 55%, transparent) !important;
-  color: #fdf4ff !important;
-  border-color: color-mix(in srgb, #f0abfc 50%, transparent) !important;
+  background: color-mix(in srgb, var(--violet) 55%, transparent) !important;
+  color: var(--viz-paper-violet) !important;
+  border-color: color-mix(in srgb, var(--violet-bright) 50%, transparent) !important;
 }
 
 .vizForms label {
@@ -751,15 +751,15 @@
   font-size: 0.52rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #e879f9;
+  color: var(--violet-bright);
 }
 
 .vizForms > span:not(.vizFormsBtn) {
   display: block;
   height: 1.55rem;
   border-radius: 0.35rem;
-  background: color-mix(in srgb, #f5d0fe 14%, transparent);
-  border: 1px solid color-mix(in srgb, #e879f9 25%, transparent);
+  background: color-mix(in srgb, var(--violet-bright) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--violet-bright) 25%, transparent);
 }
 
 .vizFormsBtn {
@@ -771,9 +771,9 @@
   font-size: 0.62rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #fdf4ff;
-  background: color-mix(in srgb, #c026d3 55%, transparent) !important;
-  border: 1px solid color-mix(in srgb, #e879f9 40%, transparent) !important;
+  color: var(--viz-paper-violet);
+  background: color-mix(in srgb, var(--violet) 55%, transparent) !important;
+  border: 1px solid color-mix(in srgb, var(--violet-bright) 40%, transparent) !important;
 }
 
 .showcaseHighlights {
@@ -856,36 +856,36 @@
 
 /* Accents reused by showcase + legacy process tones */
 .svcAccentSky {
-  --svc: #38bdf8;
-  --svc-2: #818cf8;
+  --svc: var(--sky-deep);
+  --svc-2: var(--violet);
 }
 .svcAccentViolet {
-  --svc: #a78bfa;
-  --svc-2: #f0abfc;
+  --svc: var(--violet);
+  --svc-2: var(--violet-bright);
 }
 .svcAccentTeal {
-  --svc: #2dd4bf;
-  --svc-2: #34d399;
+  --svc: var(--mint);
+  --svc-2: var(--emerald);
 }
 .svcAccentAmber {
-  --svc: #fbbf24;
-  --svc-2: #fb923c;
+  --svc: var(--amber);
+  --svc-2: var(--bronze-light);
 }
 .svcAccentRose {
-  --svc: #fb7185;
-  --svc-2: #f472b6;
+  --svc: var(--danger);
+  --svc-2: var(--danger);
 }
 .svcAccentBlue {
-  --svc: #60a5fa;
-  --svc-2: #22d3ee;
+  --svc: var(--sky-mid);
+  --svc-2: var(--sky-deep);
 }
 .svcAccentMint {
-  --svc: #4ade80;
-  --svc-2: #2dd4bf;
+  --svc: var(--emerald-bright);
+  --svc-2: var(--mint);
 }
 .svcAccentFuchsia {
-  --svc: #e879f9;
-  --svc-2: #a78bfa;
+  --svc: var(--violet-bright);
+  --svc-2: var(--violet);
 }
 
 /* ── Services (legacy cards kept for reference; unused on Web sample) ── */
@@ -907,8 +907,8 @@
 }
 
 .serviceCard {
-  --svc: #5ec8ff;
-  --svc-2: #38bdf8;
+  --svc: var(--sky);
+  --svc-2: var(--sky-deep);
   --svc-soft: color-mix(in srgb, var(--svc) 16%, transparent);
   position: relative;
   isolation: isolate;
@@ -1078,12 +1078,12 @@
   border-color: color-mix(in srgb, var(--svc-2) 32%, transparent);
 }
 .stackToneC {
-  color: color-mix(in srgb, var(--svc) 70%, #fff);
+  color: color-mix(in srgb, var(--svc) 70%, var(--white));
   background: color-mix(in srgb, var(--svc) 10%, transparent);
   border-color: color-mix(in srgb, var(--svc) 26%, transparent);
 }
 .stackToneD {
-  color: color-mix(in srgb, var(--svc-2) 75%, #fff);
+  color: color-mix(in srgb, var(--svc-2) 75%, var(--white));
   background: color-mix(in srgb, var(--svc-2) 10%, transparent);
   border-color: color-mix(in srgb, var(--svc-2) 26%, transparent);
 }
@@ -1224,7 +1224,7 @@
 }
 
 .processAccent {
-  background: linear-gradient(105deg, #5ec8ff 0%, #a78bfa 45%, #f472b6 100%);
+  background: linear-gradient(105deg, var(--sky) 0%, var(--violet) 45%, var(--danger) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -1241,9 +1241,9 @@
   font-size: 0.68rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #0f172a;
-  background: #5ec8ff;
-  box-shadow: 0 0 24px -8px color-mix(in srgb, #5ec8ff 55%, transparent);
+  color: var(--viz-ink-2);
+  background: var(--sky);
+  box-shadow: 0 0 24px -8px color-mix(in srgb, var(--sky) 55%, transparent);
 }
 
 .timeline {
@@ -1290,7 +1290,7 @@
 }
 
 .roadAsphalt {
-  stroke: #0f172a;
+  stroke: var(--viz-ink-2);
   stroke-width: 3.6;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -1298,7 +1298,7 @@
 }
 
 .roadDash {
-  stroke: #f8fafc;
+  stroke: var(--viz-paper-2);
   stroke-width: 0.5;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -1307,7 +1307,7 @@
 }
 
 .roadPulse {
-  stroke: #fff;
+  stroke: var(--white);
   stroke-width: 0.9;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -1323,10 +1323,10 @@
 }
 
 .roadTraveler circle {
-  fill: #fff;
-  stroke: #5ec8ff;
+  fill: var(--white);
+  stroke: var(--sky);
   stroke-width: 0.45;
-  filter: drop-shadow(0 0 0.35rem color-mix(in srgb, #a78bfa 80%, transparent));
+  filter: drop-shadow(0 0 0.35rem color-mix(in srgb, var(--violet) 80%, transparent));
 }
 
 .roadCapStart,
@@ -1354,17 +1354,17 @@
   width: 0.7rem;
   height: 0.7rem;
   border-radius: 50%;
-  background: #0f172a;
+  background: var(--viz-ink-2);
   box-shadow:
-    0 0 0 3px #fff,
-    0 0 0 5px color-mix(in srgb, #5ec8ff 55%, transparent);
+    0 0 0 3px var(--white),
+    0 0 0 5px color-mix(in srgb, var(--sky) 55%, transparent);
 }
 
 .roadCapEnd .roadCapDot {
-  background: linear-gradient(135deg, #a78bfa, #f472b6);
+  background: linear-gradient(135deg, var(--violet), var(--danger));
   box-shadow:
-    0 0 0 3px #fff,
-    0 0 0 5px color-mix(in srgb, #f472b6 45%, transparent);
+    0 0 0 3px var(--white),
+    0 0 0 5px color-mix(in srgb, var(--danger) 45%, transparent);
 }
 
 .roadCapLabel {
@@ -1373,15 +1373,15 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   font-weight: 700;
-  color: #64748b;
-  background: color-mix(in srgb, #fff 88%, transparent);
+  color: var(--viz-muted-2);
+  background: color-mix(in srgb, var(--white) 88%, transparent);
   padding: 0.2rem 0.5rem;
   border-radius: 999px;
-  border: 1px solid color-mix(in srgb, #0f172a 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--viz-ink-2) 8%, transparent);
 }
 
 .timelineItem {
-  --tone: #5ec8ff;
+  --tone: var(--sky);
   --step-i: 0;
   position: relative;
   width: 50%;
@@ -1427,9 +1427,9 @@
   border-radius: 50%;
   display: grid;
   place-items: center;
-  color: #fff;
+  color: var(--white);
   background: var(--tone);
-  border: 3px solid #fff;
+  border: 3px solid var(--white);
   box-shadow:
     0 0 0 3px color-mix(in srgb, var(--tone) 40%, transparent),
     0 10px 24px -10px color-mix(in srgb, var(--tone) 75%, transparent);
@@ -1455,8 +1455,8 @@
   position: relative;
   padding: 1.15rem 1.2rem 1.1rem;
   border-radius: 1.05rem;
-  background: #f7f8fb;
-  border: 1px solid color-mix(in srgb, #0f172a 8%, transparent);
+  background: var(--viz-paper-2);
+  border: 1px solid color-mix(in srgb, var(--viz-ink-2) 8%, transparent);
   border-top: 3px solid var(--tone);
   box-shadow: 0 18px 36px -28px rgba(0, 0, 0, 0.55);
 }
@@ -1482,14 +1482,14 @@
   font-size: 1.12rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: #0f172a;
+  color: var(--viz-ink-2);
 }
 
 .timelineCard p {
   margin: 0.45rem 0 0;
   font-size: 0.88rem;
   line-height: 1.55;
-  color: #475569;
+  color: var(--viz-muted-3);
 }
 
 .milestone {
@@ -1503,17 +1503,17 @@
   font-size: 0.58rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #0f172a;
-  background: color-mix(in srgb, var(--tone) 16%, #fff);
+  color: var(--viz-ink-2);
+  background: color-mix(in srgb, var(--tone) 16%, var(--white));
   border: 1px solid color-mix(in srgb, var(--tone) 35%, transparent);
 }
 
-.toneSky { --tone: #3b82f6; }
-.toneViolet { --tone: #8b5cf6; }
-.toneAmber { --tone: #f59e0b; }
-.toneTeal { --tone: #10b981; }
-.toneGold { --tone: #eab308; }
-.toneRose { --tone: #f43f5e; }
+.toneSky { --tone: var(--sky-mid); }
+.toneViolet { --tone: var(--violet); }
+.toneAmber { --tone: var(--amber); }
+.toneTeal { --tone: var(--emerald); }
+.toneGold { --tone: var(--amber); }
+.toneRose { --tone: var(--danger); }
 
 @media (prefers-reduced-motion: reduce) {
   .roadPulse,
@@ -1621,15 +1621,15 @@
 }
 
 .qaNavBtn:hover {
-  border-color: color-mix(in srgb, #5ec8ff 35%, var(--border));
+  border-color: color-mix(in srgb, var(--sky) 35%, var(--border));
 }
 
 .qaNavBtnActive {
-  border-color: color-mix(in srgb, #5ec8ff 50%, var(--border));
+  border-color: color-mix(in srgb, var(--sky) 50%, var(--border));
   background:
-    linear-gradient(105deg, color-mix(in srgb, #5ec8ff 12%, transparent), transparent 70%),
+    linear-gradient(105deg, color-mix(in srgb, var(--sky) 12%, transparent), transparent 70%),
     color-mix(in srgb, var(--obsidian-2) 92%, transparent);
-  box-shadow: 0 0 24px -16px color-mix(in srgb, #5ec8ff 55%, transparent);
+  box-shadow: 0 0 24px -16px color-mix(in srgb, var(--sky) 55%, transparent);
 }
 
 .qaNavIcon {
@@ -1638,16 +1638,16 @@
   border-radius: 0.65rem;
   display: grid;
   place-items: center;
-  color: #7dd3fc;
-  background: color-mix(in srgb, #5ec8ff 12%, transparent);
-  border: 1px solid color-mix(in srgb, #5ec8ff 28%, transparent);
+  color: var(--sky-deep);
+  background: color-mix(in srgb, var(--sky) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--sky) 28%, transparent);
 }
 
 .qaNavBtnActive .qaNavIcon {
-  color: #0f172a;
-  background: #5ec8ff;
+  color: var(--viz-ink-2);
+  background: var(--sky);
   border-color: transparent;
-  box-shadow: 0 0 16px -6px color-mix(in srgb, #5ec8ff 60%, transparent);
+  box-shadow: 0 0 16px -6px color-mix(in srgb, var(--sky) 60%, transparent);
 }
 
 .qaNavCopy {
@@ -1673,15 +1673,15 @@
 }
 
 .qaNavCheck {
-  color: #34d399;
+  color: var(--emerald);
 }
 
 .qaPanel {
   padding: 1.35rem 1.3rem 1.2rem;
   border-radius: 1.2rem;
-  border: 1px solid color-mix(in srgb, #5ec8ff 28%, var(--border));
+  border: 1px solid color-mix(in srgb, var(--sky) 28%, var(--border));
   background:
-    radial-gradient(ellipse 60% 45% at 100% 0%, color-mix(in srgb, #5ec8ff 14%, transparent), transparent 55%),
+    radial-gradient(ellipse 60% 45% at 100% 0%, color-mix(in srgb, var(--sky) 14%, transparent), transparent 55%),
     color-mix(in srgb, var(--obsidian-2) 94%, transparent);
   display: flex;
   flex-direction: column;
@@ -1702,9 +1702,9 @@
   border-radius: 0.9rem;
   display: grid;
   place-items: center;
-  color: #0f172a;
-  background: linear-gradient(135deg, #5ec8ff, #2ef2d0);
-  box-shadow: 0 0 22px -8px color-mix(in srgb, #5ec8ff 60%, transparent);
+  color: var(--viz-ink-2);
+  background: linear-gradient(135deg, var(--sky), var(--neon));
+  box-shadow: 0 0 22px -8px color-mix(in srgb, var(--sky) 60%, transparent);
 }
 
 .qaPanelEyebrow {
@@ -1713,7 +1713,7 @@
   font-size: 0.62rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #7dd3fc;
+  color: var(--sky-deep);
 }
 
 .qaPanelHead h3 {
@@ -1757,8 +1757,8 @@
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.06em;
-  color: #0f172a;
-  background: #5ec8ff;
+  color: var(--viz-ink-2);
+  background: var(--sky);
   width: 2rem;
   height: 2rem;
   border-radius: 0.55rem;
@@ -1778,8 +1778,8 @@
   margin-top: 1rem;
   padding: 0.85rem 1rem;
   border-radius: 0.85rem;
-  border: 1px solid color-mix(in srgb, #34d399 35%, var(--border));
-  background: color-mix(in srgb, #34d399 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--emerald) 35%, var(--border));
+  background: color-mix(in srgb, var(--emerald) 10%, transparent);
   display: grid;
   gap: 0.25rem;
 }
@@ -1789,7 +1789,7 @@
   font-size: 0.58rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #6ee7b7;
+  color: var(--emerald);
 }
 
 .qaOutcome strong {
@@ -1826,8 +1826,8 @@
 }
 
 .qaPagerBtn:hover:not(:disabled) {
-  border-color: color-mix(in srgb, #5ec8ff 40%, var(--border));
-  color: #7dd3fc;
+  border-color: color-mix(in srgb, var(--sky) 40%, var(--border));
+  color: var(--sky-deep);
 }
 
 .qaPagerBtn:disabled {

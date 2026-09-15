@@ -1,3 +1,4 @@
+import { Eyebrow } from "@/components/ui";
 import { CLIENT_LOGOS, CLIENT_LOGOS_SECTION, type ClientLogo } from "@/content/clients";
 
 import styles from "./ClientLogos.module.css";
@@ -53,7 +54,7 @@ export function ClientLogos({ variant = "marquee" }: ClientLogosProps) {
     <section className={styles.panel} aria-labelledby="client-logos-heading">
       <div className={styles.panelInner}>
         <header className={`${styles.panelIntro} reveal`}>
-          <p className={styles.badge}>+ {CLIENT_LOGOS_SECTION.label}</p>
+          <Eyebrow>{CLIENT_LOGOS_SECTION.label}</Eyebrow>
           <h2 id="client-logos-heading" className={styles.panelHeading}>
             {CLIENT_LOGOS_SECTION.heading}
           </h2>

@@ -19,16 +19,16 @@
 .heading {
   margin: 0.7rem 0 0;
   font-family: var(--font-display);
-  font-size: clamp(1.65rem, 3.2vw, 2.35rem);
+  font-size: var(--section-heading);
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.15;
-  color: var(--text-primary);
+  color: var(--heading-color);
 }
 
 .heading span {
   display: block;
-  color: color-mix(in srgb, var(--neon) 72%, #fff);
+  color: var(--heading-accent);
   font-style: italic;
   font-weight: 600;
 }
@@ -58,7 +58,7 @@
   border-radius: 1.15rem;
   border: 1px solid color-mix(in srgb, var(--tone) 20%, transparent);
   background:
-    linear-gradient(165deg, color-mix(in srgb, #161d2d 94%, transparent), color-mix(in srgb, #0b1018 97%, transparent));
+    linear-gradient(165deg, color-mix(in srgb, var(--obsidian-2) 94%, transparent), color-mix(in srgb, var(--obsidian-1) 97%, transparent));
   overflow: hidden;
   transition:
     transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
@@ -73,13 +73,13 @@
 }
 
 .accentSky {
-  --tone: #7dd3fc;
+  --tone: var(--sky-deep);
 }
 .accentViolet {
   --tone: var(--violet-bright);
 }
 .accentFuchsia {
-  --tone: #e879f9;
+  --tone: var(--violet-bright);
 }
 .accentAmber {
   --tone: var(--amber);
@@ -88,7 +88,7 @@
   --tone: var(--neon);
 }
 .accentRose {
-  --tone: #fb7185;
+  --tone: var(--danger);
 }
 
 .link {
@@ -129,7 +129,7 @@
   border: 1px solid color-mix(in srgb, var(--tone) 22%, transparent);
   background:
     radial-gradient(ellipse 70% 80% at 50% 100%, color-mix(in srgb, var(--tone) 14%, transparent), transparent 60%),
-    color-mix(in srgb, #080c14 88%, transparent);
+    color-mix(in srgb, var(--obsidian-1) 88%, transparent);
   overflow: hidden;
 }
 
@@ -146,7 +146,7 @@
   gap: 0.28rem;
   padding: 0.2rem 0.35rem;
   border-radius: 0.35rem;
-  background: color-mix(in srgb, #121826 90%, transparent);
+  background: color-mix(in srgb, var(--obsidian-2) 90%, transparent);
 }
 
 .chrome span {
@@ -156,13 +156,13 @@
 }
 
 .chrome span:nth-child(1) {
-  background: #f87171;
+  background: var(--danger);
 }
 .chrome span:nth-child(2) {
-  background: #fbbf24;
+  background: var(--amber);
 }
 .chrome span:nth-child(3) {
-  background: #34d399;
+  background: var(--emerald);
 }
 
 .webBody {
@@ -215,7 +215,7 @@
   padding: 0.35rem;
   border-radius: 0.4rem;
   border: 1px solid color-mix(in srgb, var(--tone) 20%, transparent);
-  background: color-mix(in srgb, #0f1522 80%, transparent);
+  background: color-mix(in srgb, var(--obsidian) 80%, transparent);
 }
 
 .softCols span {
@@ -283,7 +283,7 @@
   height: 5.6rem;
   border-radius: 0.65rem;
   border: 1.5px solid color-mix(in srgb, var(--tone) 45%, transparent);
-  background: color-mix(in srgb, #0a0f18 90%, transparent);
+  background: color-mix(in srgb, var(--obsidian-1) 90%, transparent);
   padding: 0.45rem 0.35rem;
   display: flex;
   flex-direction: column;
@@ -338,12 +338,12 @@
 }
 
 .cloudDone {
-  color: color-mix(in srgb, var(--tone) 80%, #fff) !important;
+  color: color-mix(in srgb, var(--tone) 80%, var(--white)) !important;
   background: color-mix(in srgb, var(--tone) 14%, transparent);
 }
 
 .cloudNow {
-  color: #fff !important;
+  color: var(--white) !important;
   border-color: color-mix(in srgb, var(--tone) 55%, transparent) !important;
   background: color-mix(in srgb, var(--tone) 28%, transparent);
   box-shadow: 0 0 16px color-mix(in srgb, var(--tone) 30%, transparent);
@@ -399,10 +399,10 @@
 .title {
   margin: 0;
   font-family: var(--font-display);
-  font-size: 1.05rem;
+  font-size: var(--card-title);
   font-weight: 650;
   letter-spacing: -0.02em;
-  color: var(--text-primary);
+  color: var(--heading-color);
 }
 
 .tags {

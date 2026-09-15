@@ -3,22 +3,13 @@
   margin: 0 auto;
 }
 
-.eyebrow {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.4em;
-  color: var(--neon);
-  text-transform: uppercase;
-  margin-bottom: 1.2rem;
-}
-
 .title {
   font-family: var(--font-display);
-  font-size: clamp(1.9rem, 4.5vw, 3rem);
-  font-weight: 900;
-  letter-spacing: 0.06em;
+  font-size: var(--hero-heading);
+  font-weight: 600;
+  letter-spacing: -0.03em;
   line-height: 1.15;
-  color: var(--text-primary);
+  color: var(--heading-color);
   margin-bottom: 0.9rem;
 }
 
@@ -30,12 +21,12 @@
   color: var(--text-secondary);
   padding-bottom: 1.6rem;
   margin-bottom: 2rem;
-  border-bottom: 1px solid rgba(0, 212, 255, 0.14);
+  border-bottom: 1px solid var(--border-neon);
 }
 
 .intro {
   color: var(--text-secondary);
-  font-size: 1.05rem;
+  font-size: var(--section-lede);
   line-height: 1.9;
   margin-bottom: 1rem;
 }
@@ -46,10 +37,10 @@
 
 .h2 {
   font-family: var(--font-display);
-  font-size: 1.3rem;
-  font-weight: 800;
-  letter-spacing: 0.03em;
-  color: var(--text-primary);
+  font-size: var(--section-heading);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--heading-color);
   margin-bottom: 1rem;
   padding-left: 0.9rem;
   border-left: 2px solid var(--neon);
@@ -102,7 +93,7 @@
 .signature {
   margin-top: 3.5rem;
   padding-top: 1.8rem;
-  border-top: 1px solid rgba(0, 212, 255, 0.14);
+  border-top: 1px solid var(--border-neon);
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
@@ -121,9 +112,6 @@
 }
 
 @media (max-width: 640px) {
-  .title {
-    letter-spacing: 0.04em;
-  }
   .intro,
   .p,
   .ul li {
@@ -131,7 +119,7 @@
     line-height: 1.75;
   }
   .h2 {
-    font-size: 1.15rem;
+    font-size: clamp(1.15rem, 3vw, 1.4rem);
   }
   .section {
     margin-top: 2.1rem;

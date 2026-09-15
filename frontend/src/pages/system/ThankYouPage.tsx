@@ -13,7 +13,7 @@ export function ThankYouPage() {
     <section className="systemPage">
       <HeroAmbient layout="page" />
       <div className="systemInner">
-        <div style={{ filter: "drop-shadow(0 0 24px rgba(0,212,255,0.6))" }}>
+        <div style={{ filter: "drop-shadow(0 0 24px color-mix(in srgb, var(--neon) 60%, transparent))" }}>
           <LogoGlyph size={80} />
         </div>
         <h1 className="systemTitle">Thank you. We&rsquo;ve received your message.</h1>

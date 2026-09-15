@@ -21,7 +21,7 @@
 .infoHeading {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(1.35rem, 2.4vw, 1.7rem);
+  font-size: clamp(1.25rem, 2.2vw, 1.55rem);
   font-weight: 700;
   letter-spacing: -0.03em;
   color: var(--text-primary);
@@ -34,7 +34,7 @@
   border-radius: 1.05rem;
   border: 1px solid color-mix(in srgb, var(--neon) 20%, transparent);
   background:
-    linear-gradient(160deg, color-mix(in srgb, #161d2c 92%, transparent), color-mix(in srgb, #0c111a 96%, transparent));
+    linear-gradient(160deg, color-mix(in srgb, var(--obsidian-2) 92%, transparent), color-mix(in srgb, var(--obsidian) 96%, transparent));
 }
 
 .channel {
@@ -96,7 +96,7 @@
   padding: 1rem 1.15rem;
   border-radius: 1rem;
   border: 1px solid color-mix(in srgb, var(--bronze) 22%, transparent);
-  background: color-mix(in srgb, #0c111a 70%, transparent);
+  background: color-mix(in srgb, var(--obsidian) 70%, transparent);
 }
 
 .companyLabel {
@@ -142,7 +142,7 @@
   background:
     radial-gradient(ellipse 55% 45% at 8% 0%, color-mix(in srgb, var(--neon) 10%, transparent), transparent 55%),
     radial-gradient(ellipse 45% 40% at 100% 100%, color-mix(in srgb, var(--bronze) 10%, transparent), transparent 50%),
-    linear-gradient(165deg, color-mix(in srgb, #151c2b 94%, transparent), color-mix(in srgb, #0c111a 96%, transparent));
+    linear-gradient(165deg, color-mix(in srgb, var(--obsidian-2) 94%, transparent), color-mix(in srgb, var(--obsidian) 96%, transparent));
   padding: 1.35rem 1.2rem 1.25rem;
   overflow: hidden;
 }
@@ -152,10 +152,10 @@
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(color-mix(in srgb, #94a3b8 6%, transparent) 1px, transparent 1px),
-    linear-gradient(90deg, color-mix(in srgb, #94a3b8 6%, transparent) 1px, transparent 1px);
+    linear-gradient(color-mix(in srgb, var(--viz-muted) 6%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--viz-muted) 6%, transparent) 1px, transparent 1px);
   background-size: 28px 28px;
-  mask-image: radial-gradient(ellipse 75% 70% at 50% 20%, #000 15%, transparent 72%);
+  mask-image: radial-gradient(ellipse 75% 70% at 50% 20%, var(--obsidian-1) 15%, transparent 72%);
   pointer-events: none;
   opacity: 0.45;
 }
@@ -198,7 +198,7 @@
   padding: 0.45rem 0.7rem;
   border-radius: 0.5rem;
   border: 1px solid color-mix(in srgb, var(--bronze) 35%, transparent);
-  background: color-mix(in srgb, #0b1018 70%, transparent);
+  background: color-mix(in srgb, var(--obsidian-1) 70%, transparent);
   font-family: var(--font-mono);
   font-size: 0.55rem;
   letter-spacing: 0.18em;
@@ -219,7 +219,7 @@
   background:
     radial-gradient(ellipse 55% 45% at 8% 0%, color-mix(in srgb, var(--neon) 10%, transparent), transparent 55%),
     radial-gradient(ellipse 45% 40% at 100% 100%, color-mix(in srgb, var(--bronze) 10%, transparent), transparent 50%),
-    linear-gradient(165deg, color-mix(in srgb, #151c2b 94%, transparent), color-mix(in srgb, #0c111a 96%, transparent));
+    linear-gradient(165deg, color-mix(in srgb, var(--obsidian-2) 94%, transparent), color-mix(in srgb, var(--obsidian) 96%, transparent));
   padding: 1.35rem 1.2rem 1.25rem;
   overflow: hidden;
 }
@@ -232,15 +232,15 @@
 .discussTitle {
   margin: 0.7rem 0 0;
   font-family: var(--font-display);
-  font-size: clamp(1.55rem, 3vw, 2.15rem);
+  font-size: var(--section-heading);
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.15;
-  color: var(--text-primary);
+  color: var(--heading-color);
 }
 
 .discussTitle span {
-  color: color-mix(in srgb, var(--bronze-light) 88%, #fff);
+  color: var(--heading-accent);
   font-style: italic;
   font-weight: 600;
 }
@@ -267,7 +267,7 @@
   border-radius: 1rem;
   border: 1px solid color-mix(in srgb, var(--bronze) 22%, transparent);
   background:
-    linear-gradient(160deg, color-mix(in srgb, #161d2c 92%, transparent), color-mix(in srgb, #0c111a 96%, transparent));
+    linear-gradient(160deg, color-mix(in srgb, var(--obsidian-2) 92%, transparent), color-mix(in srgb, var(--obsidian) 96%, transparent));
   transition:
     transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
     border-color 0.4s ease;

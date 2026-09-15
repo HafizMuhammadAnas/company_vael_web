@@ -4,7 +4,8 @@
  */
 
 import { CTA, DISCLAIMERS, FINAL_PAIR_TELL_US } from "@/content/shared";
-import type { FinalCta, SeoMeta } from "@/content/shared";
+import type { FaqSection, FinalCta, SeoMeta } from "@/content/shared";
+import { SOL_FAQ } from "@/content/solutions";
 
 export const HOME_SEO: SeoMeta = {
   title: "VAELKODE | Software, AI & Digital Solutions",
@@ -49,90 +50,6 @@ export const HERO_STATS = [
     accent: "pink" as const,
   },
 ];
-
-
-/** Kept for any residual imports; homepage no longer renders this section. */
-export const CAPABILITIES = {
-  label: "What We Do",
-  heading: "Four ways we help.",
-  supporting: "Straight answers about what we build and why it helps.",
-  items: [
-    {
-      short: "AI",
-      title: "AI & Automation",
-      text: "Reduce manual work with intelligent systems that understand documents, data, and workflows.",
-      tags: ["Automation", "Documents", "Assistants"],
-    },
-    {
-      short: "Software",
-      title: "Custom Software",
-      text: "Build applications around how your business actually works.",
-      tags: ["Apps", "Integrations", "Platforms"],
-    },
-    {
-      short: "Cloud",
-      title: "Cloud & DevOps",
-      text: "Deploy and run software reliably with clear environments and release processes.",
-      tags: ["Hosting", "Releases", "Monitoring"],
-    },
-    {
-      short: "Advice",
-      title: "Technology Consulting",
-      text: "Get clarity before you build or buy. Architecture, roadmap, and options.",
-      tags: ["Strategy", "Roadmaps"],
-    },
-  ],
-};
-
-export const PROBLEMS = {
-  label: "Sound Familiar?",
-  heading: "These are the problems we help fix.",
-  supporting: [
-    "If any of these feel like your week, you're in the right place. Pick one and we'll show you how we usually approach it.",
-  ],
-  cards: [
-    {
-      num: "01",
-      title: "Too much manual work",
-      text: "Your team repeats the same tasks in spreadsheets, email, and documents. And mistakes creep in.",
-      shift: "We automate the busywork so people can focus on judgement.",
-      cta: "See AI & Automation",
-      to: "/solutions/ai-automation",
-    },
-    {
-      num: "02",
-      title: "Systems that don't talk",
-      text: "Customer, finance, and operations tools each hold part of the truth. Nobody has the full picture.",
-      shift: "We connect systems so information flows where it should.",
-      cta: "See Custom Software",
-      to: "/solutions/custom-software",
-    },
-    {
-      num: "03",
-      title: "Software that no longer fits",
-      text: "Off-the-shelf tools force workarounds. Old apps are hard to change and costly to keep alive.",
-      shift: "We modernize or replace what blocks you, one sensible step at a time.",
-      cta: "See Consulting",
-      to: "/solutions/technology-consulting",
-    },
-    {
-      num: "04",
-      title: "Hard to see what's going on",
-      text: "Decisions wait on reports someone builds by hand. Leaders don't trust the numbers.",
-      shift: "We put clear data and dashboards where people already work.",
-      cta: "See AI & Analytics",
-      to: "/solutions/ai-automation",
-    },
-    {
-      num: "05",
-      title: "Ready to grow, but the tech isn't",
-      text: "A new product, channel, or team needs a foundation that won't break as you scale.",
-      shift: "We build platforms that can grow with the business.",
-      cta: "See Cloud & DevOps",
-      to: "/solutions/cloud-devops",
-    },
-  ],
-};
 
 export const SOLUTIONS = {
   label: "What We Build",
@@ -204,8 +121,9 @@ export const SOLUTIONS = {
 
 export const WHY = {
   label: "Why VAELKODE",
-  heading: "A partner who starts with your problem, not a tech pitch.",
-  supporting: "We keep the conversation practical so you always know what we're building and why.",
+  heading: "A partner who starts with your problem, then a clear path to launch.",
+  supporting:
+    "Practical conversation first. Then four steps you can follow — so you always know what we're building, where we are, and what you need to decide.",
   items: [
     {
       num: "01",
@@ -226,6 +144,29 @@ export const WHY = {
       num: "04",
       title: "Clear communication",
       text: "Plain updates and visible progress. You stay in control of the decisions.",
+    },
+  ],
+  processLabel: "How we work",
+  steps: [
+    {
+      num: "01",
+      title: "Discover",
+      text: "We map the problem, users, and systems you already have.",
+    },
+    {
+      num: "02",
+      title: "Plan",
+      text: "We agree scope, approach, and a clear path to a first useful release.",
+    },
+    {
+      num: "03",
+      title: "Build",
+      text: "We design, develop, and test in short cycles you can see and review.",
+    },
+    {
+      num: "04",
+      title: "Launch & improve",
+      text: "We go live carefully, then keep improving as your needs change.",
     },
   ],
 };
@@ -276,9 +217,9 @@ export const INDUSTRIES = {
   label: "Industries",
   heading: "Sectors where we know the pitfalls.",
   supporting:
-    "Domain depth shortens discovery. We work best with industries that run on process, compliance, and data.",
+    "Domain depth shortens discovery. We work best with industries that run on process, compliance, data — and strong automation potential.",
   cards: [
-    { title: "Government & public sector", short: "Government" },
+    { title: "Real Estate", short: "Real Estate" },
     { title: "Education", short: "Education" },
     { title: "Healthcare", short: "Healthcare" },
     { title: "Agriculture", short: "Agriculture" },
@@ -288,89 +229,12 @@ export const INDUSTRIES = {
   ],
 };
 
-export const PROCESS = {
-  label: "How We Work",
-  heading: "Four clear steps from first talk to launch.",
-  supporting: "You'll always know where we are, what's next, and what you need to decide.",
-  steps: [
-    {
-      num: "01",
-      title: "Discover",
-      text: "We map the problem, users, and systems you already have.",
-    },
-    {
-      num: "02",
-      title: "Plan",
-      text: "We agree scope, approach, and a clear path to a first useful release.",
-    },
-    {
-      num: "03",
-      title: "Build",
-      text: "We design, develop, and test in short cycles you can see and review.",
-    },
-    {
-      num: "04",
-      title: "Launch & improve",
-      text: "We go live carefully, then keep improving as your needs change.",
-    },
-  ],
-};
-
-/** Kept for Insights page / residual use; not shown on the slim homepage. */
-export const TECHNOLOGY = {
-  label: "Technology",
-  heading: "Modern tools chosen for the job.",
-  supporting: "We pick technology for fit, not for fashion.",
-  categories: [
-    {
-      title: "Artificial Intelligence",
-      items: ["Python", "PyTorch", "TensorFlow", "Hugging Face", "LLM Technologies"],
-    },
-    { title: "Frontend", items: ["React", "Next.js", "TypeScript", "Tailwind CSS"] },
-    { title: "Backend", items: ["Python", "FastAPI", "Django", "Laravel", "Node.js"] },
-    {
-      title: "Cloud & Infrastructure",
-      items: ["AWS", "Azure", "Google Cloud", "Docker", "Kubernetes"],
-    },
-    {
-      title: "Data",
-      items: ["PostgreSQL", "MySQL", "Redis", "Data Processing & Analytics"],
-    },
-  ],
-};
-
-/** Kept for /insights; not shown on the slim homepage. */
-export const INSIGHTS = {
-  label: "Insights",
-  heading: "Practical ideas on software and AI.",
-  supporting: "Short perspectives for people deciding what to build next.",
-  articles: [
-    {
-      category: "Artificial Intelligence",
-      title: "How Businesses Can Identify Practical AI Automation Opportunities",
-      description:
-        "Useful AI usually starts with repetitive, data-heavy work, not with picking a model first.",
-      readTime: "6 min read",
-      comingSoon: true,
-    },
-    {
-      category: "Software Engineering",
-      title: "When Should a Business Modernize a Legacy Application?",
-      description:
-        "How to tell when an old system is costing more than it saves, and what to do next.",
-      readTime: "7 min read",
-      comingSoon: true,
-    },
-    {
-      category: "Digital Transformation",
-      title: "From Manual Workflows to Intelligent Business Systems",
-      description:
-        "Digital change usually means better workflows and connected systems, not just new screens.",
-      readTime: "6 min read",
-      comingSoon: true,
-    },
-  ],
-  cta: { label: "See What's Coming", to: "/insights" },
+/** Homepage FAQ — same general answers as Solutions / /faqs. */
+export const HOME_FAQ: FaqSection = {
+  label: SOL_FAQ.label,
+  heading: "Questions before we talk?",
+  items: SOL_FAQ.items,
+  cta: SOL_FAQ.cta,
 };
 
 export const FINAL_CTA: FinalCta = {

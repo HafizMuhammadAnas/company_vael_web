@@ -41,11 +41,11 @@
   margin: 0.35rem 0 0;
   max-width: 18ch;
   font-family: var(--font-display);
-  font-size: clamp(1.85rem, 4.2vw, 3rem);
+  font-size: var(--cta-heading);
   font-weight: 650;
   letter-spacing: -0.03em;
   line-height: 1.12;
-  color: var(--text-primary);
+  color: var(--heading-color);
   text-shadow: 0 0 40px color-mix(in srgb, var(--neon) 28%, transparent);
 }
 
@@ -53,6 +53,7 @@
   margin: 1.15rem auto 0;
   max-width: 36rem;
   color: var(--text-secondary);
+  /* Intentional CTA lede — slightly larger than --section-lede */
   font-size: 1.05rem;
   line-height: 1.75;
 }

@@ -174,7 +174,7 @@
 }
 .dropdownLink:hover {
   color: var(--neon);
-  background: rgba(0, 212, 255, 0.05);
+  background: color-mix(in srgb, var(--neon) 5%, transparent);
   border-left-color: var(--bronze);
 }
 
@@ -245,13 +245,13 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: #070a0f;
-  border-top: 1px solid rgba(0, 212, 255, 0.2);
+  background: var(--obsidian);
+  border-top: 1px solid var(--border-neon);
   overflow-y: auto;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
-  padding: 1.25rem 1.5rem 2.5rem;
-  color: #e8edf5;
+  padding: 1.25rem var(--page-gutter) 2.5rem;
+  color: var(--text-primary);
 }
 
 .panelNav {
@@ -268,13 +268,13 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #e8edf5;
+  color: var(--text-primary);
   padding: 1rem 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .topLink:hover {
-  color: #00d4ff;
+  color: var(--neon);
 }
 
 .group {
@@ -290,7 +290,7 @@
   font-weight: 400;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #d4924a;
+  color: var(--bronze);
 }
 
 .itemLink {
@@ -299,15 +299,15 @@
   font-size: 1rem;
   font-weight: 500;
   letter-spacing: 0.04em;
-  color: #8fa3b8;
+  color: var(--slate);
   padding: 0.5rem 0 0.5rem 0.85rem;
-  border-left: 2px solid rgba(0, 212, 255, 0.2);
+  border-left: 2px solid var(--border-neon);
   margin: 0.1rem 0 0.1rem 0.1rem;
 }
 
 .itemLink:hover {
-  color: #00d4ff;
-  border-left-color: #b87333;
+  color: var(--neon);
+  border-left-color: var(--bronze);
 }
 
 .panelCta {

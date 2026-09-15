@@ -15,7 +15,7 @@
       color-mix(in srgb, var(--domain-accent-2, var(--violet)) 24%, transparent),
       transparent 58%
     ),
-    radial-gradient(ellipse 80% 70% at 50% 40%, #1a2440 0%, var(--obsidian) 72%);
+    radial-gradient(ellipse 80% 70% at 50% 40%, var(--hero-wash) 0%, var(--obsidian) 72%);
 }
 
 .heroSplit {
@@ -40,8 +40,8 @@
 
 @media (min-width: 960px) {
   .contentSplit {
-    grid-template-columns: minmax(0, 1.15fr) minmax(15rem, 0.9fr);
-    gap: 2.5rem 1.75rem;
+    grid-template-columns: minmax(0, 1fr) minmax(20rem, 1.15fr);
+    gap: 2.25rem 2rem;
     min-height: 22rem;
   }
 }
@@ -60,22 +60,19 @@
 
 .title {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 5vw, 3.6rem);
-  font-weight: 900;
-  letter-spacing: 0.08em;
+  font-size: var(--hero-heading);
+  font-weight: 600;
+  letter-spacing: -0.03em;
   line-height: 1.1;
-  color: var(--text-primary);
+  color: var(--heading-color);
   text-shadow:
-    0 0 40px color-mix(in srgb, var(--domain-accent, var(--neon)) 35%, transparent),
-    0 0 80px color-mix(in srgb, var(--domain-accent-2, var(--violet)) 18%, transparent);
+    0 0 32px color-mix(in srgb, var(--domain-accent, var(--neon)) 22%, transparent),
+    0 0 56px color-mix(in srgb, var(--domain-accent-2, var(--violet)) 10%, transparent);
   margin-bottom: 1.5rem;
 }
 
 .heroSplit .title {
   max-width: 16ch;
-  font-size: clamp(1.95rem, 4.4vw, 3.1rem);
-  font-weight: 600;
-  letter-spacing: -0.03em;
   margin-bottom: 1rem;
   text-shadow: none;
 }
@@ -83,7 +80,7 @@
 .supporting {
   max-width: 720px;
   margin: 0 auto 2.5rem;
-  font-size: 1.1rem;
+  font-size: var(--section-lede);
   color: var(--text-secondary);
   line-height: 1.8;
 }
@@ -91,7 +88,7 @@
 .heroSplit .supporting {
   margin: 0 0 1.35rem;
   max-width: 34rem;
-  font-size: 0.98rem;
+  font-size: var(--section-lede);
   line-height: 1.65;
 }
 
@@ -135,9 +132,14 @@
 .visual {
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: stretch;
   align-items: center;
   min-width: 0;
+  width: 100%;
+}
+
+.visual > * {
+  width: 100%;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -146,18 +148,10 @@
     animation: heroReveal 0.8s ease forwards 0.15s;
   }
 
-  .contentSplit .copy,
-  .contentSplit .visual {
+  .contentSplit .copy {
     opacity: 0;
     animation: heroReveal 0.85s ease forwards;
-  }
-
-  .contentSplit .copy {
     animation-delay: 0.12s;
-  }
-
-  .contentSplit .visual {
-    animation-delay: 0.28s;
   }
 }
 
@@ -182,18 +176,14 @@
   }
 
   .title {
-    font-size: clamp(1.75rem, 5.5vw, 2.8rem);
-    letter-spacing: 0.05em;
     margin-bottom: 1.1rem;
   }
 
   .heroSplit .title {
     max-width: none;
-    letter-spacing: -0.02em;
   }
 
   .supporting {
-    font-size: 1rem;
     margin-bottom: 1.8rem;
     line-height: 1.7;
   }
@@ -203,23 +193,14 @@
   }
 
   .visual {
-    max-width: 22rem;
+    max-width: none;
+    width: 100%;
     margin-inline: auto;
   }
 }
 
 @media (max-width: 640px) {
-  .title {
-    font-size: clamp(1.55rem, 8vw, 2.2rem);
-    letter-spacing: 0.04em;
-  }
-
-  .heroSplit .title {
-    letter-spacing: -0.02em;
-  }
-
   .supporting {
-    font-size: 0.95rem;
     margin-bottom: 1.5rem;
   }
 

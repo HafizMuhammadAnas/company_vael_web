@@ -1,9 +1,8 @@
 import { PageHero } from "@/components/sections/PageHero";
-import { DomainShell } from "@/components/sections/elevated/Elevate";
+import { DomainShell } from "@/components/sections/domain/DomainShell";
 import { ServicesBadgeStack } from "@/components/sections/solutions/hero";
 import { ServiceFaqCtaSection } from "@/components/sections/solutions/ServiceJourney";
 import { ServiceShowcaseCards } from "@/components/sections/solutions/ServiceShowcaseCards";
-import { SolutionsFourMoves } from "@/components/sections/solutions/SolutionsFourMoves";
 import { SolutionsHowWeHelp } from "@/components/sections/solutions/SolutionsHowWeHelp";
 import { SolutionsSelectedWork } from "@/components/sections/solutions/SolutionsSelectedWork";
 import {
@@ -33,7 +32,6 @@ export function SolutionsPage() {
       />
 
       <SolutionsHowWeHelp />
-      <SolutionsFourMoves />
 
       <ServiceShowcaseCards />
 

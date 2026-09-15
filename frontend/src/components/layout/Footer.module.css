@@ -1,18 +1,21 @@
 .footer {
   background: var(--obsidian-2);
   border-top: 1px solid var(--border-bronze);
-  padding-block: 2.75rem 1.85rem;
+  padding-top: var(--footer-pad-top);
   padding-inline: var(--page-gutter);
+  /* Base bottom padding + iOS home-indicator safe area */
+  padding-bottom: calc(var(--footer-pad-bottom) + env(safe-area-inset-bottom, 0px));
   position: relative;
   z-index: 1;
 }
 
 .top {
   display: grid;
-  grid-template-columns: 1.6fr repeat(5, 1fr);
+  /* Brand + 4 link columns (matches FOOTER_COLUMNS length) */
+  grid-template-columns: minmax(0, 1.6fr) repeat(4, minmax(0, 1fr));
   align-items: flex-start;
   gap: 2.25rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: var(--footer-gap);
 }
 
 .brand {
@@ -46,7 +49,7 @@
 .cta {
   margin-top: 1.6rem;
   padding-top: 1.6rem;
-  border-top: 1px solid rgba(0, 212, 255, 0.1);
+  border-top: 1px solid var(--border-neon);
 }
 .ctaPrompt {
   font-family: var(--font-display);
@@ -113,7 +116,7 @@
 
 .bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
-  padding-top: 2rem;
+  padding-top: var(--footer-bottom-gap);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -135,15 +138,12 @@
   font-family: var(--font-mono);
   font-size: 0.62rem;
   letter-spacing: 0.08em;
-  color: rgba(107, 122, 141, 0.7);
+  color: color-mix(in srgb, var(--slate) 70%, transparent);
   text-align: right;
   max-width: 560px;
 }
 
 @media (max-width: 1100px) {
-  .footer {
-    padding-block: 2.5rem 1.75rem;
-  }
   .top {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 2rem;
@@ -155,9 +155,6 @@
 }
 
 @media (max-width: 900px) {
-  .footer {
-    padding-block: 2.35rem 1.6rem;
-  }
   .top {
     grid-template-columns: 1fr 1fr;
     gap: 1.75rem 1.5rem;
@@ -165,13 +162,9 @@
 }
 
 @media (max-width: 640px) {
-  .footer {
-    padding-block: 2.15rem 1.4rem;
-  }
   .top {
     grid-template-columns: 1fr;
     gap: 1.75rem;
-    margin-bottom: 2rem;
   }
   .brand {
     max-width: none;
@@ -189,7 +182,6 @@
   .bottom {
     flex-direction: column;
     align-items: flex-start;
-    padding-top: 1.5rem;
   }
   .legal {
     text-align: left;

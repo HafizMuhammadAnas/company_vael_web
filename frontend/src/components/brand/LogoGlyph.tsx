@@ -20,17 +20,17 @@ export function LogoGlyph({ size = 44, className }: LogoGlyphProps) {
       aria-label="VAELKODE"
     >
       <g className="outer-ring" style={{ transformOrigin: "50px 50px" }}>
-        <circle cx="50" cy="50" r="44" fill="none" stroke="#b87333" strokeWidth="1.5" />
+        <circle cx="50" cy="50" r="44" fill="none" stroke="var(--bronze)" strokeWidth="1.5" />
         <circle
           cx="50"
           cy="50"
           r="40"
           fill="none"
-          stroke="rgba(184,115,51,0.3)"
+          stroke="color-mix(in srgb, var(--bronze) 30%, transparent)"
           strokeWidth="0.5"
           strokeDasharray="4 3"
         />
-        <g fill="#b87333">
+        <g fill="var(--bronze)">
           <rect x="47" y="3" width="6" height="10" rx="1" />
           <rect x="47" y="87" width="6" height="10" rx="1" />
           <rect x="3" y="47" width="10" height="6" rx="1" />
@@ -42,15 +42,15 @@ export function LogoGlyph({ size = 44, className }: LogoGlyphProps) {
         </g>
       </g>
       <g className="inner-gear" style={{ transformOrigin: "50px 50px" }}>
-        <line x1="50" y1="20" x2="50" y2="35" stroke="#00d4ff" strokeWidth="1" opacity="0.6" />
-        <line x1="50" y1="65" x2="50" y2="80" stroke="#00d4ff" strokeWidth="1" opacity="0.6" />
-        <line x1="20" y1="50" x2="35" y2="50" stroke="#00d4ff" strokeWidth="1" opacity="0.6" />
-        <line x1="65" y1="50" x2="80" y2="50" stroke="#00d4ff" strokeWidth="1" opacity="0.6" />
-        <circle cx="50" cy="50" r="18" fill="none" stroke="#00d4ff" strokeWidth="1.5" opacity="0.8" />
-        <circle cx="50" cy="50" r="10" fill="rgba(0,212,255,0.08)" stroke="#00d4ff" strokeWidth="1" />
-        <circle cx="50" cy="50" r="4" fill="#00d4ff" opacity="0.9" />
+        <line x1="50" y1="20" x2="50" y2="35" stroke="var(--neon)" strokeWidth="1" opacity="0.6" />
+        <line x1="50" y1="65" x2="50" y2="80" stroke="var(--neon)" strokeWidth="1" opacity="0.6" />
+        <line x1="20" y1="50" x2="35" y2="50" stroke="var(--neon)" strokeWidth="1" opacity="0.6" />
+        <line x1="65" y1="50" x2="80" y2="50" stroke="var(--neon)" strokeWidth="1" opacity="0.6" />
+        <circle cx="50" cy="50" r="18" fill="none" stroke="var(--neon)" strokeWidth="1.5" opacity="0.8" />
+        <circle cx="50" cy="50" r="10" fill="color-mix(in srgb, var(--neon) 8%, transparent)" stroke="var(--neon)" strokeWidth="1" />
+        <circle cx="50" cy="50" r="4" fill="var(--neon)" opacity="0.9" />
       </g>
-      <g fontSize="5" fill="rgba(184,115,51,0.5)" textAnchor="middle" fontFamily="serif">
+      <g fontSize="5" fill="color-mix(in srgb, var(--bronze) 50%, transparent)" textAnchor="middle" fontFamily="serif">
         <text x="50" y="10">
           {"\u{10330}"}
         </text>

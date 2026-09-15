@@ -1,8 +1,11 @@
 import { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 
+import { AiAssistant } from "@/components/assistant/AiAssistant";
 import { Footer } from "@/components/layout/Footer";
 import { Nav } from "@/components/layout/Nav";
+
+import styles from "./PublicLayout.module.css";
 
 /**
  * Handles scroll behaviour on navigation:
@@ -33,13 +36,14 @@ function ScrollManager() {
 
 export function PublicLayout() {
   return (
-    <>
+    <div className={styles.shell}>
       <ScrollManager />
       <Nav />
-      <main style={{ paddingTop: "var(--nav-height)" }}>
+      <main className={styles.main}>
         <Outlet />
       </main>
       <Footer />
-    </>
+      <AiAssistant />
+    </div>
   );
 }

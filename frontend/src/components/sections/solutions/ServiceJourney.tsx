@@ -17,7 +17,6 @@ import { Link } from "react-router-dom";
 
 import { HeroAmbient } from "@/components/ambient/HeroAmbient";
 import { ClientLogos } from "@/components/sections/home/ClientLogos";
-import { GoogleReviews } from "@/components/sections/home/GoogleReviews";
 import { PortfolioProjectCard } from "@/components/sections/work/PortfolioProjectCard";
 import ctaStyles from "@/components/sections/FinalCtaSection.module.css";
 import editorial from "@/components/sections/editorial/Editorial.module.css";
@@ -420,20 +419,21 @@ export function ServiceHighlightsSection({ data }: { data: HighlightsData }) {
   );
 }
 
-export function ServiceTestimonialsSection() {
-  return <GoogleReviews aligned />;
-}
-
 /** FAQ + final CTA in one row. */
 export function ServiceFaqCtaSection({
   faq,
   finalCta,
+  id = "start-project",
+  showPrimaryArrow = true,
 }: {
   faq: FaqSection;
   finalCta: FinalCta;
+  /** Optional section id (home uses `contact-cta`). */
+  id?: string;
+  showPrimaryArrow?: boolean;
 }) {
   return (
-    <Section id="start-project">
+    <Section id={id}>
       <div className={`${styles.faqCtaRow} reveal`}>
         <div className={styles.faqCol}>
           <Eyebrow>{faq.label}</Eyebrow>
@@ -460,7 +460,7 @@ export function ServiceFaqCtaSection({
               <div className={ctaStyles.ctas}>
                 <Button variant="primary" to={finalCta.primaryCta.to}>
                   {finalCta.primaryCta.label}
-                  <ArrowRight size={16} aria-hidden />
+                  {showPrimaryArrow ? <ArrowRight size={16} aria-hidden /> : null}
                 </Button>
                 {finalCta.secondaryCta ? (
                   <Button variant="outline" to={finalCta.secondaryCta.to}>

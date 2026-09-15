@@ -1,12 +1,13 @@
 import { FinalCtaSection } from "@/components/sections/FinalCtaSection";
 import { PageHero } from "@/components/sections/PageHero";
-import { DomainShell, JourneyRail, PrincipleDeck } from "@/components/sections/elevated/Elevate";
+import { DomainShell } from "@/components/sections/domain/DomainShell";
+import { PrincipleDeck } from "@/components/sections/elevated/Elevate";
+import { DeliveryStages } from "@/components/sections/process/DeliveryStages";
 import {
   PROCESS_ENGAGEMENT,
   PROCESS_FINAL,
   PROCESS_HERO,
   PROCESS_SEO,
-  PROCESS_STEPS,
 } from "@/content/process";
 import { useDocumentMeta } from "@/hooks/useDocumentMeta";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -25,23 +26,7 @@ export function ProcessPage() {
         primaryCta={PROCESS_HERO.primaryCta}
       />
 
-      <JourneyRail
-        label="Delivery Stages"
-        title="Every Stage Visible. Every Decision Clear."
-        supporting="Follow each stage from discovery through launch and ongoing improvement. Every step stays readable."
-        layout="vertical"
-        steps={PROCESS_STEPS.map((step) => ({
-          num: step.num,
-          title: step.title,
-          text: [
-            step.text,
-            step.activities.length > 0 ? `Focus: ${step.activities.slice(0, 4).join(", ")}.` : "",
-            step.output ? `Output: ${step.output}` : "",
-          ]
-            .filter(Boolean)
-            .join(" "),
-        }))}
-      />
+      <DeliveryStages />
 
       <PrincipleDeck
         label={PROCESS_ENGAGEMENT.label}
