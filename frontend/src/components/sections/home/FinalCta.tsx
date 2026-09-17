@@ -6,6 +6,7 @@ export function FinalCta() {
   return (
     <ServiceFaqCtaSection
       id="contact-cta"
+      faqSlug="general"
       faq={HOME_FAQ}
       finalCta={FINAL_CTA}
       showPrimaryArrow

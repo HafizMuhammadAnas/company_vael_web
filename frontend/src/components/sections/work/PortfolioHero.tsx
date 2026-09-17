@@ -7,9 +7,9 @@ import {
   PORTFOLIO_FLOATING_CTA,
   PORTFOLIO_HERO,
   PORTFOLIO_HERO_STATS,
-  PORTFOLIO_PROJECTS,
 } from "@/content/portfolio";
 import { useCountUp } from "@/hooks/useCountUp";
+import { usePublishedProjects } from "@/hooks/usePublishedProjects";
 
 import styles from "./PortfolioHero.module.css";
 
@@ -19,11 +19,12 @@ const ACCENT_CLASS = {
   pink: styles.statPink,
 } as const;
 
-const INDUSTRY_COUNT = new Set(PORTFOLIO_PROJECTS.map((p) => p.industry)).size;
-
-function resolveCountTo(stat: (typeof PORTFOLIO_HERO_STATS)[number]): number | null {
+function resolveCountTo(
+  stat: (typeof PORTFOLIO_HERO_STATS)[number],
+  industryCount: number,
+): number | null {
   if (!("countTo" in stat) || stat.countTo === undefined) return null;
-  if (stat.countTo === "auto-industries") return INDUSTRY_COUNT;
+  if (stat.countTo === "auto-industries") return industryCount;
   return typeof stat.countTo === "number" ? stat.countTo : null;
 }
 
@@ -47,6 +48,9 @@ function AnimatedStatValue({
 
 /** Portfolio page hero — left narrative, right console with highlight cards. */
 export function PortfolioHero() {
+  const { projects } = usePublishedProjects();
+  const industryCount = new Set(projects.map((p) => p.industry)).size;
+
   return (
     <section className={styles.hero} data-domain="work">
       <HeroAmbient layout="page" />
@@ -83,7 +87,7 @@ export function PortfolioHero() {
               <div className={styles.stats}>
                 <i className={styles.statsScan} aria-hidden />
                 {PORTFOLIO_HERO_STATS.map((stat, index) => {
-                  const countTo = resolveCountTo(stat);
+                  const countTo = resolveCountTo(stat, industryCount);
                   const suffix = "suffix" in stat ? stat.suffix : "";
 
                   return (

@@ -5,9 +5,9 @@ import { AboutPage } from "@/pages/AboutPage";
 import { CareersPage } from "@/pages/CareersPage";
 import { ConsultationPage } from "@/pages/ConsultationPage";
 import { ContactPage } from "@/pages/ContactPage";
-import { DetailPlaceholder } from "@/pages/DetailPlaceholder";
 import { FaqsPage } from "@/pages/FaqsPage";
 import { HomePage } from "@/pages/HomePage";
+import { InsightArticlePage } from "@/pages/InsightArticlePage";
 import { InsightsPage } from "@/pages/InsightsPage";
 import { LegalPage } from "@/pages/LegalPage";
 import { PortfolioPage } from "@/pages/PortfolioPage";
@@ -91,7 +91,7 @@ const children: RouteObject[] = [
     element: <Navigate to={route.to} replace />,
   })),
 
-  { path: "insights/blog/:slug", element: <DetailPlaceholder kicker="Blog" /> },
+  { path: "insights/blog/:slug", element: <InsightArticlePage /> },
 
   { path: "thank-you", element: <ThankYouPage /> },
   { path: "contact/success", element: <ThankYouPage /> },

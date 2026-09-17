@@ -37,7 +37,7 @@ export function SolutionsPage() {
 
       <SolutionsSelectedWork />
 
-      <ServiceFaqCtaSection faq={SOL_FAQ} finalCta={SOL_FINAL} />
+      <ServiceFaqCtaSection faqSlug="general" faq={SOL_FAQ} finalCta={SOL_FINAL} />
     </DomainShell>
   );
 }

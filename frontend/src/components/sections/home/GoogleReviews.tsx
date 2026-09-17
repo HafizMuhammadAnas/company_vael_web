@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-import { GOOGLE_REVIEWS, type GoogleReview } from "@/content/googleReviews";
+import type { GoogleReview } from "@/content/googleReviews";
+import { usePublicGoogleReviews } from "@/hooks/usePublicGoogleReviews";
 
 import styles from "./GoogleReviews.module.css";
 
@@ -62,8 +63,8 @@ function initialsFor(review: GoogleReview) {
     .join("");
 }
 
-function ReviewCard({ review }: { review: GoogleReview }) {
-  const href = GOOGLE_REVIEWS.profileUrl || undefined;
+function ReviewCard({ review, profileUrl }: { review: GoogleReview; profileUrl: string }) {
+  const href = profileUrl || undefined;
 
   return (
     <article className={styles.card}>
@@ -111,7 +112,14 @@ type GoogleReviewsProps = {
 
 /** Google-style reviews row — sits directly under the homepage hero. */
 export function GoogleReviews({ aligned = false }: GoogleReviewsProps) {
-  const reviews = GOOGLE_REVIEWS.reviews;
+  const {
+    heading,
+    summaryLabel,
+    rating,
+    reviewCount,
+    profileUrl,
+    reviews,
+  } = usePublicGoogleReviews();
   const scrollerRef = useRef<HTMLDivElement>(null);
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(false);
@@ -145,8 +153,8 @@ export function GoogleReviews({ aligned = false }: GoogleReviewsProps) {
 
   if (reviews.length === 0) return null;
 
-  const count = GOOGLE_REVIEWS.reviewCount ?? reviews.length;
-  const rating = GOOGLE_REVIEWS.rating ?? 5;
+  const count = reviewCount ?? reviews.length;
+  const displayRating = rating ?? 5;
 
   return (
     <section
@@ -155,13 +163,13 @@ export function GoogleReviews({ aligned = false }: GoogleReviewsProps) {
     >
       <div className={[styles.inner, aligned ? styles.alignedInner : ""].filter(Boolean).join(" ")}>
         <h2 id="google-reviews-heading" className={`${styles.heading} reveal`}>
-          {GOOGLE_REVIEWS.heading}
+          {heading}
         </h2>
 
         <div className={`${styles.row} reveal`}>
           <aside className={styles.summary}>
-            <p className={styles.summaryLabel}>{GOOGLE_REVIEWS.summaryLabel}</p>
-            <Stars rating={Math.round(rating)} size={24} />
+            <p className={styles.summaryLabel}>{summaryLabel}</p>
+            <Stars rating={Math.round(displayRating)} size={24} />
             <p className={styles.basedOn}>Based on {count} reviews</p>
             <GoogleWordmark className={styles.summaryGoogle} />
           </aside>
@@ -185,7 +193,7 @@ export function GoogleReviews({ aligned = false }: GoogleReviewsProps) {
             >
               {reviews.map((review) => (
                 <div key={review.id} role="listitem" className={styles.scrollerItem}>
-                  <ReviewCard review={review} />
+                  <ReviewCard review={review} profileUrl={profileUrl} />
                 </div>
               ))}
             </div>

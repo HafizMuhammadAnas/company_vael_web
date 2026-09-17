@@ -31,7 +31,6 @@ import { PortfolioProjectCard } from "@/components/sections/work/PortfolioProjec
 import ctaStyles from "@/components/sections/FinalCtaSection.module.css";
 import editorial from "@/components/sections/editorial/Editorial.module.css";
 import { Button, Eyebrow, Section } from "@/components/ui";
-import { PORTFOLIO_PROJECTS } from "@/content/portfolio";
 import {
   WEB_FAQ,
   WEB_FINAL,
@@ -39,6 +38,8 @@ import {
   WEB_PROJECTS,
   WEB_QUALITY,
 } from "@/content/webDevelopment";
+import { usePublicFaqSection } from "@/hooks/usePublicFaqs";
+import { usePublishedProjects } from "@/hooks/usePublishedProjects";
 
 import styles from "./WebDevelopmentVisuals.module.css";
 
@@ -80,10 +81,11 @@ export function WebClientsSection() {
 
 /** 4. Project carousel — same interaction language as homepage Proud Work. */
 export function WebProjectsSection() {
+  const { projects } = usePublishedProjects();
   const trackRef = useRef<HTMLUListElement>(null);
   const [page, setPage] = useState(0);
   const pageSize = 3;
-  const pageCount = Math.max(1, Math.ceil(PORTFOLIO_PROJECTS.length / pageSize));
+  const pageCount = Math.max(1, Math.ceil(projects.length / pageSize));
 
   const goTo = useCallback(
     (next: number) => {
@@ -125,7 +127,7 @@ export function WebProjectsSection() {
             <ChevronLeft size={20} aria-hidden />
           </button>
           <ul ref={trackRef} className={styles.track}>
-            {PORTFOLIO_PROJECTS.map((project) => (
+            {projects.map((project) => (
               <li key={project.id} className={styles.slide}>
                 <PortfolioProjectCard project={project} compact />
               </li>
@@ -370,14 +372,16 @@ export function WebQualitySection() {
 
 /** FAQ + next-step CTA in one row. */
 export function WebFaqCtaSection() {
+  const faq = usePublicFaqSection("web-development", WEB_FAQ);
+
   return (
     <Section id="start-project">
       <div className={`${styles.faqCtaRow} reveal`}>
         <div className={styles.faqCol}>
-          <Eyebrow>{WEB_FAQ.label}</Eyebrow>
-          <h2 className={styles.title}>{WEB_FAQ.heading}</h2>
+          <Eyebrow>{faq.label}</Eyebrow>
+          <h2 className={styles.title}>{faq.heading}</h2>
           <div className={styles.faqList}>
-            {WEB_FAQ.items.map((item) => (
+            {faq.items.map((item) => (
               <details key={item.q} className={styles.faqItem}>
                 <summary className={styles.faqQ}>{item.q}</summary>
                 <p className={styles.faqA}>{item.a}</p>

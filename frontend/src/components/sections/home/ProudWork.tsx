@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 
 import { PortfolioProjectCard } from "@/components/sections/work/PortfolioProjectCard";
 import { Section } from "@/components/ui";
-import { HOME_PROUD_WORK, PORTFOLIO_PROJECTS } from "@/content/portfolio";
+import { HOME_PROUD_WORK } from "@/content/portfolio";
+import { usePublishedProjects } from "@/hooks/usePublishedProjects";
 
 import styles from "./ProudWork.module.css";
 
@@ -12,7 +13,7 @@ const PAGE_SIZE = 3;
 
 /** Homepage portfolio carousel — same cards as /portfolio, with hover scroll previews. */
 export function ProudWork() {
-  const projects = PORTFOLIO_PROJECTS;
+  const { projects } = usePublishedProjects();
   const pageCount = Math.max(1, Math.ceil(projects.length / PAGE_SIZE));
   const [page, setPage] = useState(0);
   const trackRef = useRef<HTMLUListElement>(null);

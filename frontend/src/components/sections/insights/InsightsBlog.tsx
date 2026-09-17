@@ -1,6 +1,6 @@
 /**
- * Insights › Blog — reference-inspired index (filters, covers, featured row, related).
- * Cards are preview / coming-soon until real approved articles exist.
+ * Insights › Blog — filters, covers, featured row, related.
+ * Cards come from CMS (published + coming soon).
  */
 
 import { useMemo, useState } from "react";
@@ -8,10 +8,8 @@ import { ArrowUp } from "lucide-react";
 import { Link } from "react-router-dom";
 
 import { Section } from "@/components/ui";
-import {
-  INS_BLOG,
-  type BlogPreview,
-} from "@/content/insights";
+import { INS_BLOG, type BlogPreview } from "@/content/insights";
+import { usePublicInsights } from "@/hooks/usePublicInsights";
 
 import styles from "./InsightsBlog.module.css";
 
@@ -111,7 +109,7 @@ function FeaturedRow({ article }: { article: BlogPreview }) {
 /** Blog index block — filters, promo band, grid, featured, related. */
 export function InsightsBlogSection() {
   const [active, setActive] = useState<string>("All");
-  const previews = INS_BLOG.previews;
+  const { previews } = usePublicInsights();
 
   const categories = useMemo(() => {
     const counts = new Map<string, number>();
@@ -169,7 +167,7 @@ export function InsightsBlogSection() {
           <>
             <div className={`${styles.grid} reveal`}>
               {grid.slice(0, 3).map((article) => (
-                <ArticleCard key={article.title} article={article} />
+                <ArticleCard key={article.slug ?? article.title} article={article} />
               ))}
             </div>
 
@@ -182,7 +180,7 @@ export function InsightsBlogSection() {
             {grid.length > 3 ? (
               <div className={`${styles.grid} reveal`}>
                 {grid.slice(3).map((article) => (
-                  <ArticleCard key={article.title} article={article} />
+                  <ArticleCard key={article.slug ?? article.title} article={article} />
                 ))}
               </div>
             ) : null}
@@ -195,7 +193,7 @@ export function InsightsBlogSection() {
                 </h3>
                 <div className={styles.relatedGrid}>
                   {related.map((article) => (
-                    <ArticleCard key={article.title} article={article} compact />
+                    <ArticleCard key={article.slug ?? article.title} article={article} compact />
                   ))}
                 </div>
               </section>

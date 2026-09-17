@@ -22,6 +22,7 @@ import ctaStyles from "@/components/sections/FinalCtaSection.module.css";
 import editorial from "@/components/sections/editorial/Editorial.module.css";
 import { Button, Eyebrow, Section } from "@/components/ui";
 import type { FaqSection, FinalCta } from "@/content/shared";
+import { usePublicFaqSection } from "@/hooks/usePublicFaqs";
 import type { PortfolioProject } from "@/content/portfolio";
 
 import { SubServiceVisual, type SubServiceVisualKind } from "./SubServiceVisual";
@@ -422,24 +423,29 @@ export function ServiceHighlightsSection({ data }: { data: HighlightsData }) {
 /** FAQ + final CTA in one row. */
 export function ServiceFaqCtaSection({
   faq,
+  faqSlug,
   finalCta,
   id = "start-project",
   showPrimaryArrow = true,
 }: {
   faq: FaqSection;
+  /** CMS category slug; falls back to static `faq` when API is unavailable. */
+  faqSlug: string;
   finalCta: FinalCta;
   /** Optional section id (home uses `contact-cta`). */
   id?: string;
   showPrimaryArrow?: boolean;
 }) {
+  const resolved = usePublicFaqSection(faqSlug, faq);
+
   return (
     <Section id={id}>
       <div className={`${styles.faqCtaRow} reveal`}>
         <div className={styles.faqCol}>
-          <Eyebrow>{faq.label}</Eyebrow>
-          <h2 className={styles.title}>{faq.heading}</h2>
+          <Eyebrow>{resolved.label}</Eyebrow>
+          <h2 className={styles.title}>{resolved.heading}</h2>
           <div className={styles.faqList}>
-            {faq.items.map((item) => (
+            {resolved.items.map((item) => (
               <details key={item.q} className={styles.faqItem}>
                 <summary className={styles.faqQ}>{item.q}</summary>
                 <p className={styles.faqA}>{item.a}</p>
