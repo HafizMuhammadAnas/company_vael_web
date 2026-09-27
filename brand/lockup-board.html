@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VaelKode — Logo Lockup Board</title>
+  <style>
+    :root {
+      --bg: #07080c;
+      --panel: #10131a;
+      --line: rgba(255,255,255,0.08);
+      --text: #e8eef5;
+      --muted: #8aa0b4;
+      --cyan: #00dce6;
+      --ink: #12161e;
+      --light: #f4f7fb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+      background:
+        radial-gradient(900px 500px at 15% -10%, rgba(60,180,255,0.12), transparent 60%),
+        radial-gradient(700px 420px at 90% 10%, rgba(140,60,255,0.10), transparent 55%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.45;
+    }
+    header {
+      padding: 48px 28px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    header h1 {
+      margin: 0 0 8px;
+      font-weight: 300;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      letter-spacing: 0.02em;
+    }
+    header h1 span { color: var(--cyan); }
+    header p {
+      margin: 0;
+      max-width: 62ch;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+    .verdict {
+      margin-top: 22px;
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(16,19,26,0.75);
+      max-width: 78ch;
+    }
+    .verdict strong { color: #7dffb3; font-weight: 600; }
+    .grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 12px 28px 64px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 18px;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--panel);
+      display: flex;
+      flex-direction: column;
+      min-height: 260px;
+    }
+    .card.wide { grid-column: 1 / -1; }
+    .meta {
+      padding: 14px 16px 10px;
+      border-bottom: 1px solid var(--line);
+    }
+    .meta h2 {
+      margin: 0 0 4px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .meta p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    .stage {
+      flex: 1;
+      display: grid;
+      place-items: center;
+      padding: 28px 20px;
+      min-height: 180px;
+    }
+    .stage.dark { background: #050608; }
+    .stage.light { background: var(--light); color: var(--ink); }
+    .stage img, .stage svg { max-width: 100%; height: auto; display: block; }
+    .stage .mark { width: min(160px, 46vw); }
+    .stage .stacked { width: min(220px, 58vw); }
+    .stage .horiz { width: min(360px, 86vw); }
+    .stage .compact { width: min(300px, 80vw); }
+    .stage .tagline { width: min(420px, 90vw); }
+    .stage .word { width: min(280px, 70vw); }
+    .usage {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 28px 80px;
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    .usage article {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px 18px 16px;
+      background: rgba(16,19,26,0.7);
+    }
+    .usage h3 { margin: 0 0 8px; font-size: 1rem; }
+    .usage ul { margin: 0; padding-left: 1.1rem; color: var(--muted); font-size: 0.9rem; }
+    .usage li { margin: 0.35rem 0; }
+    .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      border: 1px solid rgba(0,220,230,0.35);
+      border-radius: 999px;
+      padding: 3px 9px;
+      margin-bottom: 10px;
+    }
+    footer {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 28px 48px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    code { color: #b6f0ff; font-size: 0.86em; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="badge">Brand lockup board</div>
+    <h1><span>VaelKode</span> logo system</h1>
+    <p>
+      Review of your logo plus every practical way to pair the mark with the company name —
+      for website nav, hero, favicon, social, and print.
+    </p>
+    <div class="verdict">
+      <strong>Verdict: yes — this logo works well for VaelKode.</strong>
+      The glowing fluid “V” feels distinctive, tech-forward, and memorable. Keep the full
+      photographic mark for hero / brand moments, and use a simplified vector mark for small UI sizes.
+    </div>
+  </header>
+
+  <section class="grid">
+    <!-- 1 -->
+    <article class="card">
+      <div class="meta">
+        <h2>1. Mark only</h2>
+        <p>Favicon, app icon, avatar, watermark</p>
+      </div>
+      <div class="stage dark">
+        <img class="mark" src="png/transparent/mark.png" alt="VaelKode mark" />
+      </div>
+    </article>
+
+    <!-- 2 -->
+    <article class="card">
+      <div class="meta">
+        <h2>2. Stacked lockup (primary)</h2>
+        <p>Hero, about page, presentations — your original layout</p>
+      </div>
+      <div class="stage dark">
+        <img class="stacked" src="png/transparent/lockup-stacked.png" alt="Stacked VaelKode lockup" />
+      </div>
+    </article>
+
+    <!-- 3 -->
+    <article class="card">
+      <div class="meta">
+        <h2>3. Horizontal lockup</h2>
+        <p>Best for website header / navbar</p>
+      </div>
+      <div class="stage dark">
+        <img class="horiz" src="png/transparent/lockup-horizontal.png" alt="Horizontal lockup" />
+      </div>
+    </article>
+
+    <!-- 4 -->
+    <article class="card">
+      <div class="meta">
+        <h2>4. Compact horizontal</h2>
+        <p>Tight nav, mobile header, email signature</p>
+      </div>
+      <div class="stage dark">
+        <img class="compact" src="png/transparent/lockup-horizontal-compact.png" alt="Compact horizontal lockup" />
+      </div>
+    </article>
+
+    <!-- 5 -->
+    <article class="card wide">
+      <div class="meta">
+        <h2>5. Horizontal + tagline</h2>
+        <p>Letterhead, proposal cover, LinkedIn banner intro</p>
+      </div>
+      <div class="stage dark">
+        <img class="tagline" src="png/transparent/lockup-horizontal-tagline.png" alt="Lockup with tagline" />
+      </div>
+    </article>
+
+    <!-- 6 -->
+    <article class="card">
+      <div class="meta">
+        <h2>6. Wordmark only</h2>
+        <p>When the mark already appears nearby</p>
+      </div>
+      <div class="stage dark">
+        <img class="word" src="png/transparent/wordmark-cyan.png" alt="VaelKode wordmark" />
+      </div>
+    </article>
+
+    <!-- 7 -->
+    <article class="card">
+      <div class="meta">
+        <h2>7. Light background</h2>
+        <p>Documents, invoices, light website sections</p>
+      </div>
+      <div class="stage light">
+        <img class="stacked" src="png/light/lockup-stacked.png" alt="Light stacked lockup" />
+      </div>
+    </article>
+
+    <!-- 8 -->
+    <article class="card">
+      <div class="meta">
+        <h2>8. Light horizontal</h2>
+        <p>Light UI chrome / print headers</p>
+      </div>
+      <div class="stage light">
+        <img class="horiz" src="png/light/lockup-horizontal.png" alt="Light horizontal lockup" />
+      </div>
+    </article>
+
+    <!-- 9 SVG vector -->
+    <article class="card">
+      <div class="meta">
+        <h2>9. Vector mark (simplified)</h2>
+        <p>SVG for UI — scalable, lighter detail</p>
+      </div>
+      <div class="stage dark">
+        <img class="mark" src="svg/mark.svg" alt="Vector mark" />
+      </div>
+    </article>
+
+    <!-- 10 SVG horizontal -->
+    <article class="card">
+      <div class="meta">
+        <h2>10. Vector horizontal</h2>
+        <p>SVG lockup for site header</p>
+      </div>
+      <div class="stage dark">
+        <img class="horiz" src="svg/lockup-horizontal.svg" alt="Vector horizontal lockup" />
+      </div>
+    </article>
+
+    <!-- 11 Mono -->
+    <article class="card">
+      <div class="meta">
+        <h2>11. Mono mark</h2>
+        <p>Print, embroidery, single-ink uses</p>
+      </div>
+      <div class="stage light">
+        <svg class="mark" viewBox="0 0 200 200" style="color:#12161e; width:140px">
+          <path d="M42 48 C48 42,58 46,62 58 L88 148 C90 156,98 160,106 154 L168 58 C174 48,168 38,156 40 C148 42,144 50,140 58 L106 118 C102 126,96 126,92 118 L68 58 C62 46,52 40,42 48 Z" fill="currentColor"/>
+        </svg>
+      </div>
+    </article>
+
+    <!-- 12 App icon -->
+    <article class="card">
+      <div class="meta">
+        <h2>12. App / PWA icon</h2>
+        <p>Rounded tile for home screen &amp; manifest</p>
+      </div>
+      <div class="stage dark">
+        <img class="mark" src="svg/app-icon.svg" alt="App icon" style="width:120px; border-radius:28px" />
+      </div>
+    </article>
+
+    <!-- Extra naming treatments -->
+    <article class="card">
+      <div class="meta">
+        <h2>13. Split casing emphasis</h2>
+        <p>Visual weight on “Vael” + “Kode”</p>
+      </div>
+      <div class="stage dark" style="gap:18px">
+        <div style="display:flex; align-items:center; gap:16px">
+          <img src="png/transparent/mark.png" alt="" style="width:64px" />
+          <div style="font-weight:300; font-size:1.6rem; letter-spacing:0.04em">
+            <span style="color:var(--cyan)">Vael</span><span style="color:#9fd7ff; opacity:0.85">Kode</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="meta">
+        <h2>14. All-caps micro label</h2>
+        <p>Footer / legal / small chrome</p>
+      </div>
+      <div class="stage dark">
+        <div style="display:flex; align-items:center; gap:12px">
+          <img src="png/transparent/mark.png" alt="" style="width:36px" />
+          <div style="font-size:0.78rem; letter-spacing:0.28em; color:var(--cyan)">VAELKODE</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="meta">
+        <h2>15. Mark above condensed name</h2>
+        <p>Square social avatar alternative</p>
+      </div>
+      <div class="stage dark" style="text-align:center">
+        <img src="png/transparent/mark.png" alt="" style="width:110px; margin:0 auto 12px" />
+        <div style="font-size:0.72rem; letter-spacing:0.35em; color:var(--cyan)">VAELKODE</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="meta">
+        <h2>16. Name left · mark right</h2>
+        <p>RTL-friendly / mirrored marketing layouts</p>
+      </div>
+      <div class="stage dark">
+        <div style="display:flex; align-items:center; gap:18px; flex-direction:row-reverse">
+          <img src="png/transparent/mark.png" alt="" style="width:72px" />
+          <div style="font-weight:300; font-size:1.7rem; letter-spacing:0.04em; color:var(--cyan)">VaelKode</div>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section class="usage">
+    <article>
+      <h3>Recommended usage</h3>
+      <ul>
+        <li><strong style="color:#e8eef5">Website header:</strong> #3 or #4 horizontal</li>
+        <li><strong style="color:#e8eef5">Hero / splash:</strong> #2 stacked</li>
+        <li><strong style="color:#e8eef5">Favicon / PWA:</strong> #1 or #12 mark only</li>
+        <li><strong style="color:#e8eef5">Social share:</strong> dark OG image in <code>png/dark/og-image.png</code></li>
+        <li><strong style="color:#e8eef5">Print / mono:</strong> #11</li>
+      </ul>
+    </article>
+    <article>
+      <h3>Suggestions</h3>
+      <ul>
+        <li>Keep CamelCase <em>VaelKode</em> — it reads as brand, not a misspelling of “code”.</li>
+        <li>On light backgrounds, darken the wordmark (already done in light kit).</li>
+        <li>Below ~24px, use mark-only — fine glow detail disappears.</li>
+        <li>For true perfect vector of the fibrous glow, commission a mesh/fibre redraw in Illustrator; the SVG here is a clean working approximation.</li>
+        <li>Replace the old gear glyph currently in the site with this mark when you’re ready.</li>
+      </ul>
+    </article>
+    <article>
+      <h3>Files created</h3>
+      <ul>
+        <li><code>brand/png/</code> — transparent, dark, light, app-icons</li>
+        <li><code>brand/svg/</code> — mark, wordmarks, lockups, mono, app icon</li>
+        <li><code>brand/lockup-board.html</code> — this page</li>
+      </ul>
+    </article>
+  </section>
+
+  <footer>
+    Open this file in a browser: <code>vaelkode/brand/lockup-board.html</code>
+  </footer>
+</body>
+</html>

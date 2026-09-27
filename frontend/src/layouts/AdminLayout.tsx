@@ -44,8 +44,8 @@ const NAV_GROUPS: NavGroup[] = [
       { to: "/admin/insights", label: "Insights", icon: Newspaper },
       { to: "/admin/reviews", label: "Google reviews", icon: MessageSquareQuote },
       { to: "/admin/faqs", label: "FAQs", icon: HelpCircle },
-      { label: "Careers", icon: Briefcase, soon: true },
-      { label: "Industries", icon: Building2, soon: true },
+      { to: "/admin/careers", label: "Careers", icon: Briefcase },
+      { to: "/admin/industries", label: "Industries", icon: Building2 },
     ],
   },
 ];

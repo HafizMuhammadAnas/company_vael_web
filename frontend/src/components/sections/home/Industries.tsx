@@ -10,22 +10,30 @@ import {
   ShoppingBag,
   Sprout,
   Truck,
+  type LucideIcon,
 } from "lucide-react";
 
 import { Section } from "@/components/ui";
-import { INDUSTRIES } from "@/content/home";
+import { usePublicIndustries } from "@/hooks/usePublicIndustries";
 
 import styles from "./Industries.module.css";
 
-const SECTOR_META = [
-  { Icon: Building2, accent: styles.accentNeon },
-  { Icon: BookOpen, accent: styles.accentViolet },
-  { Icon: Heart, accent: styles.accentPink },
-  { Icon: Sprout, accent: styles.accentNeon },
-  { Icon: BarChart3, accent: styles.accentViolet },
-  { Icon: Truck, accent: styles.accentBlue },
-  { Icon: ShoppingBag, accent: styles.accentPink },
-] as const;
+const ICON_MAP: Record<string, LucideIcon> = {
+  building: Building2,
+  book: BookOpen,
+  heart: Heart,
+  sprout: Sprout,
+  chart: BarChart3,
+  truck: Truck,
+  shopping: ShoppingBag,
+};
+
+const ACCENT_MAP: Record<string, string> = {
+  neon: styles.accentNeon,
+  violet: styles.accentViolet,
+  pink: styles.accentPink,
+  blue: styles.accentBlue,
+};
 
 function padNum(n: number) {
   return String(n).padStart(2, "0");
@@ -33,11 +41,12 @@ function padNum(n: number) {
 
 /** Homepage industries — dark premium sector carousel. */
 export function Industries() {
+  const { heading, supporting, cards } = usePublicIndustries();
   const trackRef = useRef<HTMLUListElement>(null);
   const [progress, setProgress] = useState(0);
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(true);
-  const count = INDUSTRIES.cards.length;
+  const count = cards.length;
 
   const updateScrollState = useCallback(() => {
     const el = trackRef.current;
@@ -59,7 +68,7 @@ export function Industries() {
       el.removeEventListener("scroll", updateScrollState);
       window.removeEventListener("resize", updateScrollState);
     };
-  }, [updateScrollState]);
+  }, [updateScrollState, count]);
 
   const scrollByCard = (dir: -1 | 1) => {
     const el = trackRef.current;
@@ -69,21 +78,23 @@ export function Industries() {
     el.scrollBy({ left: dir * amount, behavior: "smooth" });
   };
 
+  if (count === 0) return null;
+
   return (
     <Section id="industries" className={styles.stage}>
       <header className={`${styles.header} reveal`}>
-        <h2 className={styles.heading}>{INDUSTRIES.heading}</h2>
-        <p className={styles.supporting}>{INDUSTRIES.supporting}</p>
+        <h2 className={styles.heading}>{heading}</h2>
+        <p className={styles.supporting}>{supporting}</p>
       </header>
 
       <ul ref={trackRef} className={`${styles.track} reveal`} aria-label="Industry sectors">
-        {INDUSTRIES.cards.map((card, i) => {
-          const meta = SECTOR_META[i] ?? SECTOR_META[0];
-          const Icon = meta.Icon;
+        {cards.map((card, i) => {
+          const Icon = ICON_MAP[card.iconKey] ?? Building2;
+          const accent = ACCENT_MAP[card.accentKey] ?? styles.accentNeon;
           const num = padNum(i + 1);
           return (
-            <li key={card.title} className={styles.slide}>
-              <article className={`${styles.card} ${meta.accent}`}>
+            <li key={card.slug || card.title} className={styles.slide}>
+              <article className={`${styles.card} ${accent}`}>
                 <div className={styles.cardTop}>
                   <span className={styles.badge}>{num} SECTOR</span>
                   <span className={styles.focus} aria-hidden />
@@ -116,9 +127,7 @@ export function Industries() {
           <div className={styles.progressFill} style={{ width: `${Math.max(12, progress * 100)}%` }} />
         </div>
         <div className={styles.controlMeta}>
-          <p className={styles.hint}>
-            Drag · Scroll · {count} items
-          </p>
+          <p className={styles.hint}>Drag · Scroll · {count} items</p>
           <div className={styles.nav}>
             <button
               type="button"

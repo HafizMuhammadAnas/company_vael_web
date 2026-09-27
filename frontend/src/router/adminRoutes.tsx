@@ -2,12 +2,16 @@ import type { RouteObject } from "react-router-dom";
 
 import { GuestRoute, ProtectedRoute } from "@/components/admin/ProtectedRoute";
 import { AdminLayout } from "@/layouts/AdminLayout";
+import { CareerJobFormPage } from "@/pages/admin/CareerJobFormPage";
+import { CareersAdminPage } from "@/pages/admin/CareersAdminPage";
 import { ClientFormPage } from "@/pages/admin/ClientFormPage";
 import { ClientsPage } from "@/pages/admin/ClientsPage";
 import { FaqCategoriesPage } from "@/pages/admin/FaqCategoriesPage";
 import { FaqCategoryFormPage } from "@/pages/admin/FaqCategoryFormPage";
 import { FaqItemFormPage } from "@/pages/admin/FaqItemFormPage";
 import { FaqsAdminPage } from "@/pages/admin/FaqsAdminPage";
+import { IndustriesAdminPage } from "@/pages/admin/IndustriesAdminPage";
+import { IndustryFormPage } from "@/pages/admin/IndustryFormPage";
 import { InsightFormPage } from "@/pages/admin/InsightFormPage";
 import { InsightsAdminPage } from "@/pages/admin/InsightsAdminPage";
 import { LeadDetailPage } from "@/pages/admin/LeadDetailPage";
@@ -53,6 +57,12 @@ export const adminRoutes: RouteObject[] = [
           { path: "faqs/categories/:id", element: <FaqCategoryFormPage /> },
           { path: "faqs/items/new", element: <FaqItemFormPage /> },
           { path: "faqs/items/:id", element: <FaqItemFormPage /> },
+          { path: "careers", element: <CareersAdminPage /> },
+          { path: "careers/jobs/new", element: <CareerJobFormPage /> },
+          { path: "careers/jobs/:id", element: <CareerJobFormPage /> },
+          { path: "industries", element: <IndustriesAdminPage /> },
+          { path: "industries/new", element: <IndustryFormPage /> },
+          { path: "industries/:id", element: <IndustryFormPage /> },
         ],
       },
     ],
