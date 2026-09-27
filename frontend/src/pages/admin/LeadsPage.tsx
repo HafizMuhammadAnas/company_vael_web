@@ -80,6 +80,7 @@ export function LeadsPage() {
   });
 
   const { data, isLoading, isError } = leadsQuery;
+  const items = Array.isArray(data?.items) ? data.items : null;
 
   function applyFilter(nextFormType: LeadFormType | "", nextStatus: LeadStatus | "") {
     const next = new URLSearchParams(searchParams);
@@ -176,11 +177,11 @@ export function LeadsPage() {
       {isError && <p className={styles.error}>Could not load leads.</p>}
       {isLoading && <p className={styles.empty}>Loading leads…</p>}
 
-      {!isLoading && data && data.items.length === 0 && (
+      {!isLoading && !isError && items && items.length === 0 && (
         <p className={styles.empty}>No leads match your filters.</p>
       )}
 
-      {data && data.items.length > 0 && (
+      {items && items.length > 0 && (
         <div className={styles.tableWrap}>
           <table className={styles.table}>
             <thead>
@@ -197,7 +198,7 @@ export function LeadsPage() {
               </tr>
             </thead>
             <tbody>
-              {data.items.map((lead) => (
+              {items.map((lead) => (
                 <tr key={lead.id}>
                     <td className={styles.nameCell}>{lead.full_name}</td>
                     <td>{lead.email}</td>
@@ -219,7 +220,7 @@ export function LeadsPage() {
         </div>
       )}
 
-      {data && (
+      {data && items && (
         <div className={styles.pagination}>
           <div className={styles.paginationMeta}>
             <label className={styles.pageSizeLabel} htmlFor="page_size">

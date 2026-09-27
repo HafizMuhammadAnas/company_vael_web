@@ -40,7 +40,17 @@ apiClient.interceptors.request.use((config) => {
 let refreshPromise: Promise<string | null> | null = null;
 
 apiClient.interceptors.response.use(
-  (response) => response,
+  (response) => {
+    // SiteGround can return the SPA HTML shell with HTTP 200 when the API
+    // proxy/auth path fails. Treat that as an error so pages don't crash.
+    const ct = String(response.headers?.["content-type"] ?? "");
+    if (ct.includes("text/html")) {
+      return Promise.reject(
+        new Error(`API returned HTML instead of JSON for ${response.config.url}`),
+      );
+    }
+    return response;
+  },
   async (error) => {
     const original = error.config;
     if (!original || original._retry || error.response?.status !== 401) {
