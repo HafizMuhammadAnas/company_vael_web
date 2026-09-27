@@ -25,11 +25,15 @@ frontend/smoke-screens/
 *.log
 npm-debug.log*
 
-# ─── Editor / OS ───
+# ─── Editor / OS / Local tooling ───
 .vscode/
 .idea/
+.cursor/
 .DS_Store
 Thumbs.db
+
+# ─── Local brand kit (not for deploy) ───
+brand/
 
 # ─── Database ───
 *.sqlite3
