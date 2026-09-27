@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="VaelKode">
+  <defs>
+    <linearGradient id="vkStroke" x1="20%" y1="10%" x2="70%" y2="95%">
+      <stop offset="0%" stop-color="#5ef0ff"/>
+      <stop offset="35%" stop-color="#3aa7ff"/>
+      <stop offset="68%" stop-color="#7b4dff"/>
+      <stop offset="100%" stop-color="#c43dff"/>
+    </linearGradient>
+    <linearGradient id="vkInner" x1="40%" y1="0%" x2="55%" y2="100%">
+      <stop offset="0%" stop-color="#9af7ff" stop-opacity="0.95"/>
+      <stop offset="55%" stop-color="#4eb8ff" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#8a4dff" stop-opacity="0.55"/>
+    </linearGradient>
+    <clipPath id="round">
+      <rect width="200" height="200" rx="44"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#round)">
+    <rect width="200" height="200" fill="#0a0c10"/>
+    <g transform="translate(18 22) scale(0.82)">
+      <path d="M42 48 C48 42,58 46,62 58 L88 148 C90 156,98 160,106 154 L168 58 C174 48,168 38,156 40 C148 42,144 50,140 58 L106 118 C102 126,96 126,92 118 L68 58 C62 46,52 40,42 48 Z" fill="url(#vkStroke)" opacity="0.92"/>
+      <path d="M58 56 C62 50,70 54,72 62 L92 130 C94 138,100 140,106 134 L148 62 C152 54,148 46,138 48 C132 50,130 56,128 62 L106 108 C103 116,99 116,96 108 L78 62 C74 52,64 48,58 56 Z" fill="url(#vkInner)"/>
+    </g>
+  </g>
+</svg>

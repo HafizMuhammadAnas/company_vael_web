@@ -7,55 +7,38 @@ import { DomainShell } from "@/components/sections/domain/DomainShell";
 import { PrincipleDeck } from "@/components/sections/elevated/Elevate";
 import s from "@/components/sections/solutions/Solutions.module.css";
 import { Button, Section, SectionHeader } from "@/components/ui";
-import {
-  CAREERS_FINAL,
-  CAREERS_HERO,
-  CAREERS_LOOK_FOR,
-  CAREERS_OPPORTUNITIES,
-  CAREERS_SEO,
-  CAREERS_WHY,
-} from "@/content/careers";
 import { useDocumentMeta } from "@/hooks/useDocumentMeta";
+import { usePublicCareers } from "@/hooks/usePublicCareers";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const WHY_ICONS = [Code2, BrainCircuit, GraduationCap, Target, Users, TrendingUp];
 
 export function CareersPage() {
-  useDocumentMeta(CAREERS_SEO.title, CAREERS_SEO.description);
-  useScrollReveal();
+  const { seo, hero, why, lookFor, opportunities, finalCta, jobs } = usePublicCareers();
+  useDocumentMeta(seo.title, seo.description);
+  useScrollReveal([jobs.length, why.cards.length]);
 
   return (
     <DomainShell domain="careers">
       <>
-        <PageHero
-          domain="careers"
-          label={CAREERS_HERO.label}
-          title={CAREERS_HERO.title}
-          supporting={CAREERS_HERO.supporting}
-        />
+        <PageHero domain="careers" label={hero.label} title={hero.title} supporting={hero.supporting} />
 
-        {/* Why work with us */}
         <PrincipleDeck
-          label={CAREERS_WHY.label}
-          title={CAREERS_WHY.heading}
-          items={CAREERS_WHY.cards}
+          label={why.label}
+          title={why.heading}
+          items={why.cards}
           icons={WHY_ICONS}
           eyebrowPrefix="Reason"
           altBg
         />
 
-        {/* What we look for */}
         <Section>
           <div className="reveal">
-            <SectionHeader
-              label={CAREERS_LOOK_FOR.label}
-              title={CAREERS_LOOK_FOR.heading}
-              lineText={CAREERS_LOOK_FOR.supporting}
-            />
+            <SectionHeader label={lookFor.label} title={lookFor.heading} lineText={lookFor.supporting} />
           </div>
           <div className={`${s.chipBlock} reveal`} style={{ marginTop: 0, textAlign: "left" }}>
             <div className={s.chipBlockChips} style={{ justifyContent: "flex-start" }}>
-              {CAREERS_LOOK_FOR.qualities.map((q) => (
+              {lookFor.qualities.map((q) => (
                 <span key={q} className={careers.chip}>
                   {q}
                 </span>
@@ -64,31 +47,52 @@ export function CareersPage() {
           </div>
         </Section>
 
-        {/* Current opportunities (honest empty state) */}
         <Section className={careers.altBg}>
           <div className="reveal">
-            <SectionHeader label={CAREERS_OPPORTUNITIES.label} title={CAREERS_OPPORTUNITIES.heading} />
+            <SectionHeader label={opportunities.label} title={opportunities.heading} />
           </div>
-          <div
-            className={`${careers.emptyState} reveal`}
-            style={{ display: "flex", flexDirection: "column", gap: "0.9rem" }}
-          >
-            {CAREERS_OPPORTUNITIES.emptyState.map((line) => (
-              <span key={line}>{line}</span>
-            ))}
-          </div>
-          <div className={`${careers.sectionCtas} reveal`}>
-            <Button variant="primary" href={CAREERS_OPPORTUNITIES.cta.href}>
-              {CAREERS_OPPORTUNITIES.cta.label} →
-            </Button>
-          </div>
+
+          {jobs.length > 0 ? (
+            <div className={`${careers.jobsList} reveal`}>
+              {jobs.map((job) => (
+                <article key={job.id} className={careers.jobCard}>
+                  <h3>{job.title}</h3>
+                  <p className={careers.jobMeta}>
+                    {[job.department, job.location, job.employment_type].filter(Boolean).join(" · ")}
+                  </p>
+                  {job.summary ? <p>{job.summary}</p> : null}
+                  {job.apply_href ? (
+                    <Button variant="outline" href={job.apply_href}>
+                      Apply
+                    </Button>
+                  ) : null}
+                </article>
+              ))}
+            </div>
+          ) : (
+            <>
+              <div
+                className={`${careers.emptyState} reveal`}
+                style={{ display: "flex", flexDirection: "column", gap: "0.9rem" }}
+              >
+                {opportunities.emptyState.map((line) => (
+                  <span key={line}>{line}</span>
+                ))}
+              </div>
+              <div className={`${careers.sectionCtas} reveal`}>
+                <Button variant="primary" href={opportunities.cta.href}>
+                  {opportunities.cta.label} →
+                </Button>
+              </div>
+            </>
+          )}
         </Section>
 
         <FinalCtaSection
-          label={CAREERS_FINAL.label}
-          heading={CAREERS_FINAL.heading}
-          supporting={CAREERS_FINAL.supporting}
-          primaryCta={CAREERS_FINAL.primaryCta}
+          label={finalCta.label}
+          heading={finalCta.heading}
+          supporting={finalCta.supporting}
+          primaryCta={finalCta.primaryCta}
         />
       </>
     </DomainShell>

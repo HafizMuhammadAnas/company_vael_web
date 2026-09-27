@@ -1,5 +1,6 @@
 import { Eyebrow } from "@/components/ui";
-import { CLIENT_LOGOS, CLIENT_LOGOS_SECTION, type ClientLogo } from "@/content/clients";
+import { CLIENT_LOGOS_SECTION, type ClientLogo } from "@/content/clients";
+import { useActiveClients } from "@/hooks/useActiveClients";
 
 import styles from "./ClientLogos.module.css";
 
@@ -20,11 +21,12 @@ type ClientLogosProps = {
   variant?: "marquee" | "panel";
 };
 
-/** Infinite client logo strip — data from content/clients.ts. */
+/** Infinite client logo strip — data from CMS (with static fallback). */
 export function ClientLogos({ variant = "marquee" }: ClientLogosProps) {
-  if (CLIENT_LOGOS.length === 0) return null;
+  const { logos } = useActiveClients();
+  if (logos.length === 0) return null;
 
-  const loop = [...CLIENT_LOGOS, ...CLIENT_LOGOS];
+  const loop = [...logos, ...logos];
 
   const track = (
     <div className={styles.marquee}>
@@ -33,7 +35,7 @@ export function ClientLogos({ variant = "marquee" }: ClientLogosProps) {
           <div
             key={`${logo.id}-${index}`}
             className={styles.item}
-            aria-hidden={index >= CLIENT_LOGOS.length || undefined}
+            aria-hidden={index >= logos.length || undefined}
           >
             <LogoMark logo={logo} />
           </div>

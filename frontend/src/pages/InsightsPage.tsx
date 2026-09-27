@@ -3,28 +3,19 @@ import { PageHero } from "@/components/sections/PageHero";
 import { DomainShell } from "@/components/sections/domain/DomainShell";
 import { WorkGallery } from "@/components/sections/elevated/Elevate";
 import { InsightsBlogSection } from "@/components/sections/insights/InsightsBlog";
-import {
-  INS_FEATURED,
-  INS_FINAL,
-  INS_HERO,
-  INSIGHTS_SEO,
-  type Article,
-} from "@/content/insights";
+import { INS_FEATURED, INS_FINAL, INS_HERO, INSIGHTS_SEO } from "@/content/insights";
 import { useDocumentMeta } from "@/hooks/useDocumentMeta";
+import { usePublicInsights } from "@/hooks/usePublicInsights";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-
-const toArticleCard = (article: Article) => ({
-  title: article.title,
-  category: article.category,
-  description: article.description,
-  technology: `${article.publishedDate} · ${article.readTime}`,
-  to: `/insights/blog/${article.slug}`,
-  cta: "Read Article",
-});
 
 export function InsightsPage() {
   useDocumentMeta(INSIGHTS_SEO.title, INSIGHTS_SEO.description);
   useScrollReveal();
+  const { previews } = usePublicInsights();
+
+  const featuredPublished = previews.filter(
+    (item) => item.status === "published" && item.slug && item.featured,
+  );
 
   return (
     <DomainShell domain="insights">
@@ -36,12 +27,19 @@ export function InsightsPage() {
         primaryCta={INS_HERO.primaryCta}
       />
 
-      {INS_FEATURED.articles.length > 0 ? (
+      {featuredPublished.length > 0 ? (
         <WorkGallery
           label={INS_FEATURED.label}
           title={INS_FEATURED.heading}
           supporting={INS_FEATURED.description}
-          cards={INS_FEATURED.articles.map(toArticleCard)}
+          cards={featuredPublished.map((article) => ({
+            title: article.title,
+            category: article.category,
+            description: article.description ?? "",
+            technology: `${article.publishedDate ?? "Published"} · ${article.readTime}`,
+            to: `/insights/blog/${article.slug}`,
+            cta: "Read Article",
+          }))}
           altBg
         />
       ) : null}

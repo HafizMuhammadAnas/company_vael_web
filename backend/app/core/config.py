@@ -41,6 +41,12 @@ class Settings(BaseSettings):
     MAX_UPLOAD_FILES: int = 10
     LEADS_RATE_LIMIT: str = "5/minute"
 
+    # Portfolio project image uploads
+    PROJECT_UPLOAD_DIR: str = "uploads/projects"
+
+    # Client logo uploads
+    CLIENT_UPLOAD_DIR: str = "uploads/clients"
+
     # First admin (used by seed script)
     FIRST_ADMIN_EMAIL: str = "admin@vaelkode.com"
     FIRST_ADMIN_PASSWORD: str = "ChangeMe123!"

@@ -57,7 +57,7 @@ export function CloudDevOpsPage() {
         visuals={["cloudSetup", "cloudMigrate", "cicd", "monitor", "secure", "cost", "envs"]}
       />
       <CloudProcessSection />
-      <ServiceFaqCtaSection faq={CLOUD_FAQ} finalCta={CLOUD_FINAL} />
+      <ServiceFaqCtaSection faqSlug="cloud-devops" faq={CLOUD_FAQ} finalCta={CLOUD_FINAL} />
     </DomainShell>
   );
 }

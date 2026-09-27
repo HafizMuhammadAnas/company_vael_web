@@ -1,0 +1,91 @@
+.stage {
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+
+.wrap {
+  max-width: 46rem;
+}
+
+.crumb {
+  margin: 0 0 1.25rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.crumb a {
+  color: var(--neon-bright);
+  text-decoration: none;
+}
+
+.meta {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.lede {
+  margin: 1rem 0 0;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.tags {
+  list-style: none;
+  margin: 1.1rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tags li {
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.body {
+  margin-top: 1.75rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.body p {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--text-primary);
+  white-space: pre-wrap;
+}
+
+.footer {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.empty h1 {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-display);
+}
+
+.empty p {
+  margin: 0 0 1.25rem;
+  color: var(--text-secondary);
+}

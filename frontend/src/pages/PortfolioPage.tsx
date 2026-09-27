@@ -9,10 +9,10 @@ import { PortfolioProjectCard } from "@/components/sections/work/PortfolioProjec
 import { Button, Section } from "@/components/ui";
 import {
   PORTFOLIO_FLOATING_CTA,
-  PORTFOLIO_PROJECTS,
   PORTFOLIO_SEO,
 } from "@/content/portfolio";
 import { useDocumentMeta } from "@/hooks/useDocumentMeta";
+import { usePublishedProjects } from "@/hooks/usePublishedProjects";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 import styles from "@/components/sections/work/Portfolio.module.css";
@@ -37,6 +37,7 @@ function PortfolioFloatBar() {
 
 export function PortfolioPage() {
   const [portalReady, setPortalReady] = useState(false);
+  const { projects } = usePublishedProjects();
   useDocumentMeta(PORTFOLIO_SEO.title, PORTFOLIO_SEO.description);
   useScrollReveal();
 
@@ -53,7 +54,7 @@ export function PortfolioPage() {
 
       <Section className={styles.stage}>
         <ul className={`${styles.grid} reveal`}>
-          {PORTFOLIO_PROJECTS.map((project) => (
+          {projects.map((project) => (
             <li key={project.id}>
               <PortfolioProjectCard project={project} />
             </li>

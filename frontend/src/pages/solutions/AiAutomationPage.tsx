@@ -27,8 +27,8 @@ import {
   AI_SEO,
   AI_SUB_SERVICES,
 } from "@/content/aiAutomation";
-import { PORTFOLIO_PROJECTS } from "@/content/portfolio";
 import { useDocumentMeta } from "@/hooks/useDocumentMeta";
+import { usePublishedProjects } from "@/hooks/usePublishedProjects";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const SERVICE_ICONS = [Sparkles, Bot, FileText, Camera, Languages, TrendingUp, Search, Workflow];
@@ -40,6 +40,7 @@ const SERVICE_ICONS = [Sparkles, Bot, FileText, Camera, Languages, TrendingUp, S
 export function AiAutomationPage() {
   useDocumentMeta(AI_SEO.title, AI_SEO.description);
   useScrollReveal();
+  const { projects } = usePublishedProjects();
 
   return (
     <DomainShell domain="ai">
@@ -69,9 +70,9 @@ export function AiAutomationPage() {
           "aiEmbed",
         ]}
       />
-      <ServiceProjectsSection meta={AI_PROJECTS} projects={PORTFOLIO_PROJECTS} />
+      <ServiceProjectsSection meta={AI_PROJECTS} projects={projects} />
       <AiAutomationProcessSection />
-      <ServiceFaqCtaSection faq={AI_FAQ} finalCta={AI_FINAL} />
+      <ServiceFaqCtaSection faqSlug="ai-automation" faq={AI_FAQ} finalCta={AI_FINAL} />
     </DomainShell>
   );
 }

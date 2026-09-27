@@ -1,0 +1,66 @@
+.wrap {
+  max-width: 980px;
+}
+
+.headingRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: var(--space-md);
+}
+
+.crumb {
+  margin: 0 0 0.35rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.crumb a {
+  color: var(--neon-bright);
+  text-decoration: none;
+}
+
+.title {
+  margin: 0;
+}
+
+.form {
+  display: grid;
+  gap: 1.25rem;
+}
+
+@media (min-width: 900px) {
+  .form {
+    grid-template-columns: minmax(0, 1.35fr) minmax(15rem, 0.75fr);
+    align-items: start;
+  }
+}
+
+.main,
+.side {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.card {
+  border: 1px solid var(--border-neon);
+  background: var(--obsidian-2);
+  padding: 1rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.error {
+  color: var(--danger);
+  margin: 0;
+}

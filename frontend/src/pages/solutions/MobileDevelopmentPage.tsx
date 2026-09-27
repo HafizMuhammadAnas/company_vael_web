@@ -56,7 +56,7 @@ export function MobileDevelopmentPage() {
         visuals={["phones", "cross", "pwa", "appApi", "store", "maintain"]}
       />
       <MobileProcessSection />
-      <ServiceFaqCtaSection faq={MOB_FAQ} finalCta={MOB_FINAL} />
+      <ServiceFaqCtaSection faqSlug="mobile-development" faq={MOB_FAQ} finalCta={MOB_FINAL} />
     </DomainShell>
   );
 }

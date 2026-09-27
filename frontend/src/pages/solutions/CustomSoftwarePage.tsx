@@ -26,8 +26,8 @@ import {
   CS_SEO,
   CS_SUB_SERVICES,
 } from "@/content/customSoftware";
-import { PORTFOLIO_PROJECTS } from "@/content/portfolio";
 import { useDocumentMeta } from "@/hooks/useDocumentMeta";
+import { usePublishedProjects } from "@/hooks/usePublishedProjects";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const SERVICE_ICONS = [Code2, Layers, Settings, Workflow, Link2, RefreshCw, Boxes];
@@ -39,6 +39,7 @@ const SERVICE_ICONS = [Code2, Layers, Settings, Workflow, Link2, RefreshCw, Boxe
 export function CustomSoftwarePage() {
   useDocumentMeta(CS_SEO.title, CS_SEO.description);
   useScrollReveal();
+  const { projects } = usePublishedProjects();
 
   return (
     <DomainShell domain="software">
@@ -59,9 +60,9 @@ export function CustomSoftwarePage() {
         icons={SERVICE_ICONS}
         visuals={["app", "portal", "admin", "workflow", "api", "migrate", "mvp"]}
       />
-      <ServiceProjectsSection meta={CS_PROJECTS} projects={PORTFOLIO_PROJECTS} />
+      <ServiceProjectsSection meta={CS_PROJECTS} projects={projects} />
       <CustomSoftwareProcessSection />
-      <ServiceFaqCtaSection faq={CS_FAQ} finalCta={CS_FINAL} />
+      <ServiceFaqCtaSection faqSlug="custom-software" faq={CS_FAQ} finalCta={CS_FINAL} />
     </DomainShell>
   );
 }

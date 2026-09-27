@@ -65,7 +65,7 @@ export function TechnologyConsultingPage() {
         ]}
       />
       <ConsultingProcessSection />
-      <ServiceFaqCtaSection faq={TC_FAQ} finalCta={TC_FINAL} />
+      <ServiceFaqCtaSection faqSlug="technology-consulting" faq={TC_FAQ} finalCta={TC_FINAL} />
     </DomainShell>
   );
 }

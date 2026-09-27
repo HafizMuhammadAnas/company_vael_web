@@ -6,20 +6,22 @@ import { PageHero } from "@/components/sections/PageHero";
 import { DomainShell } from "@/components/sections/domain/DomainShell";
 import { FaqConsole } from "@/components/sections/elevated/Elevate";
 import { Section } from "@/components/ui";
-import { FAQ_CATEGORIES, FAQ_FINAL, FAQ_HERO, FAQ_SEO } from "@/content/faqs";
+import { FAQ_FINAL, FAQ_HERO, FAQ_SEO } from "@/content/faqs";
 import { useDocumentMeta } from "@/hooks/useDocumentMeta";
+import { usePublicFaqs } from "@/hooks/usePublicFaqs";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const ALL = "all";
 
 export function FaqsPage() {
   useDocumentMeta(FAQ_SEO.title, FAQ_SEO.description);
+  const { categories } = usePublicFaqs();
   const [active, setActive] = useState<string>(ALL);
   // Re-run reveal when the visible categories change.
-  useScrollReveal([active]);
+  useScrollReveal([active, categories.length]);
 
-  const filters = [{ id: ALL, label: "All" }, ...FAQ_CATEGORIES.map((c) => ({ id: c.id, label: c.label }))];
-  const visible = active === ALL ? FAQ_CATEGORIES : FAQ_CATEGORIES.filter((c) => c.id === active);
+  const filters = [{ id: ALL, label: "All" }, ...categories.map((c) => ({ id: c.id, label: c.label }))];
+  const visible = active === ALL ? categories : categories.filter((c) => c.id === active);
 
   return (
     <DomainShell domain="faqs">
